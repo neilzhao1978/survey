@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: survey
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: neil
+Built-By: G_zcm
 Implementation-Vendor-Id: com.neil
-Build-Jdk: 1.8.0_31
+Build-Jdk: 1.8.0_121
 Implementation-URL: http://projects.spring.io/spring-boot/survey/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
