@@ -38,8 +38,8 @@ public class SurveyApplication {
         return registration;
     }
     @Bean
-    public ServletListenerRegistrationBean servletListenerRegistrationBean(){
-        ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
+    public ServletListenerRegistrationBean<H2Listener> servletListenerRegistrationBean(){
+        ServletListenerRegistrationBean<H2Listener> servletListenerRegistrationBean = new ServletListenerRegistrationBean<H2Listener>();
         servletListenerRegistrationBean.setListener(new H2Listener());
         return servletListenerRegistrationBean;
     }
