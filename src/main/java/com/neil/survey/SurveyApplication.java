@@ -6,14 +6,12 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 import com.neil.servlet.IndexFilter;
 import com.neil.servlet.H2Listener;
 import com.neil.servlet.IndexServlet;
 
-@SpringBootApplication(scanBasePackages={"com.neil.*"})
-
+@SpringBootApplication
 public class SurveyApplication {
 
 //	  @RequestMapping("/")

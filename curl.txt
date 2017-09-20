@@ -1,0 +1,1 @@
+$ curl -i -X POST -H "'Content-type':'application/x-www-form-urlencoded', 'charset':'utf-8', 'Accept': 'text/plain'" -d 'json_data={"a":"aaa","b":"bbb","data":[{"c":"ccc","d":"ddd","keywords":[{"e": "eee", "f":"fff", "g":"ggg"}]}]}' url
