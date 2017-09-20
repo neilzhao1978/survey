@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.neil.survey.module.Book;
+import com.neil.survey.module.ReadingListRepository;
+
 @RestController
 @RequestMapping("/")
 public class TestRoute {
-	
 	
 	private ReadingListRepository readingListRepository;
 	
@@ -23,10 +25,10 @@ public class TestRoute {
 	public TestRoute(ReadingListRepository readingListRepository) {
 		this.readingListRepository = readingListRepository;
 	}
-//	  @RequestMapping("/")
-//	     String home() {
-//	         return "Hello World!";
-//	     }
+	  @RequestMapping("/")
+	     String home() {
+	         return "Hello World!";
+	     }
 	  
 	  @RequestMapping(value ="/{id}",method = RequestMethod.GET)
 	  public String Books(@PathVariable("id") Long id,Model model){
@@ -44,6 +46,4 @@ public class TestRoute {
 		  readingListRepository.save(pu);
 	      return pu;  
 	    }  
-	  
-	  
 }

@@ -1,4 +1,4 @@
-package com.neil.survey;
+package com.neil.survey.module;
 
 import javax.persistence.*;
 
