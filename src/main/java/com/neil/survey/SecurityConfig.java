@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.neil.survey.module.UserListRepository;
+import com.neil.survey.repository.UserListRepository;
 
 @Configuration
 @EnableWebSecurity

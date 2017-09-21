@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neil.survey.module.Book;
-import com.neil.survey.module.ReadingListRepository;
+import com.neil.survey.repository.ReadingListRepository;
 
 @RestController
 @RequestMapping("/")
@@ -32,15 +32,15 @@ public class TestRoute {
 //	         return "Hello World!";
 //	     }
 	  
-//	  @RequestMapping(value ="/{id}",method = RequestMethod.GET)
-//	  public String Books(@PathVariable("id") Long id,Model model){
-//		  List<Book> books = readingListRepository.findById(id);
-//		  if(books.size()>0) {
-//			  return books.get(0).getName();
-//		  }else {
-//			  return "";
-//		  }
-//	  }
+	  @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+	  public String Books(@PathVariable("id") Long id,Model model){
+		  List<Book> books = readingListRepository.findById(id);
+		  if(books.size()>0) {
+			  return books.get(0).getName();
+		  }else {
+			  return "";
+		  }
+	  }
 	  
 	  @RequestMapping(value="/add", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},  method = RequestMethod.POST)    
 	  @ResponseBody  public Book add(@RequestBody Book pu,
