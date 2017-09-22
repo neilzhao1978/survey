@@ -971,3 +971,91 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/G_zcm/git
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 63 more
+2017-09-21 16:24:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Schema "HNGD" not found; SQL statement:
+CREATE TABLE "HNGD"."TB_SV_CREATOR" 
+   (	"EMAIL" VARCHAR2(128 BYTE) NOT NULL ENABLE, 
+	"PWD" VARCHAR2(64 BYTE), 
+	"NAME" VARCHAR2(64 BYTE)
+   ) [90079-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.getSchema(Parser.java:688)
+	at org.h2.command.Parser.getSchema(Parser.java:694)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6138)
+	at org.h2.command.Parser.parseCreate(Parser.java:4351)
+	at org.h2.command.Parser.parsePrepared(Parser.java:366)
+	at org.h2.command.Parser.parse(Parser.java:321)
+	at org.h2.command.Parser.parse(Parser.java:293)
+	at org.h2.command.Parser.prepareCommand(Parser.java:258)
+	at org.h2.engine.Session.prepareLocal(Session.java:578)
+	at org.h2.engine.Session.prepareCommand(Session.java:519)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:176)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:164)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2017-09-21 16:24:38 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""TB_SV_CREATOR"" 
+   (	""EMAIL"" VARCHAR2(128 BYTE[*]) NOT NULL ENABLE, 
+	""PWD"" VARCHAR2(64 BYTE), 
+	""NAME"" VARCHAR2(64 BYTE)
+   )"; expected "K, M, G, CHAR, )"; SQL statement:
+CREATE TABLE "TB_SV_CREATOR" 
+   (	"EMAIL" VARCHAR2(128 BYTE) NOT NULL ENABLE, 
+	"PWD" VARCHAR2(64 BYTE), 
+	"NAME" VARCHAR2(64 BYTE)
+   ) [42001-196]
+2017-09-21 16:27:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE TEST
+(ID INT PRIMARYKEY[*],
+NAME VARCHAR(255)
+)"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TEST
+(ID INT PRIMARYKEY,
+NAME VARCHAR(255)
+) [42001-196]
+2017-09-21 16:31:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Attempt to define a second primary key; SQL statement:
+CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255) PRIMARY KEY) [90017-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.ddl.CreateTable.setPrimaryKeyColumns(CreateTable.java:284)
+	at org.h2.command.ddl.CreateTable.addConstraintCommand(CreateTable.java:86)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6186)
+	at org.h2.command.Parser.parseCreate(Parser.java:4351)
+	at org.h2.command.Parser.parsePrepared(Parser.java:366)
+	at org.h2.command.Parser.parse(Parser.java:321)
+	at org.h2.command.Parser.parse(Parser.java:293)
+	at org.h2.command.Parser.prepareCommand(Parser.java:258)
+	at org.h2.engine.Session.prepareLocal(Session.java:578)
+	at org.h2.engine.Session.prepareCommand(Session.java:519)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:176)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:164)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2017-09-21 16:33:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE TEST
+CREATE[*] TABLE TEST(ID INT TEST , NAME VARCHAR(255) ,PRIMARY KEY (""ID"",""NAME"")) "; SQL statement:
+drop table TEST
+CREATE TABLE TEST(ID INT TEST , NAME VARCHAR(255) ,PRIMARY KEY ("ID","NAME")) [42000-196]
+2017-09-21 16:33:43 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE TEST(ID INT TEST[*] , NAME VARCHAR(255) ,PRIMARY KEY (""ID"",""NAME""))"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TEST(ID INT TEST , NAME VARCHAR(255) ,PRIMARY KEY ("ID","NAME")) [42001-196]
+2017-09-21 16:34:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE TEST(ID INT TEST[*] , NAME VARCHAR(255) ,PRIMARY KEY (ID,NAME))"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TEST(ID INT TEST , NAME VARCHAR(255) ,PRIMARY KEY (ID,NAME)) [42001-196]
