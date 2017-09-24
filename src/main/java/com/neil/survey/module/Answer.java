@@ -1,6 +1,8 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -21,6 +23,40 @@ public class Answer implements Serializable{
 	private String replyerName;
 	private String replyerPosition;
 	private String replyTime;
+	private String surveyId;
+	
+	
+	public Set<Brand> getBrands() {
+		return brands;
+	}
+
+	public void setBrands(Set<Brand> brands) {
+		this.brands = brands;
+	}
+
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
+
+	
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="ANSWER_BRAND",
+      joinColumns={@JoinColumn(name="brandId",referencedColumnName="answerId")},
+      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="brandId")})
+    private Set<Brand> brands;
+	
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="ANSWER_IMAGE",
+      joinColumns={@JoinColumn(name="imageId",referencedColumnName="answerId")},
+      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="imageId")})
+	private Set<Image> images;
+    
+	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	AnswerBrand answerBrand;
+//
+//	@OneToMany(cascade = CascadeType.ALL)
+//	AnswerBrand answerImage;
 	
 	@Override
 	public String toString() {
@@ -50,6 +86,12 @@ public class Answer implements Serializable{
 	}
 	public void setReplyTime(String replyTime) {
 		this.replyTime = replyTime;
+	}
+	public String getSurveyId() {
+		return surveyId;
+	}
+	public void setSurveyId(String surveyId) {
+		this.surveyId = surveyId;
 	}
 
 

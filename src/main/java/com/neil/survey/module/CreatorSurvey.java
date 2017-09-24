@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "CREATOR_SURVEY")
 public class CreatorSurvey implements Serializable{
 	/**
 	 * 

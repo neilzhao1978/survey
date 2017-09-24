@@ -1,10 +1,13 @@
 package com.neil.survey.module;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "SURVEY_IMAGE")
-public class SurveyImage {
+public class SurveyImage implements Serializable{
 	@Id
 	@Column(length = 32)
 	private String surveyId;

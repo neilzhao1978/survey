@@ -1,6 +1,7 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -17,6 +18,28 @@ public class Survey implements Serializable{
 	private String name;
 	private String releaseTime;
 	private String status;
+
+
+	
+	
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="SURVEY_ANSWER",
+      joinColumns={@JoinColumn(name="answerId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="answerId")})
+	private Set<Answer> answers;
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="SURVEY_BRAND",
+      joinColumns={@JoinColumn(name="brandId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="brandId")})
+	private Set<Brand> brands;
+	
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="SURVEY_IMAGE",
+      joinColumns={@JoinColumn(name="imageId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="imageId")})
+	private Set<Image> images;
+    
 	public String getSurveyId() {
 		return surveyId;
 	}
@@ -46,5 +69,6 @@ public class Survey implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 
 }

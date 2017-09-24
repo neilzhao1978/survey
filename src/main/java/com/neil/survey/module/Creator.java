@@ -1,6 +1,7 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -16,6 +17,14 @@ public class Creator implements Serializable{
 	private String creatorId;
 	private String name;
 	private String pwd;
+	
+	
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="CREATOR_SURVEY",
+      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="creatorId")},
+      inverseJoinColumns={@JoinColumn(name="creatorId",referencedColumnName="surveyId")})
+    private Set<Survey> surveys;
+	
 	public String getCreatorId() {
 		return creatorId;
 	}
