@@ -19,14 +19,24 @@ public class Creator implements Serializable{
 	private String pwd;
 	
 	
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="CREATOR_SURVEY",
-      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="creatorId")},
-      inverseJoinColumns={@JoinColumn(name="creatorId",referencedColumnName="surveyId")})
-    private Set<Survey> surveys;
+//    @ManyToMany(cascade=CascadeType.ALL)
+//    @JoinTable(name="CREATOR_SURVEY",
+//      joinColumns={@JoinColumn(name="creatorId",referencedColumnName="creatorId")},
+//      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
+//    private Set<Survey> surveys;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="creatorId")
+	private Set<Survey> surveys;
 	
 	public String getCreatorId() {
 		return creatorId;
+	}
+	public Set<Survey> getSurveys() {
+		return surveys;
+	}
+	public void setSurveys(Set<Survey> surveys) {
+		this.surveys = surveys;
 	}
 	@Override
 	public String toString() {

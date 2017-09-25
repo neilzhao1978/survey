@@ -20,26 +20,55 @@ public class Survey implements Serializable{
 	private String status;
 
 
+	@OneToMany(mappedBy = "surveys")
+	private Set<Creator> creator;
 	
-	
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="SURVEY_ANSWER",
-      joinColumns={@JoinColumn(name="answerId",referencedColumnName="surveyId")},
-      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="answerId")})
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="surveyId")
 	private Set<Answer> answers;
+	
+//    @ManyToMany(cascade=CascadeType.ALL)
+//    @JoinTable(name="SURVEY_ANSWER",
+//      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
+//      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")})
+//	private Set<Answer> answers;
 
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="SURVEY_BRAND",
-      joinColumns={@JoinColumn(name="brandId",referencedColumnName="surveyId")},
-      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="brandId")})
+      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
 	private Set<Brand> brands;
 	
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="SURVEY_IMAGE",
-      joinColumns={@JoinColumn(name="imageId",referencedColumnName="surveyId")},
-      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="imageId")})
+      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
 	private Set<Image> images;
     
+	public Set<Creator> getCreator() {
+		return creator;
+	}
+	public void setCreator(Set<Creator> creator) {
+		this.creator = creator;
+	}
+	public Set<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(Set<Answer> answers) {
+		this.answers = answers;
+	}
+	public Set<Brand> getBrands() {
+		return brands;
+	}
+	public void setBrands(Set<Brand> brands) {
+		this.brands = brands;
+	}
+	public Set<Image> getImages() {
+		return images;
+	}
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
 	public String getSurveyId() {
 		return surveyId;
 	}

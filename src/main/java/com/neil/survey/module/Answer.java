@@ -41,23 +41,48 @@ public class Answer implements Serializable{
 	
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="ANSWER_BRAND",
-      joinColumns={@JoinColumn(name="brandId",referencedColumnName="answerId")},
-      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="brandId")})
+      joinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")},
+      inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
     private Set<Brand> brands;
 	
-    @OneToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="ANSWER_IMAGE",
-      joinColumns={@JoinColumn(name="imageId",referencedColumnName="answerId")},
-      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="imageId")})
+      joinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")},
+      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
 	private Set<Image> images;
     
+    
+    @OneToMany(mappedBy = "answers")
+	private Set<Survey> survey;
 	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	AnswerBrand answerBrand;
-//
-//	@OneToMany(cascade = CascadeType.ALL)
-//	AnswerBrand answerImage;
-	
+	public String getReplyerName() {
+		return replyerName;
+	}
+
+	public void setReplyerName(String replyerName) {
+		this.replyerName = replyerName;
+	}
+
+	public String getReplyerPosition() {
+		return replyerPosition;
+	}
+
+	public void setReplyerPosition(String replyerPosition) {
+		this.replyerPosition = replyerPosition;
+	}
+
+	public Set<Survey> getSurvey() {
+		return survey;
+	}
+
+	public void setSurvey(Set<Survey> survey) {
+		this.survey = survey;
+	}
+
+	public Set<Image> getImages() {
+		return images;
+	}
+
 	@Override
 	public String toString() {
 		return "Answer [answerId=" + answerId + ", replyerName=" + replyerName + ", replyerPosition=" + replyerPosition

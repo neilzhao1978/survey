@@ -1,6 +1,7 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -19,6 +20,34 @@ public class Image implements Serializable{
 	private String imageUrl;
 	public String getImageId() {
 		return imageId;
+	}
+	
+    @ManyToMany(mappedBy = "images")
+	private Set<Answer> answers;
+
+    @ManyToMany(mappedBy = "images")
+	private Set<Answer> brands;
+
+    @ManyToMany(mappedBy = "images")
+	private Set<Survey> Surveys;
+    
+	public Set<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(Set<Answer> answers) {
+		this.answers = answers;
+	}
+	public Set<Answer> getBrands() {
+		return brands;
+	}
+	public void setBrands(Set<Answer> brands) {
+		this.brands = brands;
+	}
+	public Set<Survey> getSurveys() {
+		return Surveys;
+	}
+	public void setSurveys(Set<Survey> surveys) {
+		Surveys = surveys;
 	}
 	@Override
 	public String toString() {
