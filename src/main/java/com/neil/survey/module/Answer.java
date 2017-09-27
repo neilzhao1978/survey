@@ -23,7 +23,7 @@ public class Answer implements Serializable{
 	private String replyerName;
 	private String replyerPosition;
 	private String replyTime;
-	private String surveyId;
+//	private String surveyId;
 	
 	
 	public Set<Brand> getBrands() {
@@ -52,9 +52,20 @@ public class Answer implements Serializable{
 	private Set<Image> images;
     
     
-//    @OneToMany(mappedBy = "answers")
-//	private Set<Survey> survey;
+	@ManyToOne(cascade=CascadeType.ALL,optional = true)
+	@JoinColumn(name="surveyId")
+	private Survey survey;
+    
+
 	
+	public Survey getSurvey() {
+		return survey;
+	}
+
+	public void setSurvey(Survey survey) {
+		this.survey = survey;
+	}
+
 	public String getReplyerName() {
 		return replyerName;
 	}
@@ -112,12 +123,5 @@ public class Answer implements Serializable{
 	public void setReplyTime(String replyTime) {
 		this.replyTime = replyTime;
 	}
-	public String getSurveyId() {
-		return surveyId;
-	}
-	public void setSurveyId(String surveyId) {
-		this.surveyId = surveyId;
-	}
-
 
 }

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.neil.survey.module.Brand;
 
 public interface BrandRepository extends JpaRepository<Brand,String> {
-	List<Brand> findByBrandId(String answerId);
+	List<Brand> findByBrandId(String brandId);
 }

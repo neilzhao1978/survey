@@ -1,6 +1,7 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -23,9 +24,8 @@ public class Creator implements Serializable{
 //      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
 //    private Set<Survey> surveys;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy ="creator")
-//	@JoinColumn(name="email")
-	private Set<Survey> surveys;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy ="creator",fetch = FetchType.EAGER)
+	private Set<Survey> surveys=new HashSet<Survey>();
 	
 
 	public Set<Survey> getSurveys() {

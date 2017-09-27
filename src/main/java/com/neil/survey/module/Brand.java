@@ -24,11 +24,11 @@ public class Brand implements Serializable{
 	
     //@ManyToMany注释表示Student是多对多关系的一边，mappedBy属性定义了Student为双向关系的维护端
     //Teacher表是关系的维护者，owner side，有主导权，它有个外键指向Student表。 
-    @ManyToMany(mappedBy = "brands")
+    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
 	private Set<Answer> answers;
 
-//    @ManyToMany(mappedBy = "brands")
-//	private Set<Survey> surveys;
+    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
+	private Set<Survey> surveys;
     
     public Set<Answer> getAnswers() {
 		return answers;

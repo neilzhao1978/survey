@@ -2,6 +2,7 @@ package com.neil.survey.module;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -16,12 +17,13 @@ public class Survey implements Serializable{
 	@Id
 	@Column(length = 32)
 	private String surveyId;
+	
 	private String name;
 	private Date releaseTime;
 	private String status;
 
 	@ManyToOne(cascade=CascadeType.ALL,optional = true)
-	@JoinColumn(name="surveyId")
+	@JoinColumn(name="email")
 	private Creator creator;
 	
 	public Creator getCreator() {
@@ -30,27 +32,20 @@ public class Survey implements Serializable{
 	public void setCreator(Creator creator) {
 		this.creator = creator;
 	}
-	//	@OneToMany(cascade=CascadeType.ALL)
-//	@JoinColumn(name="surveyId")
-//	private Set<Answer> answers;
 	
-//    @ManyToMany(cascade=CascadeType.ALL)
-//    @JoinTable(name="SURVEY_ANSWER",
-//      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
-//      inverseJoinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")})
-//	private Set<Answer> answers;
-
-//    public Set<Creator> getCreator() {
-//		return creator;
-//	}
-//	public void setCreator(Set<Creator> creator) {
-//		this.creator = creator;
-//	}
-//	@ManyToMany(cascade=CascadeType.ALL)
-//    @JoinTable(name="SURVEY_BRAND",
-//      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
-//      inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
-//	private Set<Brand> brands;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy ="survey",fetch = FetchType.EAGER)
+	private Set<Answer> answers = new HashSet<Answer>();
+	
+	public void addAnswer(Answer answer) {
+		answer.setSurvey(this);
+		this.answers.add(answer);
+	}
+	
+	@ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name="SURVEY_BRAND",
+      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
+	private Set<Brand> brands;
 //	
 //    @ManyToMany(cascade=CascadeType.ALL)
 //    @JoinTable(name="SURVEY_IMAGE",
@@ -70,12 +65,12 @@ public class Survey implements Serializable{
 //	public void setAnswers(Set<Answer> answers) {
 //		this.answers = answers;
 //	}
-//	public Set<Brand> getBrands() {
-//		return brands;
-//	}
-//	public void setBrands(Set<Brand> brands) {
-//		this.brands = brands;
-//	}
+	public Set<Brand> getBrands() {
+		return brands;
+	}
+	public void setBrands(Set<Brand> brands) {
+		this.brands = brands;
+	}
 //	public Set<Image> getImages() {
 //		return images;
 //	}
