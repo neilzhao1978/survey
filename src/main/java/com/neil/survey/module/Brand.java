@@ -27,8 +27,8 @@ public class Brand implements Serializable{
     @ManyToMany(mappedBy = "brands")
 	private Set<Answer> answers;
 
-    @ManyToMany(mappedBy = "brands")
-	private Set<Survey> surveys;
+//    @ManyToMany(mappedBy = "brands")
+//	private Set<Survey> surveys;
     
     public Set<Answer> getAnswers() {
 		return answers;
@@ -36,12 +36,12 @@ public class Brand implements Serializable{
 	public void setAnswers(Set<Answer> answers) {
 		this.answers = answers;
 	}
-	public Set<Survey> getSurveys() {
-		return surveys;
-	}
-	public void setSurveys(Set<Survey> surveys) {
-		this.surveys = surveys;
-	}
+//	public Set<Survey> getSurveys() {
+//		return surveys;
+//	}
+//	public void setSurveys(Set<Survey> surveys) {
+//		this.surveys = surveys;
+//	}
 	public Set<Image> getImages() {
 		return images;
 	}

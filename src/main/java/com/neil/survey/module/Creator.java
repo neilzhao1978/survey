@@ -14,10 +14,8 @@ public class Creator implements Serializable{
 	private static final long serialVersionUID = 3035099497755335338L;
 	@Id
 	@Column(length = 32)
-	private String creatorId;
-	private String name;
+	private String email;
 	private String pwd;
-	
 	
 //    @ManyToMany(cascade=CascadeType.ALL)
 //    @JoinTable(name="CREATOR_SURVEY",
@@ -25,31 +23,33 @@ public class Creator implements Serializable{
 //      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
 //    private Set<Survey> surveys;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="creatorId")
+	@OneToMany(cascade=CascadeType.ALL,mappedBy ="creator")
+//	@JoinColumn(name="email")
 	private Set<Survey> surveys;
 	
-	public String getCreatorId() {
-		return creatorId;
-	}
+
 	public Set<Survey> getSurveys() {
 		return surveys;
 	}
 	public void setSurveys(Set<Survey> surveys) {
 		this.surveys = surveys;
 	}
+	
+	public void addSurvey(Survey survey) {
+		survey.setCreator(this);
+		this.surveys.add(survey);
+	}
+	
 	@Override
 	public String toString() {
-		return "Creator [creatorId=" + creatorId + ", name=" + name + ", pwd=" + pwd + "]";
+		return "Creator [ name=" + email + ", pwd=" + pwd + "]";
 	}
-	public void setCreatorId(String creatorId) {
-		this.creatorId = creatorId;
+
+	public String getEmail() {
+		return email;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPwd() {
 		return pwd;

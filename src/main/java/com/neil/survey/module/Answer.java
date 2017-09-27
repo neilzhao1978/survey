@@ -52,8 +52,8 @@ public class Answer implements Serializable{
 	private Set<Image> images;
     
     
-    @OneToMany(mappedBy = "answers")
-	private Set<Survey> survey;
+//    @OneToMany(mappedBy = "answers")
+//	private Set<Survey> survey;
 	
 	public String getReplyerName() {
 		return replyerName;
@@ -71,13 +71,13 @@ public class Answer implements Serializable{
 		this.replyerPosition = replyerPosition;
 	}
 
-	public Set<Survey> getSurvey() {
-		return survey;
-	}
-
-	public void setSurvey(Set<Survey> survey) {
-		this.survey = survey;
-	}
+//	public Set<Survey> getSurvey() {
+//		return survey;
+//	}
+//
+//	public void setSurvey(Set<Survey> survey) {
+//		this.survey = survey;
+//	}
 
 	public Set<Image> getImages() {
 		return images;

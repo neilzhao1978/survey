@@ -28,8 +28,8 @@ public class Image implements Serializable{
     @ManyToMany(mappedBy = "images")
 	private Set<Answer> brands;
 
-    @ManyToMany(mappedBy = "images")
-	private Set<Survey> Surveys;
+//    @ManyToMany(mappedBy = "images")
+//	private Set<Survey> Surveys;
     
 	public Set<Answer> getAnswers() {
 		return answers;
@@ -43,12 +43,12 @@ public class Image implements Serializable{
 	public void setBrands(Set<Answer> brands) {
 		this.brands = brands;
 	}
-	public Set<Survey> getSurveys() {
-		return Surveys;
-	}
-	public void setSurveys(Set<Survey> surveys) {
-		Surveys = surveys;
-	}
+//	public Set<Survey> getSurveys() {
+//		return Surveys;
+//	}
+//	public void setSurveys(Set<Survey> surveys) {
+//		Surveys = surveys;
+//	}
 	@Override
 	public String toString() {
 		return "Image [imageId=" + imageId + ", imageName=" + imageName + ", imageType=" + imageType + ", imageUrl="
