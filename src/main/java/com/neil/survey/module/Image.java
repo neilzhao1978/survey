@@ -22,14 +22,14 @@ public class Image implements Serializable{
 		return imageId;
 	}
 	
-    @ManyToMany(mappedBy = "images")
+    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
 	private Set<Answer> answers;
 
-    @ManyToMany(mappedBy = "images")
+    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
 	private Set<Answer> brands;
 
-//    @ManyToMany(mappedBy = "images")
-//	private Set<Survey> Surveys;
+    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
+	private Set<Survey> surveys;
     
 	public Set<Answer> getAnswers() {
 		return answers;
@@ -43,12 +43,12 @@ public class Image implements Serializable{
 	public void setBrands(Set<Answer> brands) {
 		this.brands = brands;
 	}
-//	public Set<Survey> getSurveys() {
-//		return Surveys;
-//	}
-//	public void setSurveys(Set<Survey> surveys) {
-//		Surveys = surveys;
-//	}
+	public Set<Survey> getSurveys() {
+		return surveys;
+	}
+	public void setSurveys(Set<Survey> surveys) {
+		this.surveys = surveys;
+	}
 	@Override
 	public String toString() {
 		return "Image [imageId=" + imageId + ", imageName=" + imageName + ", imageType=" + imageType + ", imageUrl="

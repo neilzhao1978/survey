@@ -10,12 +10,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.neil.survey.module.Answer;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.Creator;
+import com.neil.survey.module.Image;
 import com.neil.survey.module.Survey;
 import com.neil.survey.repository.AnswerRepository;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.CreatorRepository;
+import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.repository.SurveyRepository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -34,8 +37,10 @@ public class SurveyTests {
 	private AnswerRepository answerRepo;
 	@Autowired
 	private BrandRepository brandRepo;
+	@Autowired
+	private ImageRepository imageRepo;
 	
-//	@Before
+	@Before
     public void setUp() throws Exception {
 		Brand b = new Brand();
 		b.setBrandId("123456");
@@ -43,14 +48,39 @@ public class SurveyTests {
 		b.setBrandName("asdfasdf");
 		brandRepo.save(b);
 		
+		Image i = new Image();
+		i.setImageId("image123");
+		i.setImageName("guozhao");
+		i.setImageType("porn");
+		i.setImageUrl("imageurl");
+		
+		imageRepo.save(i);
+		
+    }
+    
+    @Test 
+    public void getSurvey() {
+    	List<Survey> lst = surveyRepo.findAll();
+    	Survey s = lst.get(0);
+    	Set<Brand> brands = s.getBrands();
+    	List<Brand> lstBrand = new ArrayList<Brand>();
+    	lstBrand.addAll(brands);
+    	Brand x = lstBrand.get(0);
+    	System.out.println(x);
     }
 	
-	@Test public void setSurvey() {
+	@Test 
+	public void setSurvey() {
 		List<Survey> lst = surveyRepo.findAll();
 		Survey s = lst.get(0);
 		List<Brand> brands = brandRepo.findByBrandId("123456");
 		HashSet<Brand> h = new HashSet<Brand>(brands);
 		s.setBrands(h);
+		
+		List<Image> images = imageRepo.findByImageId("image123");
+		HashSet<Image> hImages = new HashSet<Image>(images);
+		s.setImages(hImages);
+		
 		surveyRepo.save(s);
 	}
 	

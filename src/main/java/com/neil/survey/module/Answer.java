@@ -23,7 +23,6 @@ public class Answer implements Serializable{
 	private String replyerName;
 	private String replyerPosition;
 	private String replyTime;
-//	private String surveyId;
 	
 	
 	public Set<Brand> getBrands() {
@@ -39,20 +38,20 @@ public class Answer implements Serializable{
 	}
 
 	
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade= {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
     @JoinTable(name="ANSWER_BRAND",
       joinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")},
       inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
     private Set<Brand> brands;
 	
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
     @JoinTable(name="ANSWER_IMAGE",
       joinColumns={@JoinColumn(name="answerId",referencedColumnName="answerId")},
       inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
 	private Set<Image> images;
     
     
-	@ManyToOne(cascade=CascadeType.ALL,optional = true)
+	@ManyToOne(cascade=CascadeType.ALL,optional = true,fetch = FetchType.EAGER)
 	@JoinColumn(name="surveyId")
 	private Survey survey;
     
@@ -81,14 +80,6 @@ public class Answer implements Serializable{
 	public void setReplyerPosition(String replyerPosition) {
 		this.replyerPosition = replyerPosition;
 	}
-
-//	public Set<Survey> getSurvey() {
-//		return survey;
-//	}
-//
-//	public void setSurvey(Set<Survey> survey) {
-//		this.survey = survey;
-//	}
 
 	public Set<Image> getImages() {
 		return images;

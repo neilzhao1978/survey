@@ -36,6 +36,12 @@ public class Survey implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL,mappedBy ="survey",fetch = FetchType.EAGER)
 	private Set<Answer> answers = new HashSet<Answer>();
 	
+	public Set<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(Set<Answer> answers) {
+		this.answers = answers;
+	}
 	public void addAnswer(Answer answer) {
 		answer.setSurvey(this);
 		this.answers.add(answer);
@@ -46,37 +52,26 @@ public class Survey implements Serializable{
       joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
       inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
 	private Set<Brand> brands;
-//	
-//    @ManyToMany(cascade=CascadeType.ALL)
-//    @JoinTable(name="SURVEY_IMAGE",
-//      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
-//      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
-//	private Set<Image> images;
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="SURVEY_IMAGE",
+      joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
+      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
+	private Set<Image> images;
     
-//	public Set<Creator> getCreator() {
-//		return creator;
-//	}
-//	public void setCreator(Set<Creator> creator) {
-//		this.creator = creator;
-//	}
-//	public Set<Answer> getAnswers() {
-//		return answers;
-//	}
-//	public void setAnswers(Set<Answer> answers) {
-//		this.answers = answers;
-//	}
+
 	public Set<Brand> getBrands() {
 		return brands;
 	}
 	public void setBrands(Set<Brand> brands) {
 		this.brands = brands;
 	}
-//	public Set<Image> getImages() {
-//		return images;
-//	}
-//	public void setImages(Set<Image> images) {
-//		this.images = images;
-//	}
+	public Set<Image> getImages() {
+		return images;
+	}
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
 	public String getSurveyId() {
 		return surveyId;
 	}
@@ -106,12 +101,4 @@ public class Survey implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-//	public String getEmail() {
-//		return email;
-//	}
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-
-
 }

@@ -36,12 +36,12 @@ public class Brand implements Serializable{
 	public void setAnswers(Set<Answer> answers) {
 		this.answers = answers;
 	}
-//	public Set<Survey> getSurveys() {
-//		return surveys;
-//	}
-//	public void setSurveys(Set<Survey> surveys) {
-//		this.surveys = surveys;
-//	}
+	public Set<Survey> getSurveys() {
+		return surveys;
+	}
+	public void setSurveys(Set<Survey> surveys) {
+		this.surveys = surveys;
+	}
 	public Set<Image> getImages() {
 		return images;
 	}
