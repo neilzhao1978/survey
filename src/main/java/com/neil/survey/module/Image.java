@@ -25,7 +25,7 @@ public class Image implements Serializable{
     @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
 	private Set<Answer> answers;
 
-    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
 	private Set<Answer> brands;
 
     @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)

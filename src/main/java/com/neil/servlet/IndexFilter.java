@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebFilter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.web.servlet.DispatcherServlet;
 
 @WebFilter(urlPatterns = "/*", filterName = "indexFilter")
 public class IndexFilter implements Filter {
@@ -19,6 +20,7 @@ public class IndexFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+    	DispatcherServlet d;
         log.info("init IndexFilter");
     }
 

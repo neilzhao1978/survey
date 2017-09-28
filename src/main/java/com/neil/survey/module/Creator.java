@@ -24,7 +24,7 @@ public class Creator implements Serializable{
 //      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
 //    private Set<Survey> surveys;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy ="creator",fetch = FetchType.EAGER)
+	@OneToMany(cascade= {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},mappedBy ="creator",fetch = FetchType.EAGER)
 	private Set<Survey> surveys=new HashSet<Survey>();
 	
 

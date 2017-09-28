@@ -30,6 +30,12 @@ public class Brand implements Serializable{
     @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
 	private Set<Survey> surveys;
     
+	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
+    @JoinTable(name="BRAND_IMAGE",
+      joinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")},
+      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
+	private Set<Image> images;
+    
     public Set<Answer> getAnswers() {
 		return answers;
 	}
@@ -48,11 +54,7 @@ public class Brand implements Serializable{
 	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
-	@ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="BRAND_IMAGE",
-      joinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")},
-      inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
-	private Set<Image> images;
+
 	
 	
 	public String getBrandId() {

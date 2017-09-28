@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,9 +39,19 @@ public class AnswerTest {
 	
 	@Before
     public void setUp() throws Exception {
-
-		
     }
+	
+	@Test
+	public void testSetBrand() {
+		List<Brand> brands =  brandRepo.findAll();
+		Brand b = brands.get(0);
+		
+		
+		Set<Image> images = new HashSet<Image>(imageRepo.findAll());
+	
+		b.setImages(images);
+		brandRepo.save(b);
+	}
 	
 //	@Test
 	public void testSetImages() {
@@ -54,7 +65,7 @@ public class AnswerTest {
 		answerRepo.save(answer);
 	}
 	
-	@Test
+//	@Test
 	public void testSetBrands() {
 		List<Answer> answerList = answerRepo.findAll();
 		Answer answer = answerList.get(0);

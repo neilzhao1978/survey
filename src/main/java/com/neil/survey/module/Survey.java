@@ -47,13 +47,13 @@ public class Survey implements Serializable{
 		this.answers.add(answer);
 	}
 	
-	@ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
     @JoinTable(name="SURVEY_BRAND",
       joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
       inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
 	private Set<Brand> brands;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
     @JoinTable(name="SURVEY_IMAGE",
       joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
       inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
