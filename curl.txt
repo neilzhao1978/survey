@@ -1,1 +1,8 @@
-$ curl -i -X POST -H "'Content-type':'application/x-www-form-urlencoded', 'charset':'utf-8', 'Accept': 'text/plain'" -d 'json_data={"a":"aaa","b":"bbb","data":[{"c":"ccc","d":"ddd","keywords":[{"e": "eee", "f":"fff", "g":"ggg"}]}]}' url
+#列出所有creator
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22id%22%3a%221%22%2c%22name%22%3a%22bbb%22%7d' http://localhost:8000/api/creatorService/getAllCreatorList
+
+#增加和修改
+curl -H "Content-Type: application/json" -X POST  -d '{"email":"niel@123.com","pwd":"asdf"}' http://localhost:8000/api/creatorService/addCreator
+
+#删除
+curl -H "Content-Type: application/json" -X DELETE  -d '{"email":"g_zcm@163.com"}' http://localhost:8000/api/creatorService/deleteCreator

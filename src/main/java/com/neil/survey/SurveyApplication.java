@@ -50,15 +50,15 @@ public class SurveyApplication{
     }
     
     
-    @Bean(name="conversionService")
-    public ConversionService getConversionService() {
-        ConversionServiceFactoryBean bean = new ConversionServiceFactoryBean();
-        Set<RequestBodyConverter> converters = new HashSet<RequestBodyConverter>();
-        converters.add(new RequestBodyConverter());
-        bean.setConverters(converters); 
-        bean.afterPropertiesSet();
-        return bean.getObject();
-    }
+//    @Bean(name="conversionService")
+//    public ConversionService getConversionService() {
+//        ConversionServiceFactoryBean bean = new ConversionServiceFactoryBean();
+//        Set<RequestBodyConverter> converters = new HashSet<RequestBodyConverter>();
+//        converters.add(new RequestBodyConverter());
+//        bean.setConverters(converters); 
+//        bean.afterPropertiesSet();
+//        return bean.getObject();
+//    }
     
     @Bean
     public FilterRegistrationBean indexFilterRegistration() {
@@ -83,6 +83,7 @@ public class SurveyApplication{
         //3处理中文乱码问题
         List<MediaType> fastMediaTypes = new ArrayList<>();
         fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+//        fastMediaTypes.add(MediaType.APPLICATION_FORM_URLENCODED);
         //4.在convert中添加配置信息.
         fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);

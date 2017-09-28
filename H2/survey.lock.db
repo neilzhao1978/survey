@@ -1,6 +1,6 @@
 #FileLock
-#Thu Sep 28 17:27:20 CST 2017
-hostName=DESKTOP-2QOMAIJ
-id=15ec7cfcd9d2bcfca01203efdb37ec8a4f0e0085350
+#Thu Sep 28 23:50:00 CST 2017
+hostName=DESKTOP-60T9UDU
+id=15ec92e2471e99177a2331f2f091a28292243eb6e25
 method=file
-server=192.168.42.54\:49189
+server=192.168.1.107\:56783

@@ -29,7 +29,8 @@ public class CCreatorController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/getAllCreatorList", method = RequestMethod.GET)
-	public RestResponseEntity<List<Creator>> getAllCreatorList(@RequestBody @RequestParam("page") PageEntity page){
+	public RestResponseEntity<List<Creator>> getAllCreatorList( @RequestParam(value = "page",required=true) PageEntity page,
+			@RequestParam(value = "name",required=false) String name){
 		
 		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
 		Page<Creator> creators = creatorRepository.findAll(pageRequest);
@@ -44,6 +45,25 @@ public class CCreatorController {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/addCreator", method = RequestMethod.POST)
+	public RestResponseEntity<Void> addCreator( @RequestBody Creator creator){
+		Creator c = creatorRepository.save(creator);
+		if(c!=null) {
+			return ResponseGenerator.createSuccessResponse("Add/update creator  success.");
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+		}
+	}
 	
-
+	@ResponseBody
+	@RequestMapping(value = "/deleteCreator", method = RequestMethod.DELETE)
+	public RestResponseEntity<Void> deleteCreator( @RequestBody Creator creator){
+		try {			
+			creatorRepository.delete(creator.getEmail());
+			return ResponseGenerator.createSuccessResponse("delete creator  success.");
+		}catch(Exception e) {			
+			return ResponseGenerator.createFailResponse("Fail to add creator.", ErrorCode.DB_ERROR);
+		}
+	}
 }
