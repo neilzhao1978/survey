@@ -22,7 +22,7 @@ import com.neil.survey.util.RestResponseEntity;
 
 @RestController
 @RequestMapping("/api/creatorService")
-public class CCreatorController {
+public class CreatorController {
 
 	@Autowired
 	private CreatorRepository creatorRepository;
