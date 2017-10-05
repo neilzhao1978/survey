@@ -7,5 +7,8 @@ import com.neil.survey.module.Survey;
 
 
 public interface SurveyRepository extends JpaRepository<Survey,String> {
+	void delete(Survey s);
+	
+	Survey getBySurveyId(String surveyId);
 
 }

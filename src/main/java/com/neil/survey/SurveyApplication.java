@@ -62,8 +62,8 @@ public class SurveyApplication{
     
     @Bean
     public FilterRegistrationBean indexFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean(new IndexFilter());
-        registration.addUrlPatterns("/");
+        FilterRegistrationBean registration = new FilterRegistrationBean(new org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter());
+        registration.addUrlPatterns("/*");
         return registration;
     }
     @Bean

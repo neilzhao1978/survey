@@ -47,9 +47,11 @@ public class SurveyController {
 
 		if(surveys!=null && surveys.getSize()>0) {
 			for(Survey s:surveys.getContent()) {
-				s.setAnswers(null);
-				s.setBrands(null);
-				s.setImages(null);
+//				s.setAnswers(null);
+//				s.setBrands(null);
+//				s.setImages(null);
+				s.getCreator().setSurveys(null);
+				s.getCreator().setPwd(null);
 			}
 			return ResponseGenerator.createSuccessResponse("Get survey list success.", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
 		}else {
@@ -62,6 +64,8 @@ public class SurveyController {
 	public RestResponseEntity<Void> addSurvey( @RequestBody Survey survey){
 		Survey s = surveyRepo.save(survey);
 		if(s!=null) {
+			
+			
 			return ResponseGenerator.createSuccessResponse("Add/update creator  success.");
 		}else {
 			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
@@ -71,7 +75,10 @@ public class SurveyController {
 	@ResponseBody
 	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.DELETE)
 	public RestResponseEntity<Void> deleteCreator( @RequestBody Survey survey){
-		try {			
+		try {	
+//			surveyRepo.delete(survey);
+			survey.setCreator(null);
+			surveyRepo.save(survey);
 			surveyRepo.delete(survey.getSurveyId());
 			return ResponseGenerator.createSuccessResponse("delete survey  success.");
 		}catch(Exception e) {			
@@ -79,5 +86,28 @@ public class SurveyController {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/updateSurvey", method = RequestMethod.POST)
+	public RestResponseEntity<Void> updateSurvey( @RequestBody Survey survey){
+		Survey s = surveyRepo.save(survey);
+		if(s!=null) {
+			return ResponseGenerator.createSuccessResponse("Add/update creator  success.");
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+		}
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/getSurveyDetail", method = RequestMethod.GET)
+	public RestResponseEntity<Survey> getSurveyDetail( @RequestParam(value = "surveyId",required=true) String surveyId){
+		Survey s = surveyRepo.getBySurveyId(surveyId);
+
+		if(s!=null) {
+			s.getCreator().setPwd(null);
+			return ResponseGenerator.createSuccessResponse("get survey detail success.",1,s,null);
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+		}
+	}
 	
 }

@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "SURVEY")
 public class Survey implements Serializable{
@@ -22,7 +23,7 @@ public class Survey implements Serializable{
 	private Date releaseTime;
 	private String status;
 
-	@ManyToOne(cascade=CascadeType.ALL,optional = true)
+	@ManyToOne(cascade={CascadeType.DETACH},optional = true,fetch = FetchType.LAZY)
 	@JoinColumn(name="email")
 	private Creator creator;
 	
@@ -33,7 +34,7 @@ public class Survey implements Serializable{
 		this.creator = creator;
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy ="survey",fetch = FetchType.EAGER)
+	@OneToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},mappedBy ="survey",fetch = FetchType.LAZY)
 	private Set<Answer> answers = new HashSet<Answer>();
 	
 	public Set<Answer> getAnswers() {
@@ -47,13 +48,13 @@ public class Survey implements Serializable{
 		this.answers.add(answer);
 	}
 	
-	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
+	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.LAZY)
     @JoinTable(name="SURVEY_BRAND",
       joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
       inverseJoinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")})
 	private Set<Brand> brands;
 
-    @ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
+    @ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.LAZY)
     @JoinTable(name="SURVEY_IMAGE",
       joinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")},
       inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})

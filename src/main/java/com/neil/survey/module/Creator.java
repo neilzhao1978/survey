@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+
+
 @Entity
 @Table(name = "CREATOR")
 public class Creator implements Serializable{
@@ -22,9 +24,9 @@ public class Creator implements Serializable{
 //    @JoinTable(name="CREATOR_SURVEY",
 //      joinColumns={@JoinColumn(name="creatorId",referencedColumnName="creatorId")},
 //      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
-//    private Set<Survey> surveys;
+//    private Set<Survey> surveys;cascade= {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH},
 	
-	@OneToMany(cascade= {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},mappedBy ="creator",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy ="creator",fetch = FetchType.LAZY)
 	private Set<Survey> surveys=new HashSet<Survey>();
 	
 

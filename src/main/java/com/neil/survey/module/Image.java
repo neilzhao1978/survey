@@ -22,13 +22,13 @@ public class Image implements Serializable{
 		return imageId;
 	}
 	
-    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
 	private Set<Answer> answers;
 
-    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
 	private Set<Answer> brands;
 
-    @ManyToMany(mappedBy = "images",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
 	private Set<Survey> surveys;
     
 	public Set<Answer> getAnswers() {

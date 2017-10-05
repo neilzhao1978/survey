@@ -24,13 +24,13 @@ public class Brand implements Serializable{
 	
     //@ManyToMany注释表示Student是多对多关系的一边，mappedBy属性定义了Student为双向关系的维护端
     //Teacher表是关系的维护者，owner side，有主导权，它有个外键指向Student表。 
-    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "brands",fetch = FetchType.LAZY)
 	private Set<Answer> answers;
 
-    @ManyToMany(mappedBy = "brands",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "brands",fetch = FetchType.LAZY)
 	private Set<Survey> surveys;
     
-	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.EAGER)
+	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.LAZY)
     @JoinTable(name="BRAND_IMAGE",
       joinColumns={@JoinColumn(name="brandId",referencedColumnName="brandId")},
       inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
