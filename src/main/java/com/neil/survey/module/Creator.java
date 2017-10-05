@@ -26,27 +26,31 @@ public class Creator implements Serializable{
 //      inverseJoinColumns={@JoinColumn(name="surveyId",referencedColumnName="surveyId")})
 //    private Set<Survey> surveys;cascade= {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH},
 	
-	@OneToMany(mappedBy ="creator",fetch = FetchType.LAZY)
-	private Set<Survey> surveys=new HashSet<Survey>();
+//	@OneToMany(mappedBy ="creator",fetch = FetchType.LAZY)
+//	private Set<Survey> surveys=new HashSet<Survey>();
 	
 
-	public Set<Survey> getSurveys() {
-		return surveys;
-	}
-	public void setSurveys(Set<Survey> surveys) {
-		this.surveys = surveys;
-	}
-	
-	public void addSurvey(Survey survey) {
-		survey.setCreator(this);
-		this.surveys.add(survey);
-	}
+//	public Set<Survey> getSurveys() {
+//		return surveys;
+//	}
+//	public void setSurveys(Set<Survey> surveys) {
+//		this.surveys = surveys;
+//	}
+//	
+//	public void addSurvey(Survey survey) {
+//		survey.setCreator(this);
+//		this.surveys.add(survey);
+//	}
 	
 	@Override
 	public String toString() {
 		return "Creator [ name=" + email + ", pwd=" + pwd + "]";
 	}
-
+	@Override
+	public int hashCode() {
+		return email.hashCode();
+		
+	}
 	public String getEmail() {
 		return email;
 	}

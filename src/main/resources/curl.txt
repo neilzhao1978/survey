@@ -1,0 +1,29 @@
+#列出所有creator
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/creatorService/getAllCreatorList
+
+#增加和修改creator
+curl -H "Content-Type: application/json" -X POST  -d '{"email":"niel@123.com","pwd":"asdf"}' http://localhost:8000/api/creatorService/addCreator
+
+#删除creator
+curl -H "Content-Type: application/json" -X DELETE  -d '{"email":"g_zcm@163.com"}' http://localhost:8000/api/creatorService/deleteCreator
+
+#使用email 分页查找surveys.
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&email=niel@123.com' http://localhost:8000/api/creatorService/listSurvey
+
+#列出所有survey
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/surveyService/getAllSurveys
+
+#增加survey
+curl -H "Content-Type: application/json" -X POST  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"12345","brands":[{"brandId":"BRAND_2"}]}' http://localhost:8000/api/surveyService/updateSurvey
+
+#删除survey
+curl -H "Content-Type: application/json" -X DELETE  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"12345"}' http://localhost:8000/api/surveyService/deleteSurvey
+
+#survey 明细
+curl -H "Content-Type: application/json" -G -d 'surveyId=123456' http://localhost:8000/api/surveyService/getSurveyDetail
+
+#列出所有brands
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/brandService/getAllBrands
+
+#增加brand
+curl -H "Content-Type: application/json" -X POST  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"12345","brands":[{"brandId":"BRAND_2"}]}' http://localhost:8000/api/surveyService/updateSurvey

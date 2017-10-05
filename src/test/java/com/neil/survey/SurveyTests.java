@@ -99,7 +99,7 @@ public class SurveyTests {
 		survey.setReleaseTime(new Date());
 
 		surveyRepo.save(survey);
-		creator.addSurvey(survey);
+//		creator.addSurvey(survey);
 		
 		creatorRepo.save(creator);
 	}
@@ -107,12 +107,12 @@ public class SurveyTests {
 //	@Test
 	public void getCreator() {
 		List<Creator> lst = creatorRepo.findByEmail("g_zcm@163.com");
-		if(lst.size()>0) {
-			Set<Survey> surveys = lst.get(0).getSurveys();
-			Survey s = (Survey) surveys.toArray()[0];
-			System.out.print(s.getName());
-			lst.get(0).toString();
-		}
+//		if(lst.size()>0) {
+////			Set<Survey> surveys = lst.get(0).getSurveys();
+//			Survey s = (Survey) surveys.toArray()[0];
+//			System.out.print(s.getName());
+//			lst.get(0).toString();
+//		}
 	}
 
 //	@Test
@@ -120,12 +120,12 @@ public class SurveyTests {
 		List<Creator> lst = creatorRepo.findByEmail("g_zcm@163.com");
 		Set<Survey> surveys = null;
 		Survey s = null;
-		if(lst.size()>0) {
-			surveys = lst.get(0).getSurveys();
-			 s = (Survey) surveys.toArray()[0];
-			System.out.print(s.getName());
-			lst.get(0).toString();
-		}
+//		if(lst.size()>0) {
+//			surveys = lst.get(0).getSurveys();
+//			 s = (Survey) surveys.toArray()[0];
+//			System.out.print(s.getName());
+//			lst.get(0).toString();
+//		}
 		
 		Answer answer = new Answer();
 		answer.setAnswerId(UUID.randomUUID().toString().replace("-", ""));
@@ -143,12 +143,12 @@ public class SurveyTests {
 		List<Creator> lst = creatorRepo.findByEmail("g_zcm@163.com");
 		Set<Survey> surveys = null;
 		Survey s = null;
-		if(lst.size()>0) {
-			surveys = lst.get(0).getSurveys();
-			 s = (Survey) surveys.toArray()[0];
-			System.out.print(s.getName());
-			lst.get(0).toString();
-		}
+//		if(lst.size()>0) {
+//			surveys = lst.get(0).getSurveys();
+//			 s = (Survey) surveys.toArray()[0];
+//			System.out.print(s.getName());
+//			lst.get(0).toString();
+//		}
 		
 
 		
