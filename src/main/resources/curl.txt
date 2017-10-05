@@ -33,3 +33,6 @@ curl -H "Content-Type: application/json" -X POST  -d '{"brandIconUrl":"asdfasdfa
 
 #删除brand
 curl -H "Content-Type: application/json" -X DELETE  -d '{"brandIconUrl":"asdfasdfasdf","brandId":"BRAND_3", "brandName":"XCCC","images":[]}' http://localhost:8000/api/brandService/deleteBrand
+#################################################
+#按类型列出所有images
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&type=' http://localhost:8000/api/imageService/getAllImages

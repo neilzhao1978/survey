@@ -1,6 +1,6 @@
 #FileLock
-#Thu Oct 05 19:34:29 CST 2017
+#Thu Oct 05 23:21:57 CST 2017
 hostName=DESKTOP-60T9UDU
-id=15eec50b997e636ad505155029cf938e959fb3ee59f
+id=15eed20fc0c0ab261f828e318f8041c07b5f4e4f167
 method=file
-server=192.168.1.107\:63806
+server=192.168.1.107\:54085
