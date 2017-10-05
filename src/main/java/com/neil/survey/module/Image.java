@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "IMAGE")
 public class Image implements Serializable{
@@ -14,6 +16,8 @@ public class Image implements Serializable{
 	private static final long serialVersionUID = 6796133803560587005L;
 	@Id
 	@Column(length = 32)
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@GeneratedValue(generator = "system-uuid")
 	private String imageId;
 	private String imageName;
 	private String imageType;
@@ -22,33 +26,33 @@ public class Image implements Serializable{
 		return imageId;
 	}
 	
-    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
-	private Set<Answer> answers;
-
-    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
-	private Set<Answer> brands;
-
-    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
-	private Set<Survey> surveys;
+//    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
+//	private Set<Answer> answers;
+//
+//    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
+//	private Set<Answer> brands;
+//
+//    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
+//	private Set<Survey> surveys;
     
-	public Set<Answer> getAnswers() {
-		return answers;
-	}
-	public void setAnswers(Set<Answer> answers) {
-		this.answers = answers;
-	}
-	public Set<Answer> getBrands() {
-		return brands;
-	}
-	public void setBrands(Set<Answer> brands) {
-		this.brands = brands;
-	}
-	public Set<Survey> getSurveys() {
-		return surveys;
-	}
-	public void setSurveys(Set<Survey> surveys) {
-		this.surveys = surveys;
-	}
+//	public Set<Answer> getAnswers() {
+//		return answers;
+//	}
+//	public void setAnswers(Set<Answer> answers) {
+//		this.answers = answers;
+//	}
+//	public Set<Answer> getBrands() {
+//		return brands;
+//	}
+//	public void setBrands(Set<Answer> brands) {
+//		this.brands = brands;
+//	}
+//	public Set<Survey> getSurveys() {
+//		return surveys;
+//	}
+//	public void setSurveys(Set<Survey> surveys) {
+//		this.surveys = surveys;
+//	}
 	@Override
 	public String toString() {
 		return "Image [imageId=" + imageId + ", imageName=" + imageName + ", imageType=" + imageType + ", imageUrl="

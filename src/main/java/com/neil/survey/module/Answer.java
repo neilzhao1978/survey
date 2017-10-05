@@ -19,6 +19,7 @@ public class Answer implements Serializable{
 	@Id
 	@Column(length = 32)
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@GeneratedValue(generator = "system-uuid")
 	private String answerId;
 	private String replyerName;
 	private String replyerPosition;
@@ -55,8 +56,6 @@ public class Answer implements Serializable{
 	@JoinColumn(name="surveyId")
 	private Survey survey;
     
-
-	
 	public Survey getSurvey() {
 		return survey;
 	}

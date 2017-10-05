@@ -7,6 +7,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
 @Table(name = "SURVEY")
@@ -17,6 +19,8 @@ public class Survey implements Serializable{
 	private static final long serialVersionUID = -4296614439470290787L;
 	@Id
 	@Column(length = 32)
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@GeneratedValue(generator = "system-uuid")
 	private String surveyId;
 	
 	private String name;
@@ -34,19 +38,19 @@ public class Survey implements Serializable{
 		this.creator = creator;
 	}
 	
-	@OneToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},mappedBy ="survey",fetch = FetchType.LAZY)
-	private Set<Answer> answers = new HashSet<Answer>();
-	
-	public Set<Answer> getAnswers() {
-		return answers;
-	}
-	public void setAnswers(Set<Answer> answers) {
-		this.answers = answers;
-	}
-	public void addAnswer(Answer answer) {
-		answer.setSurvey(this);
-		this.answers.add(answer);
-	}
+//	@OneToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},mappedBy ="survey",fetch = FetchType.LAZY)
+//	private Set<Answer> answers = new HashSet<Answer>();
+//	
+//	public Set<Answer> getAnswers() {
+//		return answers;
+//	}
+//	public void setAnswers(Set<Answer> answers) {
+//		this.answers = answers;
+//	}
+//	public void addAnswer(Answer answer) {
+//		answer.setSurvey(this);
+//		this.answers.add(answer);
+//	}
 	
 	@ManyToMany(cascade={CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},fetch = FetchType.LAZY)
     @JoinTable(name="SURVEY_BRAND",
