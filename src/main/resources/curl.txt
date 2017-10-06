@@ -43,4 +43,15 @@ curl -H "Content-Type: multipart/form-data"   --form type=JPG --form file=@D:/lo
 #删除Image
 curl -H "Content-Type: application/json" -X DELETE  -d '{"imageId":"image_1","imageName":"image_1","imageType":"JPG","imageUrl":"C:/1.jpg"}' http://localhost:8000/api/imageService/deleteImage
 
+#################################################
+#列出所有answer
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&surveyId=123456' http://localhost:8000/api/answerService/getAllAnswerList
 
+#增加answer
+curl -H "Content-Type: application/json" -X POST  -d '{"answerId":"2","brands":[{"brandId":"BRAND_1"}],"images":[{"imageId":"image_1"}],"replayerName":"neil","replayerPosition":"swe","replyTime":"2017-9-11","replyerName":"neil","replyerPosition":"swe","survey":{"surveyId":"123456"}}' http://localhost:8000/api/answerService/addAnswer
+
+#更新answer
+curl -H "Content-Type: application/json" -X POST  -d '{"answerId":"402881eb5ef2098b015ef228289b0002","brands":[{"brandId":"BRAND_1"}],"images":[{"imageId":"image_1"}],"replayerName":"neil","replayerPosition":"swe","replyTime":"2017-9-12","replyerName":"neil","replyerPosition":"swe","survey":{"surveyId":"123456"}}' http://localhost:8000/api/answerService/updateAnswer
+
+#删除answer
+curl -H "Content-Type: application/json" -X DELETE  -d '{"answerId":"402881eb5ef2098b015ef228289b0002"}' http://localhost:8000/api/answerService/deleteAnswer

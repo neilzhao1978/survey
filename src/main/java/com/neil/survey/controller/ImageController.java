@@ -110,37 +110,6 @@ public class ImageController {
 		return ResponseGenerator.createSuccessResponse("Add/upload image success.");
 	}
 
-//	@ResponseBody
-//	@RequestMapping(value = "/addImage", method = RequestMethod.POST)
-//	public RestResponseEntity<Void> addImage(@RequestBody Image image, @RequestParam("file") MultipartFile file) {
-//
-//		if (!file.isEmpty()) {
-//			try {
-//				// 这里只是简单例子，文件直接输出到项目路径下。
-//				// 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
-//				// 还有关于文件格式限制、文件大小限制，详见：中配置。
-//				BufferedOutputStream out = new BufferedOutputStream(
-//						new FileOutputStream(new File(file.getOriginalFilename())));
-//				out.write(file.getBytes());
-//				out.flush();
-//				out.close();
-//			} catch (FileNotFoundException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		} else {
-//			return ResponseGenerator.createFailResponse("Fail to add/update image.", ErrorCode.DB_ERROR);
-//		}
-//
-//		Image b = imageRepo.save(image);
-//		if (b != null) {
-//			return ResponseGenerator.createSuccessResponse("Add/update image success.");
-//		} else {
-//			return ResponseGenerator.createFailResponse("Fail to add/update image.", ErrorCode.DB_ERROR);
-//		}
-//	}
-
 	@ResponseBody
 	@RequestMapping(value = "/updateImage", method = RequestMethod.POST)
 	public RestResponseEntity<Void> updateImage(@RequestBody Image image) {

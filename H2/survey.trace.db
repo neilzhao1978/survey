@@ -145,3 +145,12 @@ INSERT INTO "PUBLIC"."SURVEY_BRAND"("SURVEY_ID","BRAND_ID")VALUES(?,?) [22001-19
 2017-10-05 17:55:04 jdbc[14]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "BRAND_ID VARCHAR(32) NOT NULL": "STRINGDECODE(' BRAND_ID  \tBRAND_ICON_URL  \tBRAND_NAME   BRAND_1') (49)"; SQL statement:
 INSERT INTO "PUBLIC"."SURVEY_BRAND"("SURVEY_ID","BRAND_ID")VALUES(?,?) [22001-196]
+2017-10-06 22:19:18 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ANSWER 
+
+
+123456[*] "; SQL statement:
+select * from ANSWER 
+
+
+123456 [42000-196]
