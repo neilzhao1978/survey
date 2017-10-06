@@ -5,10 +5,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.MultipartConfigElement;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -73,6 +76,16 @@ public class SurveyApplication{
         return servletListenerRegistrationBean;
     }
 	
+    @Bean  
+    public MultipartConfigElement multipartConfigElement() {  
+        MultipartConfigFactory factory = new MultipartConfigFactory();  
+        //单个文件最大  
+        factory.setMaxFileSize("10240KB"); //KB,MB  
+        /// 设置总上传数据总大小  
+        factory.setMaxRequestSize("102400KB");  
+        return factory.createMultipartConfig();  
+    }  
+    
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters(){
         //1.需要定义一个convert转换消息的对象;
