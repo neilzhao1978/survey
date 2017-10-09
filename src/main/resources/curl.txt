@@ -55,3 +55,6 @@ curl -H "Content-Type: application/json" -X POST  -d '{"answerId":"402881eb5ef20
 
 #删除answer
 curl -H "Content-Type: application/json" -X DELETE  -d '{"answerId":"402881eb5ef2098b015ef228289b0002"}' http://localhost:8000/api/answerService/deleteAnswer
+
+
+curl -H "Content-Type: application/json" -G  -d 'surveyId=123456&imageType=JPG http://localhost:8000/api/creatorService/getAllCreatorList

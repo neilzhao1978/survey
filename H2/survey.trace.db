@@ -154,3 +154,6 @@ select * from ANSWER
 
 
 123456 [42000-196]
+2017-10-09 09:15:46 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ANSWER A LEFT JOIN ANSWER_IMAGE AI ON A.ANSWER_ID = AI.ANSWER_ID LEFT JONI[*] IMAGE  I ON AI.IMAGE_ID = I.IMAGE_ID "; expected "OUTER, JOIN"; SQL statement:
+select * from answer a left join ANSWER_IMAGE ai on a.ANSWER_ID = ai.ANSWER_ID left joni IMAGE  i on ai.IMAGE_ID = i.IMAGE_ID [42001-196]

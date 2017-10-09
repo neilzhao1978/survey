@@ -46,9 +46,9 @@ public class AnswerController {
 		Example<Answer> example = Example.of(a, matcher);
 		Page<Answer> answers = answerRepo.findAll(example, pageRequest);
 		if(answers!=null) {
-			return ResponseGenerator.createSuccessResponse("Get survey list success.", answers.getContent().size(), answers.getContent(),answers.getTotalElements());
+			return ResponseGenerator.createSuccessResponse("Get answer list success.", answers.getContent().size(), answers.getContent(),answers.getTotalElements());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get survey list.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("Fail to get answer list.", ErrorCode.DB_ERROR);
 		}
 	}
 	

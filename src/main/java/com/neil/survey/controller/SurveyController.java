@@ -1,8 +1,14 @@
 package com.neil.survey.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.neil.survey.module.Answer;
+import com.neil.survey.module.Image;
+import com.neil.survey.module.ImageCount;
 import com.neil.survey.module.Survey;
-
+import com.neil.survey.repository.AnswerRepository;
 import com.neil.survey.repository.SurveyRepository;
 import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
@@ -27,8 +36,8 @@ public class SurveyController {
 
 	@Autowired
 	private SurveyRepository surveyRepo;
-//	@Autowired
-//	private AnswerRepository answerRepo;
+	@Autowired
+	private AnswerRepository answerRepo;
 //	@Autowired
 //	private BrandRepository brandRepo;
 //	@Autowired
@@ -107,6 +116,46 @@ public class SurveyController {
 		}else {
 			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
 		}
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/getSurveyResult", method = RequestMethod.GET)
+	public RestResponseEntity<List<ImageCount>> getSurveyResult( @RequestParam(value = "surveyId",required=true) String surveyId,
+			@RequestParam(value = "imageType",required=true) String imageType){
+
+		Survey survey = surveyRepo.getBySurveyId(surveyId);
+
+		List<Answer> answers = answerRepo.findBySurvey(survey);
+		List<Image> allImages = new ArrayList<Image>(); 
+		for(Answer a : answers) {
+			allImages.addAll(a.getImages());
+		}
+		
+		Map<String,ImageCount> imageCount = new HashMap<String,ImageCount>();
+		for(Image i : allImages) {
+			if(i.getImageType().equalsIgnoreCase(imageType)) {
+				if(imageCount.containsKey(i.getImageId())) {
+					imageCount.get(i.getImageId()).increaseCount();;
+				}else {
+					ImageCount x = new ImageCount();
+					x.setI(i);
+					x.setCount(1);
+					imageCount.put(i.getImageId(), x);
+				}
+			}
+		}
+		
+		List<ImageCount> result = new ArrayList<ImageCount>();
+		result.addAll(imageCount.values());
+		Collections.sort(result);
+		
+		if(answers!=null) {
+			return ResponseGenerator.createSuccessResponse("Get result list success.", result.size(), result, result.size());
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to get result list.", ErrorCode.DB_ERROR);
+		}
+		
 	}
 	
 }

@@ -20,7 +20,6 @@ public class IndexFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-    	DispatcherServlet d;
         log.info("init IndexFilter");
     }
 
@@ -28,7 +27,6 @@ public class IndexFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         log.info("doFilter IndexFilter");
         filterChain.doFilter(servletRequest,servletResponse);
-
     }
 
     @Override
