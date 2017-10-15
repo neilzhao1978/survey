@@ -22,6 +22,7 @@ public class Image implements Serializable{
 	private String imageName;
 	private String imageType;
 	private String imageUrl;
+	private String parentImageId;
 	public String getImageId() {
 		return imageId;
 	}
@@ -78,6 +79,14 @@ public class Image implements Serializable{
 	}
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public String getParentImageId() {
+		return parentImageId;
+	}
+
+	public void setParentImageId(String parentImageId) {
+		this.parentImageId = parentImageId;
 	}
 
 }
