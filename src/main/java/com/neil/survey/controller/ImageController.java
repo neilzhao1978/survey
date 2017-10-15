@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.neil.survey.module.Brand;
 import com.neil.survey.module.Image;
+import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
@@ -39,6 +42,9 @@ public class ImageController {
 
 	@Autowired
 	private ImageRepository imageRepo;
+	
+	@Autowired
+	private BrandRepository brandRepo;
 
 	@ResponseBody
 	@RequestMapping(value = "/getAllImages", method = RequestMethod.GET)
@@ -59,6 +65,23 @@ public class ImageController {
 		}
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/getProductImagesByBrandId", method = RequestMethod.GET)
+	public RestResponseEntity<List<Image>> getProductImagesByBrandId(
+			@RequestParam(value = "brandId", required = false) String brandId) {
+		List<Brand> brands = brandRepo.findByBrandId(brandId);
+		Brand b = null;
+		if(brands.size()>0) {
+			b = brands.get(0);
+			Set<Image> images = b.getImages();
+			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.getContent().size(),
+					images.getContent(), images.getTotalElements());
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to get brand image list", ErrorCode.DB_ERROR);
+		}
+
+
+	}
 	
     @Value("${web.upload-path}")
     private String path;

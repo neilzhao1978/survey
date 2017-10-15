@@ -77,7 +77,6 @@ public class AnswerController {
 	@ResponseBody
 	@RequestMapping(value = "/deleteAnswer", method = RequestMethod.DELETE)
 	public RestResponseEntity<Void> deleteAnswer( @RequestBody Answer answer){
-		
 		try {
 			answer.setSurvey(null);
 			answerRepo.save(answer);
