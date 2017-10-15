@@ -9,4 +9,5 @@ import com.neil.survey.module.Image;
 
 public interface ImageRepository extends JpaRepository<Image,String> {
 	List<Image> findByImageId(String imageId);
+	List<Image> findByParentImageId(String parentImageId);
 }

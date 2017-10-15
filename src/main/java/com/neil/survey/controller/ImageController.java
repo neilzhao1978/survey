@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -70,17 +71,28 @@ public class ImageController {
 	public RestResponseEntity<List<Image>> getProductImagesByBrandId(
 			@RequestParam(value = "brandId", required = false) String brandId) {
 		List<Brand> brands = brandRepo.findByBrandId(brandId);
+		List<Image> images = new ArrayList<Image>();
 		Brand b = null;
 		if(brands.size()>0) {
 			b = brands.get(0);
-			Set<Image> images = b.getImages();
-			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.getContent().size(),
-					images.getContent(), images.getTotalElements());
+			Set<Image> imagesT = b.getImages();
+			images.addAll(imagesT);
+			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.size(),images, images.size());
 		}else {
 			return ResponseGenerator.createFailResponse("Fail to get brand image list", ErrorCode.DB_ERROR);
 		}
-
-
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getDetailImagesByParentId", method = RequestMethod.GET)
+	public RestResponseEntity<List<Image>> getDetailImagesByParentId(
+			@RequestParam(value = "parentId", required = false) String parentId) {
+		List<Image> images = imageRepo.findByParentImageId(parentId);
+		if(images.size()>0) {
+			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.size(),images, images.size());
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to get brand image list", ErrorCode.DB_ERROR);
+		}
 	}
 	
     @Value("${web.upload-path}")
