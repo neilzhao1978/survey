@@ -77,7 +77,7 @@ public class SurveyController {
 //				s.setBrands(null);
 //				s.setImages(null);
 //				s.getCreator().setSurveys(null);
-				s.getCreator().setPwd(null);
+//				s.getCreator().setPwd(null);
 			}
 			return ResponseGenerator.createSuccessResponse("Get survey list success.", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
 		}else {
