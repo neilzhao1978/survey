@@ -67,5 +67,6 @@ curl -H "Content-Type: application/json" -X DELETE  -d '{"answerId":"402881eb5ef
 #同步品牌，产品
 =======
 
+#获取结果imageType=WHOLE,DETAIL,INSPIRE
 curl -H "Content-Type: application/json" -G  -d 'surveyId=123456&imageType=JPG' http://localhost:8000/api/surveyService/getSurveyResult
 
