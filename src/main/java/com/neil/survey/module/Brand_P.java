@@ -76,7 +76,6 @@ public class Brand_P implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "create_time", nullable = false, length = 19)
 	public Date getCreateTime() {
 		return this.createTime;
 	}
