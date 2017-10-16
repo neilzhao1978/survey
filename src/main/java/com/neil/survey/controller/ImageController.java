@@ -104,6 +104,7 @@ public class ImageController {
 		MultipartHttpServletRequest params = ((MultipartHttpServletRequest) request);
 		List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
 		String type = params.getParameter("type");
+		String desc = params.getParameter("desc");
 		MultipartFile file = null;
 		BufferedOutputStream stream = null;
 		for (int i = 0; i < files.size(); ++i) {
@@ -131,7 +132,7 @@ public class ImageController {
 					image.setImageName(file.getOriginalFilename());
 					image.setImageType(type);
 					image.setImageUrl(path+fileName);
-					
+					image.setImageDesc(desc);
 					Image b = imageRepo.save(image);
 					
 				} catch (Exception e) {

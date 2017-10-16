@@ -21,7 +21,7 @@ public class Brand implements Serializable{
 	private String brandId;
 	private String brandName;
 	private String brandIconUrl;
-
+	private String desc;
 	
     //@ManyToMany注释表示Student是多对多关系的一边，mappedBy属性定义了Student为双向关系的维护端
     //Teacher表是关系的维护者，owner side，有主导权，它有个外键指向Student表。 
@@ -79,6 +79,12 @@ public class Brand implements Serializable{
 	}
 	public void setBrandIconUrl(String brandIconUrl) {
 		this.brandIconUrl = brandIconUrl;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	

@@ -19,7 +19,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -40,7 +42,22 @@ public class SurveyApplication{
 //	         return "Hello World!";
 //	     }
 	
+    @Bean
+    public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
+    	SimpleClientHttpRequestFactory httpClientFactory = new SimpleClientHttpRequestFactory();
+        
+    	httpClientFactory.setConnectTimeout(10000);
+    	httpClientFactory.setReadTimeout(10000);
 
+        return httpClientFactory;
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+    	RestTemplate restTemplate = new RestTemplate(simpleClientHttpRequestFactory());
+        return restTemplate;
+    }
+    
     
     @Bean
     public ServletRegistrationBean h2ServletRegistration() {

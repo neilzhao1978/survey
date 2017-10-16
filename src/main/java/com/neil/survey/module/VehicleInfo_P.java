@@ -23,8 +23,6 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 public class VehicleInfo_P implements java.io.Serializable {
-
-
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private int categoryId;
@@ -41,8 +39,8 @@ public class VehicleInfo_P implements java.io.Serializable {
 	private String componentInfo;
 	private String productCategory;
 	private String videoUrl;
-//	private Set<VehicleColor> vehicleColors = new HashSet<VehicleColor>(0);
-//	private Set<VehicleTexture> vehicleTextures = new HashSet<VehicleTexture>(0);
+	private Set<VehicleColor> vehicleColors = new HashSet<VehicleColor>(0);
+	private Set<VehicleTexture> vehicleTextures = new HashSet<VehicleTexture>(0);
 
 	public VehicleInfo_P() {
 	}
@@ -63,22 +61,22 @@ public class VehicleInfo_P implements java.io.Serializable {
 		this.componentInfo = componentInfo;
 	}
 
-//	public VehicleInfo_P(int categoryId, int brandId, byte entry, String imageUrl1, String imageUrl2, String style,
-//			String modelUrl, String onSaleDate, Date createTime, String componentInfo, Set<VehicleColor> vehicleColors,
-//			Set<VehicleTexture> vehicleTextures) {
-//		this.categoryId = categoryId;
-//		this.brandId = brandId;
-//		this.entry = entry;
-//		this.imageUrl1 = imageUrl1;
-//		this.imageUrl2 = imageUrl2;
-//		this.style = style;
-//		this.modelUrl = modelUrl;
-//		this.onSaleDate = onSaleDate;
-//		this.createTime = createTime;
-//		this.componentInfo = componentInfo;
-//		this.vehicleColors = vehicleColors;
-//		this.vehicleTextures = vehicleTextures;
-//	}
+	public VehicleInfo_P(int categoryId, int brandId, byte entry, String imageUrl1, String imageUrl2, String style,
+			String modelUrl, String onSaleDate, Date createTime, String componentInfo, Set<VehicleColor> vehicleColors,
+			Set<VehicleTexture> vehicleTextures) {
+		this.categoryId = categoryId;
+		this.brandId = brandId;
+		this.entry = entry;
+		this.imageUrl1 = imageUrl1;
+		this.imageUrl2 = imageUrl2;
+		this.style = style;
+		this.modelUrl = modelUrl;
+		this.onSaleDate = onSaleDate;
+		this.createTime = createTime;
+		this.componentInfo = componentInfo;
+		this.vehicleColors = vehicleColors;
+		this.vehicleTextures = vehicleTextures;
+	}
 
 	public Integer getId() {
 		return this.id;
@@ -168,21 +166,21 @@ public class VehicleInfo_P implements java.io.Serializable {
 		this.componentInfo = componentInfo;
 	}
 
-//	public Set<VehicleColor> getVehicleColors() {
-//		return this.vehicleColors;
-//	}
-//
-//	public void setVehicleColors(Set<VehicleColor> vehicleColors) {
-//		this.vehicleColors = vehicleColors;
-//	}
-//
-//	public Set<VehicleTexture> getVehicleTextures() {
-//		return this.vehicleTextures;
-//	}
-//
-//	public void setVehicleTextures(Set<VehicleTexture> vehicleTextures) {
-//		this.vehicleTextures = vehicleTextures;
-//	}
+	public Set<VehicleColor> getVehicleColors() {
+		return this.vehicleColors;
+	}
+
+	public void setVehicleColors(Set<VehicleColor> vehicleColors) {
+		this.vehicleColors = vehicleColors;
+	}
+
+	public Set<VehicleTexture> getVehicleTextures() {
+		return this.vehicleTextures;
+	}
+
+	public void setVehicleTextures(Set<VehicleTexture> vehicleTextures) {
+		this.vehicleTextures = vehicleTextures;
+	}
 
 	public String getCategoryName() {
 		return categoryName;

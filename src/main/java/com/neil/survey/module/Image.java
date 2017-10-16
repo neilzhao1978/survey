@@ -16,13 +16,15 @@ public class Image implements Serializable{
 	private static final long serialVersionUID = 6796133803560587005L;
 	@Id
 	@Column(length = 32)
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@GeneratedValue(generator = "system-uuid")
+//	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+//	@GeneratedValue(generator = "system-uuid")
 	private String imageId;
 	private String imageName;
 	private String imageType;
 	private String imageUrl;
 	private String parentImageId;
+	@Column(length = 10240)
+	private String imageDesc;
 	public String getImageId() {
 		return imageId;
 	}
@@ -87,6 +89,14 @@ public class Image implements Serializable{
 
 	public void setParentImageId(String parentImageId) {
 		this.parentImageId = parentImageId;
+	}
+
+	public String getImageDesc() {
+		return imageDesc;
+	}
+
+	public void setImageDesc(String imageDesc) {
+		this.imageDesc = imageDesc;
 	}
 
 }

@@ -1,0 +1,3 @@
+2017-10-16 15:58:31 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "IMAGE_DESC VARCHAR(255)": "STRINGDECODE('[{\""id\"":58,\""image\"":{\""src\"":\""http://oobviza1s.bkt.clouddn.com/1504708397541.svg\"",\""customData\"":{\""boundW\"":6... (7791)"; SQL statement:
+insert into image (image_desc, image_name, image_type, image_url, parent_image_id, image_id) values (?, ?, ?, ?, ?, ?) [22001-196]
