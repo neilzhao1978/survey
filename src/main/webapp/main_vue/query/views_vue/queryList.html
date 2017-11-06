@@ -1,0 +1,123 @@
+<!--
+! @file 格式注释
+==============================================
+* Copyright (c) 2015,湖南华南光电科技股份有限公司
+* 【文件名】    hn_dev_cameraAndVqd.html
+* 【文件实现功能】 监控点视频质量诊断实时结果
+*               监控点视频质量诊断历史结果
+* 【相关文件】    见本文件相关引用
+* 【功能模块和目的】监控点视频质量运维
+* 【开发者及日期】 芦海涛
+* 【版本信息】   0.1
+* 【备注】 <其它说明>
+==============================================
+* 【更改记录】
+* 日 期 版本 修改人 修改内容
+* YYYY/MM/DD X.Y <作者或修改者名> <修改内容>
+2016/03/14 ?.? 芦海涛 改变为工单处理添加功能：1、点击某一行弹出窗口，2、完善窗口内容
+==============================================
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>问卷列表</title>
+    <!--<link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/bootstrap/easyui.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/icon.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="../../../common/css/common.css" />-->
+    <link rel="stylesheet" type="text/css" href="../css/page.css" />
+
+
+    <style>
+
+    </style>
+</head>
+
+<body style="padding-left:20%;padding-right:20%">
+    <!--<div id="demo">-->
+        <!-- <form id="search">-->
+        <!-- <button>Search</button> <input name="query">-->
+        <!-- </form>-->
+        <!--<table>-->
+            <!-- <thead>-->
+        <!-- <tr>-->
+            <!-- <th>name</th>-->
+            <!-- <th>power</th>-->
+            <!-- </tr>-->
+        <!-- </thead>-->
+            <!-- <tbody>-->
+        <!-- <tr>-->
+            <!-- <td>Jack Chan</td>-->
+            <!-- <td>7000</td>-->
+            <!-- </tr>-->
+        <!-- </tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+
+
+
+    <div id="demo">
+         <form id="search">
+                Search <input name="query" v-model="searchQuery">
+          </form>
+         <demo-grid
+             :data="gridData"
+             :columns="gridColumns"
+             :filter-key="searchQuery">
+            </demo-grid>
+    </div>
+
+    <script type="text/x-template" id="grid-template">
+         <table>
+             <thead>
+                <tr>
+                <th v-for="key in columns">{{key}}</th>
+                </tr>
+            </thead>
+             <tbody>
+                 <tr v-for="entry in data
+                | filterBy filterKey">
+                    <td v-for="key in columns">
+                    {{entry[key]}}
+                    </td>
+                 </tr>
+                 </tbody>
+             </table>
+    </script>
+
+
+    <div id="shareWin" class="easyui-window" title="分享问卷" style="width:680px;height:420px"
+         data-options="modal:true,modal:true,minimizable:false,maximizable:false,collapsible:false,closed:true">
+        <div class="easyui-layout" data-options="fit:true">
+
+            <div data-options="region:'center'" style="text-align:center">
+                <div style="margin:20px auto">
+                    <img id="share_unicode" src="../img/unicode.png"/>
+                    <br/>
+                    <br/>
+                    通过手机扫描二维码，可以直接填写问卷
+                    <br/>
+                    <br/>
+                    问卷地址：******
+                    <br/>
+                    <br/>
+                    <button>复制链接</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="../../../common/lib/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../common/lib/easyui/jquery.easyui.min.js"></script>
+    <script src="../../../common/js/utils.js"></script>
+    <script src="../../../common/js/mask.js"></script>
+    <script src="../../../common/lib/vue.js"></script>
+    <script src="../../../common/js/surveyService.js"></script>
+    <script src="../js/page_queryList.js"></script>
+
+
+
+</body>
+</html>
+
