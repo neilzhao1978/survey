@@ -52,7 +52,7 @@ public class ImageController {
 	public RestResponseEntity<List<Image>> getAllImages(@RequestParam(value = "page", required = true) PageEntity page,
 			@RequestParam(value = "type", required = false) String type) {
 
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("imageType", match -> match.endsWith());
 		Image i = new Image();
 		i.setImageType(type);

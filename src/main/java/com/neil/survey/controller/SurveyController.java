@@ -68,7 +68,7 @@ public class SurveyController {
 	@RequestMapping(value = "/getAllSurveys", method = RequestMethod.GET)
 	public RestResponseEntity<List<Survey>> getAllSurveys( @RequestParam(value = "page",required=true) PageEntity page){
 		
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		Page<Survey> surveys = surveyRepo.findAll(pageRequest);
 
 		if(surveys!=null && surveys.getSize()>0) {

@@ -36,7 +36,7 @@ public class AnswerController {
 	public RestResponseEntity<List<Answer>> listSurvey( @RequestParam(value = "page",required=true) PageEntity page,
 			@RequestParam(value = "surveyId",required=true) String surveyId){
 
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		ExampleMatcher matcher = ExampleMatcher.matching()
 				  .withMatcher("survey", match -> match.endsWith());
 		

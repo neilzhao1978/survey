@@ -39,7 +39,7 @@ public class CreatorController {
 	public RestResponseEntity<List<Creator>> getAllCreatorList( @RequestParam(value = "page",required=true) PageEntity page,
 			@RequestParam(value = "name",required=false) String name){
 		
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		Page<Creator> creators = creatorRepository.findAll(pageRequest);
 
 		if(creators!=null && creators.getSize()>0) {
@@ -79,7 +79,7 @@ public class CreatorController {
 	public RestResponseEntity<List<Survey>> listSurvey( @RequestParam(value = "page",required=true) PageEntity page,
 			@RequestParam(value = "email",required=true) String email){
 
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		
 		ExampleMatcher matcher = ExampleMatcher.matching()
 				  .withMatcher("creator", match -> match.endsWith());

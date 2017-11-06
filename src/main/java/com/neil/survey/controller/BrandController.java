@@ -42,7 +42,7 @@ public class BrandController {
 	@RequestMapping(value = "/getAllBrands", method = RequestMethod.GET)
 	public RestResponseEntity<List<Brand>> getAllBrands( @RequestParam(value = "page",required=true) PageEntity page){
 		
-		PageRequest pageRequest = new PageRequest(page.getPageNumber(), page.getPageSize(), null);
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
 		Page<Brand> brands = brandRepo.findAll(pageRequest);
 
 		if(brands!=null && brands.getSize()>0) {
