@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../../../common/lib/easyui/jquery.easyui.min.js"></script>
     <script src="../../../common/js/utils.js"></script>
     <script src="../../../common/js/mask.js"></script>
-    <script src="../../../common/lib/vue.js"></script>
+    <!--<script src="../../../common/lib/vue.js"></script>-->
 
     <style>
         .marginTop{
@@ -57,7 +57,7 @@
             padding:20px
         }
         .left_menu{
-            align:center;
+            text-align:center;
             vertical-align: middle;
             width:100%;
             height:50px;
@@ -66,6 +66,20 @@
         }
         .on{
             background-color:red
+        }
+
+        .brandImg{
+            width:200px;
+            height:80px
+        }
+        .brandChoiceChk{
+            width:30px;
+            height:30px
+        }
+
+        .brandProductImg{
+            width:200px;
+            height:80px
         }
     </style>
 </head>
@@ -76,10 +90,10 @@
             <div data-options="region:'north'" style="text-align:center;overflow:hidden">
                 <a class="easyui-linkbutton" data-options="size:'large'" onclick="window.location='queryList.html'">返回列表</a>
                 <a class="easyui-linkbutton" data-options="size:'large'">问卷设计</a>
-                <a class="easyui-linkbutton" data-options="size:'large'">保存问卷</a>
+                <a class="easyui-linkbutton" data-options="size:'large'" id="saveQuery">保存问卷</a>
             </div>
             <div data-options="region:'center'">
-                <div class="easyui-tabs" data-options="fit:true">
+                <div id="tabs" class="easyui-tabs" data-options="fit:true">
                     <div title="基本设置" class="pad20">
                         <span>问卷标题</span>
                         <div style="width:100%;height:30px">
@@ -96,13 +110,11 @@
 
                     </div>
                     <div title="选择品牌"  class="pad20">
-                        <label> 用户选择上限：<input class="easyui-numberspinner" /></label>
-                        <div id="brandContainer">
-
-                        </div>
+                        <label style="position:absolute"> 用户选择上限：<input id="brandChoiceLimit" class="easyui-numberspinner" style="width:100px"/></label>
+                        <table id="brandContainer" style="margin:10px auto"></table>
                     </div>
                     <div title="选择产品图片"   class="pad20">
-
+                        <div id="brand_product"></div>
                     </div>
                     <div title="上传意向图片">
                         <div class="easyui-layout" data-options="fit:true">
@@ -122,6 +134,7 @@
 
                                 <button class="easyui-linkbutton" data-options="size:'normal'">上传图片</button>
                                 <button class="easyui-linkbutton" data-options="size:'normal'">图库</button>
+
                             </div>
                         </div>
                     </div>
@@ -152,6 +165,7 @@
                         <div>
                             局部造型：请选择您选择最吸引眼球/视觉冲击的局部造型
                         </div>
+
 
 
                     </div>
@@ -197,11 +211,14 @@
         function wishPicType(num,ele){
             $(".left_menu").removeClass("on");
 
-            console.log(ele)
+            console.log(ele);
             $(".typeContainer button:eq("+num+")").addClass("on");
         }
 
     </script>
+    <script src="../../../common/js/brandService.js"></script>
+    <script src="../../../common/js/imageService.js"></script>
+    <script src="../js/page_createPanel.js"></script>
 </body>
 </html>
 

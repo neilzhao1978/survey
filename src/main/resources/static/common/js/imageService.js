@@ -65,7 +65,7 @@ function ImageService(){
                 type:type
             },
             cache:false,
-            type:"post",
+            type:"get",
             success:onSuccess,
             error:this.onError
         })
