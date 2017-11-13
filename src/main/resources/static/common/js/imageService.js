@@ -54,7 +54,7 @@ function ImageService(){
     };
 
     /*#按类型列出所有激发想象图像images  type = INDUSTRY,ANIMAL,BUILDING,ART,OTHERS*/
-    service.getAllImages=function(page,type,onSuccess){
+    service.getAllImages=function(page,type,beforeSend,onSuccess){
         var temp=this.url+"/getAllImages";
         var pageStr=JSON.stringify(page);
         $.ajax({
@@ -66,24 +66,27 @@ function ImageService(){
             },
             cache:false,
             type:"get",
+            beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError
         })
     };
     /*分页多条件排序查询摄像机信息*/
-    service.uploadImage=function(type,file,onSuccess){
-        var temp=this.url+"/getCameraInfoList";
+    service.uploadImage=function(formID,onSuccess){
+        var temp=this.url+"/uploadImage";
+        var formIdStr="#"+formID;
+        var formdata=new FormData($(formIdStr)[0]);
         $.ajax({
-            url:temp,
-            data:{
-                type:type,
-                file:file
-            },
+            url: temp,
+            type: 'post',
+            data: formdata,
+            async:false,
             cache:false,
-            type:"get",
-            success:onSuccess,
-            error:this.onError
-        })
+            contentType: false,
+            processData: false,
+            success: onSuccess,
+            error:common.onError
+        });
     };
 
 

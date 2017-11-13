@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -98,6 +100,9 @@ public class ImageController {
     @Value("${web.upload-path}")
     private String path;
 	
+    @Value("${server.port}")
+    private String port;
+    
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
 	@ResponseBody
 	public RestResponseEntity<Void> handleFileUpload(HttpServletRequest request) {
@@ -107,6 +112,14 @@ public class ImageController {
 		String desc = params.getParameter("desc");
 		MultipartFile file = null;
 		BufferedOutputStream stream = null;
+		
+		 String host = null;
+	        try {
+	            host = "192.168.0.247";//TODO
+	        } catch (Exception e) {
+	        	return ResponseGenerator.createFailResponse("Fail to upload image."+" Cannnot get host ip", ErrorCode.DB_ERROR);
+	        }
+		
 		for (int i = 0; i < files.size(); ++i) {
 			
 			file = files.get(i);
@@ -131,7 +144,8 @@ public class ImageController {
 					image.setImageId(imageUUID);
 					image.setImageName(file.getOriginalFilename());
 					image.setImageType(type);
-					image.setImageUrl(path+fileName);
+					String url = "http://"+host+":"+port+"/static/images/";
+					image.setImageUrl(url+fileName);
 					image.setImageDesc(desc);
 					Image b = imageRepo.save(image);
 					
