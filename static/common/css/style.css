@@ -1,0 +1,138 @@
+/*! @file 格式注释
+=============================================
+* Copyright (c) 2015,湖南华南光电科技股份有限公司
+* 【文件名】    common.css
+* 【文件实现功能】 运维监控视频诊断运维公共样式
+* 【相关文件】  无
+* 【功能模块和目的】通用
+* 【开发者及日期】 技术中心  2015.12.07
+* 【版本信息】   0.1
+* 【备注】 <其它说明>
+==============================================
+ * 【更改记录】
+ * 日 期 版本 修改人 修改内容
+ * YYYY/MM/DD X.Y <作者或修改者名> <修改内容>
+============================================ * /
+html{
+	width:100%;
+	height:100%;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    text-align: center;
+	width:100%;
+	height:100%;
+	background-color:white;
+/*    overflow:auto;*/
+/*    height:500px;*/
+    /*此处对容器设置了高度，一般不建议对容器设置高度，一般使用overflow:auto;属性设置容器根据内容自适应高度，如果不指定高度或不设置自适应高度，容器将默认为1个字符高度，容器下方的布局元素（footer）设置margin-top:属性将无效*/
+    margin:0;/*此处讲解margin的用法，设置content与上面header元素之间的距离*/
+}
+
+/*必填项的显示颜色，一般多是显示红色星号*/
+
+
+strong { font-weight: 500; }
+
+/*a, a:hover, a:focus {
+	color: #de615e;
+	text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}*/
+
+#bumenshu{
+	width:50%;
+	text-align:center;
+}
+
+h1, h2 {
+	margin-top: 10px;
+	font-size: 38px;
+    font-weight: 100;
+    color: #555;
+    line-height: 50px;
+}
+
+h3 {
+	font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+}
+
+img { max-width: 100%; }
+
+/*::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
+::selection { background: #de615e; color: #fff; text-shadow: none; }*/
+
+#Header{
+    height:45px;
+	font-size:30px;
+	background-color:lighter;
+
+}
+
+#logo{
+    padding-left:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+	background-image:url(../img/logo.png);
+    background-repeat:no-repeat;
+	opacity:100%;
+	z-index:9999;
+}
+
+#Footer{
+    height:60px;
+    margin-bottom:30px;
+	background-image:url(../img/copyright.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+    z-index:9999;
+}
+
+#top-menu-a{
+	
+	font-size:18px;
+	text-align:center;
+}
+
+#2nd-menu{
+	
+	width:100%;
+	text-align:left;
+}
+
+.Clear{
+    clear:both;
+}
+
+.logo{
+	width:100%;
+	height:48px;
+	background-color:#005bac;
+	background-image:url(../img/logo.png);
+	background-repeat:no-repeat;
+}
+
+
+
+/***** Media queries *****/
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (max-width: 767px) {
+	
+	.inner-bg { padding: 60px 0 110px 0; }
+
+}
+
+@media (max-width: 415px) {
+	
+	h1, h2 { font-size: 32px; }
+
+}
+

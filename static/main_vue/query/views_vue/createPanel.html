@@ -1,0 +1,207 @@
+<!--
+! @file 格式注释
+==============================================
+* Copyright (c) 2015,湖南华南光电科技股份有限公司
+* 【文件名】    hn_dev_cameraAndVqd.html
+* 【文件实现功能】 监控点视频质量诊断实时结果
+*               监控点视频质量诊断历史结果
+* 【相关文件】    见本文件相关引用
+* 【功能模块和目的】监控点视频质量运维
+* 【开发者及日期】 技术中心 郭平 2015.12.08
+* 【版本信息】   0.1
+* 【备注】 <其它说明>
+==============================================
+* 【更改记录】
+* 日 期 版本 修改人 修改内容
+* YYYY/MM/DD X.Y <作者或修改者名> <修改内容>
+2016/03/14 ?.? 芦海涛 改变为工单处理添加功能：1、点击某一行弹出窗口，2、完善窗口内容
+==============================================
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>新建问卷</title>
+    <link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/bootstrap/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/icon.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../../common/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/page.css" />
+    <script type="text/javascript" src="../../../common/lib/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../common/lib/easyui/jquery.easyui.min.js"></script>
+    <script src="../../../common/js/utils.js"></script>
+    <script src="../../../common/js/mask.js"></script>
+    <script src="../../../common/lib/vue.js"></script>
+
+    <style>
+        .marginTop{
+            margin-top:15px;
+        }
+
+        .queryContainer{
+            margin:20px auto;
+            width:100%;
+            height:30px
+        }
+        .fit{
+            width:80%;height:100%
+        }
+
+        .tableContainer{
+            margin:10px auto;
+            width:100%;
+            height:80%
+        }
+
+        .pad20{
+            padding:20px
+        }
+        .left_menu{
+            align:center;
+            vertical-align: middle;
+            width:100%;
+            height:50px;
+            font-size: 16px;
+            font-weight: 900;
+        }
+        .on{
+            background-color:red
+        }
+    </style>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'center',border:false">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north'" style="text-align:center;overflow:hidden">
+                <a class="easyui-linkbutton" data-options="size:'large'" onclick="window.location='queryList.html'">返回列表</a>
+                <a class="easyui-linkbutton" data-options="size:'large'">问卷设计</a>
+                <a class="easyui-linkbutton" data-options="size:'large'">保存问卷</a>
+            </div>
+            <div data-options="region:'center'">
+                <div class="easyui-tabs" data-options="fit:true">
+                    <div title="基本设置" class="pad20">
+                        <span>问卷标题</span>
+                        <div style="width:100%;height:30px">
+                            <input id="name" class="easyui-textbox" style="width:100%"/>
+                        </div>
+                        <span>问卷描述</span>
+                        <div style="width:100%;height:200px">
+                            <input id="description" class="easyui-textbox" data-options="multiline:true" style="width:100%;height:80%"/>
+                        </div>
+                        <span>时间</span>
+                        <div style="width:100%;height:100px">
+                            <input id="time" class="easyui-datebox"/>
+                        </div>
+
+                    </div>
+                    <div title="选择品牌"  class="pad20">
+                        <label> 用户选择上限：<input class="easyui-numberspinner" /></label>
+                        <div id="brandContainer">
+
+                        </div>
+                    </div>
+                    <div title="选择产品图片"   class="pad20">
+
+                    </div>
+                    <div title="上传意向图片">
+                        <div class="easyui-layout" data-options="fit:true">
+                            <div data-options="region:'west',width:200" class="typeContainer">
+                                <button class="left_menu on" onclick="wishPicType(0,this)">工业产品类（）</button>
+                                <button class="left_menu" onclick="wishPicType(1,this)">动物类（）</button>
+                                <button class="left_menu" onclick="wishPicType(2,this)">建筑类（）</button>
+                                <button class="left_menu" onclick="wishPicType(3,this)">艺术类（）</button>
+                                <button class="left_menu" onclick="wishPicType(4,this)">其他类（）</button>
+                            </div>
+                            <div data-options="region:'center'" class="pad20">
+                                <label>题目类型：<input id="questionType" class="easyui-combobox"/></label>
+                                <label>用户选择上限：<input id="" class="easyui-numberspinner"/></label>
+                                <br/>
+                                <hr/>
+                                <br/>
+
+                                <button class="easyui-linkbutton" data-options="size:'normal'">上传图片</button>
+                                <button class="easyui-linkbutton" data-options="size:'normal'">图库</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div title="预览发布"   class="pad20">
+                        <h3 id="preview_queryName" style="margin-left:45%">2017*****问卷</h3>
+                        <div>
+                            为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您得参与！
+                            <br/>
+                            现在我们就马上开始吧！
+                        </div>
+                        <br/>
+                        <div>
+                            <label>姓名：<input class="easyui-textbox" /></label>
+                            <label>职业类别：<input id="professional_category" class="easyui-combobox" /></label>
+                        </div>
+
+                        <br/>
+                        <div>
+                            品牌：请选择您觉得最符合行业标杆的品牌，不超过6个
+                        </div>
+
+                        <br/>
+                        <div>
+                            整体造型：请选择您选择最吸引眼球/视觉冲击的造型
+                        </div>
+
+                        <br/>
+                        <div>
+                            局部造型：请选择您选择最吸引眼球/视觉冲击的局部造型
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div data-options="region:'south',border:false">
+
+    </div>
+    <div data-options="region:'east',border:false" style="width:10%">
+
+    </div>
+    <div data-options="region:'west',border:false" style="width:10%">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#questionType").combobox({
+                valueField:'id',
+                textField:'text',
+                editable:false,
+                data:[
+                    {id:'0',text:'单选'},
+                    {id:'1',text:'多选'}
+                ]
+            });
+
+            $("#professional_category").combobox({
+                valueField:'id',
+                textField:'text',
+                editable:false,
+                data:[
+                    {id:'0',text:'技术'},
+                    {id:'1',text:'管理'}
+                ]
+            })
+        });
+
+        function wishPicType(num,ele){
+            $(".left_menu").removeClass("on");
+
+            console.log(ele)
+            $(".typeContainer button:eq("+num+")").addClass("on");
+        }
+
+    </script>
+</body>
+</html>
+
