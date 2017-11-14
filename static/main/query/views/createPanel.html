@@ -18,7 +18,6 @@
             width:30px;
             height:30px
         }
-
         .brandProductImg{
             width:200px;
             height:80px
@@ -26,7 +25,6 @@
         .fr{
             float:right
         }
-
         .mainTabPanel{
             height:500px;padding:20px;overflow-y: scroll
         }
@@ -40,39 +38,40 @@
     <![endif]-->
 </head>
 <body>
+
 <!--<h1>你好，世界！</h1>-->
-<div class="container"  style="border:1px solid black">
+<div class="container"  style="border:1px solid black;margin-top:20px">
     <div class="row" style="padding:5px">
         <div class="col-md-4" align="left">
-            <button type="button" class="btn btn-primary btn-lg">返回列表</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="returnList()">返回列表</button>
         </div>
         <div class="col-md-4" align="center">
-            <button type="button" class="btn btn-primary btn-lg">问卷设计</button>
+            <span type="text" class="btn btn-default btn-lg" style="border:0">问卷设计</span>
         </div>
-        <div class="col-md-4" align="right">
-            <button type="button" class="btn btn-primary btn-lg">保存问卷</button>
+        <div class="col-md-4" align="right" id="saveQueryCon">
+            <button type="button" class="btn btn-primary btn-lg" id="saveQuery">保存问卷</button>
         </div>
-        <div class="col-md-4 hidden" align="right">
-            <button type="button" class="btn btn-primary btn-lg">退出</button>
+        <div class="col-md-4" align="right"  id="releaseQueryCon">
+            <button type="button" class="btn btn-primary btn-lg" id="releaseQuery">发布问卷</button>
         </div>
 
     </div>
     <div class="row">
         <ul id="myTab" class="nav nav-tabs" >
             <li class="active">
-                <a href="#basicSetting" data-toggle="tab">基础配置</a>
+                <a href="#basicSetting" data-toggle="tab" onclick="tabClick(0)">基础配置</a>
             </li>
             <li>
-                <a href="#brand" data-toggle="tab">品牌选择</a>
+                <a href="#brand" data-toggle="tab" onclick="tabClick(1)">品牌选择</a>
             </li>
             <li>
-                <a href="#product" data-toggle="tab">产品图片</a>
+                <a href="#product" data-toggle="tab" onclick="tabClick(2)">产品图片</a>
             </li>
             <li>
-                <a href="#desireImg" data-toggle="tab">意向图片</a>
+                <a href="#desireImg" data-toggle="tab" onclick="tabClick(3)">意向图片</a>
             </li>
             <li>
-                <a href="#preview" data-toggle="tab">发布预览</a>
+                <a href="#preview" data-toggle="tab" onclick="tabClick(4)">发布预览</a>
             </li>
         </ul>
         <div id="CreateQuery" class="tab-content">
@@ -101,12 +100,12 @@
                         <input type="text" class="form-control col-lg-2" placeholder="" v-model="brandLimit">
                     </div>
                 </form>
-                <table id="brandContainer" style="margin:10px auto;display:none"></table>
+                <!--<table id="brandContainer" style="margin:10px auto;display:none"></table>-->
 
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4" v-for="brand in allBrand"  v-cloak>
-                            <input type="checkbox" class="brandChoiceChk" v-bind:alt="brand.brandId" v-on:click='doCheck'/>
+                            <input type="checkbox" class="brandChoiceChk"  v-model="brand.checked" v-bind:alt="brand.brandId" v-on:click='doCheck'/>
                             <img class="brandImg" v-bind:src="brand.brandIconUrl" />
                             <!--<button class="fr btn btn-default" v-on:click='cancelSelect'>取消选择</button>-->
                             <!--<button class="fr btn btn-default" v-on:click='selectAll'>全选</button>-->
@@ -136,12 +135,12 @@
                     <div class="panel panel-default" v-for="brand in brandList"  v-cloak>
                         <div class="panel-heading">
                             <img class="brandImg" v-bind:src="brand.brandIconUrl" />
-                            <button class="fr btn btn-default" v-on:click='cancelSelect'>取消选择</button>
-                            <button class="fr btn btn-default" v-on:click='selectAll'>全选</button>
+                            <button class="fr btn btn-default" v-bind:name="brand.brandId" v-on:click='cancelSelect'>取消选择</button>
+                            <button class="fr btn btn-default" v-bind:name="brand.brandId" v-on:click='selectAll' >全选</button>
                         </div>
                         <div class="panel-body" >
                             <div class="col-lg-3" v-for="pro in brand.product">
-                                <input type="checkbox" class="brandChoiceChk" v-bind:alt="brand.brandId" v-on:click='doCheck_pro'>
+                                <input type="checkbox" class="brandChoiceChk" v-model="pro.checked" v-bind:alt="brand.brandId" v-on:click='doCheck_pro'>
                                 <img class="brandProductImg" v-bind:src="pro.imageUrl">
                             </div>
                         </div>
@@ -182,6 +181,7 @@
                                     <div class="col-lg-4">
                                         <button class="btn btn-default" onclick="openImgUpLoadWin()">上传图片</button>
                                         <button class="btn btn-default" onclick="">图库</button>
+                                        <button class="btn btn-default" onclick="">清空</button>
                                     </div>
                                 </div>
                             </div>
@@ -409,6 +409,29 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+<div id="saveAlert" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">保存提示</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" align="center">
+                    <label for="" class="col-sm-12 control-label">是否返回前保存更改？</label>
+                    <label for="" class="col-sm-12 control-label">如果不保存，您的更改将会丢失。</label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(1)">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -418,11 +441,13 @@
 <script src="../../../common/js/utils.js"></script>
 <script src="../../../common/js/brandService.js"></script>
 <script src="../../../common/js/imageService.js"></script>
+<script src="../../../common/js/surveyService.js"></script>
 <script>
     window.onload = function () {
         new uploadPreview({UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow"});
     }
 </script>
+
 <!--<script type="text/x-template" id="product-template">-->
     <!--<div class="container-fluid">-->
         <!--<div class="panel panel-default" v-for="brand in brandList">-->
@@ -440,7 +465,7 @@
     <!--</div>-->
 <!--</script>-->
 
-<script src="../js/page_createPanel_BS.js"></script>
+<script src="../js/page_createPanel.js"></script>
 <script src="../js/page_createPanel_vue.js"></script>
 
 

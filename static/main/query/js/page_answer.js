@@ -2,7 +2,7 @@
 var brandService=BrandService();
 var imageService=ImageService();
 var surveyService=SurveyService();
-
+var answerService=AnswerService();
 var c=0;
 var _c=0;
 
@@ -20,28 +20,28 @@ var brandIds=[];
 
 var INS_IMG_TYPE = ["INDUSTRY","ANIMAL","BUILDING","ART","OTHERS"];
 
-var localDb={
-    brand:[
-        //{
-        //    brandId:'',
-        //    brandIconUrl:'',
-        //    brandName:'',
-        //    desc:'',
-        //    product:[
-        //        {
-        //            imageId:'',
-        //            brandIconUrl:'',
-        //            imageName:'',
-        //            imageType:'',
-        //            imageDesc:''
-        //        },
-        //        {
-        //
-        //        }
-        //    ]
-        //}
-    ]
-};
+//var localDb={
+//    brand:[
+//        //{
+//        //    brandId:'',
+//        //    brandIconUrl:'',
+//        //    brandName:'',
+//        //    desc:'',
+//        //    product:[
+//        //        {
+//        //            imageId:'',
+//        //            brandIconUrl:'',
+//        //            imageName:'',
+//        //            imageType:'',
+//        //            imageDesc:''
+//        //        },
+//        //        {
+//        //
+//        //        }
+//        //    ]
+//        //}
+//    ]
+//};
 
 var surveyId=common.GetRequest();
 var surveyStatus=1;
@@ -70,7 +70,7 @@ function loadSurveyInfo(){
                 //
                 CreateQuery.qName=list.name;
                 CreateQuery.qDesc=list.desc;
-                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime)
+                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -168,18 +168,6 @@ function loadProductImg(brandId){
         if(data.result){
             var list=data.data;
 
-            //将产品信息保存于localDb.brand中
-            for(var i=0;i<localDb.brand.length;i++){
-                if(localDb.brand[i].brandId==brandId){
-                    localDb.brand[i].product=list;
-                    break
-                }
-            }
-            //var htmlStr="";
-            //for(i=0;i<list.length;i++){
-            //    htmlStr+='<div class="col-lg-3"><input type="checkbox" class="brandChoiceChk" /><img class="brandProductImg" id="'+list[i].imageId+'" src="'+list[i].imageUrl+'"/></div>';
-            //}
-            //$("#_"+brandId).append('<div class="panel-body">'+htmlStr+'</div></div>');
             for(i=0;i<CreateQuery.brandList.length;i++){
                 if(CreateQuery.brandList[i].brandId==brandId){
                     CreateQuery.brandList[i].product=list;
@@ -245,6 +233,7 @@ function loadInpireImg_all(){
         );
     }
 }
+
 
 function submitPic(formID){
     if(formID=="form1"){
@@ -376,6 +365,26 @@ function doSaveDraft(){
     })
 }
 
+//提交answer
+function submitAnswer(){
+    var replyerName=CreateQuery.answer_replyerName;
+    var replyerPosition=CreateQuery.answer_replyerPosition;
+    var replyTime=common.dateFormatter_inverse(new Date());
+    var brands=CreateQuery.answer_brand;
+    var images=CreateQuery.answer_image;
+    console.log(replyTime);
+    console.log(replyerName);
+    console.log(replyerPosition);
+    console.log(surveyId);
+    console.log(brands);
+    console.log(images);
+    answerService.addAnswer(brands,images,replyTime,replyerName,replyerPosition,surveyId,function(){},function(data){
+        if(data.result){
+            alert(data.description);
+        }
+    })
+
+}
 
 
 //页面解决json中$ref问题

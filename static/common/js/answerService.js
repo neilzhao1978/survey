@@ -40,23 +40,30 @@ function AnswerService(){
     };
 
     /*  增加answer*/
-    service.addAnswer=function(answerId,brands,images,replayerName,replayerPosition,replyTime,replyerName,replyerPosition,survey,onSuccess){
+    service.addAnswer=function(brands,images,replyTime,replyerName,replyerPosition,surveyId,beforeSend,onSuccess){
         var temp=this.url+"/addAnswer";
+        var allObj={
+            brands:brands,
+            images:images,
+            replyTime:replyTime,
+            replyerName:replyerName,
+            replyerPosition:replyerPosition,
+            survey:{
+                surveyId:surveyId
+            }
+        };
+        var allObjStr=JSON.stringify(allObj);
+        console.log(allObjStr);
         $.ajax({
-            url:temp,
-            data:{
-                answerId:answerId,
-                brands:brands,
-                images:images,
-                replayerName:replayerName,
-                replayerPosition:replayerPosition,
-                replyTime:replyTime,
-                replyerName:replyerName,
-                replyerPosition:replyerPosition,
-                survey:survey
+            headers:{
+                'Accept':"*/*",
+                'Content-Type':"application/json"
             },
+            url:temp,
+            data:allObjStr,
             cache:false,
             type:"post",
+            beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError
         })

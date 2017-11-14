@@ -21,6 +21,25 @@ var lastAlertContent="";
 var MIN_ALERT_TIME_INTERVAL=3000;
 var imageHost="http://192.168.0.123:8080/Img";
 
+//Array函数原型加入indexOf方法：根据数据元素的值获取其所在的位置index     PS：Global.js中也有
+Array.prototype.indexOf=function(val){
+    for(var i=0;i<this.length;i++){
+        if(this[i]==val)return i;
+    }
+    return -1;
+};
+
+//Array函数原型加入remove方法：从数组中删除指定的元素     PS：Global.js中也有
+Array.prototype.remove=function(val){
+    var index=this.indexOf(val);
+    if(index==-1){
+
+    }else{
+        this.splice(index,1)
+
+    }
+};
+
 Array.prototype.del=function(n) {
 //n表示第几项，从0开始算起。
 //prototype为对象原型，注意这里为对象增加自定义方法的方法。
@@ -129,7 +148,22 @@ var common={
         }
         return value;
     },
-
+    //年月日时分秒转换成 毫秒
+    dateFormatter_inverse:function(value,rec,index){
+        if(value!=undefined){
+            var dateTimeMilliSecond=Date.parse(value);
+            if(isNaN(dateTimeMilliSecond)){
+                var new_dateTimeMilliSecond=value.replace('-','/');
+                new_dateTimeMilliSecond=new_dateTimeMilliSecond.replace('年','/');
+                new_dateTimeMilliSecond=new_dateTimeMilliSecond.replace('月','/');
+                new_dateTimeMilliSecond=new_dateTimeMilliSecond.replace('日','/');
+                return (new Date(new_dateTimeMilliSecond)).getTime();
+            }else{
+                return dateTimeMilliSecond
+            }
+        }
+        return value;
+    },
     getCurrentTime:function(){
 
     var obj=new Date();
@@ -241,6 +275,17 @@ var common={
         //})
 
         alert(msg)
+    },
+    GetRequest:function(){
+        var url = location.search;
+        var index=url.indexOf("?");
+
+        if (index != -1) {
+            var str =url.substr(index+1);
+        }else{
+            str =""
+        }
+        return str
     }
 
 };

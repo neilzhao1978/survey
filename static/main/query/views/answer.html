@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../../../common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .brandImg{
+            width:200px;
+            height:80px
+        }
+        .brandChoiceChk{
+            width:30px;
+            height:30px
+        }
+
+        .brandProductImg{
+            width:200px;
+            height:80px
+        }
+        .fr{
+            float:right
+        }
+
+        .mainTabPanel{
+            height:500px;padding:20px;overflow-y: scroll
+        }
+
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--<h1>你好，世界！</h1>-->
+<div id="CreateQuery" class="container"  style="border:1px solid black">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h2 style="text-align:center;font-weight:900">{{qName}}</h2>
+            <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧</h4>
+            <hr/>
+            <div class="form-group">
+                <label class="col-lg-1 col-lg-offset-1" >姓名：</label>
+                <div class="col-lg-4">
+                    <input  class="form-control" v-model="answer_replyerName" placeholder="请输入您的姓名..." />
+                </div>
+                <label class="col-lg-1">职业：</label>
+                <div class="col-lg-4">
+                    <select class="form-control" v-model="answer_replyerPosition">
+                        <option value="技术类">技术类</option>
+                        <option value="管理类">管理类</option></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            品牌：请选择您觉得最符合行业标杆的品牌，最多选{{brandLimit}}个
+        </div>
+        <div class="panel-body" >
+            <div class="col-lg-3" v-for="brand in brandList">
+                <input type="checkbox" class="brandChoiceChk" v-bind:id="brand.brandId" v-bind:alt="brand.brandId" v-on:click='answer_doCheck_brand'>
+                <img class="brandImg" v-bind:src="brand.brandIconUrl">
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            整体造型：请选择您认为最吸引眼球/视觉冲击的造型
+        </div>
+        <div class="panel-body" >
+            <div class="panel-body" >
+                <div class="col-lg-3" v-for="pro in selProList">
+                    <input type="checkbox" class="brandChoiceChk"  v-bind:id="pro.imageId" v-bind:alt="pro.imageId" v-on:click="answer_doCheck_product"/>
+                    <img class="brandProductImg" v-bind:src="pro.imageUrl">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default" v-for="type in inspire_type">
+        <div class="panel-heading">
+            {{type.typeName}} 请选择一张{{type.typeName}}图片作为一项，能代表您公司的产品
+        </div>
+        <div class="panel-body" >
+            <div class="panel-body" >
+                <div class="row">
+                    <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px">
+                        <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-on:click='answer_doCheck_inspireImg'>
+                        <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
+                        <!--<span>{{typeImg.imageDesc}}</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" align="center">
+        <button class="btn btn-primary" onclick="submitAnswer()">提交</button>
+    </div>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../common/lib/vue.js"></script>
+
+<script src="../../../common/js/utils.js"></script>
+<script src="../../../common/js/answerService.js"></script>
+<script src="../../../common/js/brandService.js"></script>
+<script src="../../../common/js/imageService.js"></script>
+<script src="../../../common/js/surveyService.js"></script>
+
+<!--<script type="text/x-template" id="product-template">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="panel panel-default" v-for="brand in brandList">-->
+            <!--<div class="panel-heading">-->
+                <!--<img class="brandImg" v-bind:src="brand.url" />-->
+                <!--<button class="fr">全选</button><button class="fr">取消选择</button>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="panel-body" v-for="product in brand.productList">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-lg-3">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input type="checkbox" class="brandChoiceChk">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img class="brandProductImg" v-bind:src="product.url">&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</script>-->
+
+<script src="../js/page_answer.js"></script>
+<script src="../js/page_answer_vue.js"></script>
+
+
+
+</body>
+</html>

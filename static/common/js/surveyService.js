@@ -39,50 +39,65 @@ function SurveyService(){
     };
 
     /*  增加、更新问卷*/
-    service.updateSurvey=function(name,releaseTime,status,surveyId,brands,images,onSuccess){
+    service.updateSurvey=function(name,releaseTime,status,surveyId,brands,images,beforeSend,onSuccess){
         var temp=this.url+"/updateSurvey";
-        var creatorStr=JSON.stringify({"email":"niel@123.com"});
-        var brandsStr=JSON.stringify(brands);
-        var imagesStr=JSON.stringify(images);
-        $.ajax({
-            url:temp,
-            data:{
-                creator:creatorStr,
-                name:name,
-                releaseTime:releaseTime,
-                status:status,
-                surveyId:surveyId,
-                brands:brandsStr,
-                images:imagesStr
+        //var creatorStr=JSON.stringify({"email":"niel@123.com"});
+        //var brandsStr=JSON.stringify(brands);
+        //var imagesStr=JSON.stringify(images);
+        var allObj={
+            creator:{"email":"niel@123.com"},
+            name:name,
+            releaseTime:releaseTime,
+            status:status,
+            surveyId:surveyId,
+            brands:brands,
+            images:images
 
+        };
+        var allObjStr=JSON.stringify(allObj);
+        $.ajax({
+            headers:{
+                'Accept':"*/*",
+                'Content-Type':"application/json"
             },
+            url:temp,
+            data:allObjStr,
             cache:false,
             type:"post",
+            beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError
         })
     };
 
     /*  删除问卷*/
-    service.deleteSurvey=function(name,releaseTime,status,surveyId,onSuccess){
+    service.deleteSurvey=function(rowInfo,beforeSend,onSuccess){
         var temp=this.url+"/deleteSurvey";
-        var creatorStr=JSON.stringify({"email":"niel@123.com"});
+        var allObj={
+            creator:{"email":"niel@123.com"},
+            name:rowInfo.name,
+            releaseTime:rowInfo.releaseTime,
+            status:rowInfo.status,
+            surveyId:rowInfo.surveyId
+        };
+        var allObjStr=JSON.stringify(allObj);
+
         $.ajax({
             url:temp,
-            data:{
-                creator:creatorStr,
-                name:name,
-                releaseTime:releaseTime,
-                status:status,
-                surveyId:surveyId
-            },
+            data:allObjStr,
             cache:false,
             type:"post",
+            beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError
         })
     };
 
+    service.getQRcode=function(){
+        var temp=this.url+"/getQRcode"+"?pathStringCode=adfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
+        return temp
+
+    };
 
   /*获取结果*/
     service.getSurveyResult=function(ids,onSuccess){
@@ -102,7 +117,7 @@ function SurveyService(){
     };
 
   /*获取明细*/
-    service.getSurveyDetail=function(surveyId,onSuccess){
+    service.getSurveyDetail=function(surveyId,beforeSend,onSuccess){
         var temp=this.url+"/getSurveyDetail";
         $.ajax({
 
@@ -112,6 +127,7 @@ function SurveyService(){
             },
             cache:false,
             type:"get",
+            beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError
         })

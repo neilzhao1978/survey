@@ -77,9 +77,58 @@ var CreateQuery = new Vue({
         ],
         selProList:[
 
+        ],
+        answer_replyerName:"",
+        answer_replyerPosition:'技术类',
+        answer_brand:[
+
+        ],
+        answer_image:[
+
         ]
+
     },
     methods: {
+        answer_doCheck_brand:function(){
+            var obj=event.currentTarget;
+            obj.checked?c++:c--;
+            if(c>CreateQuery.brandLimit){
+                obj.checked=false;
+                alert("已达到选择上限！");
+                c--;
+            }else{
+                //选中的品牌信息保存
+                CreateQuery.answer_brand.push(
+                    {
+                        //品牌id
+                        brandId:obj.id
+                    }
+                );
+            }
+        },
+        answer_doCheck_product:function(){
+            var obj=event.currentTarget;
+            //选中的品牌信息保存
+            CreateQuery.answer_image.push(
+                {
+                    //图片id
+                    imageId:obj.id
+                }
+            );
+        },
+        answer_doCheck_productDetail:function(){
+
+        },
+        answer_doCheck_inspireImg:function(){
+            var obj=event.currentTarget;
+            //选中的品牌信息保存
+            CreateQuery.answer_image.push(
+                {
+                    //图片id
+                    imageId:obj.id
+                }
+            );
+        },
         //品牌选择tab中的checkbox 选中、取消选中方法
         doCheck:function (){
             var obj=event.currentTarget;
