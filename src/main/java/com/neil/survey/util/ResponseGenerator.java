@@ -1,6 +1,16 @@
 package com.neil.survey.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 
 /**
  * @author Administrator
@@ -190,4 +200,45 @@ public class ResponseGenerator<T> {
 	public static RestResponseEntity<Void> createSuccessResponse(String string) {
 		return createSuccessResponse(string, 0, null);
 	}
+	
+    public static ResponseEntity<byte[]> createQRImageResponse(String fileName) throws IOException
+    {
+        HttpStatus statusCode = HttpStatus.OK;
+        
+        File file = new File(fileName);  
+        long fileSize = file.length();  
+        
+        if (fileSize > Integer.MAX_VALUE) { 
+        	logger.error("file is too big.");
+            return null;  
+        }  
+
+        FileInputStream fi = new FileInputStream(file);  
+        byte[] buffer = new byte[(int) fileSize];  
+        int offset = 0;  
+        int numRead = 0;  
+        while (offset < buffer.length  
+        && (numRead = fi.read(buffer, offset, buffer.length - offset)) >= 0) {  
+            offset += numRead;  
+        }  
+        // 确保所有数据均被读取  
+        if (offset != buffer.length) { 
+        	logger.error("read file fail.");
+        	return null;
+        }  
+        fi.close();  
+
+        HttpHeaders headers = new HttpHeaders();
+        try
+        {
+            fileName = URLEncoder.encode(fileName + ".png", "utf-8");
+        } catch (UnsupportedEncodingException e)
+        {
+            logger.error("", e);
+        }
+        headers.setContentType(MediaType.parseMediaType("image/png"));
+        headers.set("Content-Disposition", "attachment;fileName=" + fileName);
+        return new ResponseEntity<byte[]>(buffer, headers, statusCode);
+    }
+	
 }

@@ -1,5 +1,8 @@
 package com.neil.survey.controller;
 
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,6 +17,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +29,12 @@ import org.springframework.web.client.RestTemplate;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import com.neil.survey.module.Answer;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.BrandResp;
@@ -173,6 +183,25 @@ public class SurveyController {
 		}else {
 			return ResponseGenerator.createFailResponse("Fail to get result list.", ErrorCode.DB_ERROR);
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getQRcode", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> getQRcode(
+			@RequestParam(value = "pathStringCode", required = true) String pathStringCode) throws WriterException, IOException{
+        String filePath = "./";  
+        String fileName = UUID.randomUUID().toString().replaceAll("-", "");
+
+        String content = pathStringCode;
+        int width = 300; // 图像宽度  
+        int height = 300; // 图像高度  
+        String format = "png";// 图像类型  
+        Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();  
+        hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");  
+        BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width, height, hints);// 生成矩阵  
+        Path path = FileSystems.getDefault().getPath(filePath, fileName);  
+        MatrixToImageWriter.writeToPath(bitMatrix, format, path);// 输出图像  
+        return ResponseGenerator.createQRImageResponse(path.toString());
 	}
 	
 	@ResponseBody

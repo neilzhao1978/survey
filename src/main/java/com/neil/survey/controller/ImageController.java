@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -103,6 +107,9 @@ public class ImageController {
     @Value("${server.port}")
     private String port;
     
+    @Value("${web.ip}")
+    private String ip;
+    
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
 	@ResponseBody
 	public RestResponseEntity<Void> handleFileUpload(HttpServletRequest request) {
@@ -113,12 +120,34 @@ public class ImageController {
 		MultipartFile file = null;
 		BufferedOutputStream stream = null;
 		
-		 String host = null;
-	        try {
-	            host = "192.168.0.247";//TODO
-	        } catch (Exception e) {
-	        	return ResponseGenerator.createFailResponse("Fail to upload image."+" Cannnot get host ip", ErrorCode.DB_ERROR);
-	        }
+		 String host = ip;
+		 
+//		Enumeration allNetInterfaces;
+//		try {
+//			allNetInterfaces = NetworkInterface.getNetworkInterfaces();
+//			InetAddress ip = null;
+//			while (allNetInterfaces.hasMoreElements()) {
+//				NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
+//				System.out.println(netInterface.getName());
+//				Enumeration addresses = netInterface.getInetAddresses();
+//				while (addresses.hasMoreElements()) {
+//					ip = (InetAddress) addresses.nextElement();
+//					if (ip != null && ip instanceof Inet4Address) {
+//						host = ip.getHostAddress();
+////						System.out.println("本机的IP = " + ip.getHostAddress());
+//					}
+//				}
+//			}
+//		} catch (Exception e1) {
+//			return ResponseGenerator.createFailResponse("Fail to upload image."+" Cannnot get host ip", ErrorCode.DB_ERROR);
+//		}
+
+		 
+//	        try {
+//	            host = "192.168.0.247";//TODO
+//	        } catch (Exception e) {
+//	        	return ResponseGenerator.createFailResponse("Fail to upload image."+" Cannnot get host ip", ErrorCode.DB_ERROR);
+//	        }
 		
 		for (int i = 0; i < files.size(); ++i) {
 			

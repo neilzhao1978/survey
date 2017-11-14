@@ -1,6 +1,7 @@
 package com.neil.survey.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -55,6 +56,12 @@ public class AnswerController {
 	@ResponseBody
 	@RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
 	public RestResponseEntity<Void> addCreator( @RequestBody Answer answer){
+		answer.setAnswerId(UUID.randomUUID().toString().replaceAll("-", ""));
+		Survey s = surveyRepo.getBySurveyId(answer.getSurvey().getSurveyId());
+		if(s!=null){
+			answer.setSurvey(s);
+		}
+			
 		Answer a = answerRepo.save(answer);
 		if(a!=null) {
 			return ResponseGenerator.createSuccessResponse("Add/update answer success.");
