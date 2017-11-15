@@ -7,7 +7,7 @@
 
 var wsHost='https:'==document.location.protocol?"wss://"+document.location.host+"/web":"ws://"+document.location.host+"/web";
 /*var docUrl=host+"/doc/index.html";*/
-var host="http://192.168.0.247:8000/api";
+var host="http://115.29.237.95:8000/api";
 var m={
     "tCollectTime":"T_COLLECT_TIME",
     "cCreateTime":"C_CREATE_TIME",
