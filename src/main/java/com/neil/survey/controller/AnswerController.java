@@ -3,6 +3,8 @@ package com.neil.survey.controller;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -26,6 +28,7 @@ import com.neil.survey.util.RestResponseEntity;
 
 @RestController
 @RequestMapping("/api/answerService")
+@Transactional
 public class AnswerController {
 	@Autowired
 	private SurveyRepository surveyRepo;
@@ -55,7 +58,7 @@ public class AnswerController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
-	public RestResponseEntity<Void> addCreator( @RequestBody Answer answer){
+	public RestResponseEntity<Void> addAnswer( @RequestBody Answer answer){
 		answer.setAnswerId(UUID.randomUUID().toString().replaceAll("-", ""));
 		Survey s = surveyRepo.getBySurveyId(answer.getSurvey().getSurveyId());
 		if(s!=null){

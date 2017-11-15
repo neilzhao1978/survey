@@ -2,7 +2,7 @@ package com.neil.survey.controller;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
-import java.nio.file.Path;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,11 +12,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +64,7 @@ import com.neil.survey.util.RestResponseEntity;
 
 @RestController
 @RequestMapping("/api/surveyService")
+
 public class SurveyController {
 	
 
@@ -79,11 +88,20 @@ public class SurveyController {
 	public RestResponseEntity<List<Survey>> getAllSurveys( @RequestParam(value = "page",required=true) PageEntity page){
 		
 		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
-		Page<Survey> surveys = surveyRepo.findAll(pageRequest);
+		Page<Survey> surveys = surveyRepo.findAll(new Specification<Survey> () {  
+			@Override
+			public Predicate toPredicate(Root<Survey> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+			    Path<String> namePath = root.get("status");  
+			    query.where(cb.notLike(namePath, "9")); //这里可以设置任意条查询条件
+
+				return null;
+			}  
+			     
+			  },pageRequest);
 
 		if(surveys!=null && surveys.getSize()>0) {
 			for(Survey s:surveys.getContent()) {
-//				s.setAnswers(null);
+//				s.setAnswers(null);==
 //				s.setBrands(null);
 //				s.setImages(null);
 //				s.getCreator().setSurveys(null);
@@ -109,13 +127,18 @@ public class SurveyController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.DELETE)
-	public RestResponseEntity<Void> deleteCreator( @RequestBody Survey survey){
+	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
+	public RestResponseEntity<Void> deleteSurvey( @RequestBody Survey survey){
 		try {	
 //			surveyRepo.delete(survey);
-			survey.setCreator(null);
-			surveyRepo.save(survey);
-			surveyRepo.delete(survey.getSurveyId());
+			Survey s = surveyRepo.findOne(survey.getSurveyId());
+			s.setStatus("9");//删除
+//			answerRepo.deleteBySurvey(s);
+//			s.setCreator(null);
+//			s.setBrands(null);
+//			s.setImages(null);
+			surveyRepo.save(s);//TODO 有问题。
+//			surveyRepo.deleteBySurveyId(s.getSurveyId());
 			return ResponseGenerator.createSuccessResponse("delete survey  success.");
 		}catch(Exception e) {			
 			return ResponseGenerator.createFailResponse("Fail to delete survey.", ErrorCode.DB_ERROR);
@@ -199,7 +222,7 @@ public class SurveyController {
         Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();  
         hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");  
         BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width, height, hints);// 生成矩阵  
-        Path path = FileSystems.getDefault().getPath(filePath, fileName);  
+        java.nio.file.Path path = FileSystems.getDefault().getPath(filePath, fileName);  
         MatrixToImageWriter.writeToPath(bitMatrix, format, path);// 输出图像  
         return ResponseGenerator.createQRImageResponse(path.toString());
 	}

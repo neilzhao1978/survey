@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,6 +46,7 @@ import com.neil.survey.util.RestResponseEntity;
 
 @RestController
 @RequestMapping("/api/imageService")
+@Transactional
 public class ImageController {
 
 	@Autowired
