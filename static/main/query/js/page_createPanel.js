@@ -50,6 +50,7 @@ $(document).ready(function(){
 
     loadInpireImg_all();
     $("#tab0").addClass("active");
+    $("#g_tab0").addClass("active");
     $("#releaseQueryCon").hide();
 
     loadSurveyInfo();
@@ -70,7 +71,7 @@ function loadSurveyInfo(){
                 //
                 CreateQuery.qName=list.name;
                 CreateQuery.qDesc=list.desc;
-                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime)
+                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -99,7 +100,26 @@ function loadSurveyInfo(){
                     delete list.brands[i].images
                 }
                 CreateQuery.brandList=list.brands;
-                CreateQuery.selProList=list.images;
+                //根据图片类型将其分类赋值于 CreateQuery.*
+                for(i=0;i<list.images.length;i++){
+                    //产品整体造型
+                    if(list.images[i].imageType=="WHOLE"){
+                        CreateQuery.selProList.push(list.images[i]);
+                    }
+                    //产品细节造型
+                    else if(list.images[i].imageType=="DETAIL"){
+                        CreateQuery.selProDetailList.push(list.images[i]);
+                    }
+                    //五种意向图片
+                    else{
+                        for(j=0;j<INS_IMG_TYPE.length;j++){
+                            if(list.images[i].imageType==INS_IMG_TYPE[j]){
+                                CreateQuery.inspire_type[j].imgList.push(list.images[i])
+                            }
+                        }
+                    }
+                    console.log(CreateQuery.inspire_type);
+                }
 
                 loadBrands();
             }
@@ -155,14 +175,8 @@ $("#releaseQuery").click(function(e){
     saveOrNot(1);
 });
 
-function saveBrandIds(){
-    var selectedBrand=$("#brandContainer input[type='checkbox']:checked");
-    for(var i=0;i<selectedBrand.length;i++){
-        brandIds.push(selectedBrand[i].id)
-    }
-    console.log(brandIds);
-}
 
+//根据brandId查找Product信息，并将其保存于CreateQuery.brandList.product中
 function loadProductImg(brandId){
     imageService.getProductImagesByBrandId(brandId,function(data){
         if(data.result){
@@ -192,24 +206,42 @@ function loadProductImg(brandId){
 
         }
     })
+}
 
+function loadProductDetail(productId){
+    imageService.getDetailImagesByParentId(productId,function(data){
+        if(data.result){
+            for(var i=0;i<data.data.length;i++){
+                CreateQuery.selProDetailList.push(data.data[i])
+            }
+            console.log("CreateQuery.selProDetailList");
+            console.log(CreateQuery.selProDetailList);
+            console.log("CreateQuery.selProList");
+            console.log(CreateQuery.selProList);
+        }
+        else{
+            alert(data.description)
+        }
+    })
 }
 
 function saveSurvey(){
     surveyService.updateSurvey()
 }
 var INSP_TAB_INDEX=0;
+var INSP_TAB_INDEX_GAL=0;
+
 $("#upload_inspire_type").val(INS_IMG_TYPE[INSP_TAB_INDEX]);
+
 function loadInpireImg(){
     //for(var i=0;i<INS_IMG_TYPE.length;i++){
-        imageService.getAllImages(page_inspireImg,INS_IMG_TYPE[INSP_TAB_INDEX],function(){},
+        imageService.getAllImages(page_inspireImg,INS_IMG_TYPE[INSP_TAB_INDEX_GAL],function(){},
             function(data){
                 if(data.result){
                     if(data.dataCount>0){
                         var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
-                        //console.log("获取的激发图片如下：");
-                        //console.log(data.data);
-                        CreateQuery.inspire_type[index].imgList=data.data;
+                        //CreateQuery.inspire_type[index].imgList=data.data;
+                        CreateQuery.gallery[index].imgList=data.data;
                         //激发图片信息如下
                     }else{
 
@@ -233,7 +265,10 @@ function loadInpireImg_all(){
                 if(data.result){
                     if(data.dataCount>0){
                         var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
-                        CreateQuery.inspire_type[index].imgList=data.data;
+                        //CreateQuery.inspire_type[index].imgList=data.data;
+                        CreateQuery.gallery[index].imgList=data.data;
+                        console.log("CreateQuery.gallery");
+                        console.log(CreateQuery.gallery)
                     }else{
 
                     }
@@ -266,6 +301,10 @@ function submitPic(formID){
 
 function openImgUpLoadWin(){
     $("#uploadInspireImgWin").modal('show');
+}
+
+function openGalleryWin(){
+    $("#galleryWin").modal('show');
 }
 
 var inspireImgDescArr=new Array(8);
@@ -313,6 +352,12 @@ function gettabindex(index){
     loadInpireImg();
 }
 
+//图库图片；点击不同的类，赋值index给INSP_TAB_INDEX_GAL
+function gettabindex_gallery(index){
+    INSP_TAB_INDEX_GAL=index;
+    loadInpireImg();
+}
+
 //问卷配置：主tab切换事件
 function tabClick(index){
     if(index==4){
@@ -344,7 +389,8 @@ function saveOrNot(flag){
 function doSaveDraft(){
 
     var name=CreateQuery.qName;
-    var releaseTime=common.dateFormatter_inverse(CreateQuery.qTime);
+    var releaseTime=common.dateFormatter_inverse(new Date());
+    //var releaseTime=common.dateFormatter_inverse(CreateQuery.qTime);
     //草稿
     //var status=1;
     var brandArr=[];
@@ -352,10 +398,21 @@ function doSaveDraft(){
         var brandObj={brandId:CreateQuery.brandList[i].brandId};
         brandArr.push(brandObj)
     }
-    var proArr=[];
+    var imageArr=[];
     for(i=0;i<CreateQuery.selProList.length;i++){
-        var proObj={imageId:CreateQuery.selProList[i].imageId};
-        proArr.push(proObj)
+        var Obj={imageId:CreateQuery.selProList[i].imageId};
+        imageArr.push(Obj)
+    }
+    for(i=0;i<CreateQuery.selProDetailList.length;i++){
+        Obj={imageId:CreateQuery.selProDetailList[i].imageId};
+        imageArr.push(Obj)
+    }
+    for(i=0;i<CreateQuery.inspire_type.length;i++){
+        for(var j=0;j<CreateQuery.inspire_type[i].imgList.length;j++){
+            Obj={imageId:CreateQuery.inspire_type[i].imgList[j].imageId};
+            imageArr.push(Obj)
+        }
+
     }
 
     console.log(name);
@@ -363,10 +420,10 @@ function doSaveDraft(){
     console.log(surveyStatus);
     console.log(surveyId);
     console.log(brandArr);
-    console.log(proArr);
+    console.log(imageArr);
 
     //console.log(CreateQuery.brandList);
-    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,proArr,function(){},function(data){
+    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,imageArr,function(){},function(data){
         if(data.result){
             alert(data.description);
             window.location='queryList.html';
@@ -377,6 +434,15 @@ function doSaveDraft(){
 }
 
 
+//function gallerySelCancel(){
+//    for(var i=0;i<CreateQuery.inspire_type.length;i++){
+//        CreateQuery.inspire_type[i].imgList=[];
+//    }
+//}
+
+function inspireTypeImgCancel(){
+    CreateQuery.inspire_type[INSP_TAB_INDEX].imgList=[];
+}
 
 //页面解决json中$ref问题
 var FastJson = {

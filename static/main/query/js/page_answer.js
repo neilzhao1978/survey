@@ -99,7 +99,24 @@ function loadSurveyInfo(){
                     delete list.brands[i].images
                 }
                 CreateQuery.brandList=list.brands;
-                CreateQuery.selProList=list.images;
+                //根据图片类型将其分类赋值于 CreateQuery.*
+                for(i=0;i<list.images.length;i++){
+                    if(list.images[i].imageType=="WHOLE"){
+                        CreateQuery.selProList.push(list.images[i]);
+                    }
+                    else if(list.images[i].imageType=="DETAIL"){
+                        CreateQuery.selProDetailList.push(list.images[i]);
+                    }
+                    ////五种意向图片
+                    //else{
+                    //    for(j=0;j<INS_IMG_TYPE.length;j++){
+                    //        if(list.images[i].imageType==INS_IMG_TYPE[j]){
+                    //            CreateQuery.inspire_type[j].imgList.push(list.images[i])
+                    //        }
+                    //    }
+                    //}
+                    console.log("HI")
+                }
 
                 loadBrands();
             }
@@ -168,7 +185,7 @@ function loadProductImg(brandId){
         if(data.result){
             var list=data.data;
 
-            for(i=0;i<CreateQuery.brandList.length;i++){
+            for(var i=0;i<CreateQuery.brandList.length;i++){
                 if(CreateQuery.brandList[i].brandId==brandId){
                     CreateQuery.brandList[i].product=list;
                     break
@@ -232,29 +249,6 @@ function loadInpireImg_all(){
             }
         );
     }
-}
-
-
-function submitPic(formID){
-    if(formID=="form1"){
-
-    }
-    imageService.uploadImage(formID,function(data){
-        if(data.result)
-        {
-            loadInpireImg();
-            alert(data.description);
-            //layer.confirm(data.description,{icon:-1,title:"提示",end:function(){}});
-        }
-        else{
-            alert(data.description);
-            //layer.confirm(data.description,{icon:-1,title:"提示",end:function(){}});
-        }
-    });
-}
-
-function openImgUpLoadWin(){
-    $("#uploadInspireImgWin").modal('show');
 }
 
 var inspireImgDescArr=new Array(8);
@@ -380,6 +374,9 @@ function submitAnswer(){
     console.log(images);
     answerService.addAnswer(brands,images,replyTime,replyerName,replyerPosition,surveyId,function(){},function(data){
         if(data.result){
+            alert(data.description);
+            window.location.assign("thankyou.html");
+        }else{
             alert(data.description);
         }
     })

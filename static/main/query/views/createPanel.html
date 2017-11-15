@@ -37,10 +37,10 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="height:90%">
 
 <!--<h1>你好，世界！</h1>-->
-<div class="container"  style="border:1px solid black;margin-top:20px">
+<div class="container"  style="border:1px solid black;margin-top:20px;height:90%">
     <div class="row" style="padding:5px">
         <div class="col-md-4" align="left">
             <button type="button" class="btn btn-primary btn-lg" onclick="returnList()">返回列表</button>
@@ -107,24 +107,8 @@
                         <div class="col-lg-4" v-for="brand in allBrand"  v-cloak>
                             <input type="checkbox" class="brandChoiceChk"  v-model="brand.checked" v-bind:alt="brand.brandId" v-on:click='doCheck'/>
                             <img class="brandImg" v-bind:src="brand.brandIconUrl" />
-                            <!--<button class="fr btn btn-default" v-on:click='cancelSelect'>取消选择</button>-->
-                            <!--<button class="fr btn btn-default" v-on:click='selectAll'>全选</button>-->
                         </div>
                     </div>
-                    <!--<div class="panel panel-default">-->
-                        <!--<div class="panel-heading">-->
-                            <!--<img class="brandImg" v-bind:src="brand.brandIconUrl" />-->
-                            <!--<button class="fr btn btn-default" v-on:click='cancelSelect'>取消选择</button>-->
-                            <!--<button class="fr btn btn-default" v-on:click='selectAll'>全选</button>-->
-                        <!--</div>-->
-                        <!--<div class="panel-body" >-->
-                            <!--<div class="col-lg-3">-->
-                                <!--<img class="brandImg" v-bind:src="brand.brandIconUrl" />-->
-                                <!--<button class="fr btn btn-default" v-on:click='cancelSelect'>取消选择</button>-->
-                                <!--<button class="fr btn btn-default" v-on:click='selectAll'>全选</button>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
                 </div>
             </div>
 
@@ -140,7 +124,7 @@
                         </div>
                         <div class="panel-body" >
                             <div class="col-lg-3" v-for="pro in brand.product">
-                                <input type="checkbox" class="brandChoiceChk" v-model="pro.checked" v-bind:alt="brand.brandId" v-on:click='doCheck_pro'>
+                                <input type="checkbox" class="brandChoiceChk" v-model="pro.checked" v-bind:name="pro.imageId" v-bind:alt="brand.brandId" v-on:click='doCheck_pro'>
                                 <img class="brandProductImg" v-bind:src="pro.imageUrl">
                             </div>
                         </div>
@@ -180,14 +164,14 @@
                                 <div class="form-group">
                                     <div class="col-lg-4">
                                         <button class="btn btn-default" onclick="openImgUpLoadWin()">上传图片</button>
-                                        <button class="btn btn-default" onclick="">图库</button>
-                                        <button class="btn btn-default" onclick="">清空</button>
+                                        <button class="btn btn-default" onclick="openGalleryWin()">图库</button>
+                                        <button class="btn btn-default" onclick="inspireTypeImgCancel()">清空</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px">
+                                <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px;text-align:center">
                                     <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
                                     <span>{{typeImg.imageDesc}}</span>
                                 </div>
@@ -245,6 +229,20 @@
                     </div>
                 </div>
 
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
+                    </div>
+                    <div class="panel-body" >
+                        <div class="panel-body" >
+                            <div class="col-lg-3" v-for="proD in selProDetailList">
+                                <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
+                                <img class="brandProductImg" v-bind:src="proD.imageUrl">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="panel panel-default" v-for="type in inspire_type">
                     <div class="panel-heading">
                         {{type.typeName}} 请选择一张{{type.typeName}}图片作为一项，能代表您公司的产品
@@ -263,6 +261,45 @@
                 </div>
 
             </div>
+
+            <!--图库模态框-->
+            <div id="galleryWin" class="modal fade" tabindex="-1" role="dialog" >
+                <div class="modal-dialog" role="document" style="width:1000px;height:800px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title">图库</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <ul class="nav nav-pills nav-stacked col-lg-2" >
+                                    <li class="active"><a href='#g_tab0' data-toggle='tab' onclick="gettabindex_gallery(0)">{{gallery[0].typeName}}({{gallery[0].imgList.length}})</a></li>
+                                    <li><a href='#g_tab1' data-toggle='tab' onclick="gettabindex_gallery(1)">{{gallery[1].typeName}}({{gallery[1].imgList.length}})</a></li>
+                                    <li><a href='#g_tab2' data-toggle='tab' onclick="gettabindex_gallery(2)">{{gallery[2].typeName}}({{gallery[2].imgList.length}})</a></li>
+                                    <li><a href='#g_tab3' data-toggle='tab' onclick="gettabindex_gallery(3)">{{gallery[3].typeName}}({{gallery[3].imgList.length}})</a></li>
+                                    <li><a href='#g_tab4' data-toggle='tab' onclick="gettabindex_gallery(4)">{{gallery[4].typeName}}({{gallery[4].imgList.length}})</a></li>
+                                </ul>
+
+                                <div class='tab-content col-lg-10'>
+                                    <div class='tab-pane container-fluid' v-for="type in gallery" v-bind:id="type.tabId">
+                                        <div class="row">
+                                            <div class="col-lg-4" v-for="typeImg in type.imgList" style="padding:5px;text-align:center">
+                                                <input class="brandChoiceChk" type="checkbox" v-bind:alt="typeImg.imageId" v-on:click="doCheck_inspire"/>
+                                                <img class="brandProductImg" v-bind:alt="typeImg.imageId" v-bind:src="typeImg.imageUrl"/><br/>
+                                                <span>{{typeImg.imageDesc}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="text-align: center">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
         </div>
     </div>
 </div>
@@ -431,6 +468,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

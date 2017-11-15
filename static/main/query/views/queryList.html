@@ -22,64 +22,50 @@
 <head>
     <meta charset="UTF-8">
     <title>问卷列表</title>
-    <link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/bootstrap/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="../../../common/lib/easyui/themes/icon.css" />
-    <link rel="stylesheet" type="text/css" href="../../../common/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../css/page.css" />
 
-
-    <style>
-        .marginTop{
-            margin-top:15px;
-        }
-
-        .queryContainer{
-            margin:20px auto;
-            width:100%;
-            height:30px
-        }
-        .fit{
-            width:80%;height:100%
-        }
-
-        .tableContainer{
-            margin:10px auto;
-            width:100%;
-            height:80%
-        }
-    </style>
+    <link href="../../../common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
 </head>
 
-<body  class="easyui-layout">
+<body class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color: black">
+            <h1 style="color:white">高端装备设计看版系统</h1>
+        </div>
+        <div class="panel-body">
 
-    <div data-options="region:'center',border:false">
-
-        <table id="tbContent"></table>
-        <div id="toolbar" style="padding:15px">
-            <div class="queryContainer">
-                <label><input id="query" type="text" class="fit" /></label>
+            <div class="container-fluid">
+                <div class="row" style="margin:10px 0 10px 0">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="问卷名称" id="name">
+                        <span class="input-group-btn">
+                           <button class="btn btn-default" type="button" id="searchBtn">搜索</button>
+                        </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row"  style="margin:12px">
+                    <button class="btn btn-primary" id="build">新建问卷</button>
+                </div>
+                <div class="row"  style="margin:12px">
+                    <table id="tbContent"></table>
+                </div>
             </div>
 
-            <button id="build" class="easyui-linkbutton"  data-options="iconCls:'icon-add',size:'large'" onclick="window.location='createPanel.html'">新建问卷</button>
+
+
         </div>
     </div>
-    <div data-options="region:'south',border:false">
 
-    </div>
-    <div data-options="region:'east',border:false" style="width:10%">
-
-    </div>
-    <div data-options="region:'west',border:false" style="width:10%">
-
-    </div>
-
-
-    <div id="shareWin" class="easyui-window" title="分享问卷" style="width:680px;height:420px"
-         data-options="modal:true,modal:true,minimizable:false,maximizable:false,collapsible:false,closed:true">
-        <div class="easyui-layout" data-options="fit:true">
-
-            <div data-options="region:'center'" style="text-align:center">
-                <div style="margin:20px auto">
+    <div id="shareWin" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">保存提示</h4>
+                </div>
+                <div class="modal-body" style="text-align:center">
                     <img id="share_unicode" src="../img/unicode.png"/>
                     <br/>
                     <br/>
@@ -87,18 +73,21 @@
                     <br/>
                     <br/>
                     问卷地址：<a id="answerAddress"></a>
-                    <br/>
-                    <br/>
-                    <button>复制链接</button>
+                    <!--<button>复制链接</button>-->
                 </div>
-            </div>
-
-        </div>
-
-    </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(1)">保存</button>-->
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <script type="text/javascript" src="../../../common/lib/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../common/lib/easyui/jquery.easyui.min.js"></script>
+    <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
     <script src="../../../common/js/utils.js"></script>
     <script src="../../../common/js/mask.js"></script>
     <script src="../../../common/lib/vue.js"></script>

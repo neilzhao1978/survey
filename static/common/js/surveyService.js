@@ -83,6 +83,10 @@ function SurveyService(){
         var allObjStr=JSON.stringify(allObj);
 
         $.ajax({
+            headers:{
+                'Accept':"*/*",
+                'Content-Type':"application/json"
+            },
             url:temp,
             data:allObjStr,
             cache:false,
@@ -93,8 +97,8 @@ function SurveyService(){
         })
     };
 
-    service.getQRcode=function(){
-        var temp=this.url+"/getQRcode"+"?pathStringCode=adfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
+    service.getQRcode=function(path){
+        var temp=this.url+"/getQRcode"+"?pathStringCode="+path;
         return temp
 
     };

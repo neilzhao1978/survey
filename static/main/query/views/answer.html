@@ -89,6 +89,20 @@
         </div>
     </div>
 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
+        </div>
+        <div class="panel-body" >
+            <div class="panel-body" >
+                <div class="col-lg-3" v-for="proD in selProDetailList">
+                    <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
+                    <img class="brandProductImg" v-bind:src="proD.imageUrl">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="panel panel-default" v-for="type in inspire_type">
         <div class="panel-heading">
             {{type.typeName}} 请选择一张{{type.typeName}}图片作为一项，能代表您公司的产品
