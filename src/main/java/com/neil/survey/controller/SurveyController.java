@@ -22,8 +22,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,6 +63,7 @@ import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
 import com.neil.survey.util.ResponseGenerator;
 import com.neil.survey.util.RestResponseEntity;
+import com.neil.survey.util.SortTools;
 
 @RestController
 @RequestMapping("/api/surveyService")
@@ -87,7 +90,9 @@ public class SurveyController {
 	@RequestMapping(value = "/getAllSurveys", method = RequestMethod.GET)
 	public RestResponseEntity<List<Survey>> getAllSurveys( @RequestParam(value = "page",required=true) PageEntity page){
 		
-		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
+		Direction d = page.isDesc()?Direction.DESC:Direction.ASC;
+		String orderbyFiled=page.getOrderByFieldName()==null?"name":page.getOrderByFieldName();
+		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), SortTools.basicSort(d, orderbyFiled));
 		Page<Survey> surveys = surveyRepo.findAll(new Specification<Survey> () {  
 			@Override
 			public Predicate toPredicate(Root<Survey> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -101,11 +106,7 @@ public class SurveyController {
 
 		if(surveys!=null && surveys.getSize()>0) {
 			for(Survey s:surveys.getContent()) {
-//				s.setAnswers(null);==
-//				s.setBrands(null);
-//				s.setImages(null);
-//				s.getCreator().setSurveys(null);
-//				s.getCreator().setPwd(null);
+				s.setAnswerCount(answerRepo.countBySurvey(s));
 			}
 			return ResponseGenerator.createSuccessResponse("Get survey list success.", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
 		}else {
@@ -142,6 +143,19 @@ public class SurveyController {
 			return ResponseGenerator.createSuccessResponse("delete survey  success.");
 		}catch(Exception e) {			
 			return ResponseGenerator.createFailResponse("Fail to delete survey.", ErrorCode.DB_ERROR);
+		}
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/closeOpenSurvey", method = RequestMethod.POST)
+	public RestResponseEntity<Void> closeOpenSurvey( @RequestBody Survey survey){
+		Survey s = surveyRepo.findOne(survey.getSurveyId());
+		s.setStatus(survey.getStatus());
+		Survey s1 = surveyRepo.save(s);
+		if(s1!=null) {
+			return ResponseGenerator.createSuccessResponse("Add/update creator success.");
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
 		}
 	}
 	

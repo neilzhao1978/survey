@@ -1,25 +1,10 @@
-/**
- * Created by virgil on 15-9-29.
- */
-/*var host="http://192.168.0.156:8080/web";
 
-//var host="/web/api";
+var host="http://192.168.0.247:8000/api";
 
-var wsHost='https:'==document.location.protocol?"wss://"+document.location.host+"/web":"ws://"+document.location.host+"/web";
-/*var docUrl=host+"/doc/index.html";*/
-var host="http://115.29.237.95:8000/api";
-var m={
-    "tCollectTime":"T_COLLECT_TIME",
-    "cCreateTime":"C_CREATE_TIME",
-    "cUpdateTime":"C_UPDATE_TIME"
-};
-//上次弹窗发生时间
-var lastAlertTime=0;
 //上次弹窗内容
 var lastAlertContent="";
 //同样内容弹窗最少间隔
 var MIN_ALERT_TIME_INTERVAL=3000;
-var imageHost="http://192.168.0.123:8080/Img";
 
 //Array函数原型加入indexOf方法：根据数据元素的值获取其所在的位置index     PS：Global.js中也有
 Array.prototype.indexOf=function(val){
@@ -55,7 +40,7 @@ Array.prototype.del=function(n) {
      组成的新数组，这中间，刚好少了第n项。
      　slice方法： 返回一个数组的一段，两个参数，分别指定开始和结束的位置。
      */
-}
+};
 
 function closeWindow(window){
     window.window("close");
@@ -66,7 +51,6 @@ function openWindow(window){
 
 var common={
      pageParameter:{
-
         pageSize: 5,//每页显示的记录条数，默认为5
         pageList: [5, 10, 13, 25],//可以设置每页记录条数的列表
         beforePageText: '第',//页数文本框前显示的汉字
@@ -89,23 +73,16 @@ var common={
 
     },
     loadTableData:function(data,tableId){
-
         var tableIdStr="#"+tableId;
         if(data.result){
-
             var wellFormData={
-
                 total:data.extra,
                 rows:data.data
-
             }
             $(tableIdStr).datagrid("loadData",wellFormData);
-
         }else{
-
             alert("加载数据失败")
         }
-
 
     },
     dateFormatter:function(value,rec,index){
@@ -256,24 +233,14 @@ var common={
 
 },
     alert:function(msg,title){
-
         var currentTime=this.getCurrentTime();
         if(lastAlertContent==msg){
-
             if((currentTime-lastAlertContent)<MIN_ALERT_TIME_INTERVAL){
-
                 return ;
             }
-
         }
         lastAlertContent=currentTime;
         lastAlertContent=msg;
-        //$.messager.alert({
-        //
-        //    title:title==undefined?"提示":title,
-        //    msg:msg
-        //})
-
         alert(msg)
     },
     GetRequest:function(){

@@ -16,8 +16,8 @@ public class Brand implements Serializable{
 	private static final long serialVersionUID = -662714721339894221L;
 	@Id
 	@Column(length = 32)
-	@GenericGenerator(name="system-uuid", strategy="uuid")
-	@GeneratedValue(generator = "system-uuid")
+//	@GenericGenerator(name="system-uuid", strategy="uuid")
+//	@GeneratedValue(generator = "system-uuid")
 	private String brandId;
 	private String brandName;
 	private String brandIconUrl;

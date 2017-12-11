@@ -26,6 +26,14 @@ public class Survey implements Serializable{
 	private Date releaseTime;
 	private String status;
 
+	@Column(nullable=true)
+	private Integer maxUserBrandCount;
+	@Column(nullable=true)
+	private Integer maxUserInspireImageCount;
+	
+	@Column(nullable=true)
+	private Integer answerCount;
+
 	@ManyToOne(cascade={CascadeType.DETACH},optional = true,fetch = FetchType.LAZY)
 	@JoinColumn(name="email")
 	private Creator creator;
@@ -104,5 +112,23 @@ public class Survey implements Serializable{
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public Integer getMaxUserBrandCount() {
+		return maxUserBrandCount;
+	}
+	public void setMaxUserBrandCount(Integer maxUserBrandCount) {
+		this.maxUserBrandCount = maxUserBrandCount;
+	}
+	public Integer getMaxUserInspireImageCount() {
+		return maxUserInspireImageCount;
+	}
+	public void setMaxUserInspireImageCount(Integer maxUserInspireImageCount) {
+		this.maxUserInspireImageCount = maxUserInspireImageCount;
+	}
+	public Integer getAnswerCount() {
+		return answerCount;
+	}
+	public void setAnswerCount(Integer answerCount) {
+		this.answerCount = answerCount;
 	}
 }

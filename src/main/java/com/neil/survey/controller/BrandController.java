@@ -89,7 +89,7 @@ public class BrandController {
 			brandRepo.delete(brand);
 			
 			return ResponseGenerator.createSuccessResponse("delete brand success.");
-		}catch(Exception e) {			
+		}catch(Exception e) {
 			return ResponseGenerator.createFailResponse("Fail to delete brand.", ErrorCode.DB_ERROR);
 		}
 	}
