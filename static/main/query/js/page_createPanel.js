@@ -1,4 +1,5 @@
 
+//引用所需ajax 对象
 var brandService=BrandService();
 var imageService=ImageService();
 var surveyService=SurveyService();
@@ -18,6 +19,7 @@ var page_inspireImg={
 
 var brandIds=[];
 
+//定义意向图片-图库的类型数组
 var INS_IMG_TYPE = ["INDUSTRY","ANIMAL","BUILDING","ART","OTHERS"];
 
 var localDb={
@@ -43,17 +45,27 @@ var localDb={
     ]
 };
 
+//从url路径中提取suryveyId
 var surveyId=common.GetRequest();
 var surveyStatus=1;
 
 $(document).ready(function(){
 
+    //
     loadInpireImg_all();
+
+    //
     $("#tab0").addClass("active");
     $("#g_tab0").addClass("active");
     $("#releaseQueryCon").hide();
 
+    //
     loadSurveyInfo();
+
+    var timepickerObj=new _timepicker("year","month","day");
+    timepickerObj.init();
+
+    $('#defaultForm').bootstrapValidator();
 
 });
 
@@ -71,7 +83,11 @@ function loadSurveyInfo(){
                 //
                 CreateQuery.qName=list.name;
                 CreateQuery.qDesc=list.desc;
-                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
+                //CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
+                var time=new Date(list.releaseTime);
+                CreateQuery.qYear=time.getFullYear();
+                CreateQuery.qMonth=time.getMonth()+1;
+                CreateQuery.qDay=time.getDate();
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -114,11 +130,12 @@ function loadSurveyInfo(){
                     else{
                         for(j=0;j<INS_IMG_TYPE.length;j++){
                             if(list.images[i].imageType==INS_IMG_TYPE[j]){
-                                CreateQuery.inspire_type[j].imgList.push(list.images[i])
+                                CreateQuery.inspire_type[j].imgList.push(list.images[i]);
+                                CreateQuery.inspire_type[j].isSelected=true;
                             }
                         }
                     }
-                    console.log(CreateQuery.inspire_type);
+                    //console.log(CreateQuery.inspire_type);
                 }
 
                 loadBrands();
@@ -305,19 +322,24 @@ function openImgUpLoadWin(){
 
 function openGalleryWin(){
     $("#galleryWin").modal('show');
+    $("#galleryTab li").removeClass("active");
+    $("#galleryTab li:eq("+INSP_TAB_INDEX+")").addClass("active");
+    $("#galleryTabContent .tab-pane").removeClass("active");
+    $("#galleryTabContent .tab-pane:eq("+INSP_TAB_INDEX+")").addClass("active");
+
 }
 
 var inspireImgDescArr=new Array(8);
 var inspireImgDesc="";
 var ImgDescList=[
-    {good:'精致',bad:'粗俗'},
+    //{good:'精致',bad:'粗俗'},
     {good:'简洁',bad:'复杂'},
     {good:'圆润',bad:'硬朗'},
-    {good:'灵敏',bad:'迟钝'},
-    {good:'优雅',bad:'普通'},
-    {good:'亲和',bad:'冷漠'},
-    {good:'现代',bad:'传统'},
-    {good:'安静',bad:'躁动'}
+    //{good:'灵敏',bad:'迟钝'},
+    //{good:'优雅',bad:'普通'},
+    //{good:'亲和',bad:'冷漠'},
+    {good:'现代',bad:'传统'}
+    //{good:'安静',bad:'躁动'}
 ];
 
 function buildInspireDesc(index,which){
@@ -389,7 +411,23 @@ function saveOrNot(flag){
 function doSaveDraft(){
 
     var name=CreateQuery.qName;
-    var releaseTime=common.dateFormatter_inverse(new Date());
+    if(name==""){
+        alert("问卷名称未填写，请录入后再保存！");
+        return
+    }
+    if(typeof CreateQuery.brandLimit =="number"){
+        if(CreateQuery.brandLimit>0){
+
+        }else{
+            alert("用户选择上限必须大于0！");
+            return
+        }
+    }
+    else{
+        alert("用户选择上限必须是正整数！");
+        return
+    }
+    var releaseTime=common.dateFormatter_inverse(CreateQuery.qReleaseTime);
     //var releaseTime=common.dateFormatter_inverse(CreateQuery.qTime);
     //草稿
     //var status=1;
@@ -425,10 +463,13 @@ function doSaveDraft(){
     //console.log(CreateQuery.brandList);
     surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,imageArr,function(){},function(data){
         if(data.result){
-            alert(data.description);
+            //alert(data.description);
+            alert("问卷保存成功!");
             window.location='queryList.html';
         }else{
-            alert(data.description)
+            //alert(data.description)
+            alert("问卷保存失败！");
+
         }
     })
 }
@@ -440,8 +481,14 @@ function doSaveDraft(){
 //    }
 //}
 
+function emptyInspireAlert(){
+    $("#emptyAlert").modal('show')
+}
+
 function inspireTypeImgCancel(){
     CreateQuery.inspire_type[INSP_TAB_INDEX].imgList=[];
+    //由于没有图片，所以设置isSelected为false,用于预览中的隐藏
+    CreateQuery.inspire_type[INSP_TAB_INDEX].isSelected=false;
 }
 
 //页面解决json中$ref问题
@@ -497,3 +544,78 @@ var FastJson = {
         return a;
     }
 };
+
+
+var _timepicker=function(yearId,monthId,dayId){
+
+    function computeMonthDays(year,month){
+
+        if([1,3,5,7,8,10,12].indexOf(month)!=-1){
+            return 31
+        }
+        else if([4,6,9,11].indexOf(month)!=-1){
+            return 30
+        }
+        else if(month==2){
+            if(year%4!=0){
+                return 29
+            }
+            else{
+                return 28
+            }
+        }
+        else{
+            return false
+        }
+
+    }
+
+    var obj={
+        yearInit:function(){
+            $("#"+yearId).change(function(){
+                if($("#"+monthId).val()==""){
+                    $("#"+dayId).html("")
+                }
+                else{
+                    var year_=parseInt($("#"+yearId).val());
+                    var month_=parseInt($("#"+monthId).val());
+                    var days=computeMonthDays(year_,month_);
+                    var htmlStr="";
+                    for(var i=1;i<=days;i++){
+                        htmlStr+='<option>'+i+'</option>'
+                    }
+
+
+                    $("#"+dayId).html(htmlStr)
+                }
+            });
+        },
+        monthInit:function(){
+            $("#"+monthId).change(function(){
+                if($("#"+yearId).val()==""){
+                    $("#"+dayId).html("")
+                }
+                else{
+                    var year_=parseInt($("#"+yearId).val());
+                    var month_=parseInt($("#"+monthId).val());
+                    var days=computeMonthDays(year_,month_);
+                    var htmlStr="";
+                    for(var i=1;i<=days;i++){
+                        htmlStr+='<option>'+i+'</option>'
+                    }
+
+                    $("#"+dayId).html(htmlStr)
+                }
+            });
+        },
+        dayInit:function(){
+
+        },
+        init:function(){
+            obj.yearInit();
+            obj.monthInit();
+        }
+    };
+    return obj
+};
+

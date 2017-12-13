@@ -5,6 +5,9 @@
 //    }
 //});
 
+var t_years=[2017,2018,2019,2020,2021,2022,2023,2024,2025];
+var t_months=[1,2,3,4,5,6,7,8,9,10,11,12];
+
 var CreateQuery = new Vue({
     el: '#CreateQuery',
     data: {
@@ -13,9 +16,26 @@ var CreateQuery = new Vue({
         //问卷描述
         qDesc: "",
         //发布时间；
-        qTime: common.dateFormatter_hyphen(new Date()),
+        qYear: 2017,
+        qMonth: 1,
+        qDay: 1,
+        //可选年数
+        s_year: t_years,
+        //可选月份
+        s_month: t_months,
+        //qTime: "123",
         //品牌上限
         brandLimit:2,
+        //动物类意向图片选择上限
+        maxUserAnimalImageCount:1,
+        //艺术类意向图片选择上限
+        maxUserArtImageCount:1,
+        //建筑类意向图片选择上限
+        maxUserBuildingImageCount:1,
+        //工业类意向图片选择上限
+        maxUserIndustryImageCount:1,
+        //其他类意向图片选择上限
+        maxUserOthersImageCount:1,
         //图库定义
         gallery:[
             {
@@ -71,7 +91,8 @@ var CreateQuery = new Vue({
                 typeId:'INDUSTRY',
                 typeName:"工业产品类",
                 limit:1,
-                mode:1,
+                //mode:1,
+                isSelected:false,
                 imgList:[
 
                 ]
@@ -82,7 +103,8 @@ var CreateQuery = new Vue({
                 typeId:'ANIMAL',
                 typeName:"动物类",
                 limit:1,
-                mode:1,
+                //mode:1,
+                isSelected:false,
                 imgList:[
 
                 ]
@@ -93,7 +115,8 @@ var CreateQuery = new Vue({
                 typeId:'BUILDING',
                 typeName:"建筑类",
                 limit:1,
-                mode:1,
+                //mode:1,
+                isSelected:false,
                 imgList:[
 
                 ]
@@ -104,7 +127,8 @@ var CreateQuery = new Vue({
                 typeId:'ART',
                 typeName:"艺术品类",
                 limit:1,
-                mode:1,
+                //mode:1,
+                isSelected:false,
                 imgList:[
 
                 ]
@@ -115,7 +139,8 @@ var CreateQuery = new Vue({
                 typeId:'OTHERS',
                 typeName:"其他类",
                 limit:1,
-                mode:1,
+                //mode:1,
+                isSelected:false,
                 imgList:[
 
                 ]
@@ -207,6 +232,19 @@ var CreateQuery = new Vue({
                         break
                     }
                 }
+                //删除整体造型后，连带需要删除该整体造型的局部造型
+                //找到要删除的 元素的 index,
+                var delIndex=[];
+                for(i=0;i<CreateQuery.selProDetailList.length;i++){
+                    if(CreateQuery.selProDetailList[i].parentImageId==obj.name){
+                        delIndex.push(i);
+                        //delete CreateQuery.selProDetailList[i];
+                    }
+                }
+                //删除相应的局部造型
+                for(i=delIndex.length-1;i>=0;i--){
+                    CreateQuery.selProDetailList.splice(delIndex[i],1);
+                }
                 console.log(CreateQuery.selProList)
             }
         },
@@ -224,6 +262,8 @@ var CreateQuery = new Vue({
                 }
 
                 CreateQuery.inspire_type[INSP_TAB_INDEX_GAL].imgList.push(temp);
+                //选中后，将isSelected改为true表示此类型有选中；在预览中 以if方式 进行展示
+                CreateQuery.inspire_type[INSP_TAB_INDEX_GAL].isSelected=true;
             }
             //若是取消选中，则是将其从vue的data中剔除
             else{
@@ -234,7 +274,11 @@ var CreateQuery = new Vue({
                         break
                     }
                 }
-                //console.log(CreateQuery.inspire_type[INSP_TAB_INDEX_GAL].imgList)
+
+                //取消选中后，判断是否还有选中的图片，若无 isSelected改为false，以if方式 进行隐藏
+                if(CreateQuery.inspire_type[INSP_TAB_INDEX_GAL].imgList.length==0){
+                    CreateQuery.inspire_type[INSP_TAB_INDEX_GAL].isSelected=false;
+                }
             }
         },
         //产品图片中的取消选中按钮
@@ -322,7 +366,46 @@ var CreateQuery = new Vue({
                 c--;
             }
         }
+    },
+    computed:{
+        qReleaseTime:function(){
+            return this.qYear+"-"+this.qMonth+"-"+this.qDay+" "+"00:00:00"
+        }
+    },
+    //watch:{
+    //    brandLimit:function(val){
+    //        if(typeof this.brandLimit!="number"){
+    //            alert('用户上限必须为数字')
+    //        }
+    //    }
+    //},
+    created:function(){
+        //this.$nextTick(function(){
+        //    $('#defaultForm').bootstrapValidator();
+        //});
+    },
+    mounted:function(){
+        //$('#defaultForm').bootstrapValidator(validatorSettings);
+        //$('#defaultForm_1').bootstrapValidator(validatorSettings);
     }
 });
 
+var validatorSettings={
+    message:'this value is not valid',
+    feedbackIcons:{
+        valid:'glyphicon glyphicon-ok',
+        invalid:'glyphicon glyphicon-remove',
+        validating:'glyphicon glyphicon-refresh'
+    },
+    fields:{
+        brandLimit:{
+            message:'验证失败',
+            validators:{
+                notEmpty:{
+                    message:'不能为空'
+                }
+            }
+        }
+    }
+}
 

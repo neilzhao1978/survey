@@ -52,9 +52,9 @@ public class BrandController {
 			for(Brand b:brands.getContent()) {
 				//TODO clear useless properties
 			}
-			return ResponseGenerator.createSuccessResponse("Get brand list success.", brands.getContent().size(), brands.getContent(),brands.getTotalElements());
+			return ResponseGenerator.createSuccessResponse("获取品牌列表成功。", brands.getContent().size(), brands.getContent(),brands.getTotalElements());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get brand list", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取品牌列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -63,9 +63,9 @@ public class BrandController {
 	public RestResponseEntity<Void> addBrand( @RequestBody Brand brand){
 		Brand b = brandRepo.save(brand);
 		if(b!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update brand success.");
+			return ResponseGenerator.createSuccessResponse("新增品牌成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update brand.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("新增品牌失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -74,9 +74,9 @@ public class BrandController {
 	public RestResponseEntity<Void> updateBrand( @RequestBody Brand brand){
 		Brand b = brandRepo.save(brand);
 		if(b!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update brand success.");
+			return ResponseGenerator.createSuccessResponse("更新品牌成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update brand.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("更新品牌失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -88,9 +88,9 @@ public class BrandController {
 			brandRepo.save(brand);
 			brandRepo.delete(brand);
 			
-			return ResponseGenerator.createSuccessResponse("delete brand success.");
+			return ResponseGenerator.createSuccessResponse("删除品牌成功。");
 		}catch(Exception e) {
-			return ResponseGenerator.createFailResponse("Fail to delete brand.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("删除品牌失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	

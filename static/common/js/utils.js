@@ -62,10 +62,10 @@ var common={
             return '草稿'
         }
         else if(value==2){
-            return '发布'
+            return '开放中'
         }
         else if(value==3){
-            return '关闭'
+            return '已关闭'
         }
         else{
             return '未知'

@@ -50,9 +50,9 @@ public class AnswerController {
 		Example<Answer> example = Example.of(a, matcher);
 		Page<Answer> answers = answerRepo.findAll(example, pageRequest);
 		if(answers!=null) {
-			return ResponseGenerator.createSuccessResponse("Get answer list success.", answers.getContent().size(), answers.getContent(),answers.getTotalElements());
+			return ResponseGenerator.createSuccessResponse("获取问卷回复列表成功。", answers.getContent().size(), answers.getContent(),answers.getTotalElements());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get answer list.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取问卷回复列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -61,15 +61,21 @@ public class AnswerController {
 	public RestResponseEntity<Void> addAnswer( @RequestBody Answer answer){
 		answer.setAnswerId(UUID.randomUUID().toString().replaceAll("-", ""));
 		Survey s = surveyRepo.getBySurveyId(answer.getSurvey().getSurveyId());
+
 		if(s!=null){
 			answer.setSurvey(s);
 		}
 			
 		Answer a = answerRepo.save(answer);
 		if(a!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update answer success.");
+			
+			int crtCount = s.getAnswerCount()==null?0:s.getAnswerCount();
+			crtCount+=1;
+			s.setAnswerCount(crtCount);
+			surveyRepo.save(s);
+			return ResponseGenerator.createSuccessResponse("新增问卷回复成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update answer.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("新增问卷回复失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -78,9 +84,9 @@ public class AnswerController {
 	public RestResponseEntity<Void> updateAnswer( @RequestBody Answer answer){
 		Answer a = answerRepo.save(answer);
 		if(a!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update answer success.");
+			return ResponseGenerator.createSuccessResponse("更新问卷回复成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update answer.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("更新问卷回复失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -91,9 +97,9 @@ public class AnswerController {
 			answer.setSurvey(null);
 			answerRepo.save(answer);
 			answerRepo.delete(answer);
-			return ResponseGenerator.createSuccessResponse("delete answer success.");
+			return ResponseGenerator.createSuccessResponse("删除问卷回复成功。");
 		}catch(Exception e) {
-			return ResponseGenerator.createFailResponse("Fail to delete answer.", ErrorCode.DB_ERROR);			
+			return ResponseGenerator.createFailResponse("删除问卷回复失败。", ErrorCode.DB_ERROR);			
 		}
 	}
 	

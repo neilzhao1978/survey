@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <title>问卷列表</title>
 
-    <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../common/lib/bootstrap-table/css/boostrap-table.min.css">
-    <link rel="stylesheet" href="../css/page.css">
-    <link rel="stylesheet" href="../css/page_queryList.css">
+    <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../common/lib/bootstrap-table/css/boostrap-table.min.css"/>
+    <link rel="stylesheet" href="../css/page.css"/>
+    <link rel="stylesheet" href="../css/page_queryList.css"/>
 </head>
 
-<body class="container">
+<body class="container main">
     <div class="panel panel-default">
         <div class="panel-heading" style="background-color: black">
             <h1 style="color:white">高端装备设计看版系统</h1>
@@ -53,7 +53,7 @@
                     <br/>
                     <br/>
                     问卷地址：<a id="answerAddress"></a>
-                    <!--<button>复制链接</button>-->
+                    <button id="copyUrl"  data-clipboard-action="copy" data-clipboard-target="#answerAddress">复制链接</button>
                 </div>
                 <div class="modal-footer">
                     <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
@@ -70,7 +70,8 @@
     <script src="../../../common/lib/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../../../common/lib/easyui/jquery.min.js"></script>
+    <script src="../../../common/lib/clipboard/dist/clipboard.min.js"></script>
+    <script src="../../../common/lib/Jquery/jquery-1.11.3.min.js"></script>
     <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../../common/lib/bootstrap-table/js/bootstrap-table.min.js"></script>
     <!-- Latest compiled and minified Locales -->

@@ -53,6 +53,33 @@ function SurveyService(){
         })
     };
 
+    /* 打开关闭survey 修改时填已有的surveyId.status: 1:草稿，2：发布，3：关闭  9： 删除*/
+    service.closeOpenSurvey=function(surveyId,status,beforeSend,onSuccess){
+        var temp=this.url+"/closeOpenSurvey";
+        //var creatorStr=JSON.stringify({"email":"niel@123.com"});
+        //var brandsStr=JSON.stringify(brands);
+        //var imagesStr=JSON.stringify(images);
+        var allObj={
+            creator:{"email":"niel@123.com"},
+            status:status,
+            surveyId:surveyId,
+        };
+        var allObjStr=JSON.stringify(allObj);
+        $.ajax({
+            headers:{
+                'Accept':"*/*",
+                'Content-Type':"application/json"
+            },
+            url:temp,
+            data:allObjStr,
+            cache:false,
+            type:"post",
+            beforeSend:beforeSend,
+            success:onSuccess,
+            error:this.onError
+        })
+    };
+
     /*  删除问卷*/
     service.deleteSurvey=function(rowInfo,beforeSend,onSuccess){
         var temp=this.url+"/deleteSurvey";
@@ -74,6 +101,22 @@ function SurveyService(){
             data:allObjStr,
             cache:false,
             type:"post",
+            beforeSend:beforeSend,
+            success:onSuccess,
+            error:this.onError
+        })
+    };
+
+    /*复制survey*/
+    service.copySurvey=function(surveyId,beforeSend,onSuccess){
+        var temp=this.url+"/copySurvey";
+        $.ajax({
+            url:temp,
+            data:{
+                surveyId:surveyId
+            },
+            cache:false,
+            type:"get",
             beforeSend:beforeSend,
             success:onSuccess,
             error:this.onError

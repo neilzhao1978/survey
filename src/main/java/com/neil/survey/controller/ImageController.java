@@ -67,10 +67,10 @@ public class ImageController {
 		Example<Image> example = Example.of(i, matcher);
 		Page<Image> images = imageRepo.findAll(example, pageRequest);
 		if (images != null && images.getSize() > 0) {
-			return ResponseGenerator.createSuccessResponse("Get image list success.", images.getContent().size(),
+			return ResponseGenerator.createSuccessResponse("获取图像列表成功。", images.getContent().size(),
 					images.getContent(), images.getTotalElements());
 		} else {
-			return ResponseGenerator.createFailResponse("Fail to get image list", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取图像列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 
@@ -85,9 +85,9 @@ public class ImageController {
 			b = brands.get(0);
 			Set<Image> imagesT = b.getImages();
 			images.addAll(imagesT);
-			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.size(),images, images.size());
+			return ResponseGenerator.createSuccessResponse("获取品牌相关图像列表成功。", images.size(),images, images.size());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get brand image list", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取品牌相关图像列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -97,9 +97,9 @@ public class ImageController {
 			@RequestParam(value = "parentId", required = false) String parentId) {
 		List<Image> images = imageRepo.findByParentImageId(parentId);
 		if(images.size()>0) {
-			return ResponseGenerator.createSuccessResponse("Get brand image list success.", images.size(),images, images.size());
+			return ResponseGenerator.createSuccessResponse("获取细节图像列表成功。", images.size(),images, images.size());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get brand image list", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取细节图像列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -182,13 +182,13 @@ public class ImageController {
 					
 				} catch (Exception e) {
 					stream = null;
-					return ResponseGenerator.createFailResponse("Fail to upload image."+e.getMessage(), ErrorCode.DB_ERROR);
+					return ResponseGenerator.createFailResponse("上传图像失败。"+e.getMessage(), ErrorCode.DB_ERROR);
 				}
 			} else {
-				return ResponseGenerator.createFailResponse("Fail to upload image."+" Because image is null.", ErrorCode.DB_ERROR);
+				return ResponseGenerator.createFailResponse("上传图像失败."+"图像为空。", ErrorCode.DB_ERROR);
 			}
 		}
-		return ResponseGenerator.createSuccessResponse("Add/upload image success.");
+		return ResponseGenerator.createSuccessResponse("新增/上传图像成功。");
 	}
 
 	@ResponseBody
@@ -196,9 +196,9 @@ public class ImageController {
 	public RestResponseEntity<Void> updateImage(@RequestBody Image image) {
 		Image b = imageRepo.save(image);
 		if (b != null) {
-			return ResponseGenerator.createSuccessResponse("Add/update image success.");
+			return ResponseGenerator.createSuccessResponse("新增/上传图像成功。");
 		} else {
-			return ResponseGenerator.createFailResponse("Fail to add/update image.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("新增/上传图像失败。", ErrorCode.DB_ERROR);
 		}
 	}
 

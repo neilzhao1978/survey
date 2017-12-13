@@ -1,0 +1,14 @@
+.container{ padding-top:10px;  border:lightgrey  };
+
+.img-vert-list{
+    display: block;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.img-vert-list li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    width: 130px;
+}

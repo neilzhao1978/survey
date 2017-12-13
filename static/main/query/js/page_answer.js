@@ -115,7 +115,7 @@ function loadSurveyInfo(){
                     //        }
                     //    }
                     //}
-                    console.log("HI")
+                    //console.log("HI")
                 }
 
                 loadBrands();

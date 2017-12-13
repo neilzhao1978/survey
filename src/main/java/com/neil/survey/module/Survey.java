@@ -1,5 +1,11 @@
 package com.neil.survey.module;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -11,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "SURVEY")
-public class Survey implements Serializable{
+public class Survey implements Serializable,Cloneable{
 	/**
 	 * 
 	 */
@@ -29,8 +35,59 @@ public class Survey implements Serializable{
 	@Column(nullable=true)
 	private Integer maxUserBrandCount;
 	@Column(nullable=true)
-	private Integer maxUserInspireImageCount;
+	private Integer maxUserIndustryImageCount=1;
+	@Column(nullable=true)
+	private Integer maxUserAnimalImageCount=1;
+	@Column(nullable=true)
+	private Integer maxUserBuildingImageCount=1;
+	@Column(nullable=true)
+	private Integer maxUserArtImageCount=1;
+	@Column(nullable=true)
+	private Integer maxUserOthersImageCount=1;
 	
+	public Integer getMaxUserIndustryImageCount() {
+		return maxUserIndustryImageCount;
+	}
+	public void setMaxUserIndustryImageCount(Integer maxUserIndustryImageCount) {
+		this.maxUserIndustryImageCount = maxUserIndustryImageCount;
+	}
+	public Integer getMaxUserAnimalImageCount() {
+		return maxUserAnimalImageCount;
+	}
+	public void setMaxUserAnimalImageCount(Integer maxUserAnimalImageCount) {
+		this.maxUserAnimalImageCount = maxUserAnimalImageCount;
+	}
+	public Integer getMaxUserBuildingImageCount() {
+		return maxUserBuildingImageCount;
+	}
+	public void setMaxUserBuildingImageCount(Integer maxUserBuildingImageCount) {
+		this.maxUserBuildingImageCount = maxUserBuildingImageCount;
+	}
+	public Integer getMaxUserArtImageCount() {
+		return maxUserArtImageCount;
+	}
+	public void setMaxUserArtImageCount(Integer maxUserArtImageCount) {
+		this.maxUserArtImageCount = maxUserArtImageCount;
+	}
+	public Integer getMaxUserOthersImageCount() {
+		return maxUserOthersImageCount;
+	}
+	public void setMaxUserOthersImageCount(Integer maxUserOthersImageCount) {
+		this.maxUserOthersImageCount = maxUserOthersImageCount;
+	}
+
+
+	 public Survey deepClone() throws IOException,
+	    OptionalDataException,ClassNotFoundException{//将对象写到流里
+		 ByteArrayOutputStream bo=new ByteArrayOutputStream();
+	  ObjectOutputStream oo=new ObjectOutputStream(bo);
+	  oo.writeObject(this);//从流里读出来
+	  ByteArrayInputStream bi=new ByteArrayInputStream(bo.toByteArray());
+	  ObjectInputStream oi=new ObjectInputStream(bi);
+	  return((Survey)oi.readObject());
+	 }
+	
+	//INDUSTRY,ANIMAL,BUILDING,ART,OTHERS
 	@Column(nullable=true)
 	private Integer answerCount;
 
@@ -119,12 +176,7 @@ public class Survey implements Serializable{
 	public void setMaxUserBrandCount(Integer maxUserBrandCount) {
 		this.maxUserBrandCount = maxUserBrandCount;
 	}
-	public Integer getMaxUserInspireImageCount() {
-		return maxUserInspireImageCount;
-	}
-	public void setMaxUserInspireImageCount(Integer maxUserInspireImageCount) {
-		this.maxUserInspireImageCount = maxUserInspireImageCount;
-	}
+
 	public Integer getAnswerCount() {
 		return answerCount;
 	}

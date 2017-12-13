@@ -1,6 +1,7 @@
 package com.neil.survey.controller;
 
 import java.io.IOException;
+import java.io.OptionalDataException;
 import java.nio.file.FileSystems;
 
 import java.util.ArrayList;
@@ -178,6 +179,31 @@ public class SurveyController {
 		if(s!=null) {
 			s.getCreator().setPwd(null);
 			return ResponseGenerator.createSuccessResponse("get survey detail success.",1,s,null);
+		}else {
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+		}
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/copySurvey", method = RequestMethod.GET)
+	public RestResponseEntity<Survey> copySurvey( @RequestParam(value = "surveyId",required=true) String surveyId){
+		Survey s = surveyRepo.getBySurveyId(surveyId);
+		Survey s1 =null;
+		try {
+			s1 = s.deepClone();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+		}
+		s1.setSurveyId(UUID.randomUUID().toString());
+		s1.setName(s1.getName()+"复制");
+		
+		Survey x = surveyRepo.save(s1);
+		
+		if(x!=null) {
+			x.getCreator().setPwd(null);
+			return ResponseGenerator.createSuccessResponse("get survey detail success.",1,x,null);
 		}else {
 			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
 		}
