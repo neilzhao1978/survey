@@ -21,6 +21,7 @@ import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
@@ -109,9 +110,9 @@ public class SurveyController {
 			for(Survey s:surveys.getContent()) {
 				s.setAnswerCount(answerRepo.countBySurvey(s));
 			}
-			return ResponseGenerator.createSuccessResponse("Get survey list success.", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
+			return ResponseGenerator.createSuccessResponse("获取问卷列表成功。", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get survey list", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取问卷列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -122,9 +123,9 @@ public class SurveyController {
 		if(s!=null) {
 			
 			
-			return ResponseGenerator.createSuccessResponse("Add/update creator  success.");
+			return ResponseGenerator.createSuccessResponse("新增问卷成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("新增问卷成功。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -141,9 +142,9 @@ public class SurveyController {
 //			s.setImages(null);
 			surveyRepo.save(s);//TODO 有问题。
 //			surveyRepo.deleteBySurveyId(s.getSurveyId());
-			return ResponseGenerator.createSuccessResponse("delete survey  success.");
+			return ResponseGenerator.createSuccessResponse("删除问卷成功。");
 		}catch(Exception e) {			
-			return ResponseGenerator.createFailResponse("Fail to delete survey.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("删除问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
 
@@ -154,9 +155,9 @@ public class SurveyController {
 		s.setStatus(survey.getStatus());
 		Survey s1 = surveyRepo.save(s);
 		if(s1!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update creator success.");
+			return ResponseGenerator.createSuccessResponse("打开关闭问卷成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("打开关闭问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -165,9 +166,9 @@ public class SurveyController {
 	public RestResponseEntity<Void> updateSurvey( @RequestBody Survey survey){
 		Survey s = surveyRepo.save(survey);
 		if(s!=null) {
-			return ResponseGenerator.createSuccessResponse("Add/update creator success.");
+			return ResponseGenerator.createSuccessResponse("更新问卷成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("更新问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
 
@@ -178,9 +179,9 @@ public class SurveyController {
 
 		if(s!=null) {
 			s.getCreator().setPwd(null);
-			return ResponseGenerator.createSuccessResponse("get survey detail success.",1,s,null);
+			return ResponseGenerator.createSuccessResponse("获取问卷明细成功.",1,s,null);
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取问卷明细失败.", ErrorCode.DB_ERROR);
 		}
 	}
 
@@ -194,7 +195,7 @@ public class SurveyController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("复制问卷失败.", ErrorCode.DB_ERROR);
 		}
 		s1.setSurveyId(UUID.randomUUID().toString());
 		s1.setName(s1.getName()+"复制");
@@ -203,9 +204,9 @@ public class SurveyController {
 		
 		if(x!=null) {
 			x.getCreator().setPwd(null);
-			return ResponseGenerator.createSuccessResponse("get survey detail success.",1,x,null);
+			return ResponseGenerator.createSuccessResponse("复制问卷成功.",1,x,null);
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to add/update creator.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("复制问卷失败.", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -242,17 +243,19 @@ public class SurveyController {
 		Collections.sort(result);
 		
 		if(answers!=null) {
-			return ResponseGenerator.createSuccessResponse("Get result list success.", result.size(), result, result.size());
+			return ResponseGenerator.createSuccessResponse("获取问卷结果成功。", result.size(), result, result.size());
 		}else {
-			return ResponseGenerator.createFailResponse("Fail to get result list.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取问卷结果失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	
+    @Value("${web.upload-path}")
+    private String path;
 	@ResponseBody
 	@RequestMapping(value = "/getQRcode", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getQRcode(
 			@RequestParam(value = "pathStringCode", required = true) String pathStringCode) throws WriterException, IOException{
-        String filePath = "./";  
+        String filePath = path;  
         String fileName = UUID.randomUUID().toString().replaceAll("-", "");
 
         String content = pathStringCode;

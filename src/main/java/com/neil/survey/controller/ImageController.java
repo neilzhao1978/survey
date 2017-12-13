@@ -207,9 +207,9 @@ public class ImageController {
 	public RestResponseEntity<Void> deleteCreator(@RequestBody Image image) {
 		try {
 			imageRepo.delete(image);
-			return ResponseGenerator.createSuccessResponse("delete image success.");
+			return ResponseGenerator.createSuccessResponse("删除图像成功.");
 		} catch (Exception e) {
-			return ResponseGenerator.createFailResponse("Fail to delete image.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("删除图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
 
