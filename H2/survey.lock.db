@@ -1,6 +1,6 @@
 #FileLock
-#Wed Dec 13 15:03:10 CST 2017
+#Thu Dec 14 09:29:39 CST 2017
 hostName=DESKTOP-2QOMAIJ
-id=1604eaf2131fa6a57c66f47a880667852da07686ff7
+id=16052a42e39eb1b615afaf15261688e3aaffa0e3c87
 method=file
-server=192.168.42.4\:50399
+server=192.168.42.230\:53413

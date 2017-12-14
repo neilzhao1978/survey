@@ -75,15 +75,15 @@
         </div>
     </div>
 
-    <div class="panel panel-default" v-for="type in inspire_type">
+    <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
         <div class="panel-heading">
-            {{type.typeName}} 请选择一张{{type.typeName}}图片作为一项，能代表您公司的产品
+            {{type.typeName}}： 请选{{type.typeName}}图片，能代表您公司的产品。最多选择{{type.limit}}张
         </div>
         <div class="panel-body" >
             <div class="panel-body" >
                 <div class="row">
                     <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px">
-                        <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-on:click='answer_doCheck_inspireImg'>
+                        <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='answer_doCheck_inspireImg'>
                         <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
                         <!--<span>{{typeImg.imageDesc}}</span>-->
                     </div>

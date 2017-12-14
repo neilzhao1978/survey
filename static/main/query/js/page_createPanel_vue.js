@@ -5,8 +5,18 @@
 //    }
 //});
 
+//基础设置中的发布时间：年份参数，可选择2017——2025年
 var t_years=[2017,2018,2019,2020,2021,2022,2023,2024,2025];
+//月份信息
 var t_months=[1,2,3,4,5,6,7,8,9,10,11,12];
+
+var inspireImgLimits=[
+    "maxUserIndustryImageCount",
+    "maxUserAnimalImageCount",
+    "maxUserBuildingImageCount",
+    "maxUserArtImageCount",
+    "maxUserOthersImageCount"
+];
 
 var CreateQuery = new Vue({
     el: '#CreateQuery',
@@ -26,16 +36,16 @@ var CreateQuery = new Vue({
         //qTime: "123",
         //品牌上限
         brandLimit:2,
-        //动物类意向图片选择上限
-        maxUserAnimalImageCount:1,
-        //艺术类意向图片选择上限
-        maxUserArtImageCount:1,
-        //建筑类意向图片选择上限
-        maxUserBuildingImageCount:1,
         //工业类意向图片选择上限
-        maxUserIndustryImageCount:1,
+        //maxUserIndustryImageCount:1,
+        //动物类意向图片选择上限
+        //建筑类意向图片选择上限
+        //maxUserBuildingImageCount:1,
+        //maxUserAnimalImageCount:1,
+        //艺术类意向图片选择上限
+        //maxUserArtImageCount:1,
         //其他类意向图片选择上限
-        maxUserOthersImageCount:1,
+        //maxUserOthersImageCount:1,
         //图库定义
         gallery:[
             {
@@ -84,6 +94,7 @@ var CreateQuery = new Vue({
                 ]
             }
         ],
+        //从图库中选取的意向图片
         inspire_type:[
             {
                 jtabId:'#tab0',
@@ -146,15 +157,19 @@ var CreateQuery = new Vue({
                 ]
             }
         ],
+        //所有品牌
         allBrand:[
 
         ],
+        //设计者选取的品牌列表：每个品牌中有product对象，其中存放该品牌下的所有产品
         brandList:[
 
         ],
+        //设计者选中的产品
         selProList:[
 
         ],
+        //设计者选中的产品局部图
         selProDetailList:[
 
         ]
@@ -356,7 +371,7 @@ var CreateQuery = new Vue({
                 }
             }
         },
-        //问卷预览中的
+        //问卷预览中的选择监听：若超过品牌选择上限，则给出提示
         preview_doCheck:function (){
             var obj=event.currentTarget;
             obj.checked?c++:c--;
@@ -365,9 +380,25 @@ var CreateQuery = new Vue({
                 alert("已达到选择上限！");
                 c--;
             }
+        },
+        //问卷预览中的选择监听：若超过该类型的意向图片选择上限，则给出提示
+        preview_doCheck_inspireImg:function (){
+            var obj=event.currentTarget;
+            //获取当前点击的意向图片的类型
+            var type=obj.alt;
+            console.log(type);
+            console.log(_c_inspireImg);
+            var index=INS_IMG_TYPE.indexOf(type);
+            obj.checked?_c_inspireImg[index]++:_c_inspireImg[index]--;
+            if(_c_inspireImg[index]>CreateQuery.inspire_type[index].limit){
+                obj.checked=false;
+                alert("已达到选择上限！");
+                _c_inspireImg[index]--;
+            }
         }
     },
     computed:{
+        //计算属性：根据年月日算出 时间
         qReleaseTime:function(){
             return this.qYear+"-"+this.qMonth+"-"+this.qDay+" "+"00:00:00"
         }
@@ -407,5 +438,5 @@ var validatorSettings={
             }
         }
     }
-}
+};
 

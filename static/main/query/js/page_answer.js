@@ -4,7 +4,7 @@ var imageService=ImageService();
 var surveyService=SurveyService();
 var answerService=AnswerService();
 var c=0;
-var _c=0;
+var _c_inspireImg=[0,0,0,0,0];
 
 var page_brands={
     pageNumber:1,
@@ -44,13 +44,10 @@ var INS_IMG_TYPE = ["INDUSTRY","ANIMAL","BUILDING","ART","OTHERS"];
 //};
 
 var surveyId=common.GetRequest();
-var surveyStatus=1;
 
 $(document).ready(function(){
 
     loadInpireImg_all();
-    $("#tab0").addClass("active");
-    $("#releaseQueryCon").hide();
 
     loadSurveyInfo();
 
@@ -70,7 +67,34 @@ function loadSurveyInfo(){
                 //
                 CreateQuery.qName=list.name;
                 CreateQuery.qDesc=list.desc;
-                CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
+
+                //发布日期：年月日，赋值
+                var time=new Date(list.releaseTime);
+                CreateQuery.qYear=time.getFullYear();
+                CreateQuery.qMonth=time.getMonth()+1;
+                CreateQuery.qDay=time.getDate();
+
+                //获取并赋值 品牌选择上限
+                if(list.maxUserBrandCount){
+                    CreateQuery.brandLimit=list.maxUserBrandCount;
+                }
+
+                //意向图片选择上限赋值
+                if(list.maxUserIndustryImageCount){
+                    CreateQuery.inspire_type[0].limit=list.maxUserIndustryImageCount;
+                }
+                if(list.maxUserAnimalImageCount){
+                    CreateQuery.inspire_type[1].limit=list.maxUserAnimalImageCount;
+                }
+                if(list.maxUserBuildingImageCount){
+                    CreateQuery.inspire_type[2].limit=list.maxUserBuildingImageCount;
+                }
+                if(list.maxUserArtImageCount){
+                    CreateQuery.inspire_type[3].limit=list.maxUserArtImageCount;
+                }
+                if(list.maxUserOthersImageCount){
+                    CreateQuery.inspire_type[4].limit=list.maxUserOthersImageCount;
+                }
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -107,15 +131,15 @@ function loadSurveyInfo(){
                     else if(list.images[i].imageType=="DETAIL"){
                         CreateQuery.selProDetailList.push(list.images[i]);
                     }
-                    ////五种意向图片
-                    //else{
-                    //    for(j=0;j<INS_IMG_TYPE.length;j++){
-                    //        if(list.images[i].imageType==INS_IMG_TYPE[j]){
-                    //            CreateQuery.inspire_type[j].imgList.push(list.images[i])
-                    //        }
-                    //    }
-                    //}
-                    //console.log("HI")
+                    //五种意向图片
+                    else{
+                        for(j=0;j<INS_IMG_TYPE.length;j++){
+                            if(list.images[i].imageType==INS_IMG_TYPE[j]){
+                                CreateQuery.inspire_type[j].imgList.push(list.images[i]);
+                                CreateQuery.inspire_type[j].isSelected=true;
+                            }
+                        }
+                    }
                 }
 
                 loadBrands();
@@ -125,8 +149,6 @@ function loadSurveyInfo(){
         loadBrands();
     }
 }
-
-
 
 var loadBrands=function(){
     brandService.getAllBrands(page_brands,function(data){
@@ -156,29 +178,6 @@ var loadBrands=function(){
         }
     })
 };
-//
-
-
-//保存问卷：同返回列表时提示的保存草稿保存草稿
-$("#saveQuery").click(function(e){
-    surveyStatus=1;
-    saveOrNot(1);
-
-});
-
-//发布问卷
-$("#releaseQuery").click(function(e){
-    surveyStatus=2;
-    saveOrNot(1);
-});
-
-function saveBrandIds(){
-    var selectedBrand=$("#brandContainer input[type='checkbox']:checked");
-    for(var i=0;i<selectedBrand.length;i++){
-        brandIds.push(selectedBrand[i].id)
-    }
-    console.log(brandIds);
-}
 
 function loadProductImg(brandId){
     imageService.getProductImagesByBrandId(brandId,function(data){
@@ -197,37 +196,6 @@ function loadProductImg(brandId){
 
         }
     })
-
-}
-
-function saveSurvey(){
-    surveyService.updateSurvey()
-}
-var INSP_TAB_INDEX=0;
-$("#upload_inspire_type").val(INS_IMG_TYPE[INSP_TAB_INDEX]);
-function loadInpireImg(){
-    //for(var i=0;i<INS_IMG_TYPE.length;i++){
-        imageService.getAllImages(page_inspireImg,INS_IMG_TYPE[INSP_TAB_INDEX],function(){},
-            function(data){
-                if(data.result){
-                    if(data.dataCount>0){
-                        var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
-                        //console.log("获取的激发图片如下：");
-                        //console.log(data.data);
-                        CreateQuery.inspire_type[index].imgList=data.data;
-                        //激发图片信息如下
-                    }else{
-
-                    }
-
-                }
-                else{
-                    alert(data.description)
-                }
-            }
-        );
-    //}
-
 }
 
 function loadInpireImg_all(){
@@ -238,7 +206,10 @@ function loadInpireImg_all(){
                 if(data.result){
                     if(data.dataCount>0){
                         var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
-                        CreateQuery.inspire_type[index].imgList=data.data;
+                        //CreateQuery.inspire_type[index].imgList=data.data;
+                        CreateQuery.gallery[index].imgList=data.data;
+                        //console.log("CreateQuery.gallery");
+                        //console.log(CreateQuery.gallery)
                     }else{
 
                     }
@@ -249,114 +220,6 @@ function loadInpireImg_all(){
             }
         );
     }
-}
-
-var inspireImgDescArr=new Array(8);
-var inspireImgDesc="";
-var ImgDescList=[
-    {good:'精致',bad:'粗俗'},
-    {good:'简洁',bad:'复杂'},
-    {good:'圆润',bad:'硬朗'},
-    {good:'灵敏',bad:'迟钝'},
-    {good:'优雅',bad:'普通'},
-    {good:'亲和',bad:'冷漠'},
-    {good:'现代',bad:'传统'},
-    {good:'安静',bad:'躁动'}
-];
-
-function buildInspireDesc(index,which){
-    inspireImgDesc="";
-    if(which==0){
-        inspireImgDescArr[index]=ImgDescList[index].good;
-    }else{
-        inspireImgDescArr[index]=ImgDescList[index].bad;
-    }
-    for (i = inspireImgDescArr.length - 1;  i >=0; i--) {
-        if (inspireImgDescArr[i] === undefined) {
-            inspireImgDescArr.splice(i, 1);
-        }
-    }
-    for(var i=0;i<inspireImgDescArr.length;i++){
-        if(i==0){
-            inspireImgDesc+=inspireImgDescArr[i];
-        }
-        else{
-            inspireImgDesc+=","+inspireImgDescArr[i];
-        }
-    }
-    console.log(inspireImgDesc);
-    $("#inspireImgDesc").val(inspireImgDesc);
-    console.log($("#inspireImgDesc").val())
-}
-
-//意向图片；点击不同的类，赋值index给INSP_TAB_INDEX
-function gettabindex(index){
-    INSP_TAB_INDEX=index;
-    $("#upload_inspire_type").val(INS_IMG_TYPE[INSP_TAB_INDEX]);
-    loadInpireImg();
-}
-
-//问卷配置：主tab切换事件
-function tabClick(index){
-    if(index==4){
-        $("#saveQueryCon").hide();
-        $("#releaseQueryCon").show()
-    }
-    else{
-        $("#saveQueryCon").show();
-        $("#releaseQueryCon").hide()
-    }
-}
-
-function returnList(){
-    $("#saveAlert").modal("show");
-}
-
-function saveOrNot(flag){
-    //不保存
-    if(flag==0){
-        window.location='queryList.html';
-    }
-    //保存
-    else{
-        doSaveDraft();
-    }
-}
-
-//确定保存草稿/发布：surveyStatus:1 保存草稿； surveyStatus：2 发 布
-function doSaveDraft(){
-
-    var name=CreateQuery.qName;
-    var releaseTime=common.dateFormatter_inverse(CreateQuery.qTime);
-    //草稿
-    //var status=1;
-    var brandArr=[];
-    for(var i=0;i<CreateQuery.brandList.length;i++){
-        var brandObj={brandId:CreateQuery.brandList[i].brandId};
-        brandArr.push(brandObj)
-    }
-    var proArr=[];
-    for(i=0;i<CreateQuery.selProList.length;i++){
-        var proObj={imageId:CreateQuery.selProList[i].imageId};
-        proArr.push(proObj)
-    }
-
-    console.log(name);
-    console.log(releaseTime);
-    console.log(surveyStatus);
-    console.log(surveyId);
-    console.log(brandArr);
-    console.log(proArr);
-
-    //console.log(CreateQuery.brandList);
-    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,proArr,function(){},function(data){
-        if(data.result){
-            alert(data.description);
-            window.location='queryList.html';
-        }else{
-            alert(data.description)
-        }
-    })
 }
 
 //提交answer

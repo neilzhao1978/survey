@@ -22,7 +22,7 @@ function SurveyService(){
     };
 
     /*  增加、更新问卷*/
-    service.updateSurvey=function(name,releaseTime,status,surveyId,brands,images,beforeSend,onSuccess){
+    service.updateSurvey=function(name,releaseTime,status,surveyId,brands,images,limits,beforeSend,onSuccess){
         var temp=this.url+"/updateSurvey";
         //var creatorStr=JSON.stringify({"email":"niel@123.com"});
         //var brandsStr=JSON.stringify(brands);
@@ -34,7 +34,13 @@ function SurveyService(){
             status:status,
             surveyId:surveyId,
             brands:brands,
-            images:images
+            images:images,
+            maxUserBrandCount:limits.maxUserBrandCount,
+            maxUserIndustryImageCount:limits.maxUserIndustryImageCount,
+            maxUserAnimalImageCount:limits.maxUserAnimalImageCount,
+            maxUserBuildingImageCount:limits.maxUserBuildingImageCount,
+            maxUserArtImageCount:limits.maxUserArtImageCount,
+            maxUserOthersImageCount:limits.maxUserOthersImageCount
 
         };
         var allObjStr=JSON.stringify(allObj);

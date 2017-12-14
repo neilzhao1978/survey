@@ -5,7 +5,7 @@ var imageService=ImageService();
 var surveyService=SurveyService();
 
 var c=0;
-var _c=0;
+var _c_inspireImg=[0,0,0,0,0];
 
 var page_brands={
     pageNumber:1,
@@ -51,26 +51,27 @@ var surveyStatus=1;
 
 $(document).ready(function(){
 
-    //
-    loadInpireImg_all();
-
-    //
+    //页面元素初始化加载
     $("#tab0").addClass("active");
     $("#g_tab0").addClass("active");
     $("#releaseQueryCon").hide();
 
-    //
+    //加载survey信息
     loadSurveyInfo();
 
+    //基本设置中的：时间选择器插件初始化
     var timepickerObj=new _timepicker("year","month","day");
     timepickerObj.init();
 
-    $('#defaultForm').bootstrapValidator();
+    //$('#defaultForm').bootstrapValidator();
 
+    //加载图库中的所有图片
+    loadInpireImg_all();
 });
 
 //如果是预览(编辑）某个问卷；则加载问卷信息
 function loadSurveyInfo(){
+    //如果survyId存在（即编辑survey）则加载survey的详情
     if(surveyId){
         surveyService.getSurveyDetail(surveyId,function(){},function(data){
             if(data.result){
@@ -84,10 +85,34 @@ function loadSurveyInfo(){
                 CreateQuery.qName=list.name;
                 CreateQuery.qDesc=list.desc;
                 //CreateQuery.qTime=common.dateFormatter_hyphen(list.releaseTime);
+
+                //发布日期：年月日，赋值
                 var time=new Date(list.releaseTime);
                 CreateQuery.qYear=time.getFullYear();
                 CreateQuery.qMonth=time.getMonth()+1;
                 CreateQuery.qDay=time.getDate();
+
+                //获取并赋值 品牌选择上限
+                if(list.maxUserBrandCount){
+                    CreateQuery.brandLimit=list.maxUserBrandCount;
+                }
+
+                //意向图片选择上限赋值
+                if(list.maxUserIndustryImageCount){
+                    CreateQuery.inspire_type[0].limit=list.maxUserIndustryImageCount;
+                }
+                if(list.maxUserAnimalImageCount){
+                    CreateQuery.inspire_type[1].limit=list.maxUserAnimalImageCount;
+                }
+                if(list.maxUserBuildingImageCount){
+                    CreateQuery.inspire_type[2].limit=list.maxUserBuildingImageCount;
+                }
+                if(list.maxUserArtImageCount){
+                    CreateQuery.inspire_type[3].limit=list.maxUserArtImageCount;
+                }
+                if(list.maxUserOthersImageCount){
+                    CreateQuery.inspire_type[4].limit=list.maxUserOthersImageCount;
+                }
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -115,7 +140,7 @@ function loadSurveyInfo(){
                     list.brands[i].product=list.brands[i].images;
                     delete list.brands[i].images
                 }
-                CreateQuery.brandList=list.brands;
+
                 //根据图片类型将其分类赋值于 CreateQuery.*
                 for(i=0;i<list.images.length;i++){
                     //产品整体造型
@@ -141,13 +166,15 @@ function loadSurveyInfo(){
                 loadBrands();
             }
         })
-    }else{
+    }
+    //如果surveyId不存在（即新建一个工单）,直接获取品牌信息
+    else{
         loadBrands();
     }
 }
 
 
-
+//加载品牌信息，并将其赋值于vue实例
 var loadBrands=function(){
     brandService.getAllBrands(page_brands,function(data){
         console.log("加载的品牌信息如下");
@@ -206,18 +233,13 @@ function loadProductImg(brandId){
                     break
                 }
             }
-            //var htmlStr="";
-            //for(i=0;i<list.length;i++){
-            //    htmlStr+='<div class="col-lg-3"><input type="checkbox" class="brandChoiceChk" /><img class="brandProductImg" id="'+list[i].imageId+'" src="'+list[i].imageUrl+'"/></div>';
-            //}
-            //$("#_"+brandId).append('<div class="panel-body">'+htmlStr+'</div></div>');
+            //将产品信息根据品牌ID 保存于vue实例对应的brandList中
             for(i=0;i<CreateQuery.brandList.length;i++){
                 if(CreateQuery.brandList[i].brandId==brandId){
                     CreateQuery.brandList[i].product=list;
                     break
                 }
             }
-            console.log(CreateQuery.brandList)
         }
         else{
 
@@ -231,10 +253,6 @@ function loadProductDetail(productId){
             for(var i=0;i<data.data.length;i++){
                 CreateQuery.selProDetailList.push(data.data[i])
             }
-            console.log("CreateQuery.selProDetailList");
-            console.log(CreateQuery.selProDetailList);
-            console.log("CreateQuery.selProList");
-            console.log(CreateQuery.selProList);
         }
         else{
             alert(data.description)
@@ -245,11 +263,13 @@ function loadProductDetail(productId){
 function saveSurvey(){
     surveyService.updateSurvey()
 }
+
+//主页面中：意向图片选项卡中的，五种类型意向图片 当前选中的tab index
 var INSP_TAB_INDEX=0;
+//图库窗口：图片选项卡中的，五种类型图片的tab index
 var INSP_TAB_INDEX_GAL=0;
 
-$("#upload_inspire_type").val(INS_IMG_TYPE[INSP_TAB_INDEX]);
-
+//加载意向图片
 function loadInpireImg(){
     //for(var i=0;i<INS_IMG_TYPE.length;i++){
         imageService.getAllImages(page_inspireImg,INS_IMG_TYPE[INSP_TAB_INDEX_GAL],function(){},
@@ -274,6 +294,7 @@ function loadInpireImg(){
 
 }
 
+//加载图库中的所有类型的图片
 function loadInpireImg_all(){
     //for(var i=0;i<INS_IMG_TYPE.length;i++){
     for(var i=0;i<INS_IMG_TYPE.length;i++){
@@ -298,6 +319,15 @@ function loadInpireImg_all(){
     }
 }
 
+/**  上传图片到图库 ***/
+//打开图片上传窗口
+function openImgUpLoadWin(){
+    $("#uploadInspireImgWin").modal('show');
+}
+//上传时，隐藏的字段：用于指定当前选中的图片的类型
+$("#upload_inspire_type").val(INS_IMG_TYPE[INSP_TAB_INDEX]);
+
+//上传图片到图库
 function submitPic(formID){
     if(formID=="form1"){
 
@@ -316,20 +346,19 @@ function submitPic(formID){
     });
 }
 
-function openImgUpLoadWin(){
-    $("#uploadInspireImgWin").modal('show');
-}
-
+//打开图库窗口
 function openGalleryWin(){
     $("#galleryWin").modal('show');
+    //打开图库后，根据意向图片的当前的类型tab，指定图库中的对应类型tab
     $("#galleryTab li").removeClass("active");
     $("#galleryTab li:eq("+INSP_TAB_INDEX+")").addClass("active");
     $("#galleryTabContent .tab-pane").removeClass("active");
     $("#galleryTabContent .tab-pane:eq("+INSP_TAB_INDEX+")").addClass("active");
+    INSP_TAB_INDEX_GAL=INSP_TAB_INDEX;
 
 }
 
-var inspireImgDescArr=new Array(8);
+var inspireImgDescArr=new Array(3);
 var inspireImgDesc="";
 var ImgDescList=[
     //{good:'精致',bad:'粗俗'},
@@ -392,13 +421,16 @@ function tabClick(index){
     }
 }
 
+//返回survey列表页面的提示信息
 function returnList(){
     $("#saveAlert").modal("show");
 }
 
+//保存或不保存
 function saveOrNot(flag){
     //不保存
     if(flag==0){
+        //不执行任何保存操作，直接将页面跳转到surveyList页面
         window.location='queryList.html';
     }
     //保存
@@ -453,38 +485,39 @@ function doSaveDraft(){
 
     }
 
-    console.log(name);
-    console.log(releaseTime);
-    console.log(surveyStatus);
-    console.log(surveyId);
-    console.log(brandArr);
-    console.log(imageArr);
+    //console.log(name);
+    //console.log(releaseTime);
+    //console.log(surveyStatus);
+    //console.log(surveyId);
+    //console.log(brandArr);
+    //console.log(imageArr);
 
     //console.log(CreateQuery.brandList);
-    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,imageArr,function(){},function(data){
+    var limits={
+        maxUserBrandCount:          CreateQuery.brandLimit,
+        maxUserIndustryImageCount:  CreateQuery.inspire_type[0].limit,
+        maxUserAnimalImageCount:    CreateQuery.inspire_type[1].limit,
+        maxUserBuildingImageCount:  CreateQuery.inspire_type[2].limit,
+        maxUserArtImageCount:       CreateQuery.inspire_type[3].limit,
+        maxUserOthersImageCount:    CreateQuery.inspire_type[4].limit
+    };
+
+    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,imageArr,limits,function(){},function(data){
         if(data.result){
-            //alert(data.description);
             alert("问卷保存成功!");
             window.location='queryList.html';
         }else{
-            //alert(data.description)
             alert("问卷保存失败！");
-
         }
     })
 }
 
-
-//function gallerySelCancel(){
-//    for(var i=0;i<CreateQuery.inspire_type.length;i++){
-//        CreateQuery.inspire_type[i].imgList=[];
-//    }
-//}
-
+//清空意向图片，提示窗口弹出
 function emptyInspireAlert(){
     $("#emptyAlert").modal('show')
 }
 
+//确定清空当前选中类型的意向图片
 function inspireTypeImgCancel(){
     CreateQuery.inspire_type[INSP_TAB_INDEX].imgList=[];
     //由于没有图片，所以设置isSelected为false,用于预览中的隐藏
@@ -545,7 +578,7 @@ var FastJson = {
     }
 };
 
-
+//基本设置中的：时间选择器插件
 var _timepicker=function(yearId,monthId,dayId){
 
     function computeMonthDays(year,month){
