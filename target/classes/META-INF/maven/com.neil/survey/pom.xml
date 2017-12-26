@@ -46,6 +46,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
@@ -81,6 +86,15 @@
 		    <artifactId>javase</artifactId>
 		    <version>3.3.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/batik/batik-all -->
+
+		<!-- https://mvnrepository.com/artifact/com.kenai.nbpwr/org-apache-batik-all -->
+		<dependency>
+		    <groupId>com.kenai.nbpwr</groupId>
+		    <artifactId>org-apache-batik-all</artifactId>
+		    <version>1.7-201002241055</version>
+		</dependency>		
 		
 	</dependencies>
 

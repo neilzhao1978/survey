@@ -261,3 +261,12 @@ update SURVEY  set max_user_animal_image_count=1,MAX_USER_ART_IMAGE_COUNT =1,MAX
 2017-12-11 17:12:59 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SURVEY  SET MAX_USER_ANIMAL_IMAGE_COUNT=1,=[*]1,MAX_USER_ART_IMAGE_COUNT =1,MAX_USER_BRAND_COUNT =1,MAX_USER_BUILDING_IMAGE_COUNT =1,MAX_USER_INDUSTRY_IMAGE_COUNT =1,MAX_USER_OTHERS_IMAGE_COUNT =1 "; expected "identifier"; SQL statement:
 update SURVEY  set max_user_animal_image_count=1,=1,MAX_USER_ART_IMAGE_COUNT =1,MAX_USER_BRAND_COUNT =1,MAX_USER_BUILDING_IMAGE_COUNT =1,MAX_USER_INDUSTRY_IMAGE_COUNT =1,MAX_USER_OTHERS_IMAGE_COUNT =1 [42001-196]
+2017-12-20 23:20:37 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLE" not found; SQL statement:
+delete table  IMAGE where image_type like '	DETAIL' [42102-196]
+2017-12-20 23:21:25 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DELETE FROM  IMAGE WHERE IMAGE_TYPE LIKE 'DETAIL' CASCADE[*] "; SQL statement:
+delete from  IMAGE where image_type like 'DETAIL' cascade [42000-196]
+2017-12-20 23:21:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DELETE FROM  IMAGE WHERE IMAGE_TYPE LIKE 'DETAIL' FORCE[*] "; SQL statement:
+delete from  IMAGE where image_type like 'DETAIL' force [42000-196]

@@ -20,6 +20,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
@@ -87,7 +89,8 @@ public class SurveyController {
 //	@Autowired
 //	private CreatorRepository creatorRepo;
 	
-
+	private static final Logger logger = LoggerFactory.getLogger(SurveyController.class);
+	
 	@ResponseBody
 	@RequestMapping(value = "/getAllSurveys", method = RequestMethod.GET)
 	public RestResponseEntity<List<Survey>> getAllSurveys( @RequestParam(value = "page",required=true) PageEntity page){
@@ -270,11 +273,13 @@ public class SurveyController {
         return ResponseGenerator.createQRImageResponse(path.toString());
 	}
 	
+    @Value("${web.brandServerAddr}")
+    private String serverAddr;
 	@ResponseBody
 	@RequestMapping(value = "/sychDb", method = RequestMethod.GET)
 	public RestResponseEntity<Void> sychDb(){
 		BrandResp brandResp = null;
-		brandResp = template.getForObject("http://139.196.236.34:8778/equipment/esApi/getAllBrand", BrandResp.class);
+		brandResp = template.getForObject(serverAddr+ "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
 		
 		for(Brand_P b :x) {
@@ -285,32 +290,40 @@ public class SurveyController {
 			brand.setDesc(b.getDescription());
 			
 			VehicheResp vehicheResp = null;
-			vehicheResp = template.getForObject("http://139.196.236.34:8778/equipment/esApi/getProductByBrand/{id}", VehicheResp.class,b.getId().toString());
+			vehicheResp = template.getForObject(serverAddr+ "getProductByBrand/{id}", VehicheResp.class,b.getId().toString());
 			
 			Set<Image> images = new HashSet<Image>();
 			
 			for(VehicleInfo_P v:vehicheResp.object) {
 				Image i = new Image();
 				i.setImageId(v.getId().toString());
-				i.setImageDesc("brand:"+v.getBrandName()+".category:"+v.getCategoryName());
-				
+				i.setImageDesc("brand:"+b.getName()+".category:"+v.getCategoryName());
 				
 				List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);  
 				
 				for(Component c :componets) {
-					Image detail = new Image();
-					detail.setImageId(UUID.randomUUID().toString().replaceAll("-", ""));
-					detail.setImageDesc(c.name);
-					detail.setImageName(c.name);
-					detail.setImageType("DETAIL");
-					detail.setImageUrl(c.image.src);
-					detail.setParentImageId(i.getImageId());
-					imageRepo.save(detail);
+					try{
+						Image detail = new Image();
+						detail.setImageId(c.id+"");
+						detail.setImageDesc(c.name);
+						detail.setImageName(c.name);
+						detail.setImageType("DETAIL");
+						detail.setImageUrl(c.image.src);
+						detail.setParentImageId(i.getImageId());
+						detail.setX((int)(c.image.customData.boundW*c.image.customData.x));
+						detail.setY((int)(c.image.customData.boundH*c.image.customData.y));
+						detail.setW(c.image.customData.w);
+						detail.setH(c.image.customData.h);
+						imageRepo.save(detail);
+					}catch(Exception e){
+						logger.error("insert detail image erro.");
+					}
+
 				}
 				
 				i.setImageName(v.getProductCategory());
 				i.setImageType("WHOLE");
-				i.setImageUrl(v.getImageUrl1());
+				i.setImageUrl(v.getImageUrl1()+";"+v.getImageUrl2());
 				i.setParentImageId(null);
 				images.add(i);
 				

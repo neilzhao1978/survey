@@ -1,5 +1,5 @@
 
-var host="http://192.168.0.247:8000/api";
+var host="http://127.0.0.1:8000/api";
 
 //上次弹窗内容
 var lastAlertContent="";

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +28,7 @@ import com.neil.survey.util.PageEntity;
 import com.neil.survey.util.ResponseGenerator;
 import com.neil.survey.util.RestResponseEntity;
 
+
 @RestController
 @RequestMapping("/api/brandService")
 @Transactional
@@ -41,6 +44,8 @@ public class BrandController {
 	@Autowired
 	private CreatorRepository creatorRepo;
 	
+	private static final Logger logger = LoggerFactory.getLogger(BrandController.class);
+	
 	@ResponseBody
 	@RequestMapping(value = "/getAllBrands", method = RequestMethod.GET)
 	public RestResponseEntity<List<Brand>> getAllBrands( @RequestParam(value = "page",required=true) PageEntity page){
@@ -54,6 +59,7 @@ public class BrandController {
 			}
 			return ResponseGenerator.createSuccessResponse("获取品牌列表成功。", brands.getContent().size(), brands.getContent(),brands.getTotalElements());
 		}else {
+			logger.error("获取品牌列表失败。");
 			return ResponseGenerator.createFailResponse("获取品牌列表失败。", ErrorCode.DB_ERROR);
 		}
 	}

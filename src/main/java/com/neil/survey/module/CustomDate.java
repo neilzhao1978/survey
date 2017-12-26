@@ -1,6 +1,6 @@
 package com.neil.survey.module;
 
-class CustomDate{
+public class CustomDate{
     public int boundW;//宽
     public int boundH;//高
     public double x;
