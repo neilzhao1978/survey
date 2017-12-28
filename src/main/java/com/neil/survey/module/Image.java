@@ -26,7 +26,7 @@ public class Image implements Serializable{
 	private boolean containFeatureLine;
 
 
-	@Column(length = 10240)
+	@Column(length = 20480)
 	private String allKeyPoints;
 	@Column(length = 10240)
 	private String imageDesc;

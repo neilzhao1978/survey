@@ -316,33 +316,25 @@ public class SurveyController {
 							detail.setImageDesc(c.name);
 							detail.setImageName(c.name);
 							detail.setImageType("DETAIL");
-							
-					        SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
-					        String in = c.image.src;
-					        
-					        String imageUUID = UUID.randomUUID().toString().replace("-", "");
-					        
-					        logger.info(System.getProperty("user.dir"));
-					        File directory = new File("");
-					        try{ 
-					        	logger.info(directory.getCanonicalPath());//获取标准的路径 
-					        	logger.info(directory.getAbsolutePath());//获取绝对路径 
-					        }catch(Exception e){} 
-					        
-					        String fileName = path+imageUUID+".jpg";
-					        
-					        File f = new File(fileName);
-					        if(!f.exists()){
-					        	f.createNewFile();
-					        }
-							
-							detail.setImageUrl(c.image.src);
+							detail.setImageUrl(v.getImageUrl1());//TODO
 							detail.setParentImageId(i.getImageId());
+							if(c.image.customData==null){
+								logger.info("sub area is null.");
+								continue;
+							}
 							detail.setX((int)(c.image.customData.boundW*c.image.customData.x));
 							detail.setY((int)(c.image.customData.boundH*c.image.customData.y));
 							detail.setW(c.image.customData.w);
 							detail.setH(c.image.customData.h);
 							
+					        SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+					        String in = v.getImageUrl1();
+					        String imageUUID = UUID.randomUUID().toString().replace("-", "");
+					        String fileName = path+imageUUID+".jpg";
+					        File f = new File(fileName);
+					        if(!f.exists()){
+					        	f.createNewFile();
+					        }
 							saver.tile(in, fileName, new Rectangle(detail.getX(),detail.getY(),detail.getW(),detail.getH()));
 							PlainRect r = new PlainRect(detail.getX(),detail.getY(),detail.getW(),detail.getH());
 							
@@ -357,6 +349,7 @@ public class SurveyController {
 							imageRepo.save(detail);
 						}catch(Exception e){
 							logger.error("insert detail image erro.");
+							e.printStackTrace();
 						}
 					}
 				    String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float", "");
@@ -370,6 +363,7 @@ public class SurveyController {
 					imageRepo.save(i);
 				}catch(Exception e){
 					logger.error("insert whole image erro.");
+					e.printStackTrace();
 				}
 				brand.setImages(images);
 				brandRepo.save(brand);
