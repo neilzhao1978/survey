@@ -1,5 +1,8 @@
 package com.neil.survey.controller;
 
+import java.awt.Rectangle;
+import java.awt.geom.Point2D;
+import java.io.File;
 import java.io.IOException;
 import java.io.OptionalDataException;
 import java.nio.file.FileSystems;
@@ -49,6 +52,10 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
+import com.neil.batiktools.PlainRect;
+import com.neil.batiktools.Rect;
+import com.neil.batiktools.SaveAsJPEGTiles;
+import com.neil.batiktools.SvgUtilities;
 import com.neil.survey.module.Answer;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.BrandResp;
@@ -277,7 +284,7 @@ public class SurveyController {
     private String serverAddr;
 	@ResponseBody
 	@RequestMapping(value = "/sychDb", method = RequestMethod.GET)
-	public RestResponseEntity<Void> sychDb(){
+	public RestResponseEntity<Void> sychDb() throws IOException{
 		BrandResp brandResp = null;
 		brandResp = template.getForObject(serverAddr+ "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
@@ -295,42 +302,79 @@ public class SurveyController {
 			Set<Image> images = new HashSet<Image>();
 			
 			for(VehicleInfo_P v:vehicheResp.object) {
-				Image i = new Image();
-				i.setImageId(v.getId().toString());
-				i.setImageDesc("brand:"+b.getName()+".category:"+v.getCategoryName());
-				
-				List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);  
-				
-				for(Component c :componets) {
-					try{
-						Image detail = new Image();
-						detail.setImageId(c.id+"");
-						detail.setImageDesc(c.name);
-						detail.setImageName(c.name);
-						detail.setImageType("DETAIL");
-						detail.setImageUrl(c.image.src);
-						detail.setParentImageId(i.getImageId());
-						detail.setX((int)(c.image.customData.boundW*c.image.customData.x));
-						detail.setY((int)(c.image.customData.boundH*c.image.customData.y));
-						detail.setW(c.image.customData.w);
-						detail.setH(c.image.customData.h);
-						imageRepo.save(detail);
-					}catch(Exception e){
-						logger.error("insert detail image erro.");
-					}
+				try{
+					Image i = new Image();
+					i.setImageId(v.getId().toString());
+					i.setImageDesc("brand:"+b.getName()+".category:"+v.getCategoryName());
+					List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 
+					List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);  
+					for(Component c :componets) {
+						try{
+							Image detail = new Image();
+							detail.setImageId(c.id+"");
+							detail.setImageDesc(c.name);
+							detail.setImageName(c.name);
+							detail.setImageType("DETAIL");
+							
+					        SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+					        String in = c.image.src;
+					        
+					        String imageUUID = UUID.randomUUID().toString().replace("-", "");
+					        
+					        logger.info(System.getProperty("user.dir"));
+					        File directory = new File("");
+					        try{ 
+					        	logger.info(directory.getCanonicalPath());//获取标准的路径 
+					        	logger.info(directory.getAbsolutePath());//获取绝对路径 
+					        }catch(Exception e){} 
+					        
+					        String fileName = path+imageUUID+".jpg";
+					        
+					        File f = new File(fileName);
+					        if(!f.exists()){
+					        	f.createNewFile();
+					        }
+							
+							detail.setImageUrl(c.image.src);
+							detail.setParentImageId(i.getImageId());
+							detail.setX((int)(c.image.customData.boundW*c.image.customData.x));
+							detail.setY((int)(c.image.customData.boundH*c.image.customData.y));
+							detail.setW(c.image.customData.w);
+							detail.setH(c.image.customData.h);
+							
+							saver.tile(in, fileName, new Rectangle(detail.getX(),detail.getY(),detail.getW(),detail.getH()));
+							PlainRect r = new PlainRect(detail.getX(),detail.getY(),detail.getW(),detail.getH());
+							
+							boolean containFeatureLine = false;
+							for(Point2D p:keyPointes){
+								containFeatureLine=r.isInside(p.getX(), p.getY());
+								if(containFeatureLine){
+									break;
+								}
+							}
+							detail.setContainFeatureLine(containFeatureLine);
+							imageRepo.save(detail);
+						}catch(Exception e){
+							logger.error("insert detail image erro.");
+						}
+					}
+				    String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float", "");
+					i.setAllKeyPoints(temp.substring(1, temp.length()-1));
+					i.setImageName(v.getProductCategory());
+					i.setImageType("WHOLE");
+					i.setImageUrl(v.getImageUrl1()+";"+v.getImageUrl2());
+					i.setParentImageId(null);
+					images.add(i);
+					
+					imageRepo.save(i);
+				}catch(Exception e){
+					logger.error("insert whole image erro.");
 				}
-				
-				i.setImageName(v.getProductCategory());
-				i.setImageType("WHOLE");
-				i.setImageUrl(v.getImageUrl1()+";"+v.getImageUrl2());
-				i.setParentImageId(null);
-				images.add(i);
-				
-				imageRepo.save(i);
-			}
-			brand.setImages(images);
-			brandRepo.save(brand);
+				brand.setImages(images);
+				brandRepo.save(brand);
+				}
+
 		}
 		
 		return ResponseGenerator.createSuccessResponse("Db sych success.");

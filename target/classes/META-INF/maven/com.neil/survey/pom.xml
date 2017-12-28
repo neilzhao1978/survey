@@ -90,12 +90,14 @@
 		<!-- https://mvnrepository.com/artifact/batik/batik-all -->
 
 		<!-- https://mvnrepository.com/artifact/com.kenai.nbpwr/org-apache-batik-all -->
-		<dependency>
-		    <groupId>com.kenai.nbpwr</groupId>
-		    <artifactId>org-apache-batik-all</artifactId>
-		    <version>1.7-201002241055</version>
-		</dependency>		
-		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>com.kenai.nbpwr</groupId> -->
+<!-- 		    <artifactId>org-apache-batik-all</artifactId> -->
+<!-- 		    <version>1.7-201002241055</version> -->
+<!-- 		</dependency>		 -->
+
+
+
 	</dependencies>
 
 	<build>

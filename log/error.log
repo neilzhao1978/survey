@@ -1,824 +1,788 @@
-2017-12-21 21:49:15.070 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.070 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.072 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.073 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.077 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.077 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:15.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.737 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.752 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.752 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.753 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.758 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.758 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.758 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.759 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.759 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.760 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.762 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.763 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.764 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.764 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.764 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.765 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.765 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.767 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.767 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.767 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.767 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.767 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.768 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.768 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.877 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.877 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.877 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.879 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.881 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.883 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.899 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.915 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.915 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:28.915 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.084 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.100 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.116 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.197 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.197 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.198 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.199 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.202 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.205 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.205 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.205 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.205 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.206 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.206 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.206 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.206 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.207 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.207 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.207 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.207 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.210 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.210 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.210 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.210 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.211 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.213 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.213 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.213 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.403 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.419 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.466 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.497 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.618 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.633 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.696 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.696 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.711 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.711 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.711 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.813 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.829 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.946 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.946 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.946 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.962 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.962 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:29.962 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.155 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.160 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.436 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.532 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.800 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:30.800 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.832 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.832 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.832 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.847 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:34.863 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.180 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.180 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.181 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.183 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.192 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.194 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.252 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:35.769 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:36.000 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.049 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.049 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.065 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.071 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.072 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.078 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.079 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.153 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.155 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.161 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.163 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.164 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.170 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.174 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.182 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.231 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.231 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.237 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.237 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.237 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.237 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.253 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.333 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.418 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.418 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.418 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.418 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.434 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.450 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.465 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.539 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.540 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.540 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.540 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.540 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.540 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.544 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.544 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.549 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.553 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.553 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.570 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.571 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.571 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.571 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.571 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.571 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.575 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.575 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.580 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.581 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.581 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.584 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.631 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.647 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.663 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.741 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.742 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.757 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.773 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.789 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.835 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
-2017-12-21 21:49:37.882 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.510 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.516 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.516 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.517 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.517 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.517 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.518 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.518 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.518 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.518 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.519 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.536 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.536 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.536 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.537 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.537 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.537 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:28.537 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.065 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.066 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.066 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.066 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.066 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.067 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.067 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.067 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.067 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:41:29.076 [http-nio-8000-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 15:41:29.080 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2017-12-28 15:41:29.090 [http-nio-8000-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.neil.survey.module.Image with id 132; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132] with root cause
+javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:144)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:227)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:278)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:121)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:89)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1129)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1022)
+	at org.hibernate.type.EntityType.resolveIdentifier(EntityType.java:639)
+	at org.hibernate.type.EntityType.resolve(EntityType.java:431)
+	at org.hibernate.type.EntityType.replace(EntityType.java:330)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:518)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:663)
+	at org.hibernate.type.AbstractType.replace(AbstractType.java:147)
+	at org.hibernate.type.TypeHelper.replaceAssociations(TypeHelper.java:261)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:427)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:301)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:170)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:69)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:840)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:822)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:827)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:511)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy89.save(Unknown Source)
+	at com.neil.survey.controller.SurveyController.sychDb(SurveyController.java:368)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2017-12-28 15:42:58.217 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.218 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.218 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.219 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.219 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.220 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.220 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.220 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.221 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.221 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.221 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.221 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.222 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.222 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.222 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.222 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.223 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.223 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.648 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.649 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.649 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.650 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.650 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.650 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.650 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.651 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.651 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:42:58.655 [http-nio-8000-exec-9] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 15:42:58.655 [http-nio-8000-exec-9] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2017-12-28 15:42:58.659 [http-nio-8000-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.neil.survey.module.Image with id 132; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132] with root cause
+javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:144)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:227)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:278)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:121)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:89)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1129)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1022)
+	at org.hibernate.type.EntityType.resolveIdentifier(EntityType.java:639)
+	at org.hibernate.type.EntityType.resolve(EntityType.java:431)
+	at org.hibernate.type.EntityType.replace(EntityType.java:330)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:518)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:663)
+	at org.hibernate.type.AbstractType.replace(AbstractType.java:147)
+	at org.hibernate.type.TypeHelper.replaceAssociations(TypeHelper.java:261)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:427)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:301)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:170)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:69)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:840)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:822)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:827)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:511)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy89.save(Unknown Source)
+	at com.neil.survey.controller.SurveyController.sychDb(SurveyController.java:368)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2017-12-28 15:56:58.478 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.480 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.480 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.481 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.482 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.482 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.483 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.483 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.483 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.484 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.484 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.485 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.485 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.486 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.486 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.486 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.487 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.982 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.982 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.983 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.983 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.984 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.984 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.984 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.985 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.985 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 15:56:58.997 [http-nio-8000-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 15:56:59.003 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2017-12-28 15:56:59.016 [http-nio-8000-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.neil.survey.module.Image with id 132; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132] with root cause
+javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:144)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:227)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:278)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:121)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:89)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1129)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1022)
+	at org.hibernate.type.EntityType.resolveIdentifier(EntityType.java:639)
+	at org.hibernate.type.EntityType.resolve(EntityType.java:431)
+	at org.hibernate.type.EntityType.replace(EntityType.java:330)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:518)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:663)
+	at org.hibernate.type.AbstractType.replace(AbstractType.java:147)
+	at org.hibernate.type.TypeHelper.replaceAssociations(TypeHelper.java:261)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:427)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:301)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:170)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:69)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:840)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:822)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:827)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:511)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy89.save(Unknown Source)
+	at com.neil.survey.controller.SurveyController.sychDb(SurveyController.java:375)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2017-12-28 16:02:34.701 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 16:25:46.064 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 16:25:56.595 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 16:34:49.622 [main] ERROR o.a.coyote.http11.Http11NioProtocol -Failed to start end point associated with ProtocolHandler ["http-nio-8000"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.neil.survey.SurveyApplication.main(SurveyApplication.java:137)
+2017-12-28 16:34:49.623 [main] ERROR o.a.catalina.core.StandardService -Failed to start connector [Connector[HTTP/1.1-8000]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8000]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.neil.survey.SurveyApplication.main(SurveyApplication.java:137)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1029)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2017-12-28 16:34:49.660 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8000 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8000, or configure this application to listen on another port.
+
+2017-12-28 17:10:51.637 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:10:51.865 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:17.506 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:17.710 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.495 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.498 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.500 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.502 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.504 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:20.506 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:11:22.374 [http-nio-8000-exec-3] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 17:11:22.380 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2017-12-28 17:11:22.392 [http-nio-8000-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.neil.survey.module.Image with id 132; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132] with root cause
+javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:144)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:227)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:278)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:121)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:89)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1129)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1022)
+	at org.hibernate.type.EntityType.resolveIdentifier(EntityType.java:639)
+	at org.hibernate.type.EntityType.resolve(EntityType.java:431)
+	at org.hibernate.type.EntityType.replace(EntityType.java:330)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:518)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:663)
+	at org.hibernate.type.AbstractType.replace(AbstractType.java:147)
+	at org.hibernate.type.TypeHelper.replaceAssociations(TypeHelper.java:261)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:427)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:301)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:170)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:69)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:840)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:822)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:827)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1161)
+	at sun.reflect.GeneratedMethodAccessor76.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor76.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:511)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy89.save(Unknown Source)
+	at com.neil.survey.controller.SurveyController.sychDb(SurveyController.java:375)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2017-12-28 17:17:37.940 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:37.942 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.137 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.139 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.272 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.274 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.276 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.278 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.280 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:17:38.282 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert detail image erro.
+2017-12-28 17:18:52.579 [http-nio-8000-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 17:18:52.584 [http-nio-8000-exec-4] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2017-12-28 17:18:52.597 [http-nio-8000-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.neil.survey.module.Image with id 132; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132] with root cause
+javax.persistence.EntityNotFoundException: Unable to find com.neil.survey.module.Image with id 132
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:144)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:227)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:278)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:121)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:89)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1129)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1022)
+	at org.hibernate.type.EntityType.resolveIdentifier(EntityType.java:639)
+	at org.hibernate.type.EntityType.resolve(EntityType.java:431)
+	at org.hibernate.type.EntityType.replace(EntityType.java:330)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:518)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:663)
+	at org.hibernate.type.AbstractType.replace(AbstractType.java:147)
+	at org.hibernate.type.TypeHelper.replaceAssociations(TypeHelper.java:261)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:427)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:301)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:170)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:69)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:840)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:822)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:827)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1161)
+	at sun.reflect.GeneratedMethodAccessor76.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor76.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy82.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:511)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:489)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy89.save(Unknown Source)
+	at com.neil.survey.controller.SurveyController.sychDb(SurveyController.java:375)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)

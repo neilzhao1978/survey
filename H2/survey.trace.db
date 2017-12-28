@@ -1,0 +1,15 @@
+2017-12-28 15:41:29 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 15:42:58 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 15:56:58 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 17:11:22 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2017-12-28 17:18:52 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(10240)": "'[372.70001220703125, 281.29998779296875], [398.1000118255615, 279.8999878168106], [423.5000057220459, 278.3999938964844], [426.... (14011)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]

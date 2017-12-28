@@ -23,6 +23,11 @@ public class Image implements Serializable{
 	private String imageType;
 	private String imageUrl;
 	private String parentImageId;
+	private boolean containFeatureLine;
+
+
+	@Column(length = 10240)
+	private String allKeyPoints;
 	@Column(length = 10240)
 	private String imageDesc;
 	public String getImageId() {
@@ -58,7 +63,18 @@ public class Image implements Serializable{
 	public void setH(int h) {
 		this.h = h;
 	}
-	
+	public boolean getContainFeatureLine() {
+		return containFeatureLine;
+	}
+	public void setContainFeatureLine(boolean containFeatureLine) {
+		this.containFeatureLine = containFeatureLine;
+	}
+	public String getAllKeyPoints() {
+		return allKeyPoints;
+	}
+	public void setAllKeyPoints(String allKeyPoints) {
+		this.allKeyPoints = allKeyPoints;
+	}
 //    @ManyToMany(mappedBy = "images",fetch = FetchType.LAZY)
 //	private Set<Answer> answers;
 //

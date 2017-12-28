@@ -4,8 +4,6 @@ import java.awt.geom.Point2D;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.batik.parser.DefaultPathHandler;
-import org.apache.batik.parser.DefaultPointsHandler;
 import org.apache.batik.parser.ParseException;
 import org.apache.batik.parser.PathHandler;
 import org.apache.batik.parser.PathParser;
