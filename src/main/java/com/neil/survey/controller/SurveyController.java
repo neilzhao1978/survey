@@ -2,15 +2,20 @@ package com.neil.survey.controller;
 
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OptionalDataException;
+import java.net.URL;
 import java.nio.file.FileSystems;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,6 +28,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
+import org.apache.batik.dom.svg.SVGDocumentFactory;
+import org.apache.batik.util.XMLResourceDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +50,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.svg.SVGDocument;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -288,6 +299,10 @@ public class SurveyController {
 		BrandResp brandResp = null;
 		brandResp = template.getForObject(serverAddr+ "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
+
+		
+	      String parser = XMLResourceDescriptor.getXMLParserClassName();
+	      SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 		
 		for(Brand_P b :x) {
 			Brand brand= new Brand ();
@@ -308,6 +323,19 @@ public class SurveyController {
 					i.setImageDesc("brand:"+b.getName()+".category:"+v.getCategoryName());
 					List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 
+			        URL url = new URL(v.getImageUrl1());  
+				    SVGDocument doc = (SVGDocument)f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(),2*1024*1024));
+				    
+				    doc.getChildNodes();
+
+				    
+				    Element n1 = doc.getElementById("特征线");
+				    n1.setAttribute("display", "block");
+
+
+				    Element n2 = doc.getElementById("产品图片");
+				    n2.setAttribute("display", "block");
+					
 					List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);  
 					for(Component c :componets) {
 						try{
@@ -328,16 +356,19 @@ public class SurveyController {
 							detail.setH(c.image.customData.h);
 							
 					        SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
-					        String in = v.getImageUrl1();
 					        String imageUUID = UUID.randomUUID().toString().replace("-", "");
 					        String fileName = path+imageUUID+".jpg";
-					        File f = new File(fileName);
-					        if(!f.exists()){
-					        	f.createNewFile();
+					        File newFile = new File(fileName);
+					        if(!newFile.exists()){
+					        	newFile.createNewFile();
 					        }
+					        InputStream in = SvgUtilities.documentToString(doc);
+//					        doc.appendChild(e1);
+//					        InputStream in = SvgUtilities.documentToString(doc);
 							saver.tile(in, fileName, new Rectangle(detail.getX(),detail.getY(),detail.getW(),detail.getH()));
-							PlainRect r = new PlainRect(detail.getX(),detail.getY(),detail.getW(),detail.getH());
 							
+							
+							PlainRect r = new PlainRect(detail.getX(),detail.getY(),detail.getW(),detail.getH());
 							boolean containFeatureLine = false;
 							for(Point2D p:keyPointes){
 								containFeatureLine=r.isInside(p.getX(), p.getY());

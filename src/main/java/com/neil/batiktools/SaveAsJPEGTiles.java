@@ -16,7 +16,7 @@ public class SaveAsJPEGTiles {
                    new Float(.8));
     }
 
-    public void tile(String inputFilename,
+    public void tile(InputStream inputStream,
              String outputFilename,
              Rectangle aoi) throws Exception {
         // Set hints to indicate the dimensions of the output image
@@ -25,9 +25,9 @@ public class SaveAsJPEGTiles {
         trans.addTranscodingHint(JPEGTranscoder.KEY_HEIGHT,new Float(aoi.height));
         trans.addTranscodingHint(JPEGTranscoder.KEY_AOI, aoi);
 
-        // Transcode the file.
-        String svgURI = inputFilename;//new File(inputFilename).toURI().toString();
-        TranscoderInput input = new TranscoderInput(svgURI);
+//        // Transcode the file.
+//        String svgURI = inputFilename;//new File(inputFilename).toURI().toString();
+        TranscoderInput input = new TranscoderInput(inputStream);
         OutputStream ostream = new FileOutputStream(outputFilename);
         TranscoderOutput output = new TranscoderOutput(ostream);
         trans.transcode(input, output);
@@ -46,10 +46,10 @@ public class SaveAsJPEGTiles {
         int documentHeight = 500;
         int dw2 = documentWidth / 2;
         int dh2 = documentHeight / 2;
-        p.tile(in, "tileTopLeft.jpg", new Rectangle(0, 0, dw2, dh2));
-        p.tile(in, "tileTopRight.jpg", new Rectangle(dw2, 0, dw2, dh2));
-        p.tile(in, "tileBottomLeft.jpg", new Rectangle(0, dh2, dw2, dh2));
-        p.tile(in, "tileBottomRight.jpg", new Rectangle(dw2, dh2, dw2, dh2));
+//        p.tile(in, "tileTopLeft.jpg", new Rectangle(0, 0, dw2, dh2));
+//        p.tile(in, "tileTopRight.jpg", new Rectangle(dw2, 0, dw2, dh2));
+//        p.tile(in, "tileBottomLeft.jpg", new Rectangle(0, dh2, dw2, dh2));
+//        p.tile(in, "tileBottomRight.jpg", new Rectangle(dw2, dh2, dw2, dh2));
         System.exit(0);
     }
 }

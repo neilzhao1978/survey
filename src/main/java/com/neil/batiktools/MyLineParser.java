@@ -9,7 +9,6 @@ import org.apache.batik.parser.ParseException;
 import org.apache.batik.parser.PointsHandler;
 import org.apache.batik.parser.PointsParser;
 
-
 public class MyLineParser {
 
     public List<Point2D> extractPoints(String s) throws ParseException {

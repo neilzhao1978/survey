@@ -13,9 +13,20 @@ import org.w3c.dom.svg.SVGDocument;
 import com.neil.survey.controller.SurveyController;
 
 import java.awt.geom.Point2D;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.apache.batik.dom.svg.SVGDocumentFactory;
 import org.apache.batik.util.XMLResourceDescriptor;
@@ -25,11 +36,43 @@ import org.w3c.dom.Document;
 public class SvgUtilities {
 	private static final Logger logger = LoggerFactory.getLogger(SvgUtilities.class);
 	private static final String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
-	public static List<Point2D> getAllKeyPoits(String uri) throws IOException{
+	
+	
+	//      // remove all elements named 'item'
+    //removeRecursively(doc, Node.ELEMENT_NODE, "item");
+
+    // remove all comment nodes
+    //removeRecursively(doc, Node.COMMENT_NODE, null);
+    public static void removeRecursively(Node node, short nodeType, String name) {
+        if (node.getNodeType()==nodeType && (name == null || node.getNodeName().equals(name))) {
+            node.getParentNode().removeChild(node);
+        }
+        else {
+            // check the children recursively
+            NodeList list = node.getChildNodes();
+            for (int i = 0; i < list.getLength(); i++) {
+                removeRecursively(list.item(i), nodeType, name);
+            }
+        }
+    }
+
+    public static final void prettyPrint(Document xml) throws Exception {
+        Transformer tf = TransformerFactory.newInstance().newTransformer();
+        tf.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        tf.setOutputProperty(OutputKeys.INDENT, "yes");
+        Writer out = new StringWriter();
+        tf.transform(new DOMSource(xml), new StreamResult(out));
+        System.out.println(out.toString());
+    }
+	
+	public static List<Point2D> getAllKeyPoits(String uri) throws IOException, TransformerException{
 	      String parser = XMLResourceDescriptor.getXMLParserClassName();
 	      SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 	      List<Point2D>  points=new LinkedList<Point2D>();
 	      SVGDocument  doc = (SVGDocument)f.createSVGDocument(uri);
+	      
+
+
 	      
 	      NodeList paths = doc.getElementsByTagNameNS(svgNS,"path");
 	      for(int i=0;i<paths.getLength();i++){
@@ -68,6 +111,30 @@ public class SvgUtilities {
 	      return points;
 
 	}
+	
+	static public InputStream documentToString(org.w3c.dom.Document doc) throws TransformerException {
+
+	    // Create dom source for the document
+	    DOMSource domSource=new DOMSource(doc);
+
+	    // Create a string writer
+	    StringWriter stringWriter=new StringWriter();
+
+	    // Create the result stream for the transform
+	    StreamResult result = new StreamResult(stringWriter);
+
+	    // Create a Transformer to serialize the document
+	    TransformerFactory tFactory =TransformerFactory.newInstance();
+	    Transformer transformer = tFactory.newTransformer();
+	    transformer.setOutputProperty("indent","yes");
+
+	    // Transform the document to the result stream
+	    transformer.transform(domSource, result);   
+	    String temp = stringWriter.toString();
+	    InputStream is = new ByteArrayInputStream(temp.getBytes());
+	    return is;
+	}
+	
 	public static void main(String[] args) {
 
 		  try {
@@ -77,7 +144,7 @@ public class SvgUtilities {
 		      
 		      logger.debug(temp.substring(1, temp.length()-1));
 
-		  } catch (IOException ex) {
+		  } catch (Exception ex) {
 			  System.out.println(ex.getMessage()); 
 		      // ...
 		  }
