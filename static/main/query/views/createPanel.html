@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title></title>
+    <!-----------------------------------------CSS引用---------------------------------------------------------------->
     <!-- Bootstrap css-->
     <link href="../../../common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../../common/lib/bootstrap/css/bootstrapValidator.css" rel="stylesheet">
     <!-- Materialize CSS 引入 -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--<link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet">-->
     
     <link href="../css/page.css" rel="stylesheet">
     <link href="../css/page_createPanel.css" rel="stylesheet">
-    
+
+    <!-----------------------------------------JS引用----------------------------------------------------------------->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,7 +30,11 @@
     <script src="../../../common/lib/uploadPreview.js"></script>
     <script src="../../../common/lib/bootstrap/js/bootstrap.js"></script>
     <script src="../../../common/lib/bootstrap/js/bootstrapValidator.js"></script>
-    <script src="../../../common/lib/materialize/js/materialize.min.js"></script>
+    <!--<script src="../../../common/lib/materialize/js/materialize.min.js"></script>-->
+    <script src="../../../common/js/utils.js"></script>
+    <script src="../../../common/js/brandService.js"></script>
+    <script src="../../../common/js/imageService.js"></script>
+    <script src="../../../common/js/surveyService.js"></script>
 
 </head>
 <body>
@@ -244,7 +250,12 @@
                             </div>
                             <label class="col-lg-1" for="">职业：</label>
                             <div class="col-lg-4">
-                                <select class="form-control" ><option value="0">技术类</option><option value="1">管理类</option></select>
+                                <select class="form-control" >
+                                    <option value="技术类">技术类</option>
+                                    <option value="管理类">管理类</option>
+                                    <option value="管理类">营销类</option>
+                                    <option value="管理类">设计类</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -332,7 +343,7 @@
                                     <div class='tab-pane container-fluid' v-for="type in gallery" v-bind:id="type.tabId">
                                         <div class="row">
                                             <div class="col-lg-4" v-for="typeImg in type.imgList" style="padding:5px;text-align:center">
-                                                <input class="brandChoiceChk" type="checkbox" v-bind:alt="typeImg.imageId" v-on:click="doCheck_inspire"/>
+                                                <input class="brandChoiceChk" type="checkbox" v-bind:alt="typeImg.imageId" v-model="typeImg.isSelected" v-on:click="doCheck_inspire"/>
                                                 <img class="brandProductImg" v-bind:alt="typeImg.imageId" v-bind:src="typeImg.imageUrl"/><br/>
                                                 <span>{{typeImg.imageDesc}}</span>
                                             </div>
@@ -538,37 +549,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<script src="../../../common/js/utils.js"></script>
-<script src="../../../common/js/brandService.js"></script>
-<script src="../../../common/js/imageService.js"></script>
-<script src="../../../common/js/surveyService.js"></script>
-<script>
-    window.onload = function () {
-        new uploadPreview({UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow"});
-    }
-</script>
-
-<!--<script type="text/x-template" id="product-template">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="panel panel-default" v-for="brand in brandList">-->
-            <!--<div class="panel-heading">-->
-                <!--<img class="brandImg" v-bind:src="brand.url" />-->
-                <!--<button class="fr">全选</button><button class="fr">取消选择</button>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;<div class="panel-body" v-for="product in brand.productList">&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="col-lg-3">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<input type="checkbox" class="brandChoiceChk">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<img class="brandProductImg" v-bind:src="product.url">&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</script>-->
-
 <script src="../js/page_createPanel.js"></script>
 <script src="../js/page_createPanel_vue.js"></script>
-
-
 
 </body>
 </html>

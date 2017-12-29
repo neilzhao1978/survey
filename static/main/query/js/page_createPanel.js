@@ -1,4 +1,6 @@
-
+window.onload = function () {
+    new uploadPreview({UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow"});
+}
 //引用所需ajax 对象
 var brandService=BrandService();
 var imageService=ImageService();
@@ -138,8 +140,10 @@ function loadSurveyInfo(){
                     }
                     //重新定义个product类型；将image类型替代
                     list.brands[i].product=list.brands[i].images;
-                    delete list.brands[i].images
+                    delete list.brands[i].images;
+                    CreateQuery.brandList.push(list.brands[i])
                 }
+
 
                 //根据图片类型将其分类赋值于 CreateQuery.*
                 for(i=0;i<list.images.length;i++){
@@ -177,8 +181,8 @@ function loadSurveyInfo(){
 //加载品牌信息，并将其赋值于vue实例
 var loadBrands=function(){
     brandService.getAllBrands(page_brands,function(data){
-        console.log("加载的品牌信息如下");
-        console.log(data.data);
+        //console.log("加载的品牌信息如下");
+        //console.log(data.data);
         if(data.result){
 
             for(var i=0;i<data.data.length;i++){
@@ -279,6 +283,8 @@ function loadInpireImg(){
                         var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
                         //CreateQuery.inspire_type[index].imgList=data.data;
                         CreateQuery.gallery[index].imgList=data.data;
+
+
                         //激发图片信息如下
                     }else{
 
@@ -305,8 +311,11 @@ function loadInpireImg_all(){
                         var index= INS_IMG_TYPE.indexOf(data.data[0].imageType);
                         //CreateQuery.inspire_type[index].imgList=data.data;
                         CreateQuery.gallery[index].imgList=data.data;
-                        console.log("CreateQuery.gallery");
-                        console.log(CreateQuery.gallery)
+                        for(var i=0;i<CreateQuery.gallery[index].imgList.length;i++){
+                            CreateQuery.gallery[index].imgList[i].isSelected=false
+                        }
+                        //console.log("CreateQuery.gallery");
+                        //console.log(CreateQuery.gallery)
                     }else{
 
                     }
@@ -443,6 +452,7 @@ function saveOrNot(flag){
 function doSaveDraft(){
 
     var name=CreateQuery.qName;
+    var desc=CreateQuery.qDesc;
     if(name==""){
         alert("问卷名称未填写，请录入后再保存！");
         return
@@ -502,7 +512,7 @@ function doSaveDraft(){
         maxUserOthersImageCount:    CreateQuery.inspire_type[4].limit
     };
 
-    surveyService.updateSurvey(name,releaseTime,surveyStatus,surveyId,brandArr,imageArr,limits,function(){},function(data){
+    surveyService.updateSurvey(name,desc,releaseTime,surveyStatus,surveyId,brandArr,imageArr,limits,function(){},function(data){
         if(data.result){
             alert("问卷保存成功!");
             window.location='queryList.html';
@@ -522,6 +532,13 @@ function inspireTypeImgCancel(){
     CreateQuery.inspire_type[INSP_TAB_INDEX].imgList=[];
     //由于没有图片，所以设置isSelected为false,用于预览中的隐藏
     CreateQuery.inspire_type[INSP_TAB_INDEX].isSelected=false;
+
+    //清空图库中的选中状态;
+    var len=CreateQuery.gallery[INSP_TAB_INDEX].imgList.length;
+    for(var i=0;i<len;i++){
+        CreateQuery.gallery[INSP_TAB_INDEX].imgList[i].isSelected=false
+    }
+
 }
 
 //页面解决json中$ref问题

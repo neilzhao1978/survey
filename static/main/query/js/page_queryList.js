@@ -43,10 +43,10 @@ $(function(){
         columns:[[
             {field:'name',align:'center',width:100,title:'问卷名称',sortable:true},
             {field:'releaseTime',align:'center',width:100,title:'发布时间',formatter:common.dateFormatter,sortable:true},
-            {field:'status',align:'center',width:80,title:'状态',formatter:surveyStatus,sortable:true},
-            {field:'num',align:'center',width:50,title:'有效问卷数量',formatter:validQueryNum,sortable:true},
+            {field:'status',align:'center',width:200,title:'状态',formatter:surveyStatus,sortable:true},
+            {field:'answerCount',align:'center',width:50,title:'有效问卷数量',formatter:validQueryNum,sortable:true},
             {field:'result',align:'center',width:50,title:'看板结果',formatter:panelResult,sortable:true},
-            {field:'operate',align:'center',width:120,title:'操作',formatter:operatorFormatter},
+            {field:'operate',align:'center',width:400,title:'操作',formatter:operatorFormatter},
             {field:'share',align:'center',width:50,title:'',formatter:shareOperate}
         ]],
         data:[
@@ -54,6 +54,12 @@ $(function(){
         ],
         onSelect:function(value,row,index){
             console.log(row)
+        },
+        onClickCell:function(field, value, row, $element){
+            if(field=="answerCount"){
+                //alert('find you!')
+                window.location='board.html'+"?"+row.surveyId
+            }
         }
     });
 
@@ -79,7 +85,7 @@ function surveyStatus(value,row,index){
 }
 
 function validQueryNum(value,row,index){
-    if(value){
+    if(value!=undefined){
         return value
     }else{
         return "/"
@@ -131,18 +137,18 @@ function closeOpenSurvey(surveyId,status){
 
 function shareOperate(value,row,index){
     var str="";
-    if(row.status==1){
-        str=""
+    if(row.status==2){
+        str='<a class="easyui-linkbutton" onclick="shareQuery('+'\''+row.surveyId+'\''+')">分享</a>'
     }
     else{
-        str='<a class="easyui-linkbutton" onclick="shareQuery('+'\''+row.surveyId+'\''+')">分享</a>'
+        str=""
     }
     return str
 }
 
 //跳转到预览界面
 function _preview(surveyId){
-    window.location='answer.html'+"?"+surveyId
+    window.location='preview.html'+"?"+surveyId
 }
 
 //跳转到编辑界面
@@ -163,8 +169,22 @@ function _copy(surveyId){
 }
 
 //删除suvery
+var selectedSurveyId;
 function _remove(surveyId){
-    var row=findRowById(surveyId);
+    selectedSurveyId=surveyId;
+    $("#deleteAlert").modal("show");
+    //surveyService.deleteSurvey(row,function(){},function(data){
+    //    alert(data.description);
+    //    if(data.result){
+    //        loadSurveyList();
+    //    }else{
+    //
+    //    }
+    //})
+}
+
+function _doRemove(){
+    var row=findRowById(selectedSurveyId);
     surveyService.deleteSurvey(row,function(){},function(data){
         alert(data.description);
         if(data.result){
@@ -175,6 +195,7 @@ function _remove(surveyId){
     })
 }
 
+
 //打开分享问卷窗口
 function shareQuery(surveyId){
     $("#shareWin").modal("show");
@@ -183,7 +204,7 @@ function shareQuery(surveyId){
     var index=rev_locate.indexOf('/');
     console.log("indexed");
     console.log(index);
-    var newLocation=location.substring(0,location.length-index)+"answer.html"+"?"+surveyId;
+    var newLocation=location.substring(0,location.length-index)+"survey.html"+"?"+surveyId;
     $("#answerAddress").html(newLocation);
     $("#answerAddress").attr("href",newLocation);
     $("#share_unicode").attr("src",surveyService.getQRcode(newLocation));

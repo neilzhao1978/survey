@@ -16,8 +16,6 @@ var CreateQuery = new Vue({
         qMonth: 1,
         qDay: 1,
         brandLimit:2,
-        replayerName:"",
-        replayerPosition:"",
         inspire_type:[
             {
                 jtabId:'#tab0',
@@ -109,57 +107,82 @@ var CreateQuery = new Vue({
         }
     },
     methods: {
+        //选择品牌点击事件
         answer_doCheck_brand:function(){
             var obj=event.currentTarget;
             obj.checked?c++:c--;
+            //若超过选择上限
             if(c>CreateQuery.brandLimit){
                 obj.checked=false;
                 alert("已达到选择上限！");
                 c--;
-            }else{
-                //选中的品牌信息保存
-                CreateQuery.answer_brand.push(
-                    {
-                        //品牌id
-                        brandId:obj.id
-                    }
-                );
             }
+            //若未超过选择上限
+            else{
+                var item={brandId:obj.id};
+                //若是选择
+                if(obj.checked){
+                    //选中的品牌信息保存
+                    CreateQuery.answer_brand.push(item);
+                }
+                //若是取消选择,则将其剔除
+                else{
+                    for(var i=0;i<CreateQuery.answer_brand.length;i++){
+                        if(obj.id==CreateQuery.answer_brand[i].imageId){
+                            CreateQuery.answer_brand.splice(i,1);
+                            break
+                        }
+                    }
+                }
+            }
+            console.log(CreateQuery.answer_brand.length)
         },
+        //选择产品（整体造型）点击事件
         answer_doCheck_product:function(){
             var obj=event.currentTarget;
-            //选中的品牌信息保存
-            CreateQuery.answer_image.push(
-                {
-                    //图片id
-                    imageId:obj.id
+            var item={imageId:obj.id};
+            //选中则保存
+            if(obj.checked){
+                //选中的品牌信息保存
+                CreateQuery.answer_image.push(item);
+            }
+            //取消选中则剔除
+            else{
+                for(var i=0;i<CreateQuery.answer_image.length;i++){
+                    if(obj.id==CreateQuery.answer_image[i].imageId){
+                        CreateQuery.answer_image.splice(i,1);
+                        break
+                    }
                 }
-            );
+            }
+            console.log(CreateQuery.answer_image.length)
         },
+        //选择产品细节点击事件
         answer_doCheck_productDetail:function(){
             var obj=event.currentTarget;
-            //选中的品牌信息保存
-            CreateQuery.answer_image.push(
-                {
-                    //图片id
-                    imageId:obj.id
-                }
-            );
-        },
-        //问卷预览中的 品牌选择上限 检测
-        preview_doCheck:function (){
-            var obj=event.currentTarget;
-            obj.checked?c++:c--;
-            if(c>CreateQuery.brandLimit){
-                obj.checked=false;
-                alert("已达到选择上限！");
-                c--;
+            var item={imageId:obj.id};
+            //选中则保存
+            if(obj.checked){
+                //选中的品牌信息保存
+                CreateQuery.answer_image.push(item);
             }
+            //取消选中则剔除
+            else{
+                for(var i=0;i<CreateQuery.answer_image.length;i++){
+                    if(obj.id==CreateQuery.answer_image[i].imageId){
+                        CreateQuery.answer_image.splice(i,1);
+                        break
+                    }
+                }
+            }
+            console.log(CreateQuery.answer_image.length)
         },
+        //选择灵感图片点击事件
         answer_doCheck_inspireImg:function(){
 
             var obj=event.currentTarget;
             //获取当前点击的意向图片的类型
+            var item={imageId:obj.id};
             var type=obj.alt;
             console.log(type);
             console.log(_c_inspireImg);
@@ -171,14 +194,24 @@ var CreateQuery = new Vue({
                 _c_inspireImg[index]--;
             }
             else{
-                //选中的意向图片信息保存
-                CreateQuery.answer_image.push(
-                    {
-                        //图片id
-                        imageId:obj.id
+                //选中则保存
+                if(obj.checked){
+                    //选中的品牌信息保存
+                    CreateQuery.answer_image.push(item);
+                }
+                //取消选中则剔除
+                else{
+                    for(var i=0;i<CreateQuery.answer_image.length;i++){
+                        if(obj.id==CreateQuery.answer_image[i].imageId){
+                            CreateQuery.answer_image.splice(i,1);
+                            break
+                        }
                     }
-                );
+                }
             }
+
+            console.log(CreateQuery.answer_image.length)
+
         }
     }
 });

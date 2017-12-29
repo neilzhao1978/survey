@@ -32,6 +32,16 @@ public class Survey implements Serializable,Cloneable{
 	private Date releaseTime;
 	private String status;
 
+	@Column(length=2048)
+	private String desc;
+	
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
 	@Column(nullable=true)
 	private Integer maxUserBrandCount;
 	@Column(nullable=true)
@@ -84,6 +94,9 @@ public class Survey implements Serializable,Cloneable{
 	  oo.writeObject(this);//从流里读出来
 	  ByteArrayInputStream bi=new ByteArrayInputStream(bo.toByteArray());
 	  ObjectInputStream oi=new ObjectInputStream(bi);
+	  oo.close();
+	  bo.close();
+	  
 	  return((Survey)oi.readObject());
 	 }
 	

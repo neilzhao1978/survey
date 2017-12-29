@@ -6,90 +6,58 @@ var answerService=AnswerService();
 var c=0;
 var _c_inspireImg=[0,0,0,0,0];
 
-var page_inspireImg={
-    pageNumber:1,
-    pageSize:9999
-};
-
-var brandIds=[];
-
 var INS_IMG_TYPE = ["INDUSTRY","ANIMAL","BUILDING","ART","OTHERS"];
 
-//var localDb={
-//    brand:[
-//        //{
-//        //    brandId:'',
-//        //    brandIconUrl:'',
-//        //    brandName:'',
-//        //    desc:'',
-//        //    product:[
-//        //        {
-//        //            imageId:'',
-//        //            brandIconUrl:'',
-//        //            imageName:'',
-//        //            imageType:'',
-//        //            imageDesc:''
-//        //        },
-//        //        {
-//        //
-//        //        }
-//        //    ]
-//        //}
-//    ]
-//};
-
-//var surveyId=common.GetRequest();
-var answerId=common.GetRequest();
+var surveyId=common.GetRequest();
 
 $(document).ready(function(){
 
-    //loadInpireImg_all();
-
-    loadAnswerInfo();
+    loadSurveyInfo();
 
 });
 
-//分页获取问卷的分页参数（bootstrapTable由于加载效率高，直接获取全部）
-var page={
-    pageNumber:1,//页数
-    pageSize:9999,//每页获取的记录数
-    orderByFieldName:"releaseTime",//排序字段名
-    isDesc:true //true:递减，false:递增
-};
-
-var list;
-
 //如果是预览(编辑）某个问卷；则加载问卷信息
-function loadAnswerInfo(){
-    if(answerId){
-        answerService.getAllAnswerList(page,"",function(data){
+function loadSurveyInfo(){
+    if(surveyId){
+        surveyService.getSurveyDetail(surveyId,function(){},function(data){
             if(data.result){
                 console.log("FastJson");
                 console.log(FastJson.format(data));
 
                 //返回的数据为$ref:指向行的调用fastJson.format将其转换为正常格式；
-                var data_list=FastJson.format(data).data;
+                var list=FastJson.format(data).data;
 
-                for(var i=0;i<data_list.length;i++){
-                    if(data_list[i].answerId==answerId){
-                        list=data_list[i]
-                    }
-                }
-                console.log("answerInfo");
-                console.log(list);
-
-                CreateQuery.replayerName=list.replayerName;
-                CreateQuery.replayerPosition=list.replayerPosition;
-
-                ////
-                CreateQuery.qName=list.name;
-                //CreateQuery.qDesc=list.desc;
                 //
-                ////发布日期：年月日，赋值
-                //var time=new Date(list.releaseTime);
-                //CreateQuery.qYear=time.getFullYear();
-                //CreateQuery.qMonth=time.getMonth()+1;
-                //CreateQuery.qDay=time.getDate();
+                CreateQuery.qName=list.name;
+                CreateQuery.qDesc=list.desc;
+
+                //发布日期：年月日，赋值
+                var time=new Date(list.releaseTime);
+                CreateQuery.qYear=time.getFullYear();
+                CreateQuery.qMonth=time.getMonth()+1;
+                CreateQuery.qDay=time.getDate();
+
+                //获取并赋值 品牌选择上限
+                if(list.maxUserBrandCount){
+                    CreateQuery.brandLimit=list.maxUserBrandCount;
+                }
+
+                //意向图片选择上限赋值
+                if(list.maxUserIndustryImageCount){
+                    CreateQuery.inspire_type[0].limit=list.maxUserIndustryImageCount;
+                }
+                if(list.maxUserAnimalImageCount){
+                    CreateQuery.inspire_type[1].limit=list.maxUserAnimalImageCount;
+                }
+                if(list.maxUserBuildingImageCount){
+                    CreateQuery.inspire_type[2].limit=list.maxUserBuildingImageCount;
+                }
+                if(list.maxUserArtImageCount){
+                    CreateQuery.inspire_type[3].limit=list.maxUserArtImageCount;
+                }
+                if(list.maxUserOthersImageCount){
+                    CreateQuery.inspire_type[4].limit=list.maxUserOthersImageCount;
+                }
 
                 //将数据结构转为 此系统定义的数据格式
                 for(var i=0;i<list.brands.length;i++){
@@ -144,8 +112,46 @@ function loadAnswerInfo(){
 }
 
 
-function returnToBoard(){
-    window.location='board.html';
+//提交answer
+function submitAnswer(){
+    var replyerName=CreateQuery.answer_replyerName;
+    var replyerPosition=CreateQuery.answer_replyerPosition;
+    var replyTime=common.dateFormatter_inverse(new Date());
+    var brands=CreateQuery.answer_brand;
+    var images=CreateQuery.answer_image;
+    console.log(replyTime);
+    console.log(replyerName);
+    console.log(replyerPosition);
+    console.log(surveyId);
+    console.log(brands);
+    console.log(images);
+
+    if(replyerName==""){
+        alert("您还未填写您的姓名！");
+        return
+    }
+    if(replyerPosition==""){
+        alert("您还未填写您的您的职位！");
+        return
+    }
+    if(brands.length==0){
+        alert("您还未选择品牌！");
+        return
+    }
+    if(images.length==0){
+        alert("您还未选择 整体造型、局部图片、意向图片！");
+        return
+    }
+
+    answerService.addAnswer(brands,images,replyTime,replyerName,replyerPosition,surveyId,function(){},function(data){
+        if(data.result){
+            alert(data.description);
+            window.location.assign("thankyou.html");
+        }else{
+            alert(data.description);
+        }
+    })
+
 }
 
 

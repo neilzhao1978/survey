@@ -7,13 +7,14 @@ function AnswerService(){
     service.url=host+"/answerService";
 
   /*  获取所有的问卷回复列表*/
-    service.getAllAnswerList=function(page,onSuccess){
+    service.getAllAnswerList=function(page,surveyId,onSuccess){
         var temp=this.url+"/getAllAnswerList";
         var pageStr=JSON.stringify(page);
         $.ajax({
             url:temp,
             data:{
-                page:pageStr
+                page:pageStr,
+                surveyId:surveyId
             },
             cache:false,
             type:"get",

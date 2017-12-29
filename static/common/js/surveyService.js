@@ -22,7 +22,7 @@ function SurveyService(){
     };
 
     /*  增加、更新问卷*/
-    service.updateSurvey=function(name,releaseTime,status,surveyId,brands,images,limits,beforeSend,onSuccess){
+    service.updateSurvey=function(name,desc,releaseTime,status,surveyId,brands,images,limits,beforeSend,onSuccess){
         var temp=this.url+"/updateSurvey";
         //var creatorStr=JSON.stringify({"email":"niel@123.com"});
         //var brandsStr=JSON.stringify(brands);
@@ -30,6 +30,7 @@ function SurveyService(){
         var allObj={
             creator:{"email":"niel@123.com"},
             name:name,
+            desc:desc,
             releaseTime:releaseTime,
             status:status,
             surveyId:surveyId,

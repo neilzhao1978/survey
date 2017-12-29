@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>问卷列表</title>
-    
+
+    <!-----------------------------------------CSS引用---------------------------------------------------------------->
     <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../../common/lib/bootstrap-table/css/boostrap-table.min.css"/>
     <!-- Materialize CSS 引入 -->
@@ -13,8 +14,9 @@
     <link rel="stylesheet" href="../css/page.css"/>
     <link rel="stylesheet" href="../css/page_queryList.css"/>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-----------------------------------------JS引用----------------------------------------------------------------->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries。WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="../../../common/lib/html5shiv.min.js"></script>
     <script src="../../../common/lib/respond.min.js"></script>
@@ -22,12 +24,18 @@
 
     <script src="../../../common/lib/Jquery/jquery-1.11.3.min.js"></script>
     <script src="../../../common/lib/vue.js"></script>
+    <script src="../../../common/lib/materialize/js/materialize.min.js"></script>
+
     <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../../common/lib/bootstrap-table/js/bootstrap-table.min.js"></script>
     <script src="../../../common/lib/bootstrap-table/js/bootstrap-table-zh-CN.min.js"></script>
-    <script src="../../../common/lib/materialize/js/materialize.min.js"></script>
+
     <script src="../../../common/lib/clipboard/dist/clipboard.min.js"></script>
-    
+
+    <script src="../../../common/js/utils.js"></script>
+    <script src="../../../common/js/mask.js"></script>
+    <script src="../../../common/js/surveyService.js"></script>
+
 </head>
 
 <body class="container main">
@@ -82,11 +90,23 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    
-    <script src="../../../common/js/utils.js"></script>
-    <script src="../../../common/js/mask.js"></script>
-    
-    <script src="../../../common/js/surveyService.js"></script>
+    <div id="deleteAlert" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">删除提示</h4>
+                </div>
+                <div class="modal-body" style="text-align:center">
+                    您确定要删除该条记录吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="_doRemove()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/page_queryList.js"></script>
 
 </body>
