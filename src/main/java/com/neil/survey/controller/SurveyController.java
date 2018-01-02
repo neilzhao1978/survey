@@ -1,5 +1,6 @@
 package com.neil.survey.controller;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 import java.io.BufferedInputStream;
@@ -8,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OptionalDataException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.FileSystems;
 
@@ -27,10 +29,12 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import javax.xml.transform.TransformerException;
 
 import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
 import org.apache.batik.dom.svg.SVGDocumentFactory;
 import org.apache.batik.util.XMLResourceDescriptor;
+import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +55,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.svg.SVGDocument;
 
@@ -67,6 +73,7 @@ import com.neil.batiktools.PlainRect;
 import com.neil.batiktools.Rect;
 import com.neil.batiktools.SaveAsJPEGTiles;
 import com.neil.batiktools.SvgUtilities;
+import com.neil.imagetools.BinaryColor;
 import com.neil.survey.module.Answer;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.BrandResp;
@@ -308,129 +315,161 @@ public class SurveyController {
 	@ResponseBody
 	@RequestMapping(value = "/sychDb", method = RequestMethod.GET)
 	public RestResponseEntity<Void> sychDb() throws IOException {
+		//
+//		String base64String = "whuang123";  
+//        byte[] result = Base64.encodeBase64(base64String.getBytes()); 
 		BrandResp brandResp = null;
 		brandResp = template.getForObject(serverAddr + "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
 
-		String parser = XMLResourceDescriptor.getXMLParserClassName();
-		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+
 
 		for (Brand_P b : x) {
-			Brand brand = new Brand();
-			brand.setBrandId(b.getId().toString());
-			brand.setBrandIconUrl(b.getIcon());
-			brand.setBrandName(b.getName());
-			brand.setDesc(b.getDescription());
+			try{
+				Brand brand = new Brand();
+				brand.setBrandId(b.getId().toString());
+				brand.setBrandIconUrl(b.getIcon());
+				brand.setBrandName(b.getName());
+				brand.setDesc(b.getDescription());
 
-			VehicheResp vehicheResp = null;
-			vehicheResp = template.getForObject(serverAddr + "getProductByBrand/{id}", VehicheResp.class,
-					b.getId().toString());
+				VehicheResp vehicheResp = null;
+				vehicheResp = template.getForObject(serverAddr + "getProductByBrand/{id}", VehicheResp.class,
+						b.getId().toString());
 
-			Set<Image> images = new HashSet<Image>();
+				Set<Image> images = new HashSet<Image>();
 
-			for (VehicleInfo_P v : vehicheResp.object) {
-				try {
-					Image i = new Image();
-					i.setImageId(v.getId().toString());
-					i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
-					List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
-
-					URL url = new URL(v.getImageUrl1());
-					SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
-							new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
-
-					doc.getChildNodes();
-
-					Element n1 = doc.getElementById("特征线");
-					Element n2 = doc.getElementById("产品图片");
-
-					List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
-					for (Component c : componets) {
-						try {
-							Image detail = new Image();
-							detail.setImageId(c.id + "");
-							detail.setImageDesc(c.name);
-							detail.setImageName(c.name);
-							detail.setImageType("DETAIL");
-
-							detail.setParentImageId(i.getImageId());
-							if (c.image.customData == null) {
-								logger.info("sub area is null.");
-								continue;
-							}
-							detail.setX((int) (c.image.customData.boundW * c.image.customData.x));
-							detail.setY((int) (c.image.customData.boundH * c.image.customData.y));
-							detail.setW(c.image.customData.w);
-							detail.setH(c.image.customData.h);
-
-							SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
-							n1.setAttribute("display", "none");
-							n2.setAttribute("display", "block");
-							String imageUUID = UUID.randomUUID().toString().replace("-", "");
-							String imageFileName = path + imageUUID + ".jpg";
-
-							String urlDetail = "http://" + ip + ":" + port + "/static/images/";
-							detail.setImageUrl(urlDetail + imageUUID + ".jpg");
-
-							File newFile = new File(imageFileName);
-							if (!newFile.exists()) {
-								newFile.createNewFile();
-							}
-							InputStream in = SvgUtilities.documentToString(doc);
-							saver.tile(in, imageFileName,
-									new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
-
-							//////////////////////////////
-							n1.setAttribute("display", "block");
-							n2.setAttribute("display", "none");
-							String featureUUID = UUID.randomUUID().toString().replace("-", "");
-							String featureFileName = path + featureUUID + ".jpg";
-
-							detail.setImageUrl(urlDetail + featureFileName + ".jpg");
-
-							File newfeatureFile = new File(featureFileName);
-							if (!newfeatureFile.exists()) {
-								newfeatureFile.createNewFile();
-							}
-							InputStream in2 = SvgUtilities.documentToString(doc);
-							saver.tile(in2, featureFileName,
-									new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
-
-							PlainRect r = new PlainRect(detail.getX(), detail.getY(), detail.getW(), detail.getH());
-							boolean containFeatureLine = false;
-							for (Point2D p : keyPointes) {
-								containFeatureLine = r.isInside(p.getX(), p.getY());
-								if (containFeatureLine) {
-									break;
-								}
-							}
-							detail.setContainFeatureLine(containFeatureLine);
-							imageRepo.save(detail);
-						} catch (Exception e) {
-							logger.error("insert detail image erro.");
-							e.printStackTrace();
-						}
+				for (VehicleInfo_P v : vehicheResp.object) {
+					try {
+						handleWholeImage(b, images, v);
+						brand.setImages(images);
+						brandRepo.save(brand);
+					} catch (Exception e) {
+						logger.error("insert whole image erro.");
+						e.printStackTrace();
 					}
-					String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");
-					i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
-					i.setImageName(v.getProductCategory());
-					i.setImageType("WHOLE");
-					i.setImageUrl(v.getImageUrl1() + ";" + v.getImageUrl2());
-					i.setParentImageId(null);
-					images.add(i);
-
-					imageRepo.save(i);
-				} catch (Exception e) {
-					logger.error("insert whole image erro.");
-					e.printStackTrace();
 				}
-				brand.setImages(images);
-				brandRepo.save(brand);
+			}catch(Exception e){
+				logger.error("insert brand erro.");
+				e.printStackTrace();
 			}
-
 		}
-
 		return ResponseGenerator.createSuccessResponse("Db sych success.");
+	}
 
+	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
+			throws IOException, TransformerException, MalformedURLException {
+		String parser = XMLResourceDescriptor.getXMLParserClassName();
+		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+		
+		Image i = new Image();
+		i.setImageId(v.getId().toString());
+		i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
+		List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
+
+		URL url = new URL(v.getImageUrl1());
+		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
+				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+
+		Element n1 = doc.getElementById("特征线");
+		Element n2 = doc.getElementById("产品图片");
+		Element eleProductImage = (Element) (n2.getElementsByTagName("image").item(0));
+		
+		NamedNodeMap t = eleProductImage.getAttributes();
+		String wholeImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
+		if(wholeImageString.contains("image/jpeg")){
+			wholeImageString=wholeImageString.replaceAll("data:image/jpeg;base64,", "");
+		}else if(wholeImageString.contains("image/png")){
+			wholeImageString=wholeImageString.replaceAll("data:image/png;base64,", "");
+		}
+		
+		StringBuilder outBase64String = new StringBuilder();//String build
+		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,157,4), new Color(0,0,0), "png");
+		
+		String xxx= outBase64String.toString();
+		
+		String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");
+		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
+		i.setImageName(v.getProductCategory());
+		i.setImageType("WHOLE");
+		i.setImageUrl(v.getImageUrl1() + ";" + v.getImageUrl2());
+		i.setParentImageId(null);
+		images.add(i);
+
+		imageRepo.save(i);
+		
+		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
+		for (Component c : componets) {
+			handleSubImage(i, keyPointes, doc, n1, n2, c);//处理子图
+		}
+		
+
+	}
+
+	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Element n1, Element n2,
+			Component c) {
+		try {
+			Image detail = new Image();
+			detail.setImageId(c.id + "");
+			detail.setImageDesc(c.name);
+			detail.setImageName(c.name);
+			detail.setImageType("DETAIL");
+
+			detail.setParentImageId(i.getImageId());
+			if (c.image.customData == null) {
+				logger.info("sub area is null.");
+				return;
+			}
+			detail.setX((int) (c.image.customData.boundW * c.image.customData.x));
+			detail.setY((int) (c.image.customData.boundH * c.image.customData.y));
+			detail.setW(c.image.customData.w);
+			detail.setH(c.image.customData.h);
+
+			SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+			n1.setAttribute("display", "none");
+			n2.setAttribute("display", "block");
+			String imageUUID = UUID.randomUUID().toString().replace("-", "");
+			String imageFileName = path + imageUUID + ".jpg";
+
+			String urlDetail = "http://" + ip + ":" + port + "/static/images/";
+			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
+
+			File newFile = new File(imageFileName);
+			if (!newFile.exists()) {
+				newFile.createNewFile();
+			}
+			InputStream in = SvgUtilities.documentToString(doc);
+			saver.tile(in, imageFileName,
+					new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
+
+			//////////////////////////////
+			n1.setAttribute("display", "block");
+			n2.setAttribute("display", "none");
+			String featureUUID = UUID.randomUUID().toString().replace("-", "");
+			String featureFileName = path + featureUUID + ".jpg";
+
+			detail.setImageUrl(urlDetail + featureFileName + ".jpg");
+
+			File newfeatureFile = new File(featureFileName);
+			if (!newfeatureFile.exists()) {
+				newfeatureFile.createNewFile();
+			}
+			InputStream in2 = SvgUtilities.documentToString(doc);
+			saver.tile(in2, featureFileName,
+					new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
+
+			PlainRect r = new PlainRect(detail.getX(), detail.getY(), detail.getW(), detail.getH());
+			boolean containFeatureLine = false;
+			for (Point2D p : keyPointes) {
+				containFeatureLine = r.isInside(p.getX(), p.getY());
+				if (containFeatureLine) {
+					break;
+				}
+			}
+			detail.setContainFeatureLine(containFeatureLine);
+			imageRepo.save(detail);
+		} catch (Exception e) {
+			logger.error("insert detail image erro.");
+			e.printStackTrace();
+		}
 	}
 }
