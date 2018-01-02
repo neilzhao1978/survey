@@ -25,7 +25,8 @@ public class Image implements Serializable{
 	private String parentImageId;
 	private boolean containFeatureLine;
 
-
+	private String featureUrl;
+	
 	@Column(length = 20480)
 	private String allKeyPoints;
 	@Column(length = 10240)
@@ -143,6 +144,12 @@ public class Image implements Serializable{
 
 	public void setImageDesc(String imageDesc) {
 		this.imageDesc = imageDesc;
+	}
+	public String getFeatureUrl() {
+		return featureUrl;
+	}
+	public void setFeatureUrl(String featureUrl) {
+		this.featureUrl = featureUrl;
 	}
 
 }

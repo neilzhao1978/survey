@@ -91,126 +91,128 @@ import com.neil.survey.util.SortTools;
 @RequestMapping("/api/surveyService")
 
 public class SurveyController {
-	
 
 	@Autowired
 	private SurveyRepository surveyRepo;
 	@Autowired
 	private AnswerRepository answerRepo;
-	
+
 	@Autowired
 	private RestTemplate template;
 	@Autowired
 	private BrandRepository brandRepo;
 	@Autowired
 	private ImageRepository imageRepo;
-//	@Autowired
-//	private CreatorRepository creatorRepo;
-	
+	// @Autowired
+	// private CreatorRepository creatorRepo;
+
 	private static final Logger logger = LoggerFactory.getLogger(SurveyController.class);
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/getAllSurveys", method = RequestMethod.GET)
-	public RestResponseEntity<List<Survey>> getAllSurveys( @RequestParam(value = "page",required=true) PageEntity page){
-		
-		Direction d = page.isDesc()?Direction.DESC:Direction.ASC;
-		String orderbyFiled=page.getOrderByFieldName()==null?"name":page.getOrderByFieldName();
-		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), SortTools.basicSort(d, orderbyFiled));
-		Page<Survey> surveys = surveyRepo.findAll(new Specification<Survey> () {  
+	public RestResponseEntity<List<Survey>> getAllSurveys(
+			@RequestParam(value = "page", required = true) PageEntity page) {
+
+		Direction d = page.isDesc() ? Direction.DESC : Direction.ASC;
+		String orderbyFiled = page.getOrderByFieldName() == null ? "name" : page.getOrderByFieldName();
+		PageRequest pageRequest = new PageRequest(page.getPageNumber() - 1, page.getPageSize(),
+				SortTools.basicSort(d, orderbyFiled));
+		Page<Survey> surveys = surveyRepo.findAll(new Specification<Survey>() {
 			@Override
 			public Predicate toPredicate(Root<Survey> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-			    Path<String> namePath = root.get("status");  
-			    query.where(cb.notLike(namePath, "9")); //这里可以设置任意条查询条件
+				Path<String> namePath = root.get("status");
+				query.where(cb.notLike(namePath, "9")); // 这里可以设置任意条查询条件
 
 				return null;
-			}  
-			     
-			  },pageRequest);
+			}
 
-		if(surveys!=null && surveys.getSize()>0) {
-			for(Survey s:surveys.getContent()) {
+		}, pageRequest);
+
+		if (surveys != null && surveys.getSize() > 0) {
+			for (Survey s : surveys.getContent()) {
 				s.setAnswerCount(answerRepo.countBySurvey(s));
 			}
-			return ResponseGenerator.createSuccessResponse("获取问卷列表成功。", surveys.getContent().size(), surveys.getContent(),surveys.getTotalElements());
-		}else {
+			return ResponseGenerator.createSuccessResponse("获取问卷列表成功。", surveys.getContent().size(),
+					surveys.getContent(), surveys.getTotalElements());
+		} else {
 			return ResponseGenerator.createFailResponse("获取问卷列表失败。", ErrorCode.DB_ERROR);
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/addSurvey", method = RequestMethod.POST)
-	public RestResponseEntity<Void> addSurvey( @RequestBody Survey survey){
+	public RestResponseEntity<Void> addSurvey(@RequestBody Survey survey) {
 		Survey s = surveyRepo.save(survey);
-		if(s!=null) {
-			
-			
+		if (s != null) {
+
 			return ResponseGenerator.createSuccessResponse("新增问卷成功。");
-		}else {
+		} else {
 			return ResponseGenerator.createFailResponse("新增问卷成功。", ErrorCode.DB_ERROR);
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
-	public RestResponseEntity<Void> deleteSurvey( @RequestBody Survey survey){
-		try {	
-//			surveyRepo.delete(survey);
+	public RestResponseEntity<Void> deleteSurvey(@RequestBody Survey survey) {
+		try {
+			// surveyRepo.delete(survey);
 			Survey s = surveyRepo.findOne(survey.getSurveyId());
-			s.setStatus("9");//删除
-//			answerRepo.deleteBySurvey(s);
-//			s.setCreator(null);
-//			s.setBrands(null);
-//			s.setImages(null);
-			surveyRepo.save(s);//TODO 有问题。
-//			surveyRepo.deleteBySurveyId(s.getSurveyId());
+			s.setStatus("9");// 删除
+			// answerRepo.deleteBySurvey(s);
+			// s.setCreator(null);
+			// s.setBrands(null);
+			// s.setImages(null);
+			surveyRepo.save(s);// TODO 有问题。
+			// surveyRepo.deleteBySurveyId(s.getSurveyId());
 			return ResponseGenerator.createSuccessResponse("删除问卷成功。");
-		}catch(Exception e) {			
+		} catch (Exception e) {
 			return ResponseGenerator.createFailResponse("删除问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/closeOpenSurvey", method = RequestMethod.POST)
-	public RestResponseEntity<Void> closeOpenSurvey( @RequestBody Survey survey){
+	public RestResponseEntity<Void> closeOpenSurvey(@RequestBody Survey survey) {
 		Survey s = surveyRepo.findOne(survey.getSurveyId());
 		s.setStatus(survey.getStatus());
 		Survey s1 = surveyRepo.save(s);
-		if(s1!=null) {
+		if (s1 != null) {
 			return ResponseGenerator.createSuccessResponse("打开关闭问卷成功。");
-		}else {
+		} else {
 			return ResponseGenerator.createFailResponse("打开关闭问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/updateSurvey", method = RequestMethod.POST)
-	public RestResponseEntity<Void> updateSurvey( @RequestBody Survey survey){
+	public RestResponseEntity<Void> updateSurvey(@RequestBody Survey survey) {
 		Survey s = surveyRepo.save(survey);
-		if(s!=null) {
+		if (s != null) {
 			return ResponseGenerator.createSuccessResponse("更新问卷成功。");
-		}else {
+		} else {
 			return ResponseGenerator.createFailResponse("更新问卷失败。", ErrorCode.DB_ERROR);
 		}
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/getSurveyDetail", method = RequestMethod.GET)
-	public RestResponseEntity<Survey> getSurveyDetail( @RequestParam(value = "surveyId",required=true) String surveyId){
+	public RestResponseEntity<Survey> getSurveyDetail(
+			@RequestParam(value = "surveyId", required = true) String surveyId) {
 		Survey s = surveyRepo.getBySurveyId(surveyId);
 
-		if(s!=null) {
+		if (s != null) {
 			s.getCreator().setPwd(null);
-			return ResponseGenerator.createSuccessResponse("获取问卷明细成功.",1,s,null);
-		}else {
+			return ResponseGenerator.createSuccessResponse("获取问卷明细成功.", 1, s, null);
+		} else {
 			return ResponseGenerator.createFailResponse("获取问卷明细失败.", ErrorCode.DB_ERROR);
 		}
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/copySurvey", method = RequestMethod.GET)
-	public RestResponseEntity<Survey> copySurvey( @RequestParam(value = "surveyId",required=true) String surveyId){
+	public RestResponseEntity<Survey> copySurvey(@RequestParam(value = "surveyId", required = true) String surveyId) {
 		Survey s = surveyRepo.getBySurveyId(surveyId);
-		Survey s1 =null;
+		Survey s1 = null;
 		try {
 			s1 = s.deepClone();
 		} catch (Exception e) {
@@ -219,38 +221,39 @@ public class SurveyController {
 			return ResponseGenerator.createFailResponse("复制问卷失败.", ErrorCode.DB_ERROR);
 		}
 		s1.setSurveyId(UUID.randomUUID().toString());
-		s1.setName(s1.getName()+"复制");
-		
+		s1.setName(s1.getName() + "复制");
+
 		Survey x = surveyRepo.save(s1);
-		
-		if(x!=null) {
+
+		if (x != null) {
 			x.getCreator().setPwd(null);
-			return ResponseGenerator.createSuccessResponse("复制问卷成功.",1,x,null);
-		}else {
+			return ResponseGenerator.createSuccessResponse("复制问卷成功.", 1, x, null);
+		} else {
 			return ResponseGenerator.createFailResponse("复制问卷失败.", ErrorCode.DB_ERROR);
 		}
 	}
-	
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/getSurveyResult", method = RequestMethod.GET)
-	public RestResponseEntity<List<ImageCount>> getSurveyResult( @RequestParam(value = "surveyId",required=true) String surveyId,
-			@RequestParam(value = "imageType",required=true) String imageType){
+	public RestResponseEntity<List<ImageCount>> getSurveyResult(
+			@RequestParam(value = "surveyId", required = true) String surveyId,
+			@RequestParam(value = "imageType", required = true) String imageType) {
 
 		Survey survey = surveyRepo.getBySurveyId(surveyId);
 
 		List<Answer> answers = answerRepo.findBySurvey(survey);
-		List<Image> allImages = new ArrayList<Image>(); 
-		for(Answer a : answers) {
+		List<Image> allImages = new ArrayList<Image>();
+		for (Answer a : answers) {
 			allImages.addAll(a.getImages());
 		}
-		
-		Map<String,ImageCount> imageCount = new HashMap<String,ImageCount>();
-		for(Image i : allImages) {
-			if(i.getImageType().equalsIgnoreCase(imageType)) {
-				if(imageCount.containsKey(i.getImageId())) {
-					imageCount.get(i.getImageId()).increaseCount();;
-				}else {
+
+		Map<String, ImageCount> imageCount = new HashMap<String, ImageCount>();
+		for (Image i : allImages) {
+			if (i.getImageType().equalsIgnoreCase(imageType)) {
+				if (imageCount.containsKey(i.getImageId())) {
+					imageCount.get(i.getImageId()).increaseCount();
+					;
+				} else {
 					ImageCount x = new ImageCount();
 					x.setI(i);
 					x.setCount(1);
@@ -258,154 +261,176 @@ public class SurveyController {
 				}
 			}
 		}
-		
+
 		List<ImageCount> result = new ArrayList<ImageCount>();
 		result.addAll(imageCount.values());
 		Collections.sort(result);
-		
-		if(answers!=null) {
+
+		if (answers != null) {
 			return ResponseGenerator.createSuccessResponse("获取问卷结果成功。", result.size(), result, result.size());
-		}else {
+		} else {
 			return ResponseGenerator.createFailResponse("获取问卷结果失败。", ErrorCode.DB_ERROR);
 		}
 	}
-	
-    @Value("${web.upload-path}")
-    private String path;
+
+	@Value("${web.upload-path}")
+	private String path;
+
 	@ResponseBody
 	@RequestMapping(value = "/getQRcode", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getQRcode(
-			@RequestParam(value = "pathStringCode", required = true) String pathStringCode) throws WriterException, IOException{
-        String filePath = path;  
-        String fileName = UUID.randomUUID().toString().replaceAll("-", "");
+			@RequestParam(value = "pathStringCode", required = true) String pathStringCode)
+			throws WriterException, IOException {
+		String filePath = path;
+		String fileName = UUID.randomUUID().toString().replaceAll("-", "");
 
-        String content = pathStringCode;
-        int width = 300; // 图像宽度  
-        int height = 300; // 图像高度  
-        String format = "png";// 图像类型  
-        Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();  
-        hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");  
-        BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width, height, hints);// 生成矩阵  
-        java.nio.file.Path path = FileSystems.getDefault().getPath(filePath, fileName);  
-        MatrixToImageWriter.writeToPath(bitMatrix, format, path);// 输出图像  
-        return ResponseGenerator.createQRImageResponse(path.toString());
+		String content = pathStringCode;
+		int width = 300; // 图像宽度
+		int height = 300; // 图像高度
+		String format = "png";// 图像类型
+		Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();
+		hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+		BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);// 生成矩阵
+		java.nio.file.Path path = FileSystems.getDefault().getPath(filePath, fileName);
+		MatrixToImageWriter.writeToPath(bitMatrix, format, path);// 输出图像
+		return ResponseGenerator.createQRImageResponse(path.toString());
 	}
-	
-    @Value("${web.brandServerAddr}")
-    private String serverAddr;
+
+	@Value("${web.brandServerAddr}")
+	private String serverAddr;
+
+	@Value("${web.ip}")
+	private String ip;
+
+	@Value("${server.port}")
+	private String port;
+
 	@ResponseBody
 	@RequestMapping(value = "/sychDb", method = RequestMethod.GET)
-	public RestResponseEntity<Void> sychDb() throws IOException{
+	public RestResponseEntity<Void> sychDb() throws IOException {
 		BrandResp brandResp = null;
-		brandResp = template.getForObject(serverAddr+ "getAllBrand", BrandResp.class);
+		brandResp = template.getForObject(serverAddr + "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
 
-		
-	      String parser = XMLResourceDescriptor.getXMLParserClassName();
-	      SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
-		
-		for(Brand_P b :x) {
-			Brand brand= new Brand ();
+		String parser = XMLResourceDescriptor.getXMLParserClassName();
+		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+
+		for (Brand_P b : x) {
+			Brand brand = new Brand();
 			brand.setBrandId(b.getId().toString());
 			brand.setBrandIconUrl(b.getIcon());
 			brand.setBrandName(b.getName());
 			brand.setDesc(b.getDescription());
-			
+
 			VehicheResp vehicheResp = null;
-			vehicheResp = template.getForObject(serverAddr+ "getProductByBrand/{id}", VehicheResp.class,b.getId().toString());
-			
+			vehicheResp = template.getForObject(serverAddr + "getProductByBrand/{id}", VehicheResp.class,
+					b.getId().toString());
+
 			Set<Image> images = new HashSet<Image>();
-			
-			for(VehicleInfo_P v:vehicheResp.object) {
-				try{
+
+			for (VehicleInfo_P v : vehicheResp.object) {
+				try {
 					Image i = new Image();
 					i.setImageId(v.getId().toString());
-					i.setImageDesc("brand:"+b.getName()+".category:"+v.getCategoryName());
+					i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
 					List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 
-			        URL url = new URL(v.getImageUrl1());  
-				    SVGDocument doc = (SVGDocument)f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(),2*1024*1024));
-				    
-				    doc.getChildNodes();
+					URL url = new URL(v.getImageUrl1());
+					SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
+							new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 
-				    
-				    Element n1 = doc.getElementById("特征线");
-				    n1.setAttribute("display", "block");
+					doc.getChildNodes();
 
+					Element n1 = doc.getElementById("特征线");
+					Element n2 = doc.getElementById("产品图片");
 
-				    Element n2 = doc.getElementById("产品图片");
-				    n2.setAttribute("display", "block");
-					
-					List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);  
-					for(Component c :componets) {
-						try{
+					List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
+					for (Component c : componets) {
+						try {
 							Image detail = new Image();
-							detail.setImageId(c.id+"");
+							detail.setImageId(c.id + "");
 							detail.setImageDesc(c.name);
 							detail.setImageName(c.name);
 							detail.setImageType("DETAIL");
-							detail.setImageUrl(v.getImageUrl1());//TODO
+
 							detail.setParentImageId(i.getImageId());
-							if(c.image.customData==null){
+							if (c.image.customData == null) {
 								logger.info("sub area is null.");
 								continue;
 							}
-							detail.setX((int)(c.image.customData.boundW*c.image.customData.x));
-							detail.setY((int)(c.image.customData.boundH*c.image.customData.y));
+							detail.setX((int) (c.image.customData.boundW * c.image.customData.x));
+							detail.setY((int) (c.image.customData.boundH * c.image.customData.y));
 							detail.setW(c.image.customData.w);
 							detail.setH(c.image.customData.h);
-							
-					        SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
-					        String imageUUID = UUID.randomUUID().toString().replace("-", "");
-					        String fileName = path+imageUUID+".jpg";
-					        File newFile = new File(fileName);
-					        if(!newFile.exists()){
-					        	newFile.createNewFile();
-					        }
-					        InputStream in = SvgUtilities.documentToString(doc);
-//					        doc.appendChild(e1);
-//					        InputStream in = SvgUtilities.documentToString(doc);
-							saver.tile(in, fileName, new Rectangle(detail.getX(),detail.getY(),detail.getW(),detail.getH()));
-							
-							
-							PlainRect r = new PlainRect(detail.getX(),detail.getY(),detail.getW(),detail.getH());
+
+							SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+							n1.setAttribute("display", "none");
+							n2.setAttribute("display", "block");
+							String imageUUID = UUID.randomUUID().toString().replace("-", "");
+							String imageFileName = path + imageUUID + ".jpg";
+
+							String urlDetail = "http://" + ip + ":" + port + "/static/images/";
+							detail.setImageUrl(urlDetail + imageUUID + ".jpg");
+
+							File newFile = new File(imageFileName);
+							if (!newFile.exists()) {
+								newFile.createNewFile();
+							}
+							InputStream in = SvgUtilities.documentToString(doc);
+							saver.tile(in, imageFileName,
+									new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
+
+							//////////////////////////////
+							n1.setAttribute("display", "block");
+							n2.setAttribute("display", "none");
+							String featureUUID = UUID.randomUUID().toString().replace("-", "");
+							String featureFileName = path + featureUUID + ".jpg";
+
+							detail.setImageUrl(urlDetail + featureFileName + ".jpg");
+
+							File newfeatureFile = new File(featureFileName);
+							if (!newfeatureFile.exists()) {
+								newfeatureFile.createNewFile();
+							}
+							InputStream in2 = SvgUtilities.documentToString(doc);
+							saver.tile(in2, featureFileName,
+									new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
+
+							PlainRect r = new PlainRect(detail.getX(), detail.getY(), detail.getW(), detail.getH());
 							boolean containFeatureLine = false;
-							for(Point2D p:keyPointes){
-								containFeatureLine=r.isInside(p.getX(), p.getY());
-								if(containFeatureLine){
+							for (Point2D p : keyPointes) {
+								containFeatureLine = r.isInside(p.getX(), p.getY());
+								if (containFeatureLine) {
 									break;
 								}
 							}
 							detail.setContainFeatureLine(containFeatureLine);
 							imageRepo.save(detail);
-						}catch(Exception e){
+						} catch (Exception e) {
 							logger.error("insert detail image erro.");
 							e.printStackTrace();
 						}
 					}
-				    String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float", "");
-					i.setAllKeyPoints(temp.substring(1, temp.length()-1));
+					String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");
+					i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 					i.setImageName(v.getProductCategory());
 					i.setImageType("WHOLE");
-					i.setImageUrl(v.getImageUrl1()+";"+v.getImageUrl2());
+					i.setImageUrl(v.getImageUrl1() + ";" + v.getImageUrl2());
 					i.setParentImageId(null);
 					images.add(i);
-					
+
 					imageRepo.save(i);
-				}catch(Exception e){
+				} catch (Exception e) {
 					logger.error("insert whole image erro.");
 					e.printStackTrace();
 				}
 				brand.setImages(images);
 				brandRepo.save(brand);
-				}
+			}
 
 		}
-		
+
 		return ResponseGenerator.createSuccessResponse("Db sych success.");
 
 	}
 }
-
-
-

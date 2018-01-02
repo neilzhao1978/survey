@@ -25,3 +25,6 @@ insert into image (all_key_points, contain_feature_line, h, image_desc, image_na
 2017-12-29 16:02:09 jdbc[12]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
 insert into image (all_key_points, contain_feature_line, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-02 17:22:57 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
