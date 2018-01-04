@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../../common/lib/bootstrap-table/css/boostrap-table.min.css"/>
     <!-- Materialize CSS 引入 -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/page.css"/>
     <link rel="stylesheet" href="../css/page_queryList.css"/>
 
@@ -24,7 +24,7 @@
 
     <script src="../../../common/lib/Jquery/jquery-1.11.3.min.js"></script>
     <script src="../../../common/lib/vue.js"></script>
-    <script src="../../../common/lib/materialize/js/materialize.min.js"></script>
+    <!-- <script src="../../../common/lib/materialize/js/materialize.min.js"></script> -->
 
     <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../../common/lib/bootstrap-table/js/bootstrap-table.min.js"></script>
@@ -38,31 +38,35 @@
 
 </head>
 
-<body class="container main">
-    <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: black">
-            <h1 style="color:white">高端装备设计看版系统</h1>
-        </div>
-        <div class="panel-body">
-            <div class="container-fluid">
-                <div class="row" style="margin:10px 0 10px 0">
-                    <div class="col-lg-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="问卷名称" id="name">
-                        <span class="input-group-btn">
-                           <button class="btn btn-default" type="button" id="searchBtn">搜索</button>
-                        </span>
-                        </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
-                <div class="row"  style="margin:12px">
-                    <button class="btn btn-primary" id="build">新建问卷</button>
-                </div>
-                <div class="row"  style="margin:12px">
-                    <table id="tbContent"></table>
-                </div>
+<body>
+    <header class="flex-column flex-md-row top-bar">
+        <div class="container">
+            <div class="row">
+                    <h1>高端装备设计知识库系统</h1>
+                    <h2>设计需求调研问卷工具</h2>
             </div>
         </div>
+        
+        
+    </header>
+    <div class="container main">
+            <div class="row">
+                    <div class="input-group">
+                            <input type="text" class="form-control" placeholder="问卷名称" id="name">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" id="searchBtn">搜索</button>
+                            </span>
+                    </div>
+                  
+            </div>
+            <div class="row">
+                    <button class="btn btn-primary" id="build">新建问卷</button>
+            </div>
+            <div class="row">
+                    <table id="tbContent" class="query_list_table"></table>
+            </div>
+            
+        
     </div>
 
     <div id="shareWin" class="modal fade" tabindex="-1" role="dialog">

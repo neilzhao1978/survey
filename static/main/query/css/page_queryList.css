@@ -1,1 +1,10 @@
-.container{ padding-top:10px;  border:lightgrey  }
+.container>.row{
+    margin:15px 0;
+}
+.query_list_table .btn{
+    margin:5px;
+}
+
+.query_list_table a{
+    cursor: pointer;
+}
