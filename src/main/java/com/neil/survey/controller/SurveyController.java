@@ -385,8 +385,14 @@ public class SurveyController {
 		
 		NamedNodeMap t = eleProductImage.getAttributes();
 
-		String oldImageStype = t.getNamedItem("style").getNodeValue();
-		t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1;");
+		
+		String oldImageStype = "";
+		if(t.getNamedItem("style")!=null){
+			oldImageStype = t.getNamedItem("style").getNodeValue();
+			
+			t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1;");
+		}
+
 		
 		String imageType = "";
 		String oldImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
