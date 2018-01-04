@@ -235,3 +235,751 @@
 2018-01-03 00:13:27.323 [http-nio-8000-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
 2018-01-03 00:13:27.323 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
 2018-01-03 00:13:27.330 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 7 ms
+2018-01-04 10:41:48.304 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 18392 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 10:41:48.309 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 10:41:48.350 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 10:41:48 CST 2018]; root of context hierarchy
+2018-01-04 10:41:50.096 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 10:41:50.106 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 10:41:50.107 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 10:41:50.220 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 10:41:50.220 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1870 ms
+2018-01-04 10:41:50.397 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 10:41:50.398 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 10:41:50.400 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 10:41:50.401 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 10:41:50.401 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 10:41:50.401 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 10:41:50.401 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 10:41:50.416 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 10:41:50.566 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 10:41:55.094 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 10:41:55.112 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 10:41:55.273 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 10:41:55.274 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 10:41:55.276 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 10:41:55.340 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 10:41:55.543 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 10:41:55.880 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 10:41:55.924 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 10:41:55.924 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 10:41:55.925 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 10:41:55.926 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 10:41:55.926 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 10:41:56.255 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 10:41:56.382 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 10:41:57.340 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 10:41:48 CST 2018]; root of context hierarchy
+2018-01-04 10:41:57.416 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 10:41:57.418 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 10:41:57.418 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 10:41:57.419 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 10:41:57.421 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 10:41:57.422 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 10:41:57.422 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 10:41:57.423 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 10:41:57.425 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 10:41:57.425 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 10:41:57.426 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 10:41:57.426 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 10:41:57.430 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 10:41:57.431 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 10:41:57.431 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 10:41:57.432 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 10:41:57.432 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 10:41:57.432 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 10:41:57.435 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 10:41:57.435 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 10:41:57.436 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 10:41:57.436 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 10:41:57.437 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 10:41:57.437 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 10:41:57.438 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 10:41:57.438 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 10:41:57.439 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 10:41:57.439 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 10:41:57.442 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 10:41:57.442 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 10:41:57.497 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 10:41:57.498 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 10:41:57.557 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 10:41:58.151 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 10:41:58.259 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 10:41:58.265 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 10.375 seconds (JVM running for 15.345)
+2018-01-04 11:23:22.617 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 14140 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 11:23:22.623 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 11:23:22.664 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 11:23:22 CST 2018]; root of context hierarchy
+2018-01-04 11:23:24.325 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 11:23:24.338 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 11:23:24.340 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 11:23:24.482 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 11:23:24.482 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1818 ms
+2018-01-04 11:23:24.728 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 11:23:24.730 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 11:23:24.733 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 11:23:24.734 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 11:23:24.734 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 11:23:24.734 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 11:23:24.734 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 11:23:24.752 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 11:23:24.881 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 11:23:25.304 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:23:25.322 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 11:23:25.480 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 11:23:25.481 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 11:23:25.482 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 11:23:25.518 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 11:23:25.650 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 11:23:25.891 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 11:23:25.921 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 11:23:25.921 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 11:23:25.921 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 11:23:25.921 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 11:23:25.922 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 11:23:25.922 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 11:23:25.922 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 11:23:25.922 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 11:23:25.922 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 11:23:25.923 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 11:23:26.195 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 11:23:26.464 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:23:27.514 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 11:23:22 CST 2018]; root of context hierarchy
+2018-01-04 11:23:27.606 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:23:27.608 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:23:27.608 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:23:27.609 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:23:27.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 11:23:27.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 11:23:27.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 11:23:27.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 11:23:27.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 11:23:27.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 11:23:27.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:23:27.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:23:27.621 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 11:23:27.622 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:23:27.622 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 11:23:27.623 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 11:23:27.623 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 11:23:27.624 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 11:23:27.628 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 11:23:27.629 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 11:23:27.629 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:23:27.630 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 11:23:27.631 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 11:23:27.632 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:23:27.632 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:23:27.633 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 11:23:27.633 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 11:23:27.634 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:23:27.637 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 11:23:27.638 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 11:23:27.710 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:23:27.710 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:23:27.788 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:23:28.389 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 11:23:28.420 [main] ERROR o.a.coyote.http11.Http11NioProtocol -Failed to start end point associated with ProtocolHandler ["http-nio-8000"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.neil.survey.SurveyApplication.main(SurveyApplication.java:137)
+2018-01-04 11:23:28.472 [main] ERROR o.a.catalina.core.StandardService -Failed to start connector [Connector[HTTP/1.1-8000]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8000]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.neil.survey.SurveyApplication.main(SurveyApplication.java:137)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1029)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2018-01-04 11:23:28.484 [main] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-01-04 11:23:28.514 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-01-04 11:23:28.519 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8000 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8000, or configure this application to listen on another port.
+
+2018-01-04 11:23:28.544 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 11:23:22 CST 2018]; root of context hierarchy
+2018-01-04 11:23:28.548 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-01-04 11:23:28.550 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:23:41.400 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -Application shutdown requested.
+2018-01-04 11:23:41.402 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 10:41:48 CST 2018]; root of context hierarchy
+2018-01-04 11:23:41.419 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-01-04 11:23:41.425 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:37:42.046 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 14240 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 11:37:42.051 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 11:37:42.093 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 11:37:42 CST 2018]; root of context hierarchy
+2018-01-04 11:37:43.872 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 11:37:43.887 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 11:37:43.888 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 11:37:44.029 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 11:37:44.029 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1936 ms
+2018-01-04 11:37:44.213 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 11:37:44.214 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 11:37:44.217 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 11:37:44.218 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 11:37:44.218 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 11:37:44.218 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 11:37:44.218 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 11:37:44.235 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 11:37:44.370 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 11:37:44.820 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:37:44.838 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 11:37:45.014 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 11:37:45.015 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 11:37:45.016 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 11:37:45.051 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 11:37:45.179 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 11:37:45.391 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 11:37:45.421 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 11:37:45.421 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 11:37:45.422 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 11:37:45.422 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 11:37:45.422 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 11:37:45.422 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 11:37:45.422 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 11:37:45.423 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 11:37:45.423 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 11:37:45.423 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 11:37:45.726 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 11:37:45.858 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 11:37:46.780 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 11:37:42 CST 2018]; root of context hierarchy
+2018-01-04 11:37:46.879 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:37:46.881 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:37:46.881 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:37:46.882 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 11:37:46.884 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 11:37:46.885 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 11:37:46.886 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 11:37:46.886 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 11:37:46.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:37:46.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:37:46.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 11:37:46.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 11:37:46.893 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 11:37:46.893 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 11:37:46.894 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 11:37:46.894 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 11:37:46.894 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 11:37:46.895 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 11:37:46.897 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 11:37:46.898 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 11:37:46.899 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 11:37:46.899 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 11:37:46.899 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 11:37:46.901 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 11:37:46.901 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:37:46.902 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:37:46.902 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:37:46.902 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 11:37:46.904 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 11:37:46.905 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 11:37:46.952 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:37:46.952 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:37:47.013 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 11:37:47.632 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 11:37:47.711 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 11:37:47.720 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 5.993 seconds (JVM running for 18.188)
+2018-01-04 11:38:45.844 [http-nio-8000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 11:38:45.844 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 11:38:45.863 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-01-04 11:39:03.593 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 11:39:29.577 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 11:39:36.637 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 14:46:33.443 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 16880 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 14:46:33.448 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 14:46:33.490 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 14:46:33 CST 2018]; root of context hierarchy
+2018-01-04 14:46:35.179 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 14:46:35.198 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 14:46:35.200 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 14:46:35.386 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 14:46:35.386 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1896 ms
+2018-01-04 14:46:35.569 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 14:46:35.570 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 14:46:35.572 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 14:46:35.573 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 14:46:35.573 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 14:46:35.573 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 14:46:35.573 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 14:46:35.588 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 14:46:35.718 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 14:46:40.195 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 14:46:40.210 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 14:46:40.370 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 14:46:40.371 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 14:46:40.372 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 14:46:40.413 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 14:46:40.535 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 14:46:40.742 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 14:46:40.777 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 14:46:40.777 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 14:46:40.777 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 14:46:40.778 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 14:46:40.778 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 14:46:40.778 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 14:46:40.778 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 14:46:40.778 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 14:46:40.779 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 14:46:40.779 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 14:46:41.102 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 14:46:41.237 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 14:46:42.196 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 14:46:33 CST 2018]; root of context hierarchy
+2018-01-04 14:46:42.341 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:46:42.344 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:46:42.345 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:46:42.346 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:46:42.349 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 14:46:42.350 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 14:46:42.351 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 14:46:42.352 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 14:46:42.353 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:46:42.354 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 14:46:42.355 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 14:46:42.355 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:46:42.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:46:42.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 14:46:42.362 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 14:46:42.362 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 14:46:42.363 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 14:46:42.363 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 14:46:42.366 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 14:46:42.367 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 14:46:42.368 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:46:42.368 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:46:42.369 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 14:46:42.369 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:46:42.370 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 14:46:42.371 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 14:46:42.371 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 14:46:42.371 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:46:42.374 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 14:46:42.374 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 14:46:42.432 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:46:42.433 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:46:42.503 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:46:43.059 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 14:46:43.134 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 14:46:43.141 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 10.017 seconds (JVM running for 14.77)
+2018-01-04 14:47:06.130 [http-nio-8000-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 14:47:06.131 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 14:47:06.149 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-01-04 14:48:57.763 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:48:58.794 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:04.739 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:05.875 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:11.812 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:12.307 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:12.875 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:13.276 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:13.731 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:49:14.193 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:53:16.600 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 14:54:15.802 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.802 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.802 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.802 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.849 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.849 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.892 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:15.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.754 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.754 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.755 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.755 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.825 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.825 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.892 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.892 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.892 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:54:47.893 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:57:09.459 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:58:33.964 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 12128 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 14:58:33.969 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 14:58:34.013 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 14:58:34 CST 2018]; root of context hierarchy
+2018-01-04 14:58:35.513 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 14:58:35.524 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 14:58:35.526 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 14:58:35.661 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 14:58:35.662 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1648 ms
+2018-01-04 14:58:35.862 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 14:58:35.864 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 14:58:35.866 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 14:58:35.866 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 14:58:35.867 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 14:58:35.867 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 14:58:35.867 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 14:58:35.881 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 14:58:36.008 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 14:58:40.511 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 14:58:40.528 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 14:58:40.678 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 14:58:40.680 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 14:58:40.681 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 14:58:40.716 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 14:58:40.843 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 14:58:41.049 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 14:58:41.080 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 14:58:41.080 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 14:58:41.081 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 14:58:41.081 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 14:58:41.081 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 14:58:41.081 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 14:58:41.081 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 14:58:41.082 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 14:58:41.082 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 14:58:41.082 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 14:58:41.362 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 14:58:41.496 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 14:58:42.379 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 14:58:34 CST 2018]; root of context hierarchy
+2018-01-04 14:58:42.474 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:58:42.476 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:58:42.476 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:58:42.477 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 14:58:42.480 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 14:58:42.481 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 14:58:42.481 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 14:58:42.482 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 14:58:42.484 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:58:42.484 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:58:42.485 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 14:58:42.485 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 14:58:42.489 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 14:58:42.490 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 14:58:42.490 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 14:58:42.491 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 14:58:42.491 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 14:58:42.492 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 14:58:42.493 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 14:58:42.494 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 14:58:42.494 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:58:42.495 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 14:58:42.495 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 14:58:42.496 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:58:42.497 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 14:58:42.497 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:58:42.497 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 14:58:42.498 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 14:58:42.500 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 14:58:42.500 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 14:58:42.552 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:58:42.552 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:58:42.604 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 14:58:43.178 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 14:58:43.251 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 14:58:43.259 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 9.613 seconds (JVM running for 13.325)
+2018-01-04 14:58:59.488 [http-nio-8000-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 14:58:59.488 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 14:58:59.509 [http-nio-8000-exec-2] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2018-01-04 14:59:40.925 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:40.926 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.015 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.016 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 14:59:41.121 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:18:33.958 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 7776 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 15:18:33.963 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 15:18:34.008 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 15:18:34 CST 2018]; root of context hierarchy
+2018-01-04 15:18:35.677 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 15:18:35.693 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 15:18:35.695 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 15:18:35.850 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 15:18:35.850 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1842 ms
+2018-01-04 15:18:36.056 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 15:18:36.057 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 15:18:36.061 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 15:18:36.061 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 15:18:36.061 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 15:18:36.061 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 15:18:36.062 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 15:18:36.080 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 15:18:36.205 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 15:18:40.634 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 15:18:40.656 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 15:18:40.821 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 15:18:40.822 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 15:18:40.823 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 15:18:40.858 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 15:18:40.979 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 15:18:41.190 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 15:18:41.222 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 15:18:41.222 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 15:18:41.222 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 15:18:41.224 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 15:18:41.224 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 15:18:41.224 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 15:18:41.224 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 15:18:41.224 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 15:18:41.225 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 15:18:41.225 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 15:18:41.492 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 15:18:41.741 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 15:18:42.744 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 15:18:34 CST 2018]; root of context hierarchy
+2018-01-04 15:18:42.849 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:18:42.851 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:18:42.851 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:18:42.852 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:18:42.854 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 15:18:42.855 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 15:18:42.856 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 15:18:42.856 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 15:18:42.858 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:18:42.858 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:18:42.859 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 15:18:42.859 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 15:18:42.865 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 15:18:42.866 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 15:18:42.867 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 15:18:42.868 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 15:18:42.868 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:18:42.869 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 15:18:42.872 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:18:42.872 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 15:18:42.873 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:18:42.873 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:18:42.874 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 15:18:42.874 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 15:18:42.875 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 15:18:42.875 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:18:42.875 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 15:18:42.876 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 15:18:42.879 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 15:18:42.880 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 15:18:42.937 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:18:42.937 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:18:43.010 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:18:43.601 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 15:18:43.667 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 15:18:43.674 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 10.039 seconds (JVM running for 13.547)
+2018-01-04 15:19:08.458 [http-nio-8000-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 15:19:08.458 [http-nio-8000-exec-4] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 15:19:08.476 [http-nio-8000-exec-4] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-01-04 15:42:24.538 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 8524 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 15:42:24.544 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 15:42:24.584 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 15:42:24 CST 2018]; root of context hierarchy
+2018-01-04 15:42:26.073 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 15:42:26.087 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 15:42:26.089 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 15:42:26.205 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 15:42:26.206 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1622 ms
+2018-01-04 15:42:26.370 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 15:42:26.371 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 15:42:26.374 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 15:42:26.374 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 15:42:26.374 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 15:42:26.374 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 15:42:26.374 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 15:42:26.390 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 15:42:26.514 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 15:42:30.940 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 15:42:30.956 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 15:42:31.100 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 15:42:31.101 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 15:42:31.102 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 15:42:31.138 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 15:42:31.258 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 15:42:31.460 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 15:42:31.492 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 15:42:31.492 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 15:42:31.492 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 15:42:31.493 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 15:42:31.493 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 15:42:31.493 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 15:42:31.493 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 15:42:31.493 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 15:42:31.494 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 15:42:31.494 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 15:42:31.750 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-01-04 15:42:31.895 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 15:42:32.771 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 15:42:24 CST 2018]; root of context hierarchy
+2018-01-04 15:42:32.863 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:42:32.864 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:42:32.865 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:42:32.866 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 15:42:32.868 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 15:42:32.869 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 15:42:32.870 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 15:42:32.871 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 15:42:32.873 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:42:32.874 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 15:42:32.875 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 15:42:32.876 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:42:32.881 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 15:42:32.882 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 15:42:32.883 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 15:42:32.883 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 15:42:32.883 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 15:42:32.884 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 15:42:32.887 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 15:42:32.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 15:42:32.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:42:32.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 15:42:32.890 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 15:42:32.890 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:42:32.891 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:42:32.892 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 15:42:32.893 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 15:42:32.893 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 15:42:32.897 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 15:42:32.898 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 15:42:32.953 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:42:32.953 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:42:33.008 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 15:42:33.578 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 15:42:33.660 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 15:42:33.667 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 9.445 seconds (JVM running for 12.045)
+2018-01-04 15:42:41.569 [http-nio-8000-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 15:42:41.569 [http-nio-8000-exec-3] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 15:42:41.586 [http-nio-8000-exec-3] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-01-04 15:44:36.702 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.703 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.828 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.829 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:36.980 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:41.721 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 15:44:44.048 [http-nio-8000-exec-3] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 15:44:45.457 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.457 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.457 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.457 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.508 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.508 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:45.563 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.316 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.317 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.317 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.317 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.379 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.379 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:47.438 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:48.648 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:48.974 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:48.975 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:48.975 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:48.975 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.023 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.023 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:49.103 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.449 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.450 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.450 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.544 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.634 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.724 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.724 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.724 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:44:50.725 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:02.044 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:02.045 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:02.045 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:02.417 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:03.598 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 15:45:03.598 [http-nio-8000-exec-3] INFO  c.n.s.controller.SurveyController -sub area is null.

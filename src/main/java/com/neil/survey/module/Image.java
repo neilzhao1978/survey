@@ -25,7 +25,8 @@ public class Image implements Serializable{
 	private String parentImageId;
 	private boolean containFeatureLine;
 
-	private String featureUrl;
+	private String featureUrl;//特征线
+	private String profileImageUrl;//剪影
 	
 	@Column(length = 20480)
 	private String allKeyPoints;
@@ -150,6 +151,12 @@ public class Image implements Serializable{
 	}
 	public void setFeatureUrl(String featureUrl) {
 		this.featureUrl = featureUrl;
+	}
+	public String getProfileImageUrl() {
+		return profileImageUrl;
+	}
+	public void setProfileImageUrl(String profileImageUrl) {
+		this.profileImageUrl = profileImageUrl;
 	}
 
 }

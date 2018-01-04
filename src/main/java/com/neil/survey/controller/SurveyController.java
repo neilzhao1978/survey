@@ -6,9 +6,12 @@ import java.awt.geom.Point2D;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OptionalDataException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.FileSystems;
@@ -364,44 +367,73 @@ public class SurveyController {
 		Image i = new Image();
 		i.setImageId(v.getId().toString());
 		i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
-		List<Point2D> keyPointes = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
-
+		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
+		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
+		
+		
 		URL url = new URL(v.getImageUrl1());
 		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
 				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 
 		Element n1 = doc.getElementById("特征线");
 		Element n2 = doc.getElementById("产品图片");
-		Element eleProductImage = (Element) (n2.getElementsByTagName("image").item(0));
+		
+		n1.setAttribute("display", "block");
+		n2.setAttribute("display", "none");
+		
+		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
 		
 		NamedNodeMap t = eleProductImage.getAttributes();
-		String wholeImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
-		if(wholeImageString.contains("image/jpeg")){
-			wholeImageString=wholeImageString.replaceAll("data:image/jpeg;base64,", "");
-		}else if(wholeImageString.contains("image/png")){
-			wholeImageString=wholeImageString.replaceAll("data:image/png;base64,", "");
+
+		String oldImageStype = t.getNamedItem("style").getNodeValue();
+		t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1;");
+		
+		String imageType = "";
+		String oldImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
+		String wholeImageString="";
+		if(oldImageString.contains("image/jpeg")){
+			imageType= "jpeg";
+			wholeImageString=oldImageString.replaceAll("data:image/jpeg;base64,", "");
+		}else if(oldImageString.contains("image/png")){
+			imageType = "png";
+			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
 		}
 		
 		StringBuilder outBase64String = new StringBuilder();//String build
-		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,157,4), new Color(0,0,0), "png");
+		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,157,4), new Color(0,0,0), "png");//put it into png all at this phase.
 		
-		String xxx= outBase64String.toString();
+		String imageHead = "data:image/png;base64,";
+		String imageStr= imageHead+outBase64String.toString();
+		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
+
+		String profileUUID = UUID.randomUUID().toString().replace("-", "");
+		String profileFileName = path + profileUUID + ".xml";
 		
-		String temp = keyPointes.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");
+		String out = SvgUtilities.doc2FormatString(doc);
+		File xmlOut = new File(profileFileName);
+		if(!xmlOut.exists()){
+			xmlOut.createNewFile();
+		}
+		PrintStream ps = new PrintStream(new FileOutputStream(xmlOut));
+		ps.print(out);
+		ps.close();
+
+		String urlProfile = "http://" + ip + ":" + port + "/static/images/";
+		i.setProfileImageUrl(urlProfile + profileUUID + ".xml");
 		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 		i.setImageName(v.getProductCategory());
 		i.setImageType("WHOLE");
 		i.setImageUrl(v.getImageUrl1() + ";" + v.getImageUrl2());
 		i.setParentImageId(null);
-		images.add(i);
-
 		imageRepo.save(i);
-		
+
+		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(oldImageString);//write the old image back.		
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 		for (Component c : componets) {
-			handleSubImage(i, keyPointes, doc, n1, n2, c);//处理子图
+			handleSubImage(i, keyPoints, doc, n1, n2, c);//处理子图
 		}
 		
+		images.add(i);//for brands.
 
 	}
 

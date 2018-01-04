@@ -11,6 +11,8 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.svg.SVGDocument;
 
 import com.neil.survey.controller.SurveyController;
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 import java.awt.geom.Point2D;
 import java.io.ByteArrayInputStream;
@@ -135,15 +137,49 @@ public class SvgUtilities {
 	    return is;
 	}
 	
+	 /** 
+     * Document 转换为 String 并且进行了格式化缩进 
+     *  
+     * @param doc XML的Document对象 
+     * @return String 
+     */  
+    public static String doc2FormatString(Document doc) {         
+        StringWriter stringWriter = null;  
+        try {  
+            stringWriter = new StringWriter();  
+            if(doc != null){  
+                OutputFormat format = new OutputFormat(doc,"UTF-8",true);  
+                //format.setIndenting(true);//设置是否缩进，默认为true  
+                //format.setIndent(4);//设置缩进字符数  
+                //format.setPreserveSpace(false);//设置是否保持原来的格式,默认为 false  
+                //format.setLineWidth(500);//设置行宽度  
+                XMLSerializer serializer = new XMLSerializer(stringWriter,format);  
+                serializer.asDOMSerializer();  
+                serializer.serialize(doc);  
+                return stringWriter.toString();  
+            } else {  
+                return null;  
+            }  
+        } catch (Exception e) {  
+            return null;  
+        } finally {  
+            if(stringWriter != null){  
+                try {  
+                    stringWriter.close();  
+                } catch (IOException e) {  
+                    return null;  
+                }  
+            }  
+        }  
+    }  
+	
 	public static void main(String[] args) {
 
 		  try {
 		      String uri = "http://oobviza1s.bkt.clouddn.com/1507893295798.svg";
 		      String temp = getAllKeyPoits(uri).toString().replaceAll("Point2D.Double", "").
 		    		  replaceAll("Point2D.Float", "");
-		      
 		      logger.debug(temp.substring(1, temp.length()-1));
-
 		  } catch (Exception ex) {
 			  System.out.println(ex.getMessage()); 
 		      // ...
