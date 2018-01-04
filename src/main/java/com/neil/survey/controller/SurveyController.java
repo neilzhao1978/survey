@@ -413,7 +413,7 @@ public class SurveyController {
 		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
 
 		String profileUUID = UUID.randomUUID().toString().replace("-", "");
-		String profileFileName = path + profileUUID + ".xml";
+		String profileFileName = path + profileUUID + ".svg";
 		
 		String out = SvgUtilities.doc2FormatString(doc);
 		File xmlOut = new File(profileFileName);
@@ -425,7 +425,7 @@ public class SurveyController {
 		ps.close();
 
 		String urlProfile = "http://" + ip + ":" + port + "/static/images/";
-		i.setProfileImageUrl(urlProfile + profileUUID + ".xml");
+		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
 		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 		i.setImageName(v.getProductCategory());
 		i.setImageType("WHOLE");

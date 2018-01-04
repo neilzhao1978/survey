@@ -1,0 +1,1027 @@
+2018-01-04 16:46:08.059  INFO 3896 --- [main] com.neil.survey.SurveyApplication        : Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 3896 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 16:46:08.065  INFO 3896 --- [main] com.neil.survey.SurveyApplication        : No active profile set, falling back to default profiles: default
+2018-01-04 16:46:08.121  INFO 3896 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 16:46:08 CST 2018]; root of context hierarchy
+2018-01-04 16:46:10.363  INFO 3896 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8000 (http)
+2018-01-04 16:46:10.385  INFO 3896 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-01-04 16:46:10.387  INFO 3896 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 16:46:10.558  INFO 3896 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-01-04 16:46:10.559  INFO 3896 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2438 ms
+2018-01-04 16:46:10.821  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 16:46:10.823  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 16:46:10.829  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 16:46:10.830  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 16:46:10.830  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 16:46:10.831  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 16:46:10.831  INFO 3896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 16:46:10.863  INFO 3896 --- [localhost-startStop-1] com.neil.servlet.H2Listener              : 正在启动h2数据库...
+2018-01-04 16:46:11.040  INFO 3896 --- [localhost-startStop-1] com.neil.servlet.H2Listener              : h2数据库启动成功...
+2018-01-04 16:46:14.676  INFO 3896 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 16:46:14.690  INFO 3896 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 16:46:14.837  INFO 3896 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 16:46:14.838  INFO 3896 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-04 16:46:14.839  INFO 3896 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-04 16:46:14.875  INFO 3896 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 16:46:15.003  INFO 3896 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 16:46:15.205  WARN 3896 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 16:46:15.235  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 16:46:15.236  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 16:46:15.236  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 16:46:15.236  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 16:46:15.236  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 16:46:15.236  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 16:46:15.237  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 16:46:15.237  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 16:46:15.237  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 16:46:15.237  WARN 3896 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 16:46:15.500  INFO 3896 --- [main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2018-01-04 16:46:15.527  INFO 3896 --- [main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2018-01-04 16:46:15.568  INFO 3896 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 16:46:16.460  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 16:46:08 CST 2018]; root of context hierarchy
+2018-01-04 16:46:16.557  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:46:16.558  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:46:16.559  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:46:16.559  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:46:16.561  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 16:46:16.562  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 16:46:16.563  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 16:46:16.563  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 16:46:16.564  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 16:46:16.565  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 16:46:16.565  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:46:16.566  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:46:16.569  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 16:46:16.570  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 16:46:16.570  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 16:46:16.570  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 16:46:16.571  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 16:46:16.571  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:46:16.573  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 16:46:16.574  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:46:16.574  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 16:46:16.575  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:46:16.575  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 16:46:16.575  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 16:46:16.576  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:46:16.576  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:46:16.576  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 16:46:16.577  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 16:46:16.579  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 16:46:16.579  INFO 3896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 16:46:16.632  INFO 3896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:46:16.632  INFO 3896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:46:16.702  INFO 3896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:46:17.251  INFO 3896 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-01-04 16:46:17.325  INFO 3896 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8000 (http)
+2018-01-04 16:46:17.330  INFO 3896 --- [main] com.neil.survey.SurveyApplication        : Started SurveyApplication in 9.709 seconds (JVM running for 12.429)
+2018-01-04 16:47:09.575  INFO 3896 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 16:47:09.576  INFO 3896 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 16:47:09.593  INFO 3896 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-01-04 16:47:11.549  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.549  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.638  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.638  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:11.757  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.166  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.167  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.167  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.167  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.217  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.217  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:15.265  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:16.965  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:16.965  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:16.965  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:16.965  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.022  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.023  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.084  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.084  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.084  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.084  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.084  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.085  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.085  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.085  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:17.939  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.274  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.274  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.274  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.274  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.319  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.319  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.404  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.405  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.405  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.405  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.405  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.407  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:18.407  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.302  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.302  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.302  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.392  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.480  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.565  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.565  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.565  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:19.565  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:30.904  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:30.904  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:30.905  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:31.380  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:32.513  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:32.514  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:43.554  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:43.554  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:43.554  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:43.909  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:44.691  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:44.827  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:44.827  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:49.498 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:52.817  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:47:55.442  WARN 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 16:47:55.442 ERROR 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-04 16:47:55.459  INFO 3896 --- [http-nio-8000-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 16:47:55.467 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:47:58.599  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:01.829  WARN 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 16:48:01.830 ERROR 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 16:48:01.830  INFO 3896 --- [http-nio-8000-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 16:48:01.830 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:48:03.031  WARN 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 16:48:03.031 ERROR 3896 --- [http-nio-8000-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 16:48:03.031  INFO 3896 --- [http-nio-8000-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 16:48:03.031 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:48:26.407  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:26.408  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:26.408  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:26.496  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:26.853  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.947  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.947  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.948  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.948  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.982  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.983  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.983  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:27.983  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:28.051  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:28.051  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:28.051  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:28.051  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:41.225  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:41.225  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:41.225  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:41.225  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:41.661  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:42.601  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:42.601  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:42.602  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.486  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.486  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.487  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.487  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.518  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.519  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.638  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.639  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.639  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.639  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.639  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:54.639  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.246  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.246  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.246  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.343  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.343  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.438  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.438  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.438  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.438  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.438  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:55.439  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.176  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.177  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.177  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.231  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.231  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.258  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.299  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.299  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.300  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.300  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.300  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.300  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.701  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.702  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.702  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.756  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.756  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:48:56.849  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:07.137  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:07.138  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:07.138  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:07.288  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:07.585  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:08.502  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:08.502  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:08.502  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:08.502  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:19.735  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:19.735  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:19.735  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.244  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.906  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.907  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.907  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.907  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:20.907  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:33.572  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:33.572  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:33.572  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:34.213  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:35.040  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:35.040  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:35.040  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:35.040  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:35.040  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:44.979  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:44.980  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:44.980  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.120  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.682  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.682  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.682  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:45.682  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:55.549  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:55.549  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:55.709  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:55.709  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:55.709  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.000  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.131  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.131  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.131  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.131  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:49:56.131  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:04.955  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:04.956  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:04.956  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:05.329  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:05.778  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:06.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:06.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:06.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:06.121  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:15.109  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:15.109  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:15.109  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.085  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.674  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.674  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.674  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.674  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:16.674  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:20.598  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:20.599  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:20.599  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:20.946  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:20.946  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.045  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.046  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.159  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.221  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.221  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.221  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.221  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:21.221  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.985  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.985  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.985  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.985  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:25.985  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.732  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.733  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.836  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:28.837  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:31.964  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:32.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.690  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.818  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.819  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:35.920  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.159  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.160  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.160  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.213  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.213  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:39.312  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.509  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.509  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.574  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.574  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:42.734  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.397  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.397  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.508  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.509  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:43.636  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.162  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.162  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.162  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.222  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.222  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.333  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.334  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.334  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.334  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.334  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.334  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.777  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.777  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.777  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.777  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.830  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.831  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.973  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.973  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.973  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.973  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.982  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:44.982  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:47.563  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:48.216  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:48.412  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:48.959  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:50.362  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:50:50.489 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert detail image erro.
+2018-01-04 16:50:55.339 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:51:00.044  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.044  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.045  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.115  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.306  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.545  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:00.545  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.492  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.492  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.492  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.492  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.559  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.778  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:01.778  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:03.886  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:03.886  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:03.886  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:04.004  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:04.451  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:04.452  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.116  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.116  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.116  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.116  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.197  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.421  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:05.421  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:09.420  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:09.420  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:09.449  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:10.067  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:10.068  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:10.099  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:24.829  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:29.175  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:30.267  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:30.393 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert detail image erro.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:37.122  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:51:49.949 ERROR 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 16:52:04.509  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:52:21.198  INFO 3896 --- [http-nio-8000-exec-2] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 16:58:34.400  INFO 18256 --- [main] com.neil.survey.SurveyApplication        : Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 18256 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
+2018-01-04 16:58:34.421  INFO 18256 --- [main] com.neil.survey.SurveyApplication        : No active profile set, falling back to default profiles: default
+2018-01-04 16:58:34.468  INFO 18256 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 16:58:34 CST 2018]; root of context hierarchy
+2018-01-04 16:58:36.199  INFO 18256 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8000 (http)
+2018-01-04 16:58:36.218  INFO 18256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-01-04 16:58:36.221  INFO 18256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 16:58:36.337  INFO 18256 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-01-04 16:58:36.337  INFO 18256 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1869 ms
+2018-01-04 16:58:36.543  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 16:58:36.544  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 16:58:36.547  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 16:58:36.547  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 16:58:36.547  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 16:58:36.547  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 16:58:36.548  INFO 18256 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 16:58:36.567  INFO 18256 --- [localhost-startStop-1] com.neil.servlet.H2Listener              : 正在启动h2数据库...
+2018-01-04 16:58:36.799  INFO 18256 --- [localhost-startStop-1] com.neil.servlet.H2Listener              : h2数据库启动成功...
+2018-01-04 16:58:41.451  INFO 18256 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 16:58:41.470  INFO 18256 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 16:58:41.747  INFO 18256 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 16:58:41.748  INFO 18256 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-04 16:58:41.750  INFO 18256 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-04 16:58:41.840  INFO 18256 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 16:58:42.099  INFO 18256 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 16:58:42.379  WARN 18256 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 16:58:42.407  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 16:58:42.407  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 16:58:42.408  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 16:58:42.409  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 16:58:42.409  WARN 18256 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 16:58:42.673  INFO 18256 --- [main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2018-01-04 16:58:42.710  INFO 18256 --- [main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2018-01-04 16:58:42.756  INFO 18256 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 16:58:43.752  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Thu Jan 04 16:58:34 CST 2018]; root of context hierarchy
+2018-01-04 16:58:43.840  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:58:43.841  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:58:43.842  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:58:43.842  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 16:58:43.844  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 16:58:43.845  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 16:58:43.846  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 16:58:43.846  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 16:58:43.848  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 16:58:43.848  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 16:58:43.849  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:58:43.849  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:58:43.853  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 16:58:43.854  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 16:58:43.855  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 16:58:43.856  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 16:58:43.857  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 16:58:43.857  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 16:58:43.861  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:58:43.862  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 16:58:43.863  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 16:58:43.863  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 16:58:43.864  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 16:58:43.864  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:58:43.865  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 16:58:43.865  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:58:43.865  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 16:58:43.866  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 16:58:43.867  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 16:58:43.868  INFO 18256 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 16:58:43.920  INFO 18256 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:58:43.921  INFO 18256 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:58:43.975  INFO 18256 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 16:58:44.515  INFO 18256 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-01-04 16:58:44.638  INFO 18256 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8000 (http)
+2018-01-04 16:58:44.645  INFO 18256 --- [main] com.neil.survey.SurveyApplication        : Started SurveyApplication in 10.756 seconds (JVM running for 15.876)
+2018-01-04 17:00:12.208  INFO 18256 --- [http-nio-8000-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 17:00:12.208  INFO 18256 --- [http-nio-8000-exec-5] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 17:00:12.226  INFO 18256 --- [http-nio-8000-exec-5] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-01-04 17:00:14.729  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:14.729  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:14.817  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:14.817  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:15.030  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.586  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.586  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.586  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.586  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.636  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.636  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:19.689  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.431  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.433  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.433  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.433  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.493  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.493  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.549  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:21.550  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.482  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.805  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.805  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.806  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.806  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.848  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.848  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.928  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.928  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.928  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.928  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.929  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.929  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:22.929  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.202  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.202  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.202  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.293  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.417  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.501  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.501  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.501  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:27.501  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:44.811  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:44.812  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:44.812  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:45.171  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:46.395  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:46.396  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:59.396  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:59.396  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:59.397  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:00:59.758  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:00.486  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:00.642  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:00.643  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:05.458 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 17:01:08.917  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:08.918  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:12.597  WARN 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 17:01:12.597 ERROR 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-04 17:01:12.610  INFO 18256 --- [http-nio-8000-exec-5] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:01:12.613 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 17:01:16.982  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:20.438  WARN 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 17:01:20.438 ERROR 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:01:20.438  INFO 18256 --- [http-nio-8000-exec-5] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:01:20.438 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 17:01:22.040  WARN 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2018-01-04 17:01:22.040 ERROR 18256 --- [http-nio-8000-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:01:22.041  INFO 18256 --- [http-nio-8000-exec-5] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:01:22.041 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 17:01:48.060  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:48.060  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:48.060  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:48.263  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:48.575  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.444  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.445  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.445  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.445  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.479  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.479  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.479  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.479  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.552  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.552  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.552  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:01:49.552  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:02.261  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:02.261  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:02.261  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:02.261  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:02.602  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:03.554  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:03.554  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:03.554  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.758  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.758  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.758  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.759  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.792  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.792  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:15.879  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.203  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.204  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.204  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.259  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.259  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.367  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.754  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.755  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.755  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.826  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.826  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.866  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:16.912  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.442  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.442  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.442  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.498  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.498  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.594  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.594  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.594  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.595  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.595  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:17.595  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:28.119  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:28.120  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:28.120  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:28.267  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:28.491  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:29.255  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:29.255  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:29.255  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:29.255  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:43.274  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:43.275  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:43.275  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:43.856  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:44.548  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:44.549  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:44.549  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:44.549  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:44.549  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:57.466  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:57.466  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:57.466  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:57.928  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:58.494  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:58.495  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:58.495  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:58.495  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:02:58.495  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.068  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.068  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.068  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.242  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.242  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.242  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.242  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.813  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.813  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.813  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:09.813  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.440  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.440  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.618  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.618  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.618  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:19.900  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:20.038  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:20.039  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:20.039  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:20.039  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:20.039  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:29.197  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:29.197  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:29.197  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:29.552  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:29.809  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:30.231  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:30.231  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:30.231  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:30.231  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:44.093  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:44.093  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:44.094  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:44.608  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:45.212  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:45.212  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:45.212  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:45.212  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:45.212  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.513  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.513  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.513  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.617  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.617  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.714  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.814  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.869  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.869  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.869  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.869  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:49.870  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.415  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.631  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.631  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.631  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.631  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:53.631  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:56.301  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.733  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:03:59.852  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:02.874  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:02.874  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:02.874  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:02.940  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:02.940  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.332  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:03.333  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.395  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.395  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.395  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.444  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.444  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.571  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:06.572  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.190  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.234  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.234  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.370  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.839  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.840  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.924  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:09.924  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.072  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.401  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.401  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.401  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.454  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.455  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.564  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.565  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.565  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.565  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.565  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.565  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.857  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.857  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.857  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.857  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.894  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.895  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:10.993  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:12.735  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:13.284  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:13.402  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:13.765  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:14.822  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:14.959 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert detail image erro.
+2018-01-04 17:04:20.133 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert whole image erro.
+2018-01-04 17:04:24.487  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.487  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.488  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.547  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.720  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.979  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:24.979  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.582  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.582  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.582  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.582  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.645  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.861  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:25.861  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:27.907  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:27.907  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:27.908  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.020  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.443  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.443  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.911  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.911  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.911  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.911  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:28.979  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:29.235  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:29.235  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:31.783  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:31.783  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:31.811  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:32.268  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:32.268  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:32.293  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:45.127  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:48.774  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:49.678  INFO 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : sub area is null.
+2018-01-04 17:04:49.823 ERROR 18256 --- [http-nio-8000-exec-5] c.n.survey.controller.SurveyController   : insert detail image erro.
