@@ -31,7 +31,7 @@ public class BinaryColor {
                 position[x][y] = avg;      
             }  
         }  
-        double SW = 220.0d;  //阈值
+        double SW = 230.0d;  //阈值
         for (int x = 0; x < w; x++) {  
             for (int y = 0; y < h; y++) {  
                 if (position[x][y] <= SW) {  
@@ -44,7 +44,7 @@ public class BinaryColor {
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
-        ImageIO.write(bi, formateType, baos); 
+        ImageIO.write(bi, "png", baos); 
         ImageIO.write(bi, "png", new File("d:/1/neilTest.png"));
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));
