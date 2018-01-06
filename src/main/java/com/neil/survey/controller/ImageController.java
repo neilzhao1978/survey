@@ -19,12 +19,14 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
+import org.apache.batik.transcoder.TranscoderException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +39,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.Image;
+import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
+import com.neil.survey.service.IImageProcessService;
 import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
 import com.neil.survey.util.ResponseGenerator;
@@ -55,6 +59,9 @@ public class ImageController {
 	@Autowired
 	private BrandRepository brandRepo;
 
+	@Autowired
+	private IImageProcessService imageProcessService;
+	
 	@ResponseBody
 	@RequestMapping(value = "/getAllImages", method = RequestMethod.GET)
 	public RestResponseEntity<List<Image>> getAllImages(@RequestParam(value = "page", required = true) PageEntity page,
@@ -213,4 +220,13 @@ public class ImageController {
 		}
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/geneProfileImage", method = RequestMethod.POST)
+	public ResponseEntity<byte[]> geneProfileImage(@RequestBody ProfileCombine profileCombine) throws IOException, TranscoderException {
+
+			byte[] result = imageProcessService.getCombinedImage(profileCombine);
+			return ResponseGenerator.createPngImageResponse(result);
+
+	}
+	
 }

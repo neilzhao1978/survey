@@ -16,8 +16,12 @@ import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 import java.awt.geom.Point2D;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.LinkedList;
@@ -154,6 +158,7 @@ public class SvgUtilities {
                 //format.setPreserveSpace(false);//设置是否保持原来的格式,默认为 false  
                 //format.setLineWidth(500);//设置行宽度  
                 XMLSerializer serializer = new XMLSerializer(stringWriter,format);  
+
                 serializer.asDOMSerializer();  
                 serializer.serialize(doc);  
                 return stringWriter.toString();  
@@ -173,6 +178,54 @@ public class SvgUtilities {
         }  
     }  
 	
+	 /** 
+     * Document 转换为 String 并且进行了格式化缩进 
+     *  
+     * @param doc XML的Document对象 
+     * @return String 
+     */  
+    public static String ele2FormatString(Element element) {         
+        StringWriter stringWriter = null;  
+        try {  
+            stringWriter = new StringWriter();  
+            if(element != null){  
+                OutputFormat format = new OutputFormat();  
+                //format.setIndenting(true);//设置是否缩进，默认为true  
+                //format.setIndent(4);//设置缩进字符数  
+                //format.setPreserveSpace(false);//设置是否保持原来的格式,默认为 false  
+                //format.setLineWidth(500);//设置行宽度  
+                XMLSerializer serializer = new XMLSerializer(stringWriter,format);  
+
+                serializer.asDOMSerializer();  
+                serializer.serialize(element);  
+                return stringWriter.toString();  
+            } else {  
+                return null;  
+            }  
+        } catch (Exception e) {  
+            return null;  
+        } finally {  
+            if(stringWriter != null){  
+                try {  
+                    stringWriter.close();  
+                } catch (IOException e) {  
+                    return null;  
+                }  
+            }  
+        }  
+    }  
+    
+	public static void saveDoc2SvgFile(SVGDocument doc, String profileFileName) throws IOException, FileNotFoundException {
+		String out = SvgUtilities.doc2FormatString(doc);
+		File xmlOut = new File(profileFileName);
+		if(!xmlOut.exists()){
+			xmlOut.createNewFile();
+		}
+		PrintStream ps = new PrintStream(new FileOutputStream(xmlOut));
+		ps.print(out);
+		ps.close();
+	}
+    
 	public static void main(String[] args) {
 
 		  try {

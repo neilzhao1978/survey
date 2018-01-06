@@ -6,6 +6,7 @@ import java.awt.geom.Point2D;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +35,8 @@ import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import javax.xml.transform.TransformerException;
 
+
+import  org.apache.batik.transcoder.image.*;
 import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
 import org.apache.batik.dom.svg.SVGDocumentFactory;
 import org.apache.batik.util.XMLResourceDescriptor;
@@ -375,11 +378,15 @@ public class SurveyController {
 		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
 				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 
+		
 		Element n1 = doc.getElementById("特征线");
 		Element n2 = doc.getElementById("产品图片");
 		
 		n1.setAttribute("display", "block");
 		n2.setAttribute("display", "none");
+		
+		n2.getParentNode().removeChild(n2);
+	
 		
 		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
 		
@@ -390,7 +397,10 @@ public class SurveyController {
 		if(t.getNamedItem("style")!=null){
 			oldImageStype = t.getNamedItem("style").getNodeValue();
 			
-			t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1;");
+			t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1.0;");
+		}
+		if(t.getNamedItem("opacity")!=null){
+			t.getNamedItem("opacity").setNodeValue("1.0");
 		}
 
 		
@@ -406,25 +416,18 @@ public class SurveyController {
 		}
 		
 		StringBuilder outBase64String = new StringBuilder();//String build
-		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,157,4), new Color(0,0,0), "png");//put it into png all at this phase.
+		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
 		
 		String imageHead = "data:image/png;base64,";
 		String imageStr= imageHead+outBase64String.toString();
 		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
 
 		String profileUUID = UUID.randomUUID().toString().replace("-", "");
-		String profileFileName = path + profileUUID + ".svg";
+		String profileFileName = path+"svg/" + profileUUID + ".svg";
 		
-		String out = SvgUtilities.doc2FormatString(doc);
-		File xmlOut = new File(profileFileName);
-		if(!xmlOut.exists()){
-			xmlOut.createNewFile();
-		}
-		PrintStream ps = new PrintStream(new FileOutputStream(xmlOut));
-		ps.print(out);
-		ps.close();
+		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
 
-		String urlProfile = "http://" + ip + ":" + port + "/static/images/";
+		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
 		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
 		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 		i.setImageName(v.getProductCategory());
@@ -436,12 +439,14 @@ public class SurveyController {
 		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(oldImageString);//write the old image back.		
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 		for (Component c : componets) {
-			handleSubImage(i, keyPoints, doc, n1, n2, c);//处理子图
+//			handleSubImage(i, keyPoints, doc, n1, n2, c);//处理子图
 		}
 		
 		images.add(i);//for brands.
 
 	}
+
+
 
 	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Element n1, Element n2,
 			Component c) {

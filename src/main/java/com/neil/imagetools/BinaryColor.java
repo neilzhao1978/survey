@@ -31,7 +31,7 @@ public class BinaryColor {
                 position[x][y] = avg;      
             }  
         }  
-        double SW = 230.0d;  //阈值
+        double SW = 250.0d;  //阈值
         for (int x = 0; x < w; x++) {  
             for (int y = 0; y < h; y++) {  
                 if (position[x][y] <= SW) {  

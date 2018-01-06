@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.UUID;
 
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpHeaders;
@@ -200,6 +201,17 @@ public class ResponseGenerator<T> {
 	public static RestResponseEntity<Void> createSuccessResponse(String string) {
 		return createSuccessResponse(string, 0, null);
 	}
+	
+    public static ResponseEntity<byte[]> createPngImageResponse(byte[] src ) throws IOException
+    {
+        HttpStatus statusCode = HttpStatus.OK;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("image/png"));
+        String fileName = UUID.randomUUID().toString().replaceAll("-", "") + ".png";
+        headers.set("Content-Disposition", "attachment;fileName=" + fileName);
+        return new ResponseEntity<byte[]>(src, headers, statusCode);
+    }
+	
 	
     public static ResponseEntity<byte[]> createQRImageResponse(String fileName) throws IOException
     {

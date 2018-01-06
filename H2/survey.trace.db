@@ -1,0 +1,78 @@
+2018-01-06 14:00:58 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:01:04 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:01:06 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:09:26 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[191.3000030517578, 411.6000061035156], [191.60000306367874, 405.9000062942505], [192.10000610351562, 399.0999937057495], [193.... (20866)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:17 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[328.29998779296875, 309.29998779296875], [332.8999876976013, 278.5999870300293], [337.69999408721924, 247.89997482299805], [33... (34489)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[274.79998779296875, 366.1000061035156], [300.4999885559082, 364.6000061035156], [330.0, 363.00000607967377], [368.299999237060... (36453)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[210.60000610351562, 441.0], [206.4000062942505, 429.69999980926514], [203.20000910758972, 418.0000123977661], [202.80001220107... (34871)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:24 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[220.8000030517578, 290.8999938964844], [220.10000306367874, 293.69999384880066], [219.50000607967377, 296.59998178482056], [21... (28770)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:27 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[841.9000244140625, 253.8000030517578], [678.6000213623047, 209.9000015258789], [515.3000335693359, 165.79999542236328], [515.2... (21178)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:28 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[715.7000122070312, 161.89999389648438], [631.5000152587891, 93.89999389648438], [631.5, 93.89999389648438], [631.5, 93.8999938... (29349)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:29 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[118.69999694824219, 317.29998779296875], [145.39999771118164, 316.79998779296875], [172.19999313354492, 316.3999877870083], [1... (24917)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:33 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[996.7999877929688, 452.6000061035156], [970.2999877929688, 458.6000061035156], [939.7999877929688, 465.4000062942505], [920.99... (32221)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:10:34 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[999.2999877929688, 434.29998779296875], [982.2999877929688, 433.09998774528503], [965.3999881744385, 431.0999755859375], [956.... (23133)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:38:24 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:38:30 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:38:31 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:02 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[191.3000030517578, 411.6000061035156], [191.60000306367874, 405.9000062942505], [192.10000610351562, 399.0999937057495], [193.... (20866)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:49 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[328.29998779296875, 309.29998779296875], [332.8999876976013, 278.5999870300293], [337.69999408721924, 247.89997482299805], [33... (34489)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:49 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[274.79998779296875, 366.1000061035156], [300.4999885559082, 364.6000061035156], [330.0, 363.00000607967377], [368.299999237060... (36453)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:49 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[210.60000610351562, 441.0], [206.4000062942505, 429.69999980926514], [203.20000910758972, 418.0000123977661], [202.80001220107... (34871)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:54 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[220.8000030517578, 290.8999938964844], [220.10000306367874, 293.69999384880066], [219.50000607967377, 296.59998178482056], [21... (28770)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:56 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[841.9000244140625, 253.8000030517578], [678.6000213623047, 209.9000015258789], [515.3000335693359, 165.79999542236328], [515.2... (21178)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:57 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[715.7000122070312, 161.89999389648438], [631.5000152587891, 93.89999389648438], [631.5, 93.89999389648438], [631.5, 93.8999938... (29349)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:46:58 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[118.69999694824219, 317.29998779296875], [145.39999771118164, 316.79998779296875], [172.19999313354492, 316.3999877870083], [1... (24917)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:47:01 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[996.7999877929688, 452.6000061035156], [970.2999877929688, 458.6000061035156], [939.7999877929688, 465.4000062942505], [920.99... (32221)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-06 14:47:02 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[999.2999877929688, 434.29998779296875], [982.2999877929688, 433.09998774528503], [965.3999881744385, 431.0999755859375], [956.... (23133)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
