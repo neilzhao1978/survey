@@ -73,9 +73,7 @@ public class ImageProcessService implements IImageProcessService {
 			
 			Element refEle = (Element)docBase.getElementsByTagName("image").item(0);
 			
-			
-			
-			logger.info(SvgUtilities.ele2FormatString(imageEle));
+//			logger.info(SvgUtilities.ele2FormatString(imageEle));
 			
 			Element x = (Element) docBase.importNode(imageEle, true);
 			
@@ -83,7 +81,7 @@ public class ImageProcessService implements IImageProcessService {
 //			docBase.getElementsByTagName("svg").item(0).appendChild(x);
 		}
 		
-		SvgUtilities.saveDoc2SvgFile(docBase,"D:/1/test.svg");
+//		SvgUtilities.saveDoc2SvgFile(docBase,"./test.svg");
 
 		PNGTranscoder pngTranscoder = new PNGTranscoder();
 
