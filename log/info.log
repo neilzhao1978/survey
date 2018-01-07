@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 2018-01-06 13:12:50.813 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on DESKTOP-2QOMAIJ with PID 12484 (D:\G_zcm\git\survey\target\classes started by G_zcm in D:\G_zcm\git\survey)
 2018-01-06 13:12:50.961 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
 2018-01-06 13:12:51.042 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68d279ec: startup date [Sat Jan 06 13:12:51 CST 2018]; root of context hierarchy
@@ -2923,3 +2924,486 @@ org.w3c.dom.DOMException: The given node (type: 1, name: svg) was not created by
 2018-01-06 19:28:32.621 [http-nio-8000-exec-4] INFO  c.n.s.s.impl.ImageProcessService -<?xml version="1.0" encoding="UTF-8"?>
 <image enable-background="new    " transform="matrix(0.52 0 0 0.52 17.9995 5)" width="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAH0CAYAAADfWf7fAAAUlUlEQVR42u3d0Y7bxhJF0fn/n5aDAAbGgiiRYjfZdWo9LNybxLEzHInc6ik2fx6Pxw8AAKRyEAAAELwAACB4AQBA8AIAgOAFAADBCwAAghcAAMHrIACw7EXqv8vUz/+Xqvd/r+LX5fsLghcA3gbw3/+/ajwmhDkIXgC4KBq/Ccff/+6o8Hz1+239OYIXBC8AHPqx/1ZAPgfnFbbGEvb8GkDwAsCuGd7VmNkFwQsAp0YIKnmOXMELghcA3q6KVg1fow0geAEgcoV36yY231MQvACY1RW8gOAFoNeuDEl8n0HwAiB6H4nBa9cGELwA0Cp4AcELQNPATR1nsKoLghcAwRsfvIDgBUD8PtysBgheAASv4AUELwCVRxoELyB4AYiN31S+vyB4ASA6en1vQfACgOAFBC8AYlfwAoIXAMEreAHBC4DYFbwgeAHgotAVvIDgBUDwBgSv8AXBC4AxBsELCF4ArO4KXkDwAmClV/ACghcAwSt4QfACgNgVvCB4AUDwCl4QvAAgeAUvCF4Acndi6By7ghcELwANg7dT7ApeELwAGGUQvIDgBUDwCl5A8AIgdgUvIHgBELyCFwQvAAhewQuCFwBEr+AFwQsAVnifQlf4guAFQPAKXkDwAiB6BS8geAEQvIIXELwACF/BC4IXACbFbpcAFrwgeAEQv4/fwZsWwIIXBC8ARK/yCl4QvAAQHb+CFwQvAAheQPACIHYFLyB4ARC8ghcQvACIXsELghcABK/gBcELAGJX8ILgBQDBK3hB8AJA+kiD0AXBCwDRK7yCFwQvAPwTulZ4AcELgFVewQsIXgAEr+AFwesgACB2BS8IXgCYF7apoSt4QfACgOAFBC8AfXZkSA5eQPAC0HxlN32FFxC8AAhewQsIXgB6jDYIXkDwAhAZu4IXELwA2KVB8AKCF4DKc7yCFxC8AESNMjzP7iZGr+83CF4A2Fz99eAJQPACIHgFLyB4AXAzm+AFwQsABWZ8BS8geAGID2DBCwheAMSu4AUELwAiV/CC4AUAuzUIXhC8AGDF14MnQPACgOAFBC8ACF5A8AIgeAUvIHgBELyCFxC8AAhewQuCFwAEr+AFwQsAglfwguAFAMHrARQgeAFA8AKCFwDBK3gBwQtAQOAKXkDwAiB4BS8geAEQvIIXBC8ALBy8lWNX8ILgBQDBCwheAISvB08AghcAwSt4AcELgOAVvCB4AcAuDYIXBC8AXB/AghcQvAAIXsELCF4AhK7gBcELAIJX8ILgBYD5oZs20iCAQfACQNwqr+AFwQsAghcQvAD0i1zBCwheAFpEr+AFBC8AxhkELyB4ARC9ghcELwCY4RW8IHgBwAqvB0+A4AUAwSt4QfACgOAFBC8ALlaCFxC8AAhewQsIXgCK7tJQPXp9P0HwAoDgBQQvAIJX8AKCF4DY6BW8gOAFQPAKXkDwAmCnBsELghcABK/gBcELANeONQheQPACIHgFLyB4ARC8ghcELwAIXsELghcA3LQmeEHwAoDgFbwgeAFA8AKCFwAXLMELCF4ABK/gBQQvAIJX8ILgBQDBK3hB8AKA4BW8IHgB4GzkCl5A8AIgeAUvIHgBELyCFwQvAAhewQuCFwAEr+gFwQsAglfwguAFAMELCF4ABK/gBQQvAIJX8AKCFwDBK3hB8AKA4BW8IHgBQPAKXhC8ACB4BS8IXgAQvIDgBUDwCl5A8AIgeAUvIHgBqB27laPX9xMELwDsil8rvIDgBSA+fAUvIHgBELyCFxC8AAhewQuCFwAEr+AFwQsAYlfwguAFgFO7MwheQPACEBu71UNX8ILgBYAW4et7CYIXAMzwAoIXgH6BK3gBwQuAFV3BCwheAESv4AXBCwBiV/CC4AUAwSt4QfACzW4mghGvqdTQff7afL9B8AKCl2aRmx67ghcELwCC95Ecu7+jV/CC4AWImjF1jHrP7ApeELwAm6t8e/5X8ApewQsIXuCrwHBcxgY7Ytd7CwQvIHihXfB6r4HgBW6KDMcEsSt4QfACkT+OF8T3h96VEbTq99NIAyB4gVtGGs5etGfPuK4cIN/8eTP+GysEmBleQPACAiT8zv3Re9F++lBhhVfwguAFBC62x7pppEbwAoIXELnExdfWTV1JT2FzzgHBCwhemsbXnpVoxxwQvIDgpXTwdnidOueA4AUELw3j690etUmru4IXBC8geBFgLVZ4hS8IXkBIIHhjX6uCFwQvICIQu5uzvYl7LgOCFxC8CF7BCwheQPDS4wYqIw2A4AVEL2JX8AKCFxC9bG0B5jUqeEHwAkIXq75meAUvCF6YF2QVV6RWjofffy32+PSe8+FM8ILgBcrd5S54qbhjg+AFBC/RP2ZfffXJSAOi12tV8ILghd0jCzP+HQQvx0YaVnuP+VABCF6i5kpt1H7tyrngY897U/AKXhC8cNHFzLEac6OaVV6qvK+SPpg5J4HgRey6aFwQvCIXwes4g+CFIsHrAtI7HOh1s5rgBQQvVng5NScNW4FphlfwguAFwVtuZVfwIngFLwheELwtVnpFHlt7w678mOGkY+1cBoIXwSt4BS8ehhAbvM5lIHgRvIJ3YuQKXnG79QRDwSt4QfCC4LUtGXHRWyF403ZpcC4DwYvgFbwXRa/wE7xV3kuCFxC8CF6mBa8wtg+v4BW8IHjhprk8dzgbaaDfNlmONyB4EbwMu2lNGAtewet4g+CFBYKXMSu+n46tKBS8glfwguAFM7xR+/GKXcEreB1vELywwMXM8Zo322uFV/AKXscbBC8I3rLHdu9xF7zCV/B6tDAIXhC8sSu6QlfwVhrBEbyA4EXw8tWqr+gVvYJ3fvACghex66IhLPAEtrgPYc4zIHgRvIJ3oRVfASh+Ba/gBcELglfwInQFr+AFwQv24RW8mDMVvM5dIHjBTWuCF3EmeAHBi+B10RC8CDPHFRC8CF4EL9FjDYIXELwIXgQv0YHmeAKCl1bB6wIyN3hFL88fgASv4AXBC4JX8NIqeO94/wleQPDSLngdN8HLPYF2V8AJXkDwIngRvFwSaYJX8ILgBcEreImOXsEreEHwguAVvAhewSt4QfCC4BW8VA5euzQIXhC8IHgFL/bjFbyCFwQvfH8hc8zGH3+xy94PmUYaBC8IXhC87b4f9FrlFbyCFwQvCF7Bizler0vnLRC8IHgFL9VXeb0unbdA8ILgFbwIXq9L5y0QvCB4BS8Vo03wCl4QvCB4BS+C1+vSeQsELwhewUv1Lcq8Lp23QPCC4C25H6+wY8XoNQMNCF4EL4KX6NVKwQsIXgQvghfBK3gBwYvgRfAieAUvCF4QvIJX0CF4BS8IXhC8acfeLg2s/j4UvIDgRfAieBG8ghcQvAhe3h17wYvgFbwgeEHwTl9d3XtBHHkcxC6jIu7Ta/qb123KbLlzPQheBK8LxwI3qwlezjxq+EwMC15A8CJ4F3q86ZVfv+ClcvSODN7E1XDnfhC8CN5WwWuFl6TgffX+FLz/HhfnLxC8iF4zvIKXgPjds/IreAHBi5XFJsG7tRomeEmYUxW8RhpA8CJ4GwfvkQu74KVj7KYGLyB4EbwtV3jv/LoFL1cEb9f9dwUvCF6InuG9Yjulsz8i9aQ1Vg7elC3JBC8IXogO3jtuEjoTvMKNkVE3YnVX8AKCF8HbPHpHBW9SWLDmbg2C13keBC9ejFZ4BS8P86qCFxC8CF7BOzF4QfAKXhC8IHijRxpA8ApeELwgeK3wwoXvU8ELCF4Er+gdukuDSEPwCl4QvLDQXrWCd85xEGrM+DD27q8FLyB4EbyFLx6Vtn8SvAhewQuCFwRvmZEGj3FF8ApeQPAieGOi99NcruBF8ApeELwOAkWDt8IFpOKFVKgx+rU54nUreAHBixVeIw1meCkTvF1fl873IHgRvIJ30IX07PERaawWfrZpAwQvgtdIw/AnW8Eqr1X7EgOCl7jwFbzjVnkFLyuONXR+TTrPg+CFocG70gXGTWsIXsEreEHwwtcXtU+/T6ddGkY/ahhWij7BCwheBK99eK3wUmKVV/ACghfBG7wP7+iv+dXvOeK4iDOMNQheELwgeA/vQPEqUEd9rcKC5OA1zgEIXmK2JBsRvHdcgM7+/iOCYetHxoKX1R83PHPbQsELCF7igldIjNnc37HETWuCFwQvhOxZKywcdwRvhRVuQPAidgHBW/JrF7wgeDHSAAjeyOAVuiB4Eb+CAASv4AUEL2IX6Be9bloDBC9GGgDBK3gBwYsVXkDwCl4QvCB2AcEreEHwUjUmPz2V691fi13gjpu30p60JnxB8DJ5Rvabmdkzcb3198QuYJcGQPCyzBjBqD9H6AKC17UHBC+XrfbOOElvrV4IXkDwCl4QvJTY/uvoxUjgAoJX8ILgpdSOCG5GAwSv4AXBS8vgfbUDBIDgFb0geCk1w+tpaMDd8Sd4AcGLMQOgbPx9isK0/YffbRd59V7oIHiJ24NX+AIrR2D6Ta/v9ibfsxJstRgEb/tV2yO/zkUWqBC8Xb5uq7ogeFloazKAK2dcO8X+0YUMYQyCF2MMQMgNXR1Xuj89mt1KMAhexC0QtHtB5zEPN7KB4BW0ZnIBwdt6zMP1EASv1VsA4wytH9YBCF6hCyB4Y47XnmPphjcELwIXwEhDzMiD4AXBK3YBCq1Y8v0xdE0FwSt0AQRvq50eQPAieAE8dMKNbiB4EbwAglfwguBF8AIIXsELgpfXd84CiDMP2DHPC4LXqi5AePQKXiu8IHgFL0Cr6MVWZSB4jTQACF4ELwheK70AlWZNHRPBC4JX7ALYqQHBC4JX8AIgeAUvgtdBEL0ACF4QvAheAAQvCF4ELwD24gXBi+AFQPCC4BW8ACB4QfAKXgAQvCB4BS8AghcEr4MgeAEQvCB4EbwACF4QvAheAAQvCF7ELgAePAGCV/ACgOAFwSt4AUDwguAVvQAIXsGL4EXwAiB4QfAidgEQvCB4EbwACF4QvIhdAAQvCN6ooBW6AHjoBAjeFiu4YhcAwQuC1/gCAAheELwVRxqceAEQvCB4reoCgOAFwSt2AUDwguAVvAAgeEHwCl4ABC8IXtyoBoDgBcGLFV4ABC8IXsELAIIXBG/18QXBC4DgBcEreAFA8ILgTQheJ1oABC8I3qjgtboLgOAFwSt4AUDwguC1QwMACF4QvIIXAAQvCF7BC4DgBQSvxwoDIHhB8HLkpjXBC4DgBcEbG7y/TzBOtAAIXhC8sbO6ghcAwQuCN3pmV/ACIHhB8MaPNQCA4AXBazsyABC8IHhFLwAIXhC8ohcABC8I3mv24RW7AAheELyCFwAELwhe4wwAIHhB8C68NZnwBUDwguC12gsAFwavCEbwIngBELwgeBG9AAheELwIXgAELwhe0QsAghcEr+gFAMELgrfWtmVOwAAIXhC8VnkBQPCC4LW6CwAePAGCV/ACIHhBizkIghcAwQuCF8ELgOAFwYvgBUDwguAVvAAgeEHwCl4AELwgeAUvAAheELzrPGhC8AIgekHwesIaAAheELyCFwAELwhe87sAIHhB8FrhBUDwguBF7AIgeEHwIngBELwgeAUvAAheELyiFwAELwhewQsAghcEr+AFAMELglfsAiB4QfAifAEQvCB4EbwACF4QvGLXSRcAwQuCNzR0BS8AghcEr1VeAJgcvAIYwcvUFV7BC4DgBcEreAFA8ILgNdYAAIIXBK/gBQDBC4JX8AIgeEHwInQBELwgeLEfLwCC10KW/Y8Fr9gVvQDcFLyvwvebUDsSdKPjL+nDx57jrJ8Er+AFgC/Dl7U+hFgRFryCFwCIHzd5txqP4BW8AEDUiIPgFbyetgYARM9YC17BGxO8whcAeBW3glfw2pcXAIgPXtEreEUvABC1a4YmErxiFwBotcqL4BW8AIDoRfAKXgBA9CJ4F9yjFwAQuwhee/QCAGIXwVt1tEH4AkBWxIpcwcuHjabFMABWMu+5F2bGf6veEbxC98Ub4vnN8WrvPgDYs99r6pO8zgTru19rNVbwstjqLwDsDV62r6MVxyCtPAte25oBIHibBu+I4/H861NuROt4E514FLwACN7219FOUbj3viHBi23MABC8gvlR7c/vuluEF60HVQAgeFts+1npJ7Fnf++0+WXBa5QBADzcYPGRgRErr0e+n2eDWPAiegEQvIVuvNp7PI78+8mvC8GL6AXAaIPrmA9GghcnCQBWDd5uK5iY+xa8ohcAIH61VzwW3vrEmxEAuCJ6q0ewoCy+tYo3IwBw1TiM4OXyVV578gIAglfwmuMFADDSIBxTnn0NAGCXBsEb+cxub04AQPAKXqMNAAANtyQTvKIXAEDwInoBAOEreFniZjZvTABA9Are+BvavDEBAMEreOO3LPPmBAC+iVojDVjlBQBuXVW9IkTdtMby+/OKXgDYDsfnfzbyR/kjV0bTd00QvNixAQBzoSB4MccLwN6wfBWZZ4NU0Gb+6F/wUu7Rw070AL0j1/URBK/RBgDa3oXvGongxWovAOZlQfCy6gzRnjtTARC8IHiJ3bYMAOMMIHgx18uld05/888Bjq7u7n2ogShG8FJ6qzLRm/WjRcfTa8nrB2MOIHixT+8yK7heg/ipD4IXBC92b3DxAB+GcQ4CwcucXRxcLOY8vcjrj8rnCAQuCF6idmpwoRt/cXFBwqgDd5yTBDEIXis4ti6zggICWPCC4KXzRazrxW3WfLTXF5UCVvj68A2Cl7jZvL1R5mKx/0Yfrzms9iJuQfDiwuZiAW52E7VePyB4Eb4uIFDz3gAx61wFgpeom91mXOTsggA+LItaQPDS9gLpuEDd93J6/Ppeg+DFBe/QgxvcBAZWfkUuIHhpv9LqYgO1V3r3vI8FLSB4+RGeQPWf8rz7dbNC2E+SQPDC6aA9uoH93tUgoNb54ex7eCuKt/75u5Gpo7EtjEHwAgCA4AUAAMELAACCFwAABC8AAAheAAAELwAACF4AABC8AAAgeAEAQPACAIDgBQAAwQsAgOAFAADBCwAAghcAAAQvAAAIXgAAELwAACB4AQDo5g9c8fHtlT5ylQAAAABJRU5ErkJggg==" opacity="1.0" height="500" overflow="visible">
 		</image>
+=======
+2018-01-04 17:26:44.904 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on xavierdeMacBook-Pro.local with PID 5251 (started by xavieryuan in /Users/xavieryuan/OneDrive/projects/2017装备看板/IDSurvey)
+2018-01-04 17:26:44.907 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 17:26:44.953 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:26:44 CST 2018]; root of context hierarchy
+2018-01-04 17:26:46.404 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 17:26:46.411 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 17:26:46.412 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 17:26:46.498 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 17:26:46.498 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1546 ms
+2018-01-04 17:26:46.641 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 17:26:46.643 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 17:26:46.646 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 17:26:46.646 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 17:26:46.646 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 17:26:46.647 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 17:26:46.647 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 17:26:46.658 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 17:26:46.761 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 17:26:47.128 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 17:26:47.138 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 17:26:47.186 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 17:26:47.190 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 17:26:47.193 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 17:26:47.299 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 17:26:47.399 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 17:26:47.592 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 17:26:47.618 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 17:26:47.618 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 17:26:47.619 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 17:26:47.619 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 17:26:47.619 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 17:26:47.619 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 17:26:47.620 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 17:26:47.620 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 17:26:47.621 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 17:26:47.621 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 17:26:48.117 [main] INFO  o.h.tool.hbm2ddl.SchemaExport -HHH000227: Running hbm2ddl schema export
+2018-01-04 17:26:48.160 [main] INFO  o.h.tool.hbm2ddl.SchemaExport -HHH000230: Schema export complete
+2018-01-04 17:26:48.204 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 17:26:48.846 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:26:44 CST 2018]; root of context hierarchy
+2018-01-04 17:26:48.894 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:26:48.896 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:26:48.896 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:26:48.897 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:26:48.902 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 17:26:48.903 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 17:26:48.904 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 17:26:48.905 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 17:26:48.909 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:26:48.909 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 17:26:48.910 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:26:48.910 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 17:26:48.915 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 17:26:48.916 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:26:48.917 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 17:26:48.918 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 17:26:48.919 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 17:26:48.920 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 17:26:48.923 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 17:26:48.923 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:26:48.924 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:26:48.924 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:26:48.925 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:26:48.925 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 17:26:48.925 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 17:26:48.927 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 17:26:48.927 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 17:26:48.928 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 17:26:48.931 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 17:26:48.932 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 17:26:48.963 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:26:48.963 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:26:49.010 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:26:49.321 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 17:26:49.379 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 17:26:49.384 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 4.77 seconds (JVM running for 5.54)
+2018-01-04 17:27:13.559 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -Application shutdown requested.
+2018-01-04 17:27:13.561 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:26:44 CST 2018]; root of context hierarchy
+2018-01-04 17:27:13.563 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-01-04 17:27:13.565 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 17:36:37.886 [main] INFO  com.neil.survey.SurveyApplication -Starting SurveyApplication on xavierdeMacBook-Pro.local with PID 5277 (started by xavieryuan in /Users/xavieryuan/OneDrive/projects/2017装备看板/IDSurvey)
+2018-01-04 17:36:37.889 [main] INFO  com.neil.survey.SurveyApplication -No active profile set, falling back to default profiles: default
+2018-01-04 17:36:37.958 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:36:37 CST 2018]; root of context hierarchy
+2018-01-04 17:36:40.142 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8000 (http)
+2018-01-04 17:36:40.152 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-01-04 17:36:40.153 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-01-04 17:36:40.256 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-01-04 17:36:40.256 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 2298 ms
+2018-01-04 17:36:40.440 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'webServlet' to [/console/*]
+2018-01-04 17:36:40.442 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-04 17:36:40.446 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-04 17:36:40.446 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-04 17:36:40.446 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-04 17:36:40.447 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-04 17:36:40.447 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'openEntityManagerInViewFilter' to urls: [/*]
+2018-01-04 17:36:40.468 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -正在启动h2数据库...
+2018-01-04 17:36:40.624 [localhost-startStop-1] INFO  com.neil.servlet.H2Listener -h2数据库启动成功...
+2018-01-04 17:36:41.328 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-04 17:36:41.352 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-04 17:36:41.556 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-04 17:36:41.558 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-01-04 17:36:41.560 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-01-04 17:36:41.628 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-04 17:36:41.793 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-04 17:36:42.043 [main] WARN  org.hibernate.id.UUIDHexGenerator -HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2018-01-04 17:36:42.195 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.BrandImage
+2018-01-04 17:36:42.196 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.BrandImage
+2018-01-04 17:36:42.196 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerBrand
+2018-01-04 17:36:42.197 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerBrand
+2018-01-04 17:36:42.198 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyImage
+2018-01-04 17:36:42.199 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyImage
+2018-01-04 17:36:42.199 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.AnswerImage
+2018-01-04 17:36:42.199 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.AnswerImage
+2018-01-04 17:36:42.200 [main] WARN  org.hibernate.mapping.RootClass -HHH000038: Composite-id class does not override equals(): com.neil.survey.module.SurveyBrand
+2018-01-04 17:36:42.201 [main] WARN  org.hibernate.mapping.RootClass -HHH000039: Composite-id class does not override hashCode(): com.neil.survey.module.SurveyBrand
+2018-01-04 17:36:42.503 [main] INFO  o.h.tool.hbm2ddl.SchemaExport -HHH000227: Running hbm2ddl schema export
+2018-01-04 17:36:42.551 [main] INFO  o.h.tool.hbm2ddl.SchemaExport -HHH000230: Schema export complete
+2018-01-04 17:36:42.583 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-04 17:36:43.272 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:36:37 CST 2018]; root of context hierarchy
+2018-01-04 17:36:43.324 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/getAllAnswerList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Answer>> com.neil.survey.controller.AnswerController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:36:43.326 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/addAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.addAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:36:43.327 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/updateAnswer],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.updateAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:36:43.327 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/answerService/deleteAnswer],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.AnswerController.deleteAnswer(com.neil.survey.module.Answer)
+2018-01-04 17:36:43.330 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/addBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.addBrand(com.neil.survey.module.Brand)
+2018-01-04 17:36:43.331 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/getAllBrands],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Brand>> com.neil.survey.controller.BrandController.getAllBrands(com.neil.survey.util.PageEntity)
+2018-01-04 17:36:43.332 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/updateBrand],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.updateBrand(com.neil.survey.module.Brand)
+2018-01-04 17:36:43.332 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/brandService/deleteBrand],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.BrandController.deleteCreator(com.neil.survey.module.Brand)
+2018-01-04 17:36:43.334 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/listSurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.CreatorController.listSurvey(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:36:43.335 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/getAllCreatorList],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Creator>> com.neil.survey.controller.CreatorController.getAllCreatorList(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:36:43.336 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/addCreator],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.addCreator(com.neil.survey.module.Creator)
+2018-01-04 17:36:43.337 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/creatorService/deleteCreator],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.CreatorController.deleteCreator(com.neil.survey.module.Creator)
+2018-01-04 17:36:43.341 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getAllImages],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getAllImages(com.neil.survey.util.PageEntity,java.lang.String)
+2018-01-04 17:36:43.341 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getProductImagesByBrandId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getProductImagesByBrandId(java.lang.String)
+2018-01-04 17:36:43.342 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/getDetailImagesByParentId],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Image>> com.neil.survey.controller.ImageController.getDetailImagesByParentId(java.lang.String)
+2018-01-04 17:36:43.342 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/uploadImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.handleFileUpload(javax.servlet.http.HttpServletRequest)
+2018-01-04 17:36:43.342 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/updateImage],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.updateImage(com.neil.survey.module.Image)
+2018-01-04 17:36:43.343 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/imageService/deleteImage],methods=[DELETE]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.ImageController.deleteCreator(com.neil.survey.module.Image)
+2018-01-04 17:36:43.344 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getAllSurveys],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.Survey>> com.neil.survey.controller.SurveyController.getAllSurveys(com.neil.survey.util.PageEntity)
+2018-01-04 17:36:43.345 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/addSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.addSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:36:43.345 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/deleteSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.deleteSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:36:43.346 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/closeOpenSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.closeOpenSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:36:43.346 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/updateSurvey],methods=[POST]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.updateSurvey(com.neil.survey.module.Survey)
+2018-01-04 17:36:43.347 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyDetail],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.getSurveyDetail(java.lang.String)
+2018-01-04 17:36:43.347 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/copySurvey],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<com.neil.survey.module.Survey> com.neil.survey.controller.SurveyController.copySurvey(java.lang.String)
+2018-01-04 17:36:43.348 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getSurveyResult],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.util.List<com.neil.survey.module.ImageCount>> com.neil.survey.controller.SurveyController.getSurveyResult(java.lang.String,java.lang.String)
+2018-01-04 17:36:43.348 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/getQRcode],methods=[GET]}" onto public org.springframework.http.ResponseEntity<byte[]> com.neil.survey.controller.SurveyController.getQRcode(java.lang.String) throws com.google.zxing.WriterException,java.io.IOException
+2018-01-04 17:36:43.348 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/surveyService/sychDb],methods=[GET]}" onto public com.neil.survey.util.RestResponseEntity<java.lang.Void> com.neil.survey.controller.SurveyController.sychDb() throws java.io.IOException
+2018-01-04 17:36:43.350 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-04 17:36:43.350 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-04 17:36:43.378 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:36:43.378 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:36:43.435 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-04 17:36:43.757 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-01-04 17:36:43.809 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8000 (http)
+2018-01-04 17:36:43.814 [main] INFO  com.neil.survey.SurveyApplication -Started SurveyApplication in 6.404 seconds (JVM running for 7.488)
+2018-01-04 17:39:22.183 [http-nio-8000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-04 17:39:22.184 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-04 17:39:22.204 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-01-04 17:39:24.961 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:24.961 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.031 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.032 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:25.137 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.178 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.178 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.179 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.179 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.278 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.278 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.323 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:29.324 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.528 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.595 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.595 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.699 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:31.700 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:32.808 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.125 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.125 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.126 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.126 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.152 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.152 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.201 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.202 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.970 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.970 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:33.970 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.036 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.108 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.247 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.247 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.247 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:34.247 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:51.438 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:51.439 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:51.439 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:51.895 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:53.679 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:39:53.679 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:09.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:09.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:09.529 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:10.112 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:11.099 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:11.288 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:11.288 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:20.518 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:40:22.020 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.020 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.093 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.093 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.202 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.202 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.202 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.203 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.203 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:22.203 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.227 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.227 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.228 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.229 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.229 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.229 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.229 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.229 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.996 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.996 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.996 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:29.996 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.045 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.045 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.087 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.088 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.088 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.088 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.088 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.089 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.089 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:30.089 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:31.034 [http-nio-8000-exec-7] INFO  o.h.h.i.QueryTranslatorFactoryInitiator -HHH000397: Using ASTQueryTranslatorFactory
+2018-01-04 17:40:36.942 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:36.942 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:36.942 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:36.942 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:36.993 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:36.993 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.043 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:37.044 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.302 [http-nio-8000-exec-1] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:40:38.302 [http-nio-8000-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-04 17:40:38.304 [http-nio-8000-exec-1] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:40:38.311 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:40:38.895 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.927 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.927 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.927 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.928 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.957 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:38.957 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:39.009 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.153 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.154 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.154 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.213 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.279 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.351 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.351 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.351 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:41.351 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:40:51.549 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:04.471 [http-nio-8000-exec-1] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:41:04.472 [http-nio-8000-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:41:04.472 [http-nio-8000-exec-1] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:41:04.473 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:41:07.061 [http-nio-8000-exec-1] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:41:07.063 [http-nio-8000-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:41:07.063 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:07.064 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:07.064 [http-nio-8000-exec-1] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:41:07.064 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:07.064 [http-nio-8000-exec-1] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:41:07.512 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:09.132 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:09.132 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:32.598 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:32.599 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:32.599 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:33.085 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:34.275 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:34.509 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:34.509 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:41:52.234 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:42:00.842 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.842 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:00.843 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:06.263 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:06.264 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:06.264 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:06.354 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:06.651 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:09.971 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:09.971 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:09.971 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:09.971 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:09.999 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.000 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.000 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.000 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.071 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.071 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.071 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.071 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:10.079 [http-nio-8000-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:42:10.079 [http-nio-8000-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-04 17:42:10.080 [http-nio-8000-exec-2] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:42:10.080 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:42:23.214 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:37.050 [http-nio-8000-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:42:37.050 [http-nio-8000-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:42:37.050 [http-nio-8000-exec-2] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:42:37.051 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:42:39.915 [http-nio-8000-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 22001, SQLState: 22001
+2018-01-04 17:42:39.916 [http-nio-8000-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper -Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-04 17:42:39.916 [http-nio-8000-exec-2] INFO  o.h.e.j.b.internal.AbstractBatchImpl -HHH000010: On release of batch it still contained JDBC statements
+2018-01-04 17:42:39.917 [http-nio-8000-exec-2] ERROR c.n.s.controller.SurveyController -insert whole image erro.
+2018-01-04 17:42:42.053 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:42.054 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:42.054 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:42.054 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:42.571 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:44.104 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:44.104 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:42:44.104 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.749 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.749 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.750 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.750 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.774 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.774 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:08.913 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.385 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.385 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.385 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.426 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.427 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:09.483 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.010 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.011 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.011 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.050 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.050 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.069 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.089 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.089 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.090 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.091 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.091 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:10.092 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.523 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.525 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.525 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.643 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.643 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.712 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.712 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.712 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.713 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.713 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:11.713 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:37.296 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:37.297 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:37.297 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:37.367 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:37.686 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.586 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.586 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.586 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.586 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.620 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.620 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.620 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.620 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.697 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.698 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.698 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:38.698 [http-nio-8000-exec-2] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:39.197 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:39.197 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:39.197 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:39.437 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:39.683 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:41.056 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:41.056 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:41.056 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:41.056 [http-nio-8000-exec-1] INFO  c.n.s.controller.SurveyController -sub area is null.
+2018-01-04 17:43:56.538 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -Application shutdown requested.
+2018-01-04 17:43:56.539 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Thu Jan 04 17:36:37 CST 2018]; root of context hierarchy
+2018-01-04 17:43:56.542 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-01-04 17:43:56.545 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+>>>>>>> Stashed changes

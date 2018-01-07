@@ -45,7 +45,7 @@ public class BinaryColor {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
         ImageIO.write(bi, "png", baos); 
-        ImageIO.write(bi, "png", new File("d:/1/neilTest.png"));
+ //       ImageIO.write(bi, "png", new File("d:/1/neilTest.png"));
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));
 //        outBase64String = Base64.encodeBase64String(bytesOut);
