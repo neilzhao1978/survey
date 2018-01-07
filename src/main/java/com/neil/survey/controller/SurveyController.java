@@ -372,38 +372,30 @@ public class SurveyController {
 		i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
 		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
-		
-		
-		URL url = new URL(v.getImageUrl1());
-		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
-				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 
+		URL url = new URL(v.getImageUrl1());
+		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		
 		Element n1 = doc.getElementById("特征线");
 		Element n2 = doc.getElementById("产品图片");
 		
 		n1.setAttribute("display", "block");
 		n2.setAttribute("display", "none");
-		
 		n2.getParentNode().removeChild(n2);
 	
-		
 		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
 		
 		NamedNodeMap t = eleProductImage.getAttributes();
-
 		
 		String oldImageStype = "";
 		if(t.getNamedItem("style")!=null){
 			oldImageStype = t.getNamedItem("style").getNodeValue();
-			
 			t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1.0;");
 		}
 		if(t.getNamedItem("opacity")!=null){
 			t.getNamedItem("opacity").setNodeValue("1.0");
 		}
 
-		
 		String imageType = "";
 		String oldImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
 		String wholeImageString="";
@@ -436,10 +428,10 @@ public class SurveyController {
 		i.setParentImageId(null);
 		imageRepo.save(i);
 
-		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(oldImageString);//write the old image back.		
+		SVGDocument doc1 = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 		for (Component c : componets) {
-//			handleSubImage(i, keyPoints, doc, n1, n2, c);//处理子图
+			handleSubImage(i, keyPoints, doc1, c, v.getId().toString());//处理子图
 		}
 		
 		images.add(i);//for brands.
@@ -448,9 +440,11 @@ public class SurveyController {
 
 
 
-	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Element n1, Element n2,
-			Component c) {
+	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id) {
 		try {
+			Element n1 = doc.getElementById("特征线");
+			Element n2 = doc.getElementById("产品图片");
+			
 			Image detail = new Image();
 			detail.setImageId(c.id + "");
 			detail.setImageDesc(c.name);
@@ -471,9 +465,15 @@ public class SurveyController {
 			n1.setAttribute("display", "none");
 			n2.setAttribute("display", "block");
 			String imageUUID = UUID.randomUUID().toString().replace("-", "");
-			String imageFileName = path + imageUUID + ".jpg";
+			String imageFileName = path +id+"/"+ imageUUID + ".jpg";
+			
+			File newFileFolder = new File(path +id);
+			if (!newFileFolder.exists()) {
+				newFileFolder.mkdir();
+			}
+			
 
-			String urlDetail = "http://" + ip + ":" + port + "/static/images/";
+			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+c.id+"/";
 			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
 
 			File newFile = new File(imageFileName);
@@ -488,7 +488,7 @@ public class SurveyController {
 			n1.setAttribute("display", "block");
 			n2.setAttribute("display", "none");
 			String featureUUID = UUID.randomUUID().toString().replace("-", "");
-			String featureFileName = path + featureUUID + ".jpg";
+			String featureFileName = path + id+"/"+featureUUID + ".jpg";
 
 			detail.setImageUrl(urlDetail + featureFileName + ".jpg");
 
