@@ -97,3 +97,77 @@ update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, i
 org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
 update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
 >>>>>>> Stashed changes
+2018-01-07 23:29:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+SELECT * FROM IMAGE  where id like '319' [42122-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.CompareLike.optimize(CompareLike.java:93)
+	at org.h2.command.dml.Select.prepare(Select.java:842)
+	at org.h2.command.Parser.prepareCommand(Parser.java:263)
+	at org.h2.engine.Session.prepareLocal(Session.java:578)
+	at org.h2.engine.Session.prepareCommand(Session.java:519)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:176)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:164)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter.doFilterInternal(OpenEntityManagerInViewFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-01-07 23:41:44 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[625.7999877929688, 581.5999755859375], [620.9999876022339, 565.299976348877], [615.5, 549.2999877929688], [612.4000000953674, ... (23875)"; SQL statement:
+insert into image (all_key_points, contain_feature_line, feature_url, h, image_desc, image_name, image_type, image_url, parent_image_id, profile_image_url, w, x, y, image_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-196]
+2018-01-07 23:41:51 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[392.20001220703125, 404.0], [400.300012588501, 390.3999996185303], [408.500018119812, 376.8999938964844], [408.70003052055836,... (23641)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]
+2018-01-07 23:41:52 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "ALL_KEY_POINTS VARCHAR(20480)": "'[207.0, 580.9000244140625], [205.5, 567.2000246047974], [204.29999995231628, 553.5000123977661], [203.3000030517578, 539.800000... (21135)"; SQL statement:
+update image set all_key_points=?, contain_feature_line=?, feature_url=?, h=?, image_desc=?, image_name=?, image_type=?, image_url=?, parent_image_id=?, profile_image_url=?, w=?, x=?, y=? where image_id=? [22001-196]

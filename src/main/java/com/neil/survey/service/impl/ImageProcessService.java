@@ -24,6 +24,7 @@ import org.w3c.dom.svg.SVGDocument;
 import com.neil.batiktools.SvgUtilities;
 import com.neil.survey.controller.SurveyController;
 import com.neil.survey.module.Image;
+import com.neil.survey.module.ImageReplaceParam;
 import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.service.IImageProcessService;
@@ -99,6 +100,26 @@ public class ImageProcessService implements IImageProcessService {
 		
 		// TODO Auto-generated method stub
 		return ostream.toByteArray();
+	}
+
+	@Override
+	public List<Image> getCartoonWholeImage(String imageId) {
+		List<Image> rtn =imageRepo.findByImageId(imageId);
+		if(rtn.size() == 1){
+			List<Image> temp = imageRepo.findByParentImageId(imageId);
+			rtn.addAll(temp);
+		}else{
+			logger.error("getCartoonWholeImage error. the whole image count is not 1.");
+			return null;
+		}
+		
+		return rtn;
+	}
+
+	@Override
+	public List<Image> getCartoonReplaceImage(ImageReplaceParam imageReplaceParam) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

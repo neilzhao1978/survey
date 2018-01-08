@@ -40,6 +40,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.Image;
+import com.neil.survey.module.ImageReplaceParam;
 import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
@@ -224,11 +225,29 @@ public class ImageController {
 	@ResponseBody
 	@RequestMapping(value = "/geneProfileImage", method = RequestMethod.POST)
 	public RestResponseEntity<String> geneProfileImage(@RequestBody ProfileCombine profileCombine) throws IOException, TranscoderException {
-
 			byte[] result = imageProcessService.getCombinedImage(profileCombine);
-
-			
 			return ResponseGenerator.createSuccessResponse("产生成功",1,Base64.encodeBase64String(result),null);
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/getCartoonWholeImage", method = RequestMethod.GET)
+	public RestResponseEntity<List<Image>> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
+		try{
+			List<Image> rtn = imageProcessService.getCartoonWholeImage(imageId);
+			return ResponseGenerator.createSuccessResponse("获取产品整理图像成功。",rtn.size(),rtn,null);
+		}catch(Exception e){
+			return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.POST)
+	public RestResponseEntity<List<Image>> getCartoonReplaceImage(@RequestBody ImageReplaceParam imageReplaceParam){
+		try{
+			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageReplaceParam);
+			return ResponseGenerator.createSuccessResponse("获取产品整理图像成功。",rtn.size(),rtn,null);
+		}catch(Exception e){
+			return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+		}
+	}
 }

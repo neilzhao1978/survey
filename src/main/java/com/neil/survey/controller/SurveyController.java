@@ -417,6 +417,12 @@ public class SurveyController {
 		String profileUUID = UUID.randomUUID().toString().replace("-", "");
 		String profileFileName = path+"svg/" + profileUUID + ".svg";
 		
+		File newFileFolder = new File(path+"svg/");
+		if (!newFileFolder.exists()) {
+			newFileFolder.mkdir();
+		}
+		
+		
 		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
 
 		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
@@ -446,7 +452,7 @@ public class SurveyController {
 			Element n2 = doc.getElementById("产品图片");
 			
 			Image detail = new Image();
-			detail.setImageId(c.id + "");
+			detail.setImageId(UUID.randomUUID().toString().replaceAll("-", ""));
 			detail.setImageDesc(c.name);
 			detail.setImageName(c.name);
 			detail.setImageType("DETAIL");
@@ -473,7 +479,7 @@ public class SurveyController {
 			}
 			
 
-			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+c.id+"/";
+			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
 			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
 
 			File newFile = new File(imageFileName);
@@ -490,7 +496,7 @@ public class SurveyController {
 			String featureUUID = UUID.randomUUID().toString().replace("-", "");
 			String featureFileName = path + id+"/"+featureUUID + ".jpg";
 
-			detail.setImageUrl(urlDetail + featureFileName + ".jpg");
+			detail.setFeatureUrl(urlDetail + featureUUID + ".jpg");
 
 			File newfeatureFile = new File(featureFileName);
 			if (!newfeatureFile.exists()) {
