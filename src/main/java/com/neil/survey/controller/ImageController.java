@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.apache.batik.transcoder.TranscoderException;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
@@ -222,11 +223,12 @@ public class ImageController {
 
 	@ResponseBody
 	@RequestMapping(value = "/geneProfileImage", method = RequestMethod.POST)
-	public ResponseEntity<byte[]> geneProfileImage(@RequestBody ProfileCombine profileCombine) throws IOException, TranscoderException {
+	public RestResponseEntity<String> geneProfileImage(@RequestBody ProfileCombine profileCombine) throws IOException, TranscoderException {
 
 			byte[] result = imageProcessService.getCombinedImage(profileCombine);
-			return ResponseGenerator.createPngImageResponse(result);
 
+			
+			return ResponseGenerator.createSuccessResponse("产生成功",1,Base64.encodeBase64String(result),null);
 	}
 	
 }
