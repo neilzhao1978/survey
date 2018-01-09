@@ -24,19 +24,32 @@ class FeatureLineRenderer{
     }
 
     showFeatureLine(options){
-        let self = this
-        $.post( 
-            FEATURELINE_POST_URL, 
+        let self = this;
+        this.p5Instance.httpPost(
+            FEATURELINE_POST_URL,
+            "json",
             options,
             (data)=>{
                 //数据获取成功
                 let image_data_url = "data:image/png;base64,"+data;
                 self.renderFeatureLine(image_data_url);
             },
-            "json"
-        ).fail(()=>{
-            //数据获取失败
-        }); 
+            (error)=>{
+                //处理错误
+            }
+        )
+        // $.post( 
+        //     FEATURELINE_POST_URL, 
+        //     options,
+        //     (data)=>{
+        //         //数据获取成功
+        //         let image_data_url = "data:image/png;base64,"+data;
+        //         self.renderFeatureLine(image_data_url);
+        //     },
+        //     "json"
+        // ).fail(()=>{
+        //     //数据获取失败
+        // }); 
     }
 
     renderFeatureLine(image_data_url){

@@ -1,6 +1,6 @@
 #FileLock
-#Tue Jan 09 09:13:45 CST 2018
-hostName=xavierdemacbook-pro.local
-id=160d87af78744059eff565de746ade237a77e6fa2a9
+#Tue Jan 09 14:02:47 CST 2018
+hostName=10.63.228.111
+id=160d983944e5f90f5958e4d538b85574a323d385d8c
 method=file
-server=169.254.97.148\:53756
+server=10.63.228.111\:59682
