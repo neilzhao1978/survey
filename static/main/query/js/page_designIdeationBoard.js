@@ -4,7 +4,7 @@ $(function(){
     let flr = new FeatureLineRenderer("featureline-rendering");
     let postOptions = {
         "showFeatureLine":"true",
-        "oraginalImages":["144","146"]
+        "oraginalImages":["133","132"]
        }
     flr.showFeatureLine(postOptions)
 });
