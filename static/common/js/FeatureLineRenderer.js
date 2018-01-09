@@ -8,19 +8,21 @@ const FEATURELINE_POST_URL = "http://localhost:8000/api/imageService/geneProfile
 class FeatureLineRenderer{
 
     constructor(DOM_ele){
-        console.log(DOM_ele)
+        
         //获取容器尺寸
         let w = $("#"+DOM_ele).width(); 
         let h = $("#"+DOM_ele).height();
-
+        //定义并初始化p5实例
         let s = function( sketch ) {
             sketch.setup = function() {
               sketch.createCanvas(w, h);
               sketch.background(200);
             };
         };
-
-        this.p5Instance = new p5(s, DOM_ele)
+        this.p5Instance = new p5(s, DOM_ele);
+        //存储画布尺寸数据
+        this.canvasW = w;
+        this.canvasH = h;
     }
 
     showFeatureLine(options){
@@ -36,6 +38,7 @@ class FeatureLineRenderer{
             },
             (error)=>{
                 //处理错误
+                self.renderMsg(error)
             }
         )
         // $.post( 
@@ -58,6 +61,14 @@ class FeatureLineRenderer{
         this.p5Instance.loadImage(image_data_url,(feature_line)=>{
             this.p5Instance.draw(feature_line,0,0)
         })
+    }
+
+    renderMsg(msg){
+        this.p5Instance.textMode(this.p5Instance.CENTER);
+        this.p5Instance.push();
+        this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
+        this.p5Instance.text(msg,0,0);
+        this.p5Instance.pop();
     }
 
 }
