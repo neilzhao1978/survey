@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>设计看板</title>
+
+    <!-----------------------------------------CSS引用---------------------------------------------------------------->
+    <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
+   
+    <!-- Materialize CSS 引入 -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../css/page.css"/>
+    <link rel="stylesheet" href="../css/page_designIdeationBoard.css"/>
+
+    <!-----------------------------------------JS引用----------------------------------------------------------------->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries。WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../../../common/lib/html5shiv.min.js"></script>
+    <script src="../../../common/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../common/lib/Jquery/jquery-1.11.3.min.js"></script>
+    <script src="../../../common/lib/vue.js"></script>
+    <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- p5js引用 -->
+    <script src="../../../common/lib/p5js/p5.min.js"></script>
+    <script src="../../../common/lib/p5js/p5.dom.min.js"></script>
+
+    <script src="../../../common/js/FeatureLineRenderer.js"></script>
+
+    <script src="../../../common/js/utils.js"></script>
+    <script src="../../../common/js/mask.js"></script>
+
+</head>
+
+<body>
+    <header class="flex-column flex-md-row top-bar">
+        <div class="container">
+            <div class="row">
+                    <h1>{{SURVEY_NAME}}</h1>
+                    <h2>设计看板</h2>
+            </div>
+        </div>
+        
+        
+    </header>
+    <div class="container main">
+            <div class="row">
+                    <div class="col-sm-6">
+                        <div class="panel panel-default left-panel">
+                            <ul class="nav nav-tabs toggle-display-tab">
+                                <li role="presentation" class="active"><a href="#">原图</a></li>
+                                <li role="presentation"><a href="#">特征线</a></li>
+                                <li role="presentation"><a href="#">卡通组合</a></li>
+                            </ul>
+
+                            <div class="toggle-display-content">
+                                <div id="featureline-rendering" class="featureline-rendering"></div>
+                            </div>
+
+                            <div class="thumb-container">
+                                <ul class="thumb-list">
+                                    <li>
+                                        <a href="#">
+                                            <img src="" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div id="design-datavis-3d" class="design-datavis-3d">
+
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+            
+        
+    </div>
+
+   
+    <!-- 弹出面板，备用 -->
+    <!-- <div id="deleteAlert" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">删除提示</h4>
+                </div>
+                <div class="modal-body" style="text-align:center">
+                    您确定要删除该条记录吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="_doRemove()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="../js/page_designIdeationBoard.js"></script>
+
+</body>
+</html>
+
