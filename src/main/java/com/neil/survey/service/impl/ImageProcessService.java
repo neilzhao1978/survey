@@ -16,6 +16,10 @@ import org.apache.batik.util.XMLResourceDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Element;
@@ -118,8 +122,17 @@ public class ImageProcessService implements IImageProcessService {
 
 	@Override
 	public List<Image> getCartoonReplaceImage(ImageReplaceParam imageReplaceParam) {
-		// TODO Auto-generated method stub
-		return null;
+
+		String partsNm = "%"+imageReplaceParam.getPartsName()+"%";
+		List<Image> rtn = imageRepo.findByParentImageIdInAndImageNameLikeAndContainFeatureLine(imageReplaceParam.getCandidateImageId(),
+				partsNm,imageReplaceParam.isContainFeatureLine());
+//		List<Image> rtn = imageRepo.findByInputParam(imageReplaceParam.getCandidateImageId(),
+//				partsNm,imageReplaceParam.isContainFeatureLine());//,
+		if(rtn.size()>imageReplaceParam.getLimits()){
+			return rtn.subList(0, imageReplaceParam.getLimits());
+		}else{
+			return rtn;			
+		}
 	}
 
 }
