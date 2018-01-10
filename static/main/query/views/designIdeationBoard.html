@@ -52,15 +52,17 @@
             <div class="row">
                     <div class="col-sm-6">
                         <div class="panel panel-default left-panel">
-                            <ul class="nav nav-tabs toggle-display-tab">
-                                <li role="presentation" class="active"><a href="#">原图</a></li>
-                                <li role="presentation"><a href="#">特征线</a></li>
-                                <li role="presentation"><a href="#">卡通组合</a></li>
-                            </ul>
+                            <ul class="nav nav-tabs toggle-render-tab" role="tablist">
+                                <li role="presentation" class="active"><a href="#original-rendering" aria-controls="original-rendering" role="tab" data-toggle="tab">原图</a></li>
+                                <li role="presentation"><a href="#featureline-rendering" aria-controls="featureline-rendering" role="tab" data-toggle="tab">特征线</a></li>
+                                <li role="presentation"><a href="#carton-rendering" aria-controls="carton-rendering" role="tab" data-toggle="tab">卡通组合</a></li>
 
-                            <div class="toggle-display-content">
-                                <div id="featureline-rendering" class="featureline-rendering"></div>
-                            </div>
+                            </ul>
+                            <div class="tab-content toggle-render-content">
+                                <div role="tabpanel" class="tab-pane active original-rendering" id="original-rendering">原图</div>
+                                <div role="tabpanel" class="tab-pane featureline-rendering" id="featureline-rendering"></div>
+                                <div role="tabpanel" class="tab-pane carton-rendering" id="carton-rendering">卡通组合</div>
+                              </div>
 
                             <div class="thumb-container">
                                 <ul class="thumb-list">

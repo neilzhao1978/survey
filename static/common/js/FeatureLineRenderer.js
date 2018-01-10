@@ -10,9 +10,11 @@ class FeatureLineRenderer{
 
     constructor(DOM_ele){
         this.containerDOM = DOM_ele;
+        //获取容器
+        let container = $("#"+DOM_ele).parent()
         //获取容器尺寸
-        let w = $("#"+DOM_ele).width(); 
-        let h = $("#"+DOM_ele).height();
+        let w = container.width(); 
+        let h = container.height();
         //存储画布尺寸数据
         this.canvasW = w;
         this.canvasH = h;

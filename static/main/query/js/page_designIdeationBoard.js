@@ -2,11 +2,12 @@
 $(function(){
 
     let flr = new FeatureLineRenderer("featureline-rendering");
-    let postOptions = {
+    
+    let featurelineOptions = {
         "showFeatureLine":"true",
         "oraginalImages":["133","132"]
        }
-    flr.showFeatureLine(postOptions)
+    flr.showFeatureLine(featurelineOptions)
 });
 
 
