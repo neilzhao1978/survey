@@ -245,9 +245,9 @@ public class ImageController {
 	public RestResponseEntity<List<Image>> getCartoonReplaceImage(@RequestBody ImageReplaceParam imageReplaceParam){
 		try{
 			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageReplaceParam);
-			return ResponseGenerator.createSuccessResponse("获取产品整理图像成功。",rtn.size(),rtn,null);
+			return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtn.size(),rtn,null);
 		}catch(Exception e){
-			return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
 }
