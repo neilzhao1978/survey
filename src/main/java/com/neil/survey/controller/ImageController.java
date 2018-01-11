@@ -279,6 +279,7 @@ public class ImageController {
 					part.setW(null);
 					part.setX(null);
 					part.setY(null);
+					
 					part.setUrl(i.getImageUrl());
 					part.setName(i.getImageName());
 					rtParts.add(part);
