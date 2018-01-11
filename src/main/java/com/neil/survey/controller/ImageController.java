@@ -255,12 +255,12 @@ public class ImageController {
 				}
 				rtn.setAllParts(parts);
 			}else{
-				return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+				return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
 			}
 			
-			return ResponseGenerator.createSuccessResponse("获取产品整理图像成功。",1,rtn,null);
+			return ResponseGenerator.createSuccessResponse("获取产品整体图像成功。",1,rtn,null);
 		}catch(Exception e){
-			return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
 	
@@ -275,10 +275,10 @@ public class ImageController {
 			if(rtn.size()>0){
 				for(Image i : rtn){
 					ImagePartRe part = new ImagePartRe();
-					part.setH(i.getH());
-					part.setW(i.getW());
-					part.setX(i.getX());
-					part.setY(i.getY());
+					part.setH(null);
+					part.setW(null);
+					part.setX(null);
+					part.setY(null);
 					part.setUrl(i.getImageUrl());
 					part.setName(i.getImageName());
 					rtParts.add(part);
