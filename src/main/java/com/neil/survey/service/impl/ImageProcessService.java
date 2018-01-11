@@ -27,8 +27,8 @@ import org.w3c.dom.svg.SVGDocument;
 
 import com.neil.batiktools.SvgUtilities;
 import com.neil.survey.controller.SurveyController;
+import com.neil.survey.inputout.ImageReplaceParam;
 import com.neil.survey.module.Image;
-import com.neil.survey.module.ImageReplaceParam;
 import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.service.IImageProcessService;
@@ -121,18 +121,12 @@ public class ImageProcessService implements IImageProcessService {
 	}
 
 	@Override
-	public List<Image> getCartoonReplaceImage(ImageReplaceParam imageReplaceParam) {
+	public List<Image> getCartoonReplaceImage(String imageId,String partName) {
 
-		String partsNm = "%"+imageReplaceParam.getPartsName()+"%";
-		List<Image> rtn = imageRepo.findByParentImageIdInAndImageNameLikeAndContainFeatureLine(imageReplaceParam.getCandidateImageId(),
-				partsNm,imageReplaceParam.isContainFeatureLine());
-//		List<Image> rtn = imageRepo.findByInputParam(imageReplaceParam.getCandidateImageId(),
-//				partsNm,imageReplaceParam.isContainFeatureLine());//,
-		if(rtn.size()>imageReplaceParam.getLimits()){
-			return rtn.subList(0, imageReplaceParam.getLimits());
-		}else{
-			return rtn;			
-		}
+		String partsNm = "%"+partName+"%";
+		List<Image> rtn = imageRepo.findByParentImageIdAndImageNameLike(imageId,partsNm);
+		return rtn;			
+
 	}
 
 }
