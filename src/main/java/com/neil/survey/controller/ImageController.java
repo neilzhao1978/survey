@@ -275,11 +275,10 @@ public class ImageController {
 			if(rtn.size()>0){
 				for(Image i : rtn){
 					ImagePartRe part = new ImagePartRe();
-					part.setH(null);
-					part.setW(null);
-					part.setX(null);
-					part.setY(null);
-					
+					part.setH(i.getH());
+					part.setW(i.getW());
+					part.setX(i.getX());
+					part.setY(i.getY());
 					part.setUrl(i.getImageUrl());
 					part.setName(i.getImageName());
 					rtParts.add(part);
