@@ -15,6 +15,6 @@ public interface ImageRepository extends JpaRepository<Image,String> {
 //	@Query("select i from Image i where i.parentImageId in (?) and i.imageName like ? and containFeatureLine= ?")
 //	List<Image> findByInputParam(List<String> ids, String partsName, boolean containFeature);
 	
-	
+	List<Image> findByImageType(String imageType);
 	List<Image> findByParentImageIdAndImageNameLike(String id, String partsName);
 }

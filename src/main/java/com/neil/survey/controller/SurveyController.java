@@ -372,10 +372,59 @@ public class SurveyController {
 			URL url = new URL(x[0]);
 			SVGDocument doc = (SVGDocument) f.createSVGDocument(x[0],new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 
-			List<Image> cab = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getParentImageId(), "司机室%");
-			Image newCab = merge(cab,wholeImage.getImageId(), doc);
-
+			List<Image> cabs = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "司机室%");
+			if(cabs.size()>0){
+				Image newCab = merge(cabs,wholeImage.getImageId(), doc);
+				imageRepo.save(newCab);
+			}
 			
+			List<Image> butts = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "下车%");
+			if(butts.size()>0){
+				Image newButt = merge(butts,wholeImage.getImageId(), doc);
+				imageRepo.save(newButt);
+			}
+			
+			List<Image> underpans  = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "底盘%");
+			if(underpans.size()>0){
+				Image underpan  = merge(underpans,wholeImage.getImageId(), doc);
+				imageRepo.save(underpan);
+			}
+			
+			List<Image> uppers = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "上车%");
+			if(uppers.size()>0){
+				Image upper = merge(uppers,wholeImage.getImageId(), doc);
+				imageRepo.save(upper);
+			}
+
+			List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "钢轮支架%");
+			if(braces.size()>0){
+				Image brace = merge(braces,wholeImage.getImageId(), doc);
+				imageRepo.save(brace);
+			}
+			
+			List<Image> balanceWeights = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "配重%");
+			if(balanceWeights.size()>0){
+				Image balanceWeight = merge(balanceWeights,wholeImage.getImageId(), doc);
+				imageRepo.save(balanceWeight);
+			}
+			
+			List<Image> ladders = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "爬梯%");
+			if(ladders.size()>0){
+				Image ladder = merge(ladders,wholeImage.getImageId(), doc);
+				imageRepo.save(ladder);
+			}
+			
+			List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "后罩%");
+			if(realCowls.size()>0){
+				Image realCowl = merge(realCowls,wholeImage.getImageId(), doc);
+				imageRepo.save(realCowl);
+			}
+			
+			List<Image> vibratingDrums = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "振动轮%");
+			if(vibratingDrums.size()>0){
+				Image vibratingDrum = merge(vibratingDrums,wholeImage.getImageId(), doc);
+				imageRepo.save(vibratingDrum);
+			}
 		}
 		
 		return ResponseGenerator.createSuccessResponse("merge subimage success.");
@@ -446,14 +495,14 @@ public class SurveyController {
 		n1.setAttribute("display", "none");
 		n2.setAttribute("display", "block");
 
-		String imageFileName = path +id+"/"+ imageUUID + ".jpg";
+		String imageFileName = path +id+"/merged/"+ imageUUID + ".jpg";
 		
-		File newFileFolder = new File(path +id);
+		File newFileFolder = new File(path +id+"/merged/");
 		if (!newFileFolder.exists()) {
 			newFileFolder.mkdir();
 		}
 
-		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
+		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+imageUUID + ".jpg";
 
 
 		File newFile = new File(imageFileName);

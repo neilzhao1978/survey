@@ -38,6 +38,15 @@ public class Image implements Serializable{
 
 	private Integer x;
 	private Integer y;
+	
+	public Integer getLX(){
+		return x+w;
+	}
+
+	public Integer getBY(){
+		return y+h;
+	}
+	
 	public Integer getX() {
 		return x;
 	}

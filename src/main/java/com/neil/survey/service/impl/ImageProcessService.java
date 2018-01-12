@@ -123,8 +123,8 @@ public class ImageProcessService implements IImageProcessService {
 	@Override
 	public List<Image> getCartoonReplaceImage(String imageId,String partName) {
 
-		String partsNm = "%"+partName+"%";
-		List<Image> rtn = imageRepo.findByParentImageIdAndImageNameLike(imageId,partsNm);
+
+		List<Image> rtn = imageRepo.findByParentImageIdAndImageNameLike(imageId,partName);
 		return rtn;			
 
 	}
