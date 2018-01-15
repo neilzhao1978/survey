@@ -38,119 +38,118 @@
 
 <body class="container main">
     <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: black;text-align: center">
-            <button  class="btn btn-default" style="float:left" onclick="returnToList()">返回列表</button>
-            <h1 style="color:white;display:inline-block">有效问卷数量</h1>
-            <button  class="btn btn-default" style="float:right" onclick="returnToList()">返回列表</button>
-        </div>
-        <div class="panel-body">
-            <div class="container-fluid">
-
-                <div class="row"  style="margin:12px">
-                    <table id="tbContent"></table>
-                </div>
+            <div class="panel-heading" style="background-color: black;text-align: center">
+                    <button  class="btn btn-default" style="float:left" onclick="returnToList()">返回列表</button>
+                    <h1 style="color:white;display:inline-block">有效问卷数量</h1>
+                    <button  class="btn btn-default" style="float:right" onclick="returnToList()">返回列表</button>
             </div>
-        </div>
+            <div class="panel-body">
+                    <div class="container-fluid">
+
+                        <div class="row"  style="margin:12px">
+                                <table id="tbContent"></table>
+                        </div>
+                    </div>
+            </div>
     </div>
 
     <div id="detailWin" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">删除提示</h4>
-                </div>
-                <div class="modal-body" style="text-align:center">
-                    <div id="CreateQuery" class="container main"  style="border:1px solid lightgrey">
+            <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">删除提示</h4>
+                            </div>
+                            <div class="modal-body" style="text-align:center">
+                                    <div id="CreateQuery" class="container main"  style="border:1px solid lightgrey">
+                                            <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                            <h2 style="text-align:center;font-weight:900">{{qName}}</h2>
+                                                            <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧</h4>
+                                                            <hr/>
+                                                            <div class="form-group">
+                                                                    <label class="col-lg-1 col-lg-offset-1" >姓名：</label>
+                                                                    <div class="col-lg-4">
+                                                                            <input  class="form-control" v-model="answer_replyerName" placeholder="请输入您的姓名..." />
+                                                                    </div>
+                                                                    <label class="col-lg-1">职业：</label>
+                                                                    <div class="col-lg-4">
+                                                                            <select class="form-control" v-model="answer_replyerPosition">
+                                                                                    <option value="技术类">技术类</option>
+                                                                                    <option value="管理类">管理类</option>
+                                                                                    <option value="管理类">营销类</option>
+                                                                                    <option value="管理类">设计类</option></select>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h2 style="text-align:center;font-weight:900">{{qName}}</h2>
-                                <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧</h4>
-                                <hr/>
-                                <div class="form-group">
-                                    <label class="col-lg-1 col-lg-offset-1" >姓名：</label>
-                                    <div class="col-lg-4">
-                                        <input  class="form-control" v-model="answer_replyerName" placeholder="请输入您的姓名..." />
-                                    </div>
-                                    <label class="col-lg-1">职业：</label>
-                                    <div class="col-lg-4">
-                                        <select class="form-control" v-model="answer_replyerPosition">
-                                            <option value="技术类">技术类</option>
-                                            <option value="管理类">管理类</option>
-                                            <option value="管理类">营销类</option>
-                                            <option value="管理类">设计类</option></select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                            品牌：请选择您觉得最符合行业标杆的品牌，最多选{{brandLimit}}个
+                                                    </div>
+                                                    <div class="panel-body" >
+                                                            <div class="col-lg-3" v-for="brand in brandList">
+                                                                    <input type="checkbox" class="brandChoiceChk" v-bind:id="brand.brandId" v-bind:alt="brand.brandId" v-on:click='answer_doCheck_brand'>
+                                                                    <img class="brandImg" v-bind:src="brand.brandIconUrl">
+                                                            </div>
+                                                    </div>
+                                            </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                品牌：请选择您觉得最符合行业标杆的品牌，最多选{{brandLimit}}个
-                            </div>
-                            <div class="panel-body" >
-                                <div class="col-lg-3" v-for="brand in brandList">
-                                    <input type="checkbox" class="brandChoiceChk" v-bind:id="brand.brandId" v-bind:alt="brand.brandId" v-on:click='answer_doCheck_brand'>
-                                    <img class="brandImg" v-bind:src="brand.brandIconUrl">
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                            整体造型：请选择您认为最吸引眼球/视觉冲击的造型
+                                                    </div>
+                                                    <div class="panel-body" >
+                                                            <div class="panel-body" >
+                                                                    <div class="col-lg-3" v-for="pro in selProList">
+                                                                            <input type="checkbox" class="brandChoiceChk"  v-bind:id="pro.imageId" v-bind:alt="pro.imageId" v-on:click="answer_doCheck_product"/>
+                                                                            <img class="brandProductImg" v-bind:src="pro.imageUrl">
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                整体造型：请选择您认为最吸引眼球/视觉冲击的造型
-                            </div>
-                            <div class="panel-body" >
-                                <div class="panel-body" >
-                                    <div class="col-lg-3" v-for="pro in selProList">
-                                        <input type="checkbox" class="brandChoiceChk"  v-bind:id="pro.imageId" v-bind:alt="pro.imageId" v-on:click="answer_doCheck_product"/>
-                                        <img class="brandProductImg" v-bind:src="pro.imageUrl">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                            局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
+                                                    </div>
+                                                    <div class="panel-body" >
+                                                            <div class="panel-body" >
+                                                                    <div class="col-lg-3" v-for="proD in selProDetailList">
+                                                                            <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
+                                                                            <img class="brandProductImg" v-bind:src="proD.imageUrl">
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
-                            </div>
-                            <div class="panel-body" >
-                                <div class="panel-body" >
-                                    <div class="col-lg-3" v-for="proD in selProDetailList">
-                                        <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
-                                        <img class="brandProductImg" v-bind:src="proD.imageUrl">
+                                            <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
+                                                    <div class="panel-heading">
+                                                            {{type.typeName}}： 请选{{type.typeName}}图片，能代表您公司的产品。最多选择{{type.limit}}张
+                                                    </div>
+                                                    <div class="panel-body" >
+                                                            <div class="panel-body" >
+                                                                    <div class="row">
+                                                                            <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px">
+                                                                                    <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='answer_doCheck_inspireImg'>
+                                                                                    <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
+                                                                                    <!--<span>{{typeImg.imageDesc}}</span>-->
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                            <div class="row" align="center">
+                                                    <button class="btn btn-primary" onclick="returnToList()">返回列表</button>
+                                            </div>
                                     </div>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
-                            <div class="panel-heading">
-                                {{type.typeName}}： 请选{{type.typeName}}图片，能代表您公司的产品。最多选择{{type.limit}}张
+                            <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="_doRemove()">确定</button>
                             </div>
-                            <div class="panel-body" >
-                                <div class="panel-body" >
-                                    <div class="row">
-                                        <div class="col-lg-3" v-for="typeImg in type.imgList" style="padding-top:10px">
-                                            <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='answer_doCheck_inspireImg'>
-                                            <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
-                                            <!--<span>{{typeImg.imageDesc}}</span>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" align="center">
-                            <button class="btn btn-primary" onclick="returnToList()">返回列表</button>
-                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="_doRemove()">确定</button>
-                </div>
             </div>
-        </div>
     </div>
 
     <script src="../js/page_board.js"></script>
