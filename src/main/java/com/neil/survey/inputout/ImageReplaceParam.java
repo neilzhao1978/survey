@@ -1,19 +1,13 @@
-package com.neil.survey.module;
+package com.neil.survey.inputout;
 
 import java.util.List;
 
 public class ImageReplaceParam {
-	private boolean containFeatureLine;
+
 	private List<String> candidateImageId;
 	private String partsName;
-	private Integer limits;
-	
-	public boolean isContainFeatureLine() {
-		return containFeatureLine;
-	}
-	public void setContainFeatureLine(boolean containFeatureLine) {
-		this.containFeatureLine = containFeatureLine;
-	}
+
+
 	public List<String> getCandidateImageId() {
 		return candidateImageId;
 	}
@@ -26,11 +20,4 @@ public class ImageReplaceParam {
 	public void setPartsName(String partsName) {
 		this.partsName = partsName;
 	}
-	public Integer getLimits() {
-		return limits;
-	}
-	public void setLimits(Integer limits) {
-		this.limits = limits;
-	}
-
 }

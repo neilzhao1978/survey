@@ -23,7 +23,7 @@ public class Image implements Serializable{
 	private String imageType;
 	private String imageUrl;
 	private String parentImageId;
-	private boolean containFeatureLine;
+	private Boolean containFeatureLine;
 
 	private String featureUrl;//特征线
 	private String profileImageUrl;//剪影
@@ -36,39 +36,50 @@ public class Image implements Serializable{
 		return imageId;
 	}
 
-	private int x;
-	private int y;
-	private int w;
-	private int h;
+	private Integer x;
+	private Integer y;
 	
-	public int getX() {
+	public Integer getLX(){
+		return x+w;
+	}
+
+	public Integer getBY(){
+		return y+h;
+	}
+	
+	public Integer getX() {
 		return x;
 	}
-	public void setX(int x) {
+	public void setX(Integer x) {
 		this.x = x;
 	}
-	public int getY() {
+	public Integer getY() {
 		return y;
 	}
-	public void setY(int y) {
+	public void setY(Integer y) {
 		this.y = y;
 	}
-	public int getW() {
+	public Integer getW() {
 		return w;
 	}
-	public void setW(int w) {
+	public void setW(Integer w) {
 		this.w = w;
 	}
-	public int getH() {
+	public Integer getH() {
 		return h;
 	}
-	public void setH(int h) {
+	public void setH(Integer h) {
 		this.h = h;
 	}
-	public boolean getContainFeatureLine() {
+
+	private Integer w;
+	private Integer h;
+	
+
+	public Boolean getContainFeatureLine() {
 		return containFeatureLine;
 	}
-	public void setContainFeatureLine(boolean containFeatureLine) {
+	public void setContainFeatureLine(Boolean containFeatureLine) {
 		this.containFeatureLine = containFeatureLine;
 	}
 	public String getAllKeyPoints() {

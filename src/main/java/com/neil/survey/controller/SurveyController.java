@@ -1,6 +1,7 @@
 package com.neil.survey.controller;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 import java.io.BufferedInputStream;
@@ -328,8 +329,6 @@ public class SurveyController {
 		brandResp = template.getForObject(serverAddr + "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
 
-
-
 		for (Brand_P b : x) {
 			try{
 				Brand brand = new Brand();
@@ -362,6 +361,168 @@ public class SurveyController {
 		return ResponseGenerator.createSuccessResponse("Db sych success.");
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/mergeSubImage", method = RequestMethod.GET)
+	public RestResponseEntity<Void> mergeSubImage() throws Exception{
+		String parser = XMLResourceDescriptor.getXMLParserClassName();
+		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+		List<Image> wholeImages = imageRepo.findByImageType("WHOLE");
+		for(Image wholeImage:wholeImages){
+			String x[] = wholeImage.getImageUrl().split(";");
+			URL url = new URL(x[0]);
+			SVGDocument doc = (SVGDocument) f.createSVGDocument(x[0],new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+
+			List<Image> cabs = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "司机室%");
+			if(cabs.size()>0){
+				Image newCab = merge(cabs,wholeImage.getImageId(), doc);
+				imageRepo.save(newCab);
+			}
+			
+			List<Image> butts = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "下车%");
+			if(butts.size()>0){
+				Image newButt = merge(butts,wholeImage.getImageId(), doc);
+				imageRepo.save(newButt);
+			}
+			
+			List<Image> underpans  = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "底盘%");
+			if(underpans.size()>0){
+				Image underpan  = merge(underpans,wholeImage.getImageId(), doc);
+				imageRepo.save(underpan);
+			}
+			
+			List<Image> uppers = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "上车%");
+			if(uppers.size()>0){
+				Image upper = merge(uppers,wholeImage.getImageId(), doc);
+				imageRepo.save(upper);
+			}
+
+			List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "钢轮支架%");
+			if(braces.size()>0){
+				Image brace = merge(braces,wholeImage.getImageId(), doc);
+				imageRepo.save(brace);
+			}
+			
+			List<Image> balanceWeights = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "配重%");
+			if(balanceWeights.size()>0){
+				Image balanceWeight = merge(balanceWeights,wholeImage.getImageId(), doc);
+				imageRepo.save(balanceWeight);
+			}
+			
+			List<Image> ladders = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "爬梯%");
+			if(ladders.size()>0){
+				Image ladder = merge(ladders,wholeImage.getImageId(), doc);
+				imageRepo.save(ladder);
+			}
+			
+			List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "后罩%");
+			if(realCowls.size()>0){
+				Image realCowl = merge(realCowls,wholeImage.getImageId(), doc);
+				imageRepo.save(realCowl);
+			}
+			
+			List<Image> vibratingDrums = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "振动轮%");
+			if(vibratingDrums.size()>0){
+				Image vibratingDrum = merge(vibratingDrums,wholeImage.getImageId(), doc);
+				imageRepo.save(vibratingDrum);
+			}
+		}
+		
+		return ResponseGenerator.createSuccessResponse("merge subimage success.");
+	}
+	
+	private Point getMinPoint(List<Image> imageGroup){
+		int xMin=Integer.MAX_VALUE;
+		int yMin=Integer.MAX_VALUE;
+		for(Image image:imageGroup){
+			if(image.getX() <= xMin){
+				xMin = image.getX();
+			}
+			if(image.getY() <= yMin){
+				yMin = image.getY();
+			}
+		}
+		return new Point(xMin,yMin);
+	}
+	
+	private Point getMaxPoint(List<Image> imageGroup){
+		int xMax=0;
+		int yMax=0;
+		for(Image image:imageGroup){
+			if(image.getLX() >= xMax){
+				xMax = image.getLX();
+			}
+			if(image.getBY() >= yMax){
+				yMax = image.getBY();
+			}
+		}
+		return new Point(xMax,yMax);
+	}
+	
+	private boolean isContainFeature(List<Image> imageGroup){
+		for(Image i : imageGroup){
+			if(i.getContainFeatureLine()) return true;
+		}
+		return false;
+	}
+	
+	private Image merge(List<Image> imageGroup,String id,SVGDocument doc) throws Exception{
+		
+		Point max = getMaxPoint(imageGroup);
+		Point min = getMinPoint(imageGroup);
+		
+		Image i = new Image();
+		i.setAllKeyPoints(null);
+		i.setContainFeatureLine(isContainFeature(imageGroup));
+		i.setFeatureUrl(null);
+		i.setH(max.y-min.y);
+		i.setImageDesc(imageGroup.get(0).getImageDesc());
+		
+		String imageUUID = UUID.randomUUID().toString().replace("-", "");
+		i.setImageId(imageUUID);
+		
+		String imageName = imageGroup.get(0).getImageName();
+		String temp[]=imageName.split("/");
+		i.setImageName(temp[0]);
+		i.setImageType("PART");
+		
+		
+
+		Element n1 = doc.getElementById("特征线");
+		Element n2 = doc.getElementById("产品图片");
+		
+
+		SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+		n1.setAttribute("display", "none");
+		n2.setAttribute("display", "block");
+
+		String imageFileName = path +id+"/merged/"+ imageUUID + ".jpg";
+		
+		File newFileFolder = new File(path +id+"/merged/");
+		if (!newFileFolder.exists()) {
+			newFileFolder.mkdir();
+		}
+
+		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+imageUUID + ".jpg";
+
+
+		File newFile = new File(imageFileName);
+		if (!newFile.exists()) {
+			newFile.createNewFile();
+		}
+		InputStream in = SvgUtilities.documentToString(doc);
+		saver.tile(in, imageFileName,
+				new Rectangle(min.x,min.y,max.x-min.x,max.y-min.y));
+
+		
+		i.setImageUrl(urlDetail);
+		i.setParentImageId(imageGroup.get(0).getParentImageId());
+		i.setProfileImageUrl(null);
+		i.setW(max.x-min.x);
+		i.setX(min.x);
+		i.setY(min.y);
+		return i;
+	}
+	
 	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
 			throws IOException, TransformerException, MalformedURLException {
 		String parser = XMLResourceDescriptor.getXMLParserClassName();

@@ -38,9 +38,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.neil.survey.inputout.ImagePartRe;
+import com.neil.survey.inputout.ImageReplaceParam;
+import com.neil.survey.inputout.ImageWholeRe;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.Image;
-import com.neil.survey.module.ImageReplaceParam;
 import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
@@ -231,21 +233,62 @@ public class ImageController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/getCartoonWholeImage", method = RequestMethod.GET)
-	public RestResponseEntity<List<Image>> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
+	public RestResponseEntity<ImageWholeRe> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
 		try{
-			List<Image> rtn = imageProcessService.getCartoonWholeImage(imageId);
-			return ResponseGenerator.createSuccessResponse("获取产品整理图像成功。",rtn.size(),rtn,null);
+			
+			ImageWholeRe rtn = new ImageWholeRe();
+			
+			List<Image> rtnImages = imageProcessService.getCartoonWholeImage(imageId);
+			if(rtnImages.size()>0){
+				Image whole = rtnImages.get(0);
+				rtn.setWholeImageUrl(whole.getImageUrl());
+				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
+				for(int i = 1;i<rtnImages.size();i++){
+					ImagePartRe part = new ImagePartRe();
+					part.setH(rtnImages.get(i).getH());
+					part.setW(rtnImages.get(i).getW());
+					part.setX(rtnImages.get(i).getX());
+					part.setY(rtnImages.get(i).getY());
+					part.setName(rtnImages.get(i).getImageName());
+					part.setUrl(null);
+					parts.add(part);
+				}
+				rtn.setAllParts(parts);
+			}else{
+				return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
+			}
+			
+			return ResponseGenerator.createSuccessResponse("获取产品整体图像成功。",1,rtn,null);
 		}catch(Exception e){
-			return ResponseGenerator.createFailResponse("获取产品整理图像失败.", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.POST)
-	public RestResponseEntity<List<Image>> getCartoonReplaceImage(@RequestBody ImageReplaceParam imageReplaceParam){
+	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.GET)
+	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImage(@RequestParam(value = "imageId",required=true) String imageId,
+			@RequestParam(value = "partName",required=true) String partName){
 		try{
-			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageReplaceParam);
-			return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtn.size(),rtn,null);
+			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
+			
+			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageId,partName);
+			if(rtn.size()>0){
+				for(Image i : rtn){
+					ImagePartRe part = new ImagePartRe();
+					part.setH(i.getH());
+					part.setW(i.getW());
+					part.setX(i.getX());
+					part.setY(i.getY());
+					part.setUrl(i.getImageUrl());
+					part.setName(i.getImageName());
+					rtParts.add(part);
+				}
+				
+				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
+			}else{
+				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+			}
+			
 		}catch(Exception e){
 			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
