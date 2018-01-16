@@ -3,11 +3,11 @@
     依赖jQuery及p5js
 */
 
-const CARTOON_WHOLE_GET_URL = "http://localhost:8000/api/imageService/getCartoonWholeImage"
-const CARTOON_PARTS_POST_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImage"
+const GET_WHOLE_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonWholeImage"
+const GET_PARTS_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImage"
 const DEFAULT_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
-class FeatureLineRenderer{
+class StitchingRenderer{
 
     constructor(DOM_ele){
         this.containerDOM = DOM_ele;
@@ -30,22 +30,38 @@ class FeatureLineRenderer{
         };
         this.p5Instance = new p5(s, DOM_ele);
         
+        //template为母版，image为p5.Image对象，imageData为定位数据
+        this.templateImageData = null;
+        this.templateImage = null;
+
+        //image1-3为部件，具体对应位置见页面UI
+        this.partImageData1 = null;
+        this.partImageData2 = null;
+        this.partImageData3 = null;
+        this.partImage1 = null;
+        this.partImage2 = null;
+        this.partImage3 = null;
     }
 
-    showFeatureLine(options){
+    getImage0(imgID){
         let self = this;
-        this.p5Instance.httpPost(
-            FEATURELINE_POST_URL,
+        let url = GET_WHOLE_IMAGE_URL+"?imageId="+imgID;
+        this.p5Instance.httpGet(
+            url,
             "json",
-            options,
             (response_data)=>{
                 //数据获取成功
-                let image_data_url = "data:image/png;base64,"+response_data.data;
-                self.renderFeatureLine(image_data_url);
+                let d = JSON.parse(response_data.data)
+                self.imageData0.url = d.wholeImageUrl;
+                self.imageData0.w = d.wholeImageUrl;
+                self.imageData0.h = d.wholeImageUrl;
+                self.imageData0.x = d.wholeImageUrl;
+                self.imageData0.y = d.wholeImageUrl;
+                self.p5Instance.loadImage(self.imageData0.wholeImageUrl)
             },
             (error)=>{
                 //处理错误
-                self.renderMsg(error.status)
+                self.drawMsg(error.status)
             }
         )
     }

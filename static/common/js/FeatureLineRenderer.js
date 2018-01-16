@@ -19,19 +19,22 @@ class FeatureLineRenderer{
         this.canvasW = w;
         this.canvasH = h;
 
-        this.renderBackground();
+        this.featureLine = null;
+        
 
         //定义并初始化p5实例
         let s = function( sketch ) {
             sketch.setup = function() {
+              sketch.pixelDensity(1);
               sketch.createCanvas(w, h);
             };
         };
         this.p5Instance = new p5(s, DOM_ele);
-        
+
+        this.drawBackground();
     }
 
-    showFeatureLine(options){
+    loadFeatureLine(options){
         let self = this;
         this.p5Instance.httpPost(
             FEATURELINE_POST_URL,
@@ -40,31 +43,42 @@ class FeatureLineRenderer{
             (response_data)=>{
                 //数据获取成功
                 let image_data_url = "data:image/png;base64,"+response_data.data;
-                self.renderFeatureLine(image_data_url);
+                //调用p5加载图像数据到p5.Graphics对象
+                self.p5Instance.loadImage(image_data_url,(img)=>{
+                    self.featureLine = self.p5Instance.createGraphics(
+                        img.width,
+                        img.height
+                    )
+                    self.featureLine.image(img,0,0);
+                    //p5.Graphics对象创建好以后，开始绘制
+                    self.drawFeatureLine();
+                })
+                
             },
             (error)=>{
                 //处理错误
-                self.renderMsg(error.status)
+                self.drawMsg(error.status)
             }
         )
     }
 
-    renderFeatureLine(img_url){
-        let self = this;
-        //加载img_url，加载成功后渲染
-        if (img_url){
-            this.p5Instance.loadImage(img_url,(feature_line)=>{
-                this.p5Instance.imageMode(this.p5Instance.CENTER);
-                this.p5Instance.push();
-                this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
-                this.p5Instance.image(feature_line,0,0,
-                    this.canvasH-10,
-                    (this.canvasH-10)/feature_line.width*feature_line.height);
-                this.p5Instance.pop();
-            })
-        }
+    drawFeatureLine(){
+        this.drawBackground();
+        this.p5Instance.clear();
+        
+        this.p5Instance.imageMode(this.p5Instance.CENTER);
+        this.p5Instance.push();
+        this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
+        this.p5Instance.image(
+            this.featureLine,0,0,
+            (this.canvasH-10)/this.featureLine.width*this.featureLine.height,
+            this.canvasH-10
+            
+        );
+        this.p5Instance.pop();
     }
-    renderBackground(url){
+
+    drawBackground(url){
         let img_url = url || DEFAULT_BG_URL;
         $("#"+this.containerDOM).css({
             "background-image":"url("+img_url+")",
@@ -72,7 +86,10 @@ class FeatureLineRenderer{
         })
         
     }
-    renderMsg(msg){
+
+    drawMsg(msg){
+        this.drawBackground();
+        this.p5Instance.clear();
         this.p5Instance.textAlign(this.p5Instance.CENTER);
         this.p5Instance.push();
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
