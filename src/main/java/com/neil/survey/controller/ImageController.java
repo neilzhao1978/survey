@@ -242,6 +242,8 @@ public class ImageController {
 			if(rtnImages.size()>0){
 				Image whole = rtnImages.get(0);
 				rtn.setWholeImageUrl(whole.getImageUrl());
+				rtn.setH(whole.getH());
+				rtn.setW(whole.getW());
 				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
 				for(int i = 1;i<rtnImages.size();i++){
 					ImagePartRe part = new ImagePartRe();
