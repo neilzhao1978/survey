@@ -8,6 +8,9 @@ $(function(){
         "oraginalImages":["133","132"]
        }
     flr.loadFeatureLine(featurelineOptions)
+
+    let str = new StitchRenderer("stitch-rendering");
+    str.loadMasterImage(133);
 });
 
 

@@ -4,7 +4,7 @@
 */
 
 const FEATURELINE_POST_URL = "http://localhost:8000/api/imageService/geneProfileImage"
-const DEFAULT_BG_URL = "/static/common/img/feature_line_bg_default.png";
+const DEFAULT_FL_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
 class FeatureLineRenderer{
 
@@ -79,7 +79,7 @@ class FeatureLineRenderer{
     }
 
     drawBackground(url){
-        let img_url = url || DEFAULT_BG_URL;
+        let img_url = url || DEFAULT_FL_BG_URL;
         $("#"+this.containerDOM).css({
             "background-image":"url("+img_url+")",
             "background-size":"cover"
