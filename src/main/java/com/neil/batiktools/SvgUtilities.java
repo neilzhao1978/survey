@@ -24,6 +24,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -99,25 +101,31 @@ public class SvgUtilities {
 	      NodeList lines = doc.getElementsByTagNameNS(svgNS,"line");
 	      for(int i=0;i<lines.getLength();i++){
 	    	  Element elementLine = (Element)lines.item(i);
-		      
-		      Point2D linePoint1 = new  Point2D.Double(Double.parseDouble(elementLine.getAttribute("x1")),
-		    		  Double.parseDouble(elementLine.getAttribute("y1")));
-		      Point2D linePoint2 = new  Point2D.Double(Double.parseDouble(elementLine.getAttribute("x2")),
-		    		  Double.parseDouble(elementLine.getAttribute("y2")));
-		      
 
-		      logger.debug("x1="+elementLine.getAttribute("x1").toString()
-		    		  +"y1="+elementLine.getAttribute("y1").toString()
-		    		  +"x2="+elementLine.getAttribute("x2").toString()
-		    		  +"y2="+elementLine.getAttribute("y2").toString()
-		    		  );
+	    	  double x1 = scale(2,Double.parseDouble(elementLine.getAttribute("x1")));
+	    	  
+	    	  double y1 = scale(2,Double.parseDouble(elementLine.getAttribute("y1")));
+		      Point2D linePoint1 = new  Point2D.Double(x1,y1);
+		      
+		      double x2 = scale(2,Double.parseDouble(elementLine.getAttribute("x2")));
+		      double y2 = scale(2,Double.parseDouble(elementLine.getAttribute("y2")));
+		      Point2D linePoint2 = new  Point2D.Double(x2,y2);
+//		      logger.debug("x1="+elementLine.getAttribute("x1").toString()
+//		    		  +"y1="+elementLine.getAttribute("y1").toString()
+//		    		  +"x2="+elementLine.getAttribute("x2").toString()
+//		    		  +"y2="+elementLine.getAttribute("y2").toString()
+//		    		  );
 		      points.add(linePoint1);
 		      points.add(linePoint2);
 	      }
 	      return points;
-
 	}
 	
+	static public double scale(int lenth,double src){
+
+		BigDecimal   b   =   new   BigDecimal(src);  
+		return b.setScale(lenth,   BigDecimal.ROUND_HALF_UP).doubleValue();  
+	}
 	static public InputStream documentToString(org.w3c.dom.Document doc) throws TransformerException {
 
 	    // Create dom source for the document

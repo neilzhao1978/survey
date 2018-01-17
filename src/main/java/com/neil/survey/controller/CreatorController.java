@@ -103,5 +103,4 @@ public class CreatorController {
 			return ResponseGenerator.createFailResponse("Fail to get survey list.", ErrorCode.DB_ERROR);
 		}
 	}
-	
 }
