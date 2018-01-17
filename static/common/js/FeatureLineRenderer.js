@@ -20,18 +20,19 @@ class FeatureLineRenderer{
         this.canvasH = h;
 
         this.featureLine = null;
-        
+        let self = this;
 
         //定义并初始化p5实例
         let s = function( sketch ) {
             sketch.setup = function() {
               sketch.pixelDensity(1);
               sketch.createCanvas(w, h);
+              self.drawBackground();
             };
         };
         this.p5Instance = new p5(s, DOM_ele);
 
-        this.drawBackground();
+        
     }
 
     loadFeatureLine(options){
@@ -71,7 +72,7 @@ class FeatureLineRenderer{
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
         this.p5Instance.image(
             this.featureLine,0,0,
-            (this.canvasH-10)/this.featureLine.width*this.featureLine.height,
+            (this.canvasH-10)/this.featureLine.height*this.featureLine.width,
             this.canvasH-10
             
         );

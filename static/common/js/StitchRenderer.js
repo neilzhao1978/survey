@@ -20,13 +20,15 @@ class StitchRenderer{
         this.canvasW = w;
         this.canvasH = h;
 
-        this.drawBackground();
+        let self = this;
+        
 
         //定义并初始化p5实例
         let s = function( sketch ) {
             sketch.setup = function() {
               sketch.pixelDensity(1);
               sketch.createCanvas(w, h);
+              self.drawBackground();
             };
         };
         this.p5Instance = new p5(s, DOM_ele);
@@ -56,12 +58,7 @@ class StitchRenderer{
                 self.masterImageData = d;
                 let url = d.wholeImageUrl;
                 self.p5Instance.loadImage(url,(img)=>{
-                    self.masterImage = self.p5Instance.createGraphics(
-                        img.width,
-                        img,height
-                    )
-                    self.masterImage.image(img,0,0)
-                    
+                    self.masterImage = img;
                     //p5.Graphics创建完成，开始绘制
                     self.stitchImage();
                 })
@@ -81,16 +78,11 @@ class StitchRenderer{
             "json",
             (response_data)=>{
                 //数据获取成功
-                let d = JSON.parse(response_data.data[0]);
+                let d = response_data.data[0];
                 self.part1ImageData = d;
                 let url = d.url;
                 self.p5Instance.loadImage(url,(img)=>{
-                    self.part1Image = self.p5Instance.createGraphics(
-                        img.width,
-                        img,height
-                    )
-                    self.part1Image.image(img,0,0)
-                    
+                    self.part1Image = img
                     //p5.Graphics创建完成，开始绘制
                     self.stitchImage();
                 })
@@ -114,12 +106,7 @@ class StitchRenderer{
                 self.part2ImageData = d;
                 let url = d.url;
                 self.p5Instance.loadImage(url,(img)=>{
-                    self.part2Image = self.p5Instance.createGraphics(
-                        img.width,
-                        img,height
-                    )
-                    self.part2Image.image(img,0,0)
-                    
+                    self.part2Image=img
                     //p5.Graphics创建完成，开始绘制
                     self.stitchImage();
                 })
@@ -143,12 +130,7 @@ class StitchRenderer{
                 self.part3ImageData = d;
                 let url = d.url;
                 self.p5Instance.loadImage(url,(img)=>{
-                    self.part3Image = self.p5Instance.createGraphics(
-                        img.width,
-                        img,height
-                    )
-                    self.part3Image.image(img,0,0)
-                    
+                    self.part3Image=img;
                     //p5.Graphics创建完成，开始绘制
                     self.stitchImage();
                 })
@@ -161,25 +143,37 @@ class StitchRenderer{
     }
 
     stitchImage(){
-        let self = this;
-        if(this.masterImage === null){
-            this.masterImage = this.p5Instance.createCanvas(
+        
+        //创建p5.Graphics对象
+        let g = null;
+        if(this.masterImage){
+            g = this.p5Instance.createGraphics(
+                this.masterImage.width,
+                this.masterImage.height
+            )
+            this.p5Instance.imageMode(this.p5Instance.CORNER);
+            g.image(this.masterImage,0,0);
+        }else{
+            g = this.p5Instance.createGraphics(
                 this.canvasW,
                 this.canvasH
             )
         }
-        if(this.part1ImageData){
-            this.masterImage.image(
-                this.part1Image,
-                this.part1ImageData.x,
-                this.part1ImageData.y,
-                this.part1ImageData.w,
-                this.part1ImageData.h
+        
+        if(this.part1Image){
+            this.p5Instance.imageMode(this.p5Instance.CORNER);
+            g.image(
+                this.part1Image,50,50,50,50
+                // this.part1ImageData.x,
+                // this.part1ImageData.y,
+                // this.part1ImageData.w,
+                // this.part1ImageData.h
             )
         }
 
-        if(this.part2ImageData){
-            this.masterImage.image(
+        if(this.part2Image){
+            this.p5Instance.imageMode(this.p5Instance.CORNER);
+            g.image(
                 this.part2Image,
                 this.part2ImageData.x,
                 this.part2ImageData.y,
@@ -188,8 +182,9 @@ class StitchRenderer{
             )
         }
 
-        if(this.part3ImageData){
-            this.masterImage.image(
+        if(this.part3Image){
+            this.p5Instance.imageMode(this.p5Instance.CORNER);
+            g.image(
                 this.part3Image,
                 this.part3ImageData.x,
                 this.part3ImageData.y,
@@ -198,19 +193,22 @@ class StitchRenderer{
             )
         }
         
+        //将g绘制在画布上
         this.drawBackground();
         this.p5Instance.clear();
-        
         this.p5Instance.imageMode(this.p5Instance.CENTER);
         this.p5Instance.push();
+        
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
         this.p5Instance.image(
-            this.masterImage,0,0,
-            (this.canvasH-10)/this.masterImage.width*this.masterImage.height,
+           g,0,0,
+            (this.canvasH-10)/g.height*g.width,
             this.canvasH-10
             
         );
+        
         this.p5Instance.pop();
+        
     }
     
     drawBackground(url){
@@ -219,7 +217,6 @@ class StitchRenderer{
             "background-image":"url("+img_url+")",
             "background-size":"cover"
         })
-        
     }
 
     drawMsg(msg){
@@ -232,5 +229,4 @@ class StitchRenderer{
         this.p5Instance.text(msg,0,0);
         this.p5Instance.pop();
     }
-
 }

@@ -11,6 +11,7 @@ $(function(){
 
     let str = new StitchRenderer("stitch-rendering");
     str.loadMasterImage(133);
+    str.loadPart1Image(132);
 });
 
 
