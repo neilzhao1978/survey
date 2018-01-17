@@ -293,4 +293,37 @@ public class ImageController {
 			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getCartoonReplaceImageExt", method = RequestMethod.GET)
+	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImageExt(@RequestParam(value = "imageIdScr",required=true) String imageIdScr,
+			@RequestParam(value = "imageIdTarget",required=true) String imageIdTarget,
+			@RequestParam(value = "partName",required=true) String partName){
+		try{
+			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
+			
+			List<Image> targetImages = imageProcessService.getCartoonReplaceImage(imageIdTarget,partName);
+			
+			List<Image> scrImages = imageProcessService.getCartoonReplaceImage(imageIdScr,partName);
+			if(scrImages.size()==1 && targetImages.size()==1){
+				for(Image i : scrImages){
+					ImagePartRe part = new ImagePartRe();
+					part.setH(targetImages.get(0).getH());
+					part.setW(targetImages.get(0).getW());
+					part.setX(targetImages.get(0).getX());
+					part.setY(targetImages.get(0).getY());
+					part.setUrl(i.getImageUrl());
+					part.setName(i.getImageName());
+					rtParts.add(part);
+				}
+				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
+			}else{
+				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+			}
+			
+		}catch(Exception e){
+			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+		}
+	}
+	
 }
