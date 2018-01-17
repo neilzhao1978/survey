@@ -17,4 +17,6 @@ public interface ImageRepository extends JpaRepository<Image,String> {
 	
 	List<Image> findByImageType(String imageType);
 	List<Image> findByParentImageIdAndImageNameLike(String id, String partsName);
+	
+	List<Image> findByImageTypeAndImageNameLike(String imageType, String partsName);
 }

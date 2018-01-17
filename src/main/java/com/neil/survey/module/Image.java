@@ -40,10 +40,12 @@ public class Image implements Serializable{
 	private Integer y;
 	
 	public Integer getLX(){
+		if(x==null || w==null) return 0;
 		return x+w;
 	}
 
 	public Integer getBY(){
+		if(y==null || h==null) return 0;
 		return y+h;
 	}
 	

@@ -242,6 +242,8 @@ public class ImageController {
 			if(rtnImages.size()>0){
 				Image whole = rtnImages.get(0);
 				rtn.setWholeImageUrl(whole.getImageUrl());
+				rtn.setH(whole.getH());
+				rtn.setW(whole.getW());
 				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
 				for(int i = 1;i<rtnImages.size();i++){
 					ImagePartRe part = new ImagePartRe();
@@ -270,7 +272,6 @@ public class ImageController {
 			@RequestParam(value = "partName",required=true) String partName){
 		try{
 			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
-			
 			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageId,partName);
 			if(rtn.size()>0){
 				for(Image i : rtn){
@@ -283,7 +284,6 @@ public class ImageController {
 					part.setName(i.getImageName());
 					rtParts.add(part);
 				}
-				
 				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
 			}else{
 				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
