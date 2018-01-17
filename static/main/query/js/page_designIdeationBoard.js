@@ -5,13 +5,13 @@ $(function(){
     
     let featurelineOptions = {
         "showFeatureLine":"true",
-        "oraginalImages":["133","132"]
+        "oraginalImages":["132"]
        }
     flr.loadFeatureLine(featurelineOptions)
 
     let str = new StitchRenderer("stitch-rendering");
-    str.loadMasterImage(133);
-    str.loadPart1Image(132);
+    str.loadMasterImage(132);
+    str.loadPart1Image(133,132);
 });
 
 

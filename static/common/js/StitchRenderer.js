@@ -4,7 +4,7 @@
 */
 
 const GET_WHOLE_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonWholeImage"
-const GET_PARTS_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImage"
+const GET_PARTS_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImageExt"
 const DEFAULT_ST_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
 class StitchRenderer{
@@ -26,7 +26,7 @@ class StitchRenderer{
         //定义并初始化p5实例
         let s = function( sketch ) {
             sketch.setup = function() {
-              sketch.pixelDensity(1);
+              //sketch.pixelDensity(1);
               sketch.createCanvas(w, h);
               self.drawBackground();
             };
@@ -70,9 +70,9 @@ class StitchRenderer{
         )
     }
 
-    loadPart1Image(imgID){
+    loadPart1Image(srcID,trgID){
         let self = this;
-        let url = GET_PARTS_IMAGE_URL+"?imageId="+imgID+"&partName=司机室";
+        let url = GET_PARTS_IMAGE_URL+"?imageIdScr="+srcID+"&imageIdTarget="+trgID+"&partName=司机室";
         this.p5Instance.httpGet(
             url,
             "json",
@@ -94,9 +94,9 @@ class StitchRenderer{
         )
     }
 
-    loadPart2Image(imgID){
+    loadPart2Image(srcID,trgID){
         let self = this;
-        let url = GET_PARTS_IMAGE_URL+"?imageId="+imgID+"&partName=钢轮支架";
+        let url = GET_PARTS_IMAGE_URL+"?imageIdScr="+srcID+"&imageIdTarget="+trgID+"&partName=司机室";
         this.p5Instance.httpGet(
             url,
             "json",
@@ -118,9 +118,9 @@ class StitchRenderer{
         )
     }
 
-    loadPart3Image(imgID){
+    loadPart3Image(srcID,trgID){
         let self = this;
-        let url = GET_PARTS_IMAGE_URL+"?imageId="+imgID+"&partName=后罩";
+        let url = GET_PARTS_IMAGE_URL+"?imageIdScr="+srcID+"&imageIdTarget="+trgID+"&partName=司机室";
         this.p5Instance.httpGet(
             url,
             "json",
@@ -148,11 +148,13 @@ class StitchRenderer{
         let g = null;
         if(this.masterImage){
             g = this.p5Instance.createGraphics(
-                this.masterImage.width,
-                this.masterImage.height
+                // this.masterImageData.w,
+                // this.masterImageData.h
+                500,500
             )
+            g.pixelDensity(1);
             this.p5Instance.imageMode(this.p5Instance.CORNER);
-            g.image(this.masterImage,0,0);
+            g.image(this.masterImage,0,0,g.width,g.height);
         }else{
             g = this.p5Instance.createGraphics(
                 this.canvasW,
@@ -163,11 +165,11 @@ class StitchRenderer{
         if(this.part1Image){
             this.p5Instance.imageMode(this.p5Instance.CORNER);
             g.image(
-                this.part1Image,50,50,50,50
-                // this.part1ImageData.x,
-                // this.part1ImageData.y,
-                // this.part1ImageData.w,
-                // this.part1ImageData.h
+                this.part1Image,
+                this.part1ImageData.x,
+                this.part1ImageData.y,
+                this.part1ImageData.w,
+                this.part1ImageData.h
             )
         }
 
@@ -200,6 +202,7 @@ class StitchRenderer{
         this.p5Instance.push();
         
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
+        this.p5Instance.tint(255, 50);
         this.p5Instance.image(
            g,0,0,
             (this.canvasH-10)/g.height*g.width,
@@ -208,14 +211,17 @@ class StitchRenderer{
         );
         
         this.p5Instance.pop();
+        this.p5Instance.filter(this.p5Instance.THRESHOLD)
+        //this.p5Instance.filter(this.p5Instance.GRAY)
         
     }
     
     drawBackground(url){
         let img_url = url || DEFAULT_ST_BG_URL;
         $("#"+this.containerDOM).css({
-            "background-image":"url("+img_url+")",
-            "background-size":"cover"
+            // "background-image":"url("+img_url+")",
+            // "background-size":"cover"
+            "background-color":"#fff"
         })
     }
 
