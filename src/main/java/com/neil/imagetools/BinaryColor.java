@@ -52,4 +52,30 @@ public class BinaryColor {
   
 
     }  
+    
+    public static void convert(String inBase64String,String outFileName,Color colorBack,String formateType ) throws IOException { 
+		byte[] bytes = Base64.decodeBase64(inBase64String);
+ 
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);      
+        BufferedImage image =ImageIO.read(bais);  
+        int w = image.getWidth();  
+        int h = image.getHeight();  
+        float[] rgb = new float[3];  
+        float SW = 250.0f;  //阈值
+        for (int x = 0; x < w; x++) {  
+            for (int y = 0; y < h; y++) {  
+                int pixel = image.getRGB(x, y);    
+                rgb[0] = (pixel & 0xff0000) >> 16;  
+                rgb[1] = (pixel & 0xff00) >> 8;  
+                rgb[2] = (pixel & 0xff);  
+                float avg = (rgb[0]+rgb[1]+rgb[2])/3;
+                if(avg>SW){
+                	image.setRGB(x, y, colorBack.getRGB());
+                }
+            }  
+        }  
+        ImageIO.write(image, "png", new File(outFileName));
+
+    }  
+    
 }  

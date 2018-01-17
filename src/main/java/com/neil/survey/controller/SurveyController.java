@@ -634,6 +634,10 @@ public class SurveyController {
 			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
 		}
 		
+		String pngImageString = new String(wholeImageString);
+		
+		//处理剪影svg
+
 		StringBuilder outBase64String = new StringBuilder();//String build
 		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
 		
@@ -648,9 +652,18 @@ public class SurveyController {
 		if (!newFileFolder.exists()) {
 			newFileFolder.mkdir();
 		}
-		
-		
 		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
+		
+		//处理成png
+		String pngUUID = UUID.randomUUID().toString().replace("-", "");
+		String pngFileName = path+"png/" + pngUUID + ".png";
+		
+		File newPngFileFolder = new File(path+"png/");
+		if (!newPngFileFolder.exists()) {
+			newPngFileFolder.mkdir();
+		}
+		BinaryColor.convert(pngImageString, pngFileName, new Color(0,0,0,255), "png");
+		
 
 		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
 		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
@@ -659,7 +672,10 @@ public class SurveyController {
 		i.setImageType("WHOLE");
 		i.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
 		i.setParentImageId(null);
-
+		
+		String urlPng = "http://" + ip + ":" + port + "/static/images/png/";
+		i.setPngImageUrl(urlPng+ pngUUID + ".png");
+		
 		SVGDocument doc1 = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 		for (Component c : componets) {
@@ -682,7 +698,6 @@ public class SurveyController {
 					size++;
 				}
 			}while(!set&&size<componets.size());
-
 		}
 		i.setContainFeatureLine(true);
 		imageRepo.save(i);
@@ -724,7 +739,6 @@ public class SurveyController {
 				newFileFolder.mkdir();
 			}
 			
-
 			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
 			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
 
