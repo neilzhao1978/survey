@@ -16,7 +16,10 @@ public class MyPointsParser {
         PointsParser pp = new PointsParser();
         PointsHandler ph = new DefaultPointsHandler() {
             public void point(float x, float y) throws ParseException {
-                Point2D p = new Point2D.Float(x, y);
+            	
+            	float nx=(float) SvgUtilities.scale(2,x);
+            	float ny=(float) SvgUtilities.scale(2,y);
+                Point2D p = new Point2D.Float(nx, ny);
                 points.add(p);
             }
         };

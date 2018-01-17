@@ -492,9 +492,7 @@ public class SurveyController {
 				logger.debug("error", e);
 				continue;
 			}
-
 		}
-		
 		return ResponseGenerator.createSuccessResponse("merge subimage success.");
 	}
 	

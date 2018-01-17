@@ -8,9 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-
-
-
 class SurveyImageResultID implements Serializable{
 	/**
 	 * 
@@ -19,7 +16,6 @@ class SurveyImageResultID implements Serializable{
 	String surveyId;	
 	String imageId;
 }
-
 
 @Entity
 @IdClass(SurveyImageResultID.class)
@@ -40,7 +36,6 @@ public class SurveyImageResult implements Serializable{
 	private String imageId;
 	
 	private int cnt;
-	
 	private String desc;
 
 	public String getSurveyId() {
