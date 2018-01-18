@@ -22,6 +22,7 @@ public class Image implements Serializable{
 	private String imageName;
 	private String imageType;
 	private String imageUrl;
+	private String pngImageUrl;
 	private String parentImageId;
 	private Boolean containFeatureLine;
 
@@ -170,6 +171,14 @@ public class Image implements Serializable{
 	}
 	public void setProfileImageUrl(String profileImageUrl) {
 		this.profileImageUrl = profileImageUrl;
+	}
+
+	public String getPngImageUrl() {
+		return pngImageUrl;
+	}
+
+	public void setPngImageUrl(String pngImageUrl) {
+		this.pngImageUrl = pngImageUrl;
 	}
 
 }
