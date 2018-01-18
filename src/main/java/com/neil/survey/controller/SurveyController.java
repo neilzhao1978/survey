@@ -80,7 +80,8 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.neil.batiktools.PlainRect;
 import com.neil.batiktools.Rect;
-import com.neil.batiktools.SaveAsJPEGTiles;
+
+import com.neil.batiktools.SaveAsPngTiles;
 import com.neil.batiktools.SvgUtilities;
 import com.neil.imagetools.BinaryColor;
 import com.neil.survey.module.Answer;
@@ -415,81 +416,81 @@ public class SurveyController {
 				if(cabs.size()>0){
 					Image newCab = merge(cabs,wholeImage.getImageId(), doc);
 					imageRepo.save(newCab);
-					for(Image i :cabs){
-						imageRepo.delete(i);
-					}
+//					for(Image i :cabs){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> butts = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "下车%");
 				if(butts.size()>0){
 //					Image newButt = merge(butts,wholeImage.getImageId(), doc);
 //					imageRepo.save(newButt);
-					for(Image i :butts){
-						imageRepo.delete(i);
-					}
+//					for(Image i :butts){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> underpans  = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "底盘%");
 				if(underpans.size()>0){
 //					Image underpan  = merge(underpans,wholeImage.getImageId(), doc);
 //					imageRepo.save(underpan);
-					for(Image i :underpans){
-						imageRepo.delete(i);
-					}
+//					for(Image i :underpans){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> uppers = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "上车%");
 				if(uppers.size()>0){
 //					Image upper = merge(uppers,wholeImage.getImageId(), doc);
 //					imageRepo.save(upper);
-					for(Image i :uppers){
-						imageRepo.delete(i);
-					}
+//					for(Image i :uppers){
+//						imageRepo.delete(i);
+//					}
 				}
 
 				List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "钢轮支架%");
 				if(braces.size()>0){
 					Image brace = merge(braces,wholeImage.getImageId(), doc);
 					imageRepo.save(brace);
-					for(Image i :braces){
-						imageRepo.delete(i);
-					}
+//					for(Image i :braces){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> balanceWeights = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "配重%");
 				if(balanceWeights.size()>0){
 //					Image balanceWeight = merge(balanceWeights,wholeImage.getImageId(), doc);
 //					imageRepo.save(balanceWeight);
-					for(Image i :balanceWeights){
-						imageRepo.delete(i);
-					}
+//					for(Image i :balanceWeights){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> ladders = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "爬梯%");
 				if(ladders.size()>0){
 //					Image ladder = merge(ladders,wholeImage.getImageId(), doc);
 //					imageRepo.save(ladder);
-					for(Image i :ladders){
-						imageRepo.delete(i);
-					}
+//					for(Image i :ladders){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "后罩%");
 				if(realCowls.size()>0){
 					Image realCowl = merge(realCowls,wholeImage.getImageId(), doc);
 					imageRepo.save(realCowl);
-					for(Image i :realCowls){
-						imageRepo.delete(i);
-					}
+//					for(Image i :realCowls){
+//						imageRepo.delete(i);
+//					}
 				}
 				
 				List<Image> vibratingDrums = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "振动轮%");
 				if(vibratingDrums.size()>0){
 //					Image vibratingDrum = merge(vibratingDrums,wholeImage.getImageId(), doc);
 //					imageRepo.save(vibratingDrum);
-					for(Image i :vibratingDrums){
-						imageRepo.delete(i);
-					}
+//					for(Image i :vibratingDrums){
+//						imageRepo.delete(i);
+//					}
 				}
 			}catch(Exception e){
 				logger.debug("error", e);
@@ -560,7 +561,7 @@ public class SurveyController {
 		Element n2 = doc.getElementById("产品图片");
 		
 
-		SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
+		SaveAsPngTiles saver = new SaveAsPngTiles();
 		n1.setAttribute("display", "none");
 		n2.setAttribute("display", "block");
 
@@ -581,7 +582,6 @@ public class SurveyController {
 		InputStream in = SvgUtilities.documentToString(doc);
 		saver.tile(in, imageFileName,
 				new Rectangle(min.x,min.y,max.x-min.x,max.y-min.y));
-
 		
 		i.setImageUrl(urlDetail);
 		i.setParentImageId(imageGroup.get(0).getParentImageId());
@@ -597,34 +597,36 @@ public class SurveyController {
 		String parser = XMLResourceDescriptor.getXMLParserClassName();
 		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 		
-		Image i = new Image();
-		i.setImageId(v.getId().toString());
-		i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
+		Image imageDb = new Image();
+		imageDb.setImageId(v.getId().toString());
+		imageDb.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
 		/**处理特征点**/
 		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
-		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
+		imageDb.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 		/**处理特征点结束**/
 		
 		/**隐藏原图中不需要的部分，并将“特征线”进行处理**/
 		URL url = new URL(v.getImageUrl1());
 		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
-		Element n1 = doc.getElementById("特征线");
-		Element n2 = doc.getElementById("产品图片");
-		
 		Element eleSvg = (Element)doc.getElementsByTagName("svg").item(0);
+		
+		Element featureLine = doc.getElementById("特征线");
+		Element productImage = doc.getElementById("产品图片");
+		
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 
+		
 		if(componets.size()>0){
 			boolean set = false;
 			int size = 0;
 			do{
 				try{
 					Component c = componets.get(size);
-					i.setW(c.image.customData.boundW);//獲取高寬
-					i.setH(c.image.customData.boundH);
-					i.setX(0);
-					i.setY(0);
+					imageDb.setW(c.image.customData.boundW);//获取高宽
+					imageDb.setH(c.image.customData.boundH);
+					imageDb.setX(0);
+					imageDb.setY(0);
 					set=true;
 				}catch(Exception e){
 					continue;
@@ -634,17 +636,20 @@ public class SurveyController {
 			}while(!set&&size<componets.size());
 		}
 		
-		String viewBox = "0 0 "+i.getW() +" " +i.getH();
+		String viewBox = "0 0 "+imageDb.getW() +" " +imageDb.getH();
 		eleSvg.setAttribute("viewBox", viewBox);
-		eleSvg.setAttribute("enable-background","new 0 0 "+i.getW() +" " +i.getH());
-		eleSvg.setAttribute("width", i.getW()+"");
-		eleSvg.setAttribute("height", i.getH()+"");
+		eleSvg.setAttribute("enable-background","new 0 0 "+imageDb.getW() +" " +imageDb.getH());
+		eleSvg.setAttribute("width", imageDb.getW()+"");
+		eleSvg.setAttribute("height", imageDb.getH()+"");
 		
-		n1.setAttribute("display", "block");
-		n2.setAttribute("display", "none");
-		n2.getParentNode().removeChild(n2);
-		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
+		//不要那个"产品图片"，没有价值
+		productImage.setAttribute("display", "none");
+		productImage.getParentNode().removeChild(productImage);
 		
+		featureLine.setAttribute("display", "block");
+		
+		//处理“特征线”图层的显示。
+		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
 		NamedNodeMap eleProductImageAttr = eleProductImage.getAttributes();
 		String oldImageStype = "";
 		if(eleProductImageAttr.getNamedItem("style")!=null){
@@ -665,12 +670,12 @@ public class SurveyController {
 			imageType = "png";
 			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
 		}
-		/**隐藏原图中不需要的部分结束**/
+		/**end**/
 		
 		
 		/**************处理剪影,产生svg*****************/
 		StringBuilder outBase64String = new StringBuilder();//String build
-		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
+		BinaryColor.convertProfile(new String(wholeImageString), outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
 		String imageHead = "data:image/png;base64,";
 		String imageStr= imageHead+outBase64String.toString();
 		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
@@ -682,14 +687,17 @@ public class SurveyController {
 		}
 		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
 		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
-		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
+		imageDb.setProfileImageUrl(urlProfile + profileUUID + ".svg");
 		/**************处理剪影结束,产生svg*****************/
 		
-		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(pngImageString);
-		
 
+		/**************处理产生png,要两张，一张产品的，一张特征线*****************/
+		StringBuilder outBase64StringTrans = new StringBuilder();//String build
+		BinaryColor.convertTransBack(new String(wholeImageString), outBase64StringTrans);
+	
+		String imageStrTrans= imageHead+outBase64StringTrans.toString();
 		
-		//处理成png
+		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStrTrans);
 		String pngUUID = UUID.randomUUID().toString().replace("-", "");
 		String pngFileName = path+"png/" + pngUUID + ".png";
 		
@@ -700,33 +708,44 @@ public class SurveyController {
 		if (!newPngFileFolder.exists()) {
 			newPngFileFolder.mkdir();
 		}
-		eleProductImage.setAttribute("display", "none");
+		displayFeatureLine(featureLine,"none");
+		
+		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
+		
 		BinaryColor.convertDom2Png(doc, pngFileName);
-		i.setImageName(v.getProductCategory());
-		i.setImageType("WHOLE");
-		i.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
-		i.setParentImageId(null);
+		
+		eleProductImage.setAttribute("display", "none");
+		displayFeatureLine(featureLine,"block");
+		
+		BinaryColor.convertDom2Png(doc, pngFeatureFileName);
 		
 		String urlPng = "http://" + ip + ":" + port + "/static/images/png/";
-		i.setPngImageUrl(urlPng+ pngUUID + ".png");
+		imageDb.setPngImageUrl(urlPng+ pngUUID + ".png");
+//		String urlFeaturePng = "http://" + ip + ":" + port + "/static/images/png/";
+		imageDb.setFeatureUrl(urlPng+ pngFeatureUUID + ".png");
 		
-		SVGDocument doc1 = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
-				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+		imageDb.setImageName(v.getProductCategory());
+		imageDb.setImageType("WHOLE");
+		imageDb.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
+		imageDb.setParentImageId(null);
+		
 		for (Component c : componets) {
-			handleSubImage(i, keyPoints, doc1, c, v.getId().toString());//处理子图
+			handleSubImage(imageDb, keyPoints, doc, c, v.getId().toString());//处理子图
 		}
 
-		i.setContainFeatureLine(true);
-		imageRepo.save(i);
-		images.add(i);//for brands.
+		imageDb.setContainFeatureLine(true);
+		imageRepo.save(imageDb);
+		images.add(imageDb);//for brands.
 	}
+
 
 
 
 	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id) {
 		try {
-			Element n1 = doc.getElementById("特征线");
-			Element n2 = doc.getElementById("产品图片");
+			Element featureLine = doc.getElementById("特征线");
+
+			Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
 			
 			Image detail = new Image();
 			detail.setImageId(UUID.randomUUID().toString().replaceAll("-", ""));
@@ -744,11 +763,13 @@ public class SurveyController {
 			detail.setW(c.image.customData.w);
 			detail.setH(c.image.customData.h);
 
-			SaveAsJPEGTiles saver = new SaveAsJPEGTiles();
-			n1.setAttribute("display", "none");
-			n2.setAttribute("display", "block");
+			/**处理图**/
+			displayFeatureLine(featureLine,"none");
+			eleProductImage.setAttribute("display", "block");
+			SaveAsPngTiles saver = new SaveAsPngTiles();
+
 			String imageUUID = UUID.randomUUID().toString().replace("-", "");
-			String imageFileName = path +id+"/"+ imageUUID + ".jpg";
+			String imageFileName = path +id+"/"+ imageUUID + ".png";
 			
 			File newFileFolder = new File(path +id);
 			if (!newFileFolder.exists()) {
@@ -756,7 +777,7 @@ public class SurveyController {
 			}
 			
 			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
-			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
+			detail.setImageUrl(urlDetail + imageUUID + ".png");
 
 			File newFile = new File(imageFileName);
 			if (!newFile.exists()) {
@@ -765,14 +786,15 @@ public class SurveyController {
 			InputStream in = SvgUtilities.documentToString(doc);
 			saver.tile(in, imageFileName,
 					new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
-
-			//////////////////////////////
-			n1.setAttribute("display", "block");
-			n2.setAttribute("display", "none");
+			/**处理图end**/
+			
+			/**处理线**/
+			displayFeatureLine(featureLine,"block");
+			eleProductImage.setAttribute("display", "none");
 			String featureUUID = UUID.randomUUID().toString().replace("-", "");
-			String featureFileName = path + id+"/"+featureUUID + ".jpg";
+			String featureFileName = path + id+"/"+featureUUID + ".png";
 
-			detail.setFeatureUrl(urlDetail + featureUUID + ".jpg");
+			detail.setFeatureUrl(urlDetail + featureUUID + ".png");
 
 			File newfeatureFile = new File(featureFileName);
 			if (!newfeatureFile.exists()) {
@@ -797,4 +819,30 @@ public class SurveyController {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 显示或隐藏特征线，真正的线。
+	 * @param featureLine
+	 * @param display
+	 */
+	private void displayFeatureLine(Element featureLine,String display){
+		int paths= featureLine.getElementsByTagName("path").getLength();
+		for(int i=0; i<paths;i++){
+			Element path = (Element) featureLine.getElementsByTagName("path").item(i);
+			path.setAttribute("display", display);
+		}
+		
+		int polylines= featureLine.getElementsByTagName("polyline").getLength();
+		for(int i=0; i<polylines;i++){
+			Element polyline = (Element) featureLine.getElementsByTagName("polyline").item(i);
+			polyline.setAttribute("display", display);
+		}
+		
+		int lines= featureLine.getElementsByTagName("line").getLength();
+		for(int i=0; i<lines;i++){
+			Element line = (Element) featureLine.getElementsByTagName("line").item(i);
+			line.setAttribute("display", display);
+		}
+	}
+	
 }

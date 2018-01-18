@@ -4,16 +4,16 @@ import java.io.*;
 import java.awt.*;
 
 import org.apache.batik.transcoder.image.JPEGTranscoder;
+import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 
-public class SaveAsJPEGTiles {
+public class SaveAsPngTiles {
 
-    JPEGTranscoder trans = new JPEGTranscoder();
+    PNGTranscoder trans = new PNGTranscoder();
 
-    public SaveAsJPEGTiles() {
-        trans.addTranscodingHint(JPEGTranscoder.KEY_QUALITY,
-                   new Float(.8));
+    public SaveAsPngTiles() {
+
     }
 
     public void tile(InputStream inputStream,
@@ -21,9 +21,9 @@ public class SaveAsJPEGTiles {
              Rectangle aoi) throws Exception {
         // Set hints to indicate the dimensions of the output image
         // and the input area of interest.
-        trans.addTranscodingHint(JPEGTranscoder.KEY_WIDTH,new Float(aoi.width));
-        trans.addTranscodingHint(JPEGTranscoder.KEY_HEIGHT,new Float(aoi.height));
-        trans.addTranscodingHint(JPEGTranscoder.KEY_AOI, aoi);
+        trans.addTranscodingHint(PNGTranscoder.KEY_WIDTH,new Float(aoi.width));
+        trans.addTranscodingHint(PNGTranscoder.KEY_HEIGHT,new Float(aoi.height));
+        trans.addTranscodingHint(PNGTranscoder.KEY_AOI, aoi);
 
 //        // Transcode the file.
 //        String svgURI = inputFilename;//new File(inputFilename).toURI().toString();
@@ -40,7 +40,7 @@ public class SaveAsJPEGTiles {
     public static void main(String[] args) throws Exception {
         // Rasterize the samples/anne.svg document and save it
         // as four tiles.
-        SaveAsJPEGTiles p = new SaveAsJPEGTiles();
+    	SaveAsPngTiles p = new SaveAsPngTiles();
         String in = "samples/anne.svg";
         int documentWidth = 450;
         int documentHeight = 500;

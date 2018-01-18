@@ -22,6 +22,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.w3c.dom.Element;
 import org.w3c.dom.svg.SVGDocument;
+
+import com.neil.batiktools.SvgUtilities;
 import com.neil.imagetools.BinaryColor;
 
 
@@ -41,19 +43,45 @@ public class SvgTest {
 		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 		SVGDocument doc = null;
 		try {
-			String t = "file:D:/G_zcm/git/survey/src/main/resources/"+"10532902250458.svg";
+			String t = "file:C:/Users/neil/git/survey/src/main/resources/"+"10532902250458.svg";
 			doc = (SVGDocument) f.createSVGDocument(t);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		Element featureLine = doc.getElementById("特征线");
-		
-		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
+		Element productImage = doc.getElementById("产品图片");
 		
 		Element n1 = (Element)doc.getElementsByTagName("svg").item(0);
 		String viewBox = n1.getAttribute("viewBox");
 		logger.info(viewBox);
+
+		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
+		eleProductImage.setAttribute("display", "none");
+		
+		Element eleImage = (Element) (productImage.getElementsByTagName("image").item(0));
+		eleImage.setAttribute("display", "none");	
+		
+		SvgUtilities.saveDoc2SvgFile(doc, "d:/1/1.svg");
 		BinaryColor.convertDom2Png(doc,"d:/1/1.png");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
