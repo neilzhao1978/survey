@@ -1,18 +1,17 @@
-.brandImg{
-    width:200px;
-    height:80px
-}
-.brandChoiceChk{
-    width:30px;
-    height:30px
-}
-.brandProductImg{
-    width:200px;
-    height:80px
-}
-.fr{
-    float:right
-}
-.mainTabPanel{
-    height:500px;padding:20px;overflow-y: scroll
-}
+
+#Query_Desc{ height:150px }
+#imgShow{ background-color:#005bac;width:100% }
+#galleryWin>.modal-dialog{ width:1000px;height:800px }
+
+.brandImg{  width:200px;  height:80px  }
+.brandChoiceChk{  width:30px; height:30px  }
+.brandProductImg{  width:200px;  height:80px  }
+.fr{  float:right  }
+.mainTabPanel{  height:500px;padding:20px;overflow-y: scroll  }
+.noBorder{  border:0 }
+.heightFill{ height:100% }
+.pad-top-10{  padding-top:10px;  }
+.pad5{ padding:5px; }
+.alignCenter{  text-align:center  }
+.preview-qName{ text-align:center;font-weight:900 }
+.h300{ height:300px }

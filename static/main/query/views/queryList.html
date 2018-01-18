@@ -65,8 +65,6 @@
             <div class="row">
                     <table id="tbContent" class="query_list_table"></table>
             </div>
-            
-        
     </div>
 
     <div id="shareWin" class="modal fade" tabindex="-1" role="dialog">
@@ -76,7 +74,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">保存提示</h4>
                 </div>
-                <div class="modal-body" style="text-align:center">
+                <div class="modal-body alignCenter" >
                     <img id="share_unicode" src=""/>
                     <br/>
                     <br/>
@@ -84,15 +82,12 @@
                     <br/>
                     <br/>
                     问卷地址：<a id="answerAddress"></a>
-                    <button id="copyUrl"  data-clipboard-action="copy" data-clipboard-target="#answerAddress">复制链接</button>
+                    <button id="copyUrl" class="btn btn-primary"  data-clipboard-action="copy" data-clipboard-target="#answerAddress">复制链接</button>
                 </div>
-                <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(1)">保存</button>-->
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
 
     <div id="deleteAlert" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -101,7 +96,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">删除提示</h4>
                 </div>
-                <div class="modal-body" style="text-align:center">
+                <div class="modal-body alignCenter">
                     您确定要删除该条记录吗？
                 </div>
                 <div class="modal-footer">

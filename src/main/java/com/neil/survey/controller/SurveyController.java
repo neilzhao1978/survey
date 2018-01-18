@@ -608,8 +608,7 @@ public class SurveyController {
 		
 		/**隐藏原图中不需要的部分，并将“特征线”进行处理**/
 		URL url = new URL(v.getImageUrl1());
-		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
-				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		Element n1 = doc.getElementById("特征线");
 		Element n2 = doc.getElementById("产品图片");
 		

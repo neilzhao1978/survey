@@ -87,7 +87,7 @@ public class BinaryColor {
         ImageIO.write(image, "png", new File(outFileName));
 
     }  
-    
+
     public static void convertDom2Png(Document document,String outFileName) throws Exception { 
         // Create a JPEGTranscoder and set its quality hint.
         PNGTranscoder t = new PNGTranscoder();
@@ -126,5 +126,5 @@ public class BinaryColor {
         ImageIO.write(image, "png", new File(outFileName));
 
     }  
-    
+
 }  

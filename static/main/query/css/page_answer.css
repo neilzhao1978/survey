@@ -1,20 +1,8 @@
-.brandImg{
-    width:200px;
-    height:80px
-}
-.brandChoiceChk{
-    width:30px;
-    height:30px
-}
-
-.brandProductImg{
-    width:200px;
-    height:80px
-}
-.fr{
-    float:right
-}
-
-.mainTabPanel{
-    height:500px;padding:20px;overflow-y: scroll
-}
+#CreateQuery{border:1px solid lightgrey}
+.brandImg{  width:200px;  height:80px  }
+.brandChoiceChk{  width:30px;  height:30px  }
+.brandProductImg{  width:200px;  height:80px  }
+.fr{  float:right  }
+.mainTabPanel{  height:500px;padding:20px;overflow-y: scroll  }
+.q-Name{ text-align:center;font-weight:900 }
+.pad-top-10{ padding-top:10px }
