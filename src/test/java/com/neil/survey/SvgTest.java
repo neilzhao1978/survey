@@ -47,6 +47,10 @@ public class SvgTest {
 			e.printStackTrace();
 		}
 		
+		Element featureLine = doc.getElementById("特征线");
+		
+		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
+		
 		Element n1 = (Element)doc.getElementsByTagName("svg").item(0);
 		String viewBox = n1.getAttribute("viewBox");
 		logger.info(viewBox);

@@ -621,7 +621,7 @@ public class SurveyController {
 			do{
 				try{
 					Component c = componets.get(size);
-					i.setW(c.image.customData.boundW);
+					i.setW(c.image.customData.boundW);//獲取高寬
 					i.setH(c.image.customData.boundH);
 					i.setX(0);
 					i.setY(0);
@@ -637,6 +637,8 @@ public class SurveyController {
 		String viewBox = "0 0 "+i.getW() +" " +i.getH();
 		eleSvg.setAttribute("viewBox", viewBox);
 		eleSvg.setAttribute("enable-background","new 0 0 "+i.getW() +" " +i.getH());
+		eleSvg.setAttribute("width", i.getW()+"");
+		eleSvg.setAttribute("height", i.getH()+"");
 		
 		n1.setAttribute("display", "block");
 		n2.setAttribute("display", "none");
@@ -684,15 +686,21 @@ public class SurveyController {
 		/**************处理剪影结束,产生svg*****************/
 		
 		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(pngImageString);
+		
+
+		
 		//处理成png
 		String pngUUID = UUID.randomUUID().toString().replace("-", "");
 		String pngFileName = path+"png/" + pngUUID + ".png";
+		
+		String pngFeatureUUID = UUID.randomUUID().toString().replace("-", "");
+		String pngFeatureFileName = path+"png/" + pngFeatureUUID + ".png";
 		
 		File newPngFileFolder = new File(path+"png/");
 		if (!newPngFileFolder.exists()) {
 			newPngFileFolder.mkdir();
 		}
-
+		eleProductImage.setAttribute("display", "none");
 		BinaryColor.convertDom2Png(doc, pngFileName);
 		i.setImageName(v.getProductCategory());
 		i.setImageType("WHOLE");
@@ -711,7 +719,6 @@ public class SurveyController {
 		i.setContainFeatureLine(true);
 		imageRepo.save(i);
 		images.add(i);//for brands.
-
 	}
 
 
