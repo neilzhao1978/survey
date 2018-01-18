@@ -16,15 +16,23 @@ body{
     padding: 2rem 1rem;
     position: relative;
 }
-
-header.top-bar h1{
+.top-bar .left-col{
+    text-align: left;
+}
+.top-bar .mid-col{
+    text-align: center;
+}
+.top-bar .right-col{
+    text-align: right;
+}
+.top-bar h1{
     color: rgb(255, 255, 255);
     margin: 0 0 10px 0;
     padding: 0;
     font-size:24px;
     font-weight: normal;
 }
-header.top-bar h2{
+.top-bar h2{
     color: rgba(255, 255, 255,0.7);
     margin: 0;
     padding: 0;

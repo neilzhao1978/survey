@@ -37,22 +37,23 @@
     <script src="../../../common/js/surveyService.js"></script>
 </head>
 <body>
-
+        
 <header class="flex-column flex-md-row top-bar">
         <div class="container">
                 <div class="row">
-                        <div class="col-sm-4 col-xm-12" align="center">
-                                <button type="button" class="btn btn-primary btn-lg" onclick="returnList()">返回列表</button>
+                        <div class="left-col col-xs-3">
+                                        <button type="button" class="btn btn-primary " onclick="returnList()">返回列表</button>
                         </div>
-                        <div class="col-sm-4 col-xm-12" align="center">
-                                <span class="btn btn-primary btn-lg noBorder" >问卷设计</span>
+                        <div class="col-xs-6 mid-col top-title">
+                                        <h2>问卷设计</h2>
                         </div>
-                        <div class="col-sm-4 col-xm-12"  id="saveQueryCon"  align="center">
-                                <button type="button" class="btn btn-primary btn-lg" id="saveQuery">保存问卷</button>
+                        <div class="saveQueryCon col-xs-3 right-col"  id="saveQueryCon"  align="center">
+                                <button type="button" class="btn " id="saveQuery">保存问卷</button>
                         </div>
-                        <div class="col-sm-4 col-xm-12 hide"  id="releaseQueryCon" align="center" >
-                                <button type="button" class="btn btn-primary btn-lg" id="releaseQuery">发布问卷</button>
+                        <div class="releaseQueryCon col-xs-3"  id="releaseQueryCon" align="center" >
+                                <button type="button" class="btn " id="releaseQuery">发布问卷</button>
                         </div>
+                        
                 </div>
         </div>
 </header>
@@ -60,114 +61,79 @@
 <div class="container main">
 
         <div class="row">
-                <ul id="myTab" class="nav nav-tabs" >
+                <ul id="myTab" class="nav nav-tabs step-by-step-tab" >
                         <li class="active">
-                                <a href="#basicSetting" data-toggle="tab" onclick="tabClick(0)">基础配置</a>
+                                <a href="#basicSetting" data-toggle="tab" onclick="tabClick(0)">1. 基础配置</a>
                         </li>
                         <li>
-                                <a href="#brand" data-toggle="tab" onclick="tabClick(1)">品牌选择</a>
+                                <a href="#brand" data-toggle="tab" onclick="tabClick(1)">2. 偏好品牌设置</a>
                         </li>
                         <li>
-                                <a href="#product" data-toggle="tab" onclick="tabClick(2)">产品图片</a>
+                                <a href="#product" data-toggle="tab" onclick="tabClick(2)">3. 候选产品图设置</a>
                         </li>
                         <li>
-                                <a href="#desireImg" data-toggle="tab" onclick="tabClick(3)">意向图片</a>
+                                <a href="#desireImg" data-toggle="tab" onclick="tabClick(3)">4. 候选意象图设置</a>
                         </li>
                         <li>
-                                <a href="#preview" data-toggle="tab" onclick="tabClick(4)">发布预览</a>
+                                <a href="#preview" data-toggle="tab" onclick="tabClick(4)">5. 发布预览</a>
                         </li>
                 </ul>
                 <div id="CreateQuery" class="tab-content">
 
-                        <div class="tab-pane mainTabPanel fade in active" id="basicSetting">
+                        <div class="tab-pane mainTabPanel panel-setting fade in active" id="basicSetting">
                                 <form role="form">
                                         <div class="form-group">
                                                 <label for="Query_Name">问卷名称：</label>
-                                                <input type="text" class="form-control" id="Query_Name" placeholder="问卷名称：......" v-model="qName">
+                                                <input type="text" class="form-control" id="Query_Name" placeholder="问卷名称......" v-model="qName">
                                         </div>
                                         <div class="form-group" id="qDesc">
                                                 <label for="Query_Desc">问卷描述：</label>
-                                                <textarea class="form-control" id="Query_Desc" v-model="qDesc"></textarea>
+                                                <textarea class="form-control" id="Query_Desc" placeholder="关于本次调查的说明......" v-model="qDesc"></textarea>
                                         </div>
 
-                                        <div class="row">
-                                                <div class="col-lg-3">
-                                                        <div class="input-group">
-                                                                <select class="form-control" id="year" v-model="qYear"> <option v-for="year in s_year">{{year}}</option></select>
-                                                                <span class="input-group-addon">年</span>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                        <div class="input-group">
-                                                                <select class="form-control" id="month"  v-model="qMonth"><option v-for="month in s_month">{{month}}</option></select>
-                                                                <span class="input-group-addon">月</span>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                        <div class="input-group">
-                                                                <select class="form-control" id="day" v-model="qDay" >
-                                                                        <option>1</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                        <option>4</option>
-                                                                        <option>5</option>
-                                                                        <option>6</option>
-                                                                        <option>7</option>
-                                                                        <option>8</option>
-                                                                        <option>9</option>
-                                                                        <option>10</option>
-                                                                        <option>11</option>
-                                                                        <option>12</option>
-                                                                        <option>13</option>
-                                                                        <option>14</option>
-                                                                        <option>15</option>
-                                                                        <option>16</option>
-                                                                        <option>17</option>
-                                                                        <option>18</option>
-                                                                        <option>19</option>
-                                                                        <option>20</option>
-                                                                        <option>21</option>
-                                                                        <option>22</option>
-                                                                        <option>23</option>
-                                                                        <option>24</option>
-                                                                        <option>25</option>
-                                                                        <option>26</option>
-                                                                        <option>27</option>
-                                                                        <option>28</option>
-                                                                        <option>29</option>
-                                                                        <option>30</option>
-                                                                        <option>31</option>
-                                                                </select>
-                                                                <span class="input-group-addon">日</span>
-                                                        </div>
-                                                </div>
-                                        </div>
+                                        
                                 </form>
 
                         </div>
 
-                        <div class="tab-pane mainTabPanel fade" id="brand">
+                        <div class="tab-pane mainTabPanel panel-brand fade" id="brand">
                                 <form id="defaultForm"  role="form"  data-toggle="validator" class="form-horizontal">
-                                        <div class="form-group">
-                                                <label class="col-lg-12">用户选择上限：</label>
-                                                <div class="col-lg-12">
-                                                        <input type="number" min="1" class="form-control" name="brandLimit" placeholder="" v-model="brandLimit" required="true">
-                                                        <div class="help-block with-errors"></div>
+                                        <div class="form-group brand-selection-limit">
+                                                
+                                                <label>最大可选品牌数：</label>
+                                                <div class="radio-group">
+                                                        <label class="radio-inline">
+                                                        <input type="radio" name="brandLimitOptions" id="brandLimit1" value="1" v-model="brandLimit"> 1
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                        <input type="radio" name="brandLimitOptions" id="brandLimit2" value="2" v-model="brandLimit"> 2
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                        <input type="radio" name="brandLimitOptions" id="brandLimit3" value="3" v-model="brandLimit"> 3
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                        <input type="radio" name="brandLimitOptions" id="brandLimit4" value="4" v-model="brandLimit"> 4
+                                                        </label>
                                                 </div>
+                                                <div class="help-block with-errors"></div>
                                         </div>
                                 </form>
-
-                                <div class="container-fluid">
+                                <div class="row"> <label>备选品牌</label></div>
+                                <div class="container-fluid brand-list">
                                         <div class="row">
-                                                <div class="col-lg-4" v-for="brand in allBrand"  v-cloak>
-                                                        <input type="checkbox" class="brandChoiceChk"  v-model="brand.checked" v-bind:alt="brand.brandId" v-on:click='doCheck'/>
-                                                        <img class="brandImg" v-bind:src="brand.brandIconUrl" />
+                                                <div class="col-sm-3" v-for="brand in allBrand"  v-cloak>
+                                                        <div class="thumb-box panel panel-default">
+                                                                <input type="checkbox" class="brandChoiceChk"  v-model="brand.checked" v-bind="{alt:brand.brandId, name:'thumb'+brand.brandId, id:'thumb'+brand.brandId}" v-on:click='doCheck'/>
+                                                                <label v-bind:for="'thumb'+brand.brandId" class="brandChoiceLabel">
+                                                                        <img class="brandImg" v-bind:src="brand.brandIconUrl" />
+                                                                </label>
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
                         </div>
 
-                        <div class="tab-pane mainTabPanel fade" id="product">
+                        <div class="tab-pane mainTabPanel panel-product fade" id="product">
                                 <div id="brand_product" class="hide"></div>
 
                                 <div class="container-fluid">
@@ -178,9 +144,15 @@
                                                         <button class="fr btn btn-default" v-bind:name="brand.brandId" v-on:click='selectAll' >全选</button>
                                                 </div>
                                                 <div class="panel-body" >
-                                                        <div class="col-lg-3" v-for="pro in brand.product">
-                                                                <input type="checkbox" class="brandChoiceChk" v-model="pro.checked" v-bind:name="pro.imageId" v-bind:alt="brand.brandId" v-on:click='doCheck_pro'>
-                                                                <img class="brandProductImg" v-bind:src="pro.imageUrl">
+                                                        <div class="col-sm-3" v-for="pro in brand.product">
+
+                                                                <div class="thumb-box panel panel-default">
+                                                                        <input type="checkbox" class="brandChoiceChk"  v-model="pro.checked" v-bind="{alt:brand.brandId, name:pro.imageId, id:pro.imageId}" v-on:click='doCheck_pro'/>
+                                                                        <label v-bind:for="pro.imageId" class="brandChoiceLabel">
+                                                                                <img class="brandProductImg" v-bind:src="pro.imageUrl" />
+                                                                        </label>
+                                                                </div>
+
                                                         </div>
                                                 </div>
                                         </div>

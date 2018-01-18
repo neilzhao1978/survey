@@ -3,11 +3,9 @@
 #imgShow{ background-color:#005bac;width:100% }
 #galleryWin>.modal-dialog{ width:1000px;height:800px }
 
-.brandImg{  width:200px;  height:80px  }
-.brandChoiceChk{  width:30px; height:30px  }
-.brandProductImg{  width:200px;  height:80px  }
+
 .fr{  float:right  }
-.mainTabPanel{  height:500px;padding:20px;overflow-y: scroll  }
+.mainTabPanel{height:500px;padding:20px;  }
 .noBorder{  border:0 }
 .heightFill{ height:100% }
 .pad-top-10{  padding-top:10px;  }
@@ -15,3 +13,65 @@
 .alignCenter{  text-align:center  }
 .preview-qName{ text-align:center;font-weight:900 }
 .h300{ height:300px }
+
+
+.step-by-step-tab>li>a{
+    color:#999;
+}
+.step-by-step-tab>li>a:hover{
+    color:#555;
+}
+.step-by-step-tab>li.active>a{
+    color:#ae4127;
+}
+
+/* panel-brand */
+.brand-selection-limit{
+    border-bottom: #ddd 1px dotted;
+    position: relative;
+    height: 60px;
+}
+.brand-selection-limit>label{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.brand-selection-limit .radio-group{
+    padding-left: 140px;
+}
+.brand-list{
+    margin-top:20px;
+}
+.thumb-box{
+   position: relative;
+}
+.brandImg{  width:200px;  height:80px  }
+.brandChoiceChk{  
+    width:20px; 
+    height:20px;
+    position:absolute;
+    top:2px;
+    left: 4px;
+}
+.brandChoiceLabel{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+}
+
+/* panel-product */
+.panel-product .panel-default>.panel-heading{
+     background: linear-gradient(to right, #ffffff 0%,#f5f5f5 44%);
+}
+.panel-product .panel-default>.panel-heading .btn{
+    margin-right:10px;
+}
+.panel-product .brandImg{
+    width: 100px;
+    height: 40px;
+}
+.brandProductImg{  width:200px;  height:80px  }

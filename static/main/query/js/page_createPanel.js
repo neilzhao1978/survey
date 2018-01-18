@@ -457,6 +457,8 @@ function doSaveDraft(){
         alert("问卷名称未填写，请录入后再保存！");
         return
     }
+    //强制转换brandLimit类型
+    CreateQuery.brandLimit = Number(CreateQuery.brandLimit);
     if(typeof CreateQuery.brandLimit =="number"){
         if(CreateQuery.brandLimit>0){
 

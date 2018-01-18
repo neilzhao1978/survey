@@ -164,6 +164,7 @@ class StitchRenderer{
         
         if(this.part1Image){
             this.p5Instance.imageMode(this.p5Instance.CORNER);
+            this.part1Image.filter(this.p5Instance.BLUR,1);
             g.image(
                 this.part1Image,
                 this.part1ImageData.x,
@@ -202,7 +203,7 @@ class StitchRenderer{
         this.p5Instance.push();
         
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
-        this.p5Instance.tint(255, 50);
+        this.p5Instance.tint(255, 30);
         this.p5Instance.image(
            g,0,0,
             (this.canvasH-10)/g.height*g.width,
