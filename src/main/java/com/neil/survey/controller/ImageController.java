@@ -72,7 +72,7 @@ public class ImageController {
 			@RequestParam(value = "type", required = false) String type) {
 
 		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
-		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("imageType", match -> match.endsWith());
+		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("imageType", match -> match.exact());
 		Image i = new Image();
 		i.setImageType(type);
 		Example<Image> example = Example.of(i, matcher);

@@ -20,6 +20,7 @@ import java.nio.file.FileSystems;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -167,6 +168,7 @@ public class SurveyController {
 	@ResponseBody
 	@RequestMapping(value = "/addSurvey", method = RequestMethod.POST)
 	public RestResponseEntity<Void> addSurvey(@RequestBody Survey survey) {
+
 		Survey s = surveyRepo.save(survey);
 		if (s != null) {
 
@@ -248,6 +250,7 @@ public class SurveyController {
 		s1.setSurveyId(UUID.randomUUID().toString());
 		s1.setName(s1.getName() + "复制");
 
+		s1.setReleaseTime(new Date());
 		Survey x = surveyRepo.save(s1);
 
 		if (x != null) {
@@ -590,81 +593,29 @@ public class SurveyController {
 	}
 	
 	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
-			throws IOException, TransformerException, MalformedURLException {
+			throws Exception {
 		String parser = XMLResourceDescriptor.getXMLParserClassName();
 		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 		
 		Image i = new Image();
 		i.setImageId(v.getId().toString());
 		i.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
+		/**处理特征点**/
 		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
 		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
-
-		URL url = new URL(v.getImageUrl1());
-		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
+		/**处理特征点结束**/
 		
+		/**隐藏原图中不需要的部分，并将“特征线”进行处理**/
+		URL url = new URL(v.getImageUrl1());
+		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
+				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		Element n1 = doc.getElementById("特征线");
 		Element n2 = doc.getElementById("产品图片");
 		
-		n1.setAttribute("display", "block");
-		n2.setAttribute("display", "none");
-		n2.getParentNode().removeChild(n2);
-	
-		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
-		
-		NamedNodeMap t = eleProductImage.getAttributes();
-		
-		String oldImageStype = "";
-		if(t.getNamedItem("style")!=null){
-			oldImageStype = t.getNamedItem("style").getNodeValue();
-			t.getNamedItem("style").setNodeValue("overflow:visible;opacity:1.0;");
-		}
-		if(t.getNamedItem("opacity")!=null){
-			t.getNamedItem("opacity").setNodeValue("1.0");
-		}
-
-		String imageType = "";
-		String oldImageString = t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
-		String wholeImageString="";
-		if(oldImageString.contains("image/jpeg")){
-			imageType= "jpeg";
-			wholeImageString=oldImageString.replaceAll("data:image/jpeg;base64,", "");
-		}else if(oldImageString.contains("image/png")){
-			imageType = "png";
-			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
-		}
-		
-		StringBuilder outBase64String = new StringBuilder();//String build
-		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
-		
-		String imageHead = "data:image/png;base64,";
-		String imageStr= imageHead+outBase64String.toString();
-		t.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
-
-		String profileUUID = UUID.randomUUID().toString().replace("-", "");
-		String profileFileName = path+"svg/" + profileUUID + ".svg";
-		
-		File newFileFolder = new File(path+"svg/");
-		if (!newFileFolder.exists()) {
-			newFileFolder.mkdir();
-		}
-		
-		
-		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
-
-		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
-		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
-		i.setAllKeyPoints(temp.substring(1, temp.length() - 1));
-		i.setImageName(v.getProductCategory());
-		i.setImageType("WHOLE");
-		i.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
-		i.setParentImageId(null);
-
-		SVGDocument doc1 = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+		Element eleSvg = (Element)doc.getElementsByTagName("svg").item(0);
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
-		for (Component c : componets) {
-			handleSubImage(i, keyPoints, doc1, c, v.getId().toString());//处理子图
-		}
+
 		if(componets.size()>0){
 			boolean set = false;
 			int size = 0;
@@ -682,8 +633,82 @@ public class SurveyController {
 					size++;
 				}
 			}while(!set&&size<componets.size());
-
 		}
+		
+		String viewBox = "0 0 "+i.getW() +" " +i.getH();
+		eleSvg.setAttribute("viewBox", viewBox);
+		eleSvg.setAttribute("enable-background","new 0 0 "+i.getW() +" " +i.getH());
+		
+		n1.setAttribute("display", "block");
+		n2.setAttribute("display", "none");
+		n2.getParentNode().removeChild(n2);
+		Element eleProductImage = (Element) (n1.getElementsByTagName("image").item(0));
+		
+		NamedNodeMap eleProductImageAttr = eleProductImage.getAttributes();
+		String oldImageStype = "";
+		if(eleProductImageAttr.getNamedItem("style")!=null){
+			oldImageStype = eleProductImageAttr.getNamedItem("style").getNodeValue();
+			eleProductImageAttr.getNamedItem("style").setNodeValue("overflow:visible;opacity:1.0;");
+		}
+		if(eleProductImageAttr.getNamedItem("opacity")!=null){
+			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");
+		}
+		String imageType = "";
+		String oldImageString = eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
+		String pngImageString = new String(oldImageString);
+		String wholeImageString="";
+		if(oldImageString.contains("image/jpeg")){
+			imageType= "jpeg";
+			wholeImageString=oldImageString.replaceAll("data:image/jpeg;base64,", "");
+		}else if(oldImageString.contains("image/png")){
+			imageType = "png";
+			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
+		}
+		/**隐藏原图中不需要的部分结束**/
+		
+		
+		/**************处理剪影,产生svg*****************/
+		StringBuilder outBase64String = new StringBuilder();//String build
+		BinaryColor.convert(wholeImageString, outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
+		String imageHead = "data:image/png;base64,";
+		String imageStr= imageHead+outBase64String.toString();
+		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
+		String profileUUID = UUID.randomUUID().toString().replace("-", "");
+		String profileFileName = path+"svg/" + profileUUID + ".svg";
+		File newFileFolder = new File(path+"svg/");
+		if (!newFileFolder.exists()) {
+			newFileFolder.mkdir();
+		}
+		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
+		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
+		i.setProfileImageUrl(urlProfile + profileUUID + ".svg");
+		/**************处理剪影结束,产生svg*****************/
+		
+		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(pngImageString);
+		//处理成png
+		String pngUUID = UUID.randomUUID().toString().replace("-", "");
+		String pngFileName = path+"png/" + pngUUID + ".png";
+		
+		File newPngFileFolder = new File(path+"png/");
+		if (!newPngFileFolder.exists()) {
+			newPngFileFolder.mkdir();
+		}
+
+		BinaryColor.convertDom2Png(doc, pngFileName);
+		i.setImageName(v.getProductCategory());
+		i.setImageType("WHOLE");
+		i.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
+		i.setParentImageId(null);
+		
+		String urlPng = "http://" + ip + ":" + port + "/static/images/png/";
+		i.setPngImageUrl(urlPng+ pngUUID + ".png");
+		
+		SVGDocument doc1 = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),
+				new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+		for (Component c : componets) {
+			handleSubImage(i, keyPoints, doc1, c, v.getId().toString());//处理子图
+		}
+
 		i.setContainFeatureLine(true);
 		imageRepo.save(i);
 		images.add(i);//for brands.
@@ -724,7 +749,6 @@ public class SurveyController {
 				newFileFolder.mkdir();
 			}
 			
-
 			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
 			detail.setImageUrl(urlDetail + imageUUID + ".jpg");
 
