@@ -229,7 +229,6 @@ public class BinaryColor {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
             ImageIO.write(bImg, "png", baos); 
-            ImageIO.write(bImg, "png", new File("D:/1/conbine.png")); 
             
             byte[] bytesOut = baos.toByteArray(); 
             return Base64.encodeBase64String(bytesOut);
