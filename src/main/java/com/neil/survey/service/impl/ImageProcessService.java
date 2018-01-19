@@ -107,10 +107,10 @@ public class ImageProcessService implements IImageProcessService {
 	}
 
 	@Override
-	public List<Image> getCartoonWholeImage(String imageId) {
+	public List<Image> getCartoonBaseImage(String imageId,String partName) {
 		List<Image> rtn =imageRepo.findByImageId(imageId);
 		if(rtn.size() == 1){
-			List<Image> temp = imageRepo.findByParentImageId(imageId);
+			List<Image> temp = imageRepo.findByParentImageIdAndImageNameLike(imageId,partName);
 			rtn.addAll(temp);
 		}else{
 			logger.error("getCartoonWholeImage error. the whole image count is not 1.");
@@ -122,7 +122,7 @@ public class ImageProcessService implements IImageProcessService {
 
 	@Override
 	public List<Image> getCartoonReplaceImage(String imageId,String partName) {
-		List<Image> rtn = imageRepo.findByImageTypeAndParentImageIdAndImageNameLike("WHOLE",imageId,partName);
+		List<Image> rtn = imageRepo.findByImageTypeAndParentImageIdAndImageNameLike("PART",imageId,partName);
 		return rtn;	
 	}
 

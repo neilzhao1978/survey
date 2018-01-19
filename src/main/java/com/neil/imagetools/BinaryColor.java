@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -95,6 +96,8 @@ public class BinaryColor {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
         ImageIO.write(bi, "png", baos);
+        
+//        ImageIO.write(bi, "png", new File("D:/1/p.png"));
         
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));
@@ -206,24 +209,36 @@ public class BinaryColor {
     }
     
     public static String conbineImage(String bigFileName,String smallFileName, int x,int y) throws IOException{
+    	InputStream s = null;
+    	Graphics g =  null;
+    	InputStream b = new URL(bigFileName).openStream();
+    	try{
+            try{
+            	s = new URL(smallFileName).openStream();
+            }catch(Exception e){
+            	s = null;
+            }
 
-        InputStream b = new FileInputStream(bigFileName);
-        InputStream s = new FileInputStream(smallFileName);
+            BufferedImage bImg = ImageIO.read(b);        
+            g = bImg.getGraphics();
+            if(s!=null){
+                BufferedImage sImg = ImageIO.read(s);
+                g.drawImage(sImg, x, y,sImg.getWidth(), sImg.getHeight(), null);
+            }
 
-        BufferedImage bImg = ImageIO.read(b);
-        BufferedImage sImg = ImageIO.read(s);
-        
-        Graphics g = bImg.getGraphics();
-        g.drawImage(sImg, x, y,sImg.getWidth(), sImg.getHeight(), null);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
-        ImageIO.write(bImg, "png", baos); 
-        
-        ImageIO.write(bImg, "png", new File("D:/1/conbine.png")); 
-        
-        byte[] bytesOut = baos.toByteArray(); 
-        g.dispose();
-        return Base64.encodeBase64String(bytesOut);
+            ImageIO.write(bImg, "png", baos); 
+//            ImageIO.write(bImg, "png", new File("D:/1/conbine.png")); 
+            
+            byte[] bytesOut = baos.toByteArray(); 
+            return Base64.encodeBase64String(bytesOut);
+    	}catch(Exception e){
+        	return null;
+        }finally{
+        	g.dispose();
+        }
+
 
     	
     }
