@@ -294,6 +294,8 @@ public class ImageController {
 			@RequestParam(value = "partName",required=false) String partName){
 		try{
 
+			replaceImageId = replaceImageId==null?"null":replaceImageId;
+			partName = partName==null?"%%":partName;
 			ImagePartRe part = new ImagePartRe();
 			
 			List<Image> baseImages = imageProcessService.getCartoonBaseImage(baseImageId,partName);
@@ -316,7 +318,21 @@ public class ImageController {
 				part.setName(baseImages.get(0).getImageName());
 
 				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
-			}else{
+			}else if (baseImages.size()==1 && replaceImages.size()==0){
+				String image = BinaryColor.conbineImage(baseImages.get(0).getPngImageUrl(),null,0,0);
+				String line = BinaryColor.conbineImage(baseImages.get(0).getFeatureUrl(),null,0,0);
+				
+				part.setCombinedImage(image);
+				part.setCombinedFeature(line);
+				part.setH(baseImages.get(0).getH());
+				part.setW(baseImages.get(0).getW());
+				part.setX(null);
+				part.setY(null);
+				part.setUrl(baseImages.get(0).getImageUrl());
+				part.setName(baseImages.get(0).getImageName());
+
+				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+			}else{				
 				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 			}
 			
