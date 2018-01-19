@@ -372,7 +372,7 @@ public class SurveyController {
 				e.printStackTrace();
 			}
 		}
-		return ResponseGenerator.createSuccessResponse("Db sych success.");
+		return ResponseGenerator.createSuccessResponse("Db synch success.");
 	}
 
 	@ResponseBody
@@ -400,105 +400,105 @@ public class SurveyController {
 	}
 	
 	
-	@ResponseBody
-	@RequestMapping(value = "/mergeSubImage", method = RequestMethod.GET)
-	public RestResponseEntity<Void> mergeSubImage() throws Exception{
-		String parser = XMLResourceDescriptor.getXMLParserClassName();
-		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
-		List<Image> wholeImages = imageRepo.findByImageType("WHOLE");
-		for(Image wholeImage:wholeImages){
-			try{
-				String x[] = wholeImage.getImageUrl().split(";");
-				URL url = new URL(x[0]);
-				SVGDocument doc = (SVGDocument) f.createSVGDocument(x[0],new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
-
-				List<Image> cabs = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "司机室%");
-				if(cabs.size()>0){
-					Image newCab = merge(cabs,wholeImage.getImageId(), doc);
-					imageRepo.save(newCab);
-//					for(Image i :cabs){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> butts = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "下车%");
-				if(butts.size()>0){
-//					Image newButt = merge(butts,wholeImage.getImageId(), doc);
-//					imageRepo.save(newButt);
-//					for(Image i :butts){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> underpans  = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "底盘%");
-				if(underpans.size()>0){
-//					Image underpan  = merge(underpans,wholeImage.getImageId(), doc);
-//					imageRepo.save(underpan);
-//					for(Image i :underpans){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> uppers = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "上车%");
-				if(uppers.size()>0){
-//					Image upper = merge(uppers,wholeImage.getImageId(), doc);
-//					imageRepo.save(upper);
-//					for(Image i :uppers){
-//						imageRepo.delete(i);
-//					}
-				}
-
-				List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "钢轮支架%");
-				if(braces.size()>0){
-					Image brace = merge(braces,wholeImage.getImageId(), doc);
-					imageRepo.save(brace);
-//					for(Image i :braces){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> balanceWeights = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "配重%");
-				if(balanceWeights.size()>0){
-//					Image balanceWeight = merge(balanceWeights,wholeImage.getImageId(), doc);
-//					imageRepo.save(balanceWeight);
-//					for(Image i :balanceWeights){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> ladders = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "爬梯%");
-				if(ladders.size()>0){
-//					Image ladder = merge(ladders,wholeImage.getImageId(), doc);
-//					imageRepo.save(ladder);
-//					for(Image i :ladders){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "后罩%");
-				if(realCowls.size()>0){
-					Image realCowl = merge(realCowls,wholeImage.getImageId(), doc);
-					imageRepo.save(realCowl);
-//					for(Image i :realCowls){
-//						imageRepo.delete(i);
-//					}
-				}
-				
-				List<Image> vibratingDrums = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "振动轮%");
-				if(vibratingDrums.size()>0){
-//					Image vibratingDrum = merge(vibratingDrums,wholeImage.getImageId(), doc);
-//					imageRepo.save(vibratingDrum);
-//					for(Image i :vibratingDrums){
-//						imageRepo.delete(i);
-//					}
-				}
-			}catch(Exception e){
-				logger.debug("error", e);
-				continue;
-			}
-		}
-		return ResponseGenerator.createSuccessResponse("merge subimage success.");
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "/mergeSubImage", method = RequestMethod.GET)
+//	public RestResponseEntity<Void> mergeSubImage() throws Exception{
+//		String parser = XMLResourceDescriptor.getXMLParserClassName();
+//		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+//		List<Image> wholeImages = imageRepo.findByImageType("WHOLE");
+//		for(Image wholeImage:wholeImages){
+//			try{
+//				String x[] = wholeImage.getImageUrl().split(";");
+//				URL url = new URL(x[0]);
+//				SVGDocument doc = (SVGDocument) f.createSVGDocument(x[0],new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
+//
+//				List<Image> cabs = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "司机室%");
+//				if(cabs.size()>0){
+//					Image newCab = merge(cabs,wholeImage.getImageId(), doc);
+//					imageRepo.save(newCab);
+////					for(Image i :cabs){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> butts = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "下车%");
+//				if(butts.size()>0){
+////					Image newButt = merge(butts,wholeImage.getImageId(), doc);
+////					imageRepo.save(newButt);
+////					for(Image i :butts){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> underpans  = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "底盘%");
+//				if(underpans.size()>0){
+////					Image underpan  = merge(underpans,wholeImage.getImageId(), doc);
+////					imageRepo.save(underpan);
+////					for(Image i :underpans){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> uppers = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "上车%");
+//				if(uppers.size()>0){
+////					Image upper = merge(uppers,wholeImage.getImageId(), doc);
+////					imageRepo.save(upper);
+////					for(Image i :uppers){
+////						imageRepo.delete(i);
+////					}
+//				}
+//
+//				List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "钢轮支架%");
+//				if(braces.size()>0){
+//					Image brace = merge(braces,wholeImage.getImageId(), doc);
+//					imageRepo.save(brace);
+////					for(Image i :braces){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> balanceWeights = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "配重%");
+//				if(balanceWeights.size()>0){
+////					Image balanceWeight = merge(balanceWeights,wholeImage.getImageId(), doc);
+////					imageRepo.save(balanceWeight);
+////					for(Image i :balanceWeights){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> ladders = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "爬梯%");
+//				if(ladders.size()>0){
+////					Image ladder = merge(ladders,wholeImage.getImageId(), doc);
+////					imageRepo.save(ladder);
+////					for(Image i :ladders){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "后罩%");
+//				if(realCowls.size()>0){
+//					Image realCowl = merge(realCowls,wholeImage.getImageId(), doc);
+//					imageRepo.save(realCowl);
+////					for(Image i :realCowls){
+////						imageRepo.delete(i);
+////					}
+//				}
+//				
+//				List<Image> vibratingDrums = imageRepo.findByParentImageIdAndImageNameLike(wholeImage.getImageId(), "振动轮%");
+//				if(vibratingDrums.size()>0){
+////					Image vibratingDrum = merge(vibratingDrums,wholeImage.getImageId(), doc);
+////					imageRepo.save(vibratingDrum);
+////					for(Image i :vibratingDrums){
+////						imageRepo.delete(i);
+////					}
+//				}
+//			}catch(Exception e){
+//				logger.debug("error", e);
+//				continue;
+//			}
+//		}
+//		return ResponseGenerator.createSuccessResponse("merge subimage success.");
+//	}
 	
 	private Point getMinPoint(List<Image> imageGroup){
 		int xMin=Integer.MAX_VALUE;
@@ -537,6 +537,9 @@ public class SurveyController {
 	
 	private Image merge(List<Image> imageGroup,String id,SVGDocument doc) throws Exception{
 		
+		Element featureLine = doc.getElementById("特征线");
+		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
+		
 		Point max = getMaxPoint(imageGroup);
 		Point min = getMinPoint(imageGroup);
 		
@@ -554,27 +557,17 @@ public class SurveyController {
 		String temp[]=imageName.split("/");
 		i.setImageName(temp[0]);
 		i.setImageType("PART");
-		
-		
 
-		Element n1 = doc.getElementById("特征线");
-		Element n2 = doc.getElementById("产品图片");
-		
-
+		/**处理图**/
+		eleProductImage.setAttribute("display", "block");
+		displayFeatureLine(featureLine,"none");
 		SaveAsPngTiles saver = new SaveAsPngTiles();
-		n1.setAttribute("display", "none");
-		n2.setAttribute("display", "block");
-
-		String imageFileName = path +id+"/merged/"+ imageUUID + ".jpg";
-		
+		String imageFileName = path +id+"/merged/"+ imageUUID + ".png";
 		File newFileFolder = new File(path +id+"/merged/");
 		if (!newFileFolder.exists()) {
 			newFileFolder.mkdir();
 		}
-
-		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+imageUUID + ".jpg";
-
-
+		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+imageUUID + ".png";
 		File newFile = new File(imageFileName);
 		if (!newFile.exists()) {
 			newFile.createNewFile();
@@ -584,6 +577,26 @@ public class SurveyController {
 				new Rectangle(min.x,min.y,max.x-min.x,max.y-min.y));
 		
 		i.setImageUrl(urlDetail);
+		/**处理图end**/
+
+		/**处理线**/
+		String lineUUID = UUID.randomUUID().toString().replace("-", "");
+		eleProductImage.setAttribute("display", "none");
+		displayFeatureLine(featureLine,"block");
+		String lineFileName = path +id+"/merged/"+ lineUUID + ".png";
+
+		String urlLineDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+lineUUID + ".png";
+		File newLineFile = new File(lineFileName);
+		if (!newLineFile.exists()) {
+			newLineFile.createNewFile();
+		}
+		InputStream in1 = SvgUtilities.documentToString(doc);
+		saver.tile(in1, lineFileName,
+				new Rectangle(min.x,min.y,max.x-min.x,max.y-min.y));
+		
+		i.setFeatureUrl(urlLineDetail);
+		/**处理线end**/
+		
 		i.setParentImageId(imageGroup.get(0).getParentImageId());
 		i.setProfileImageUrl(null);
 		i.setW(max.x-min.x);
@@ -638,9 +651,9 @@ public class SurveyController {
 		
 		String viewBox = "0 0 "+imageDb.getW() +" " +imageDb.getH();
 		eleSvg.setAttribute("viewBox", viewBox);
-		eleSvg.setAttribute("enable-background","new 0 0 "+imageDb.getW() +" " +imageDb.getH());
-		eleSvg.setAttribute("width", imageDb.getW()+"");
-		eleSvg.setAttribute("height", imageDb.getH()+"");
+//		eleSvg.setAttribute("enable-background","new 0 0 "+imageDb.getW() +" " +imageDb.getH());
+//		eleSvg.setAttribute("width", imageDb.getW()+"");
+//		eleSvg.setAttribute("height", imageDb.getH()+"");
 		
 		//不要那个"产品图片"，没有价值
 		productImage.setAttribute("display", "none");
@@ -710,7 +723,7 @@ public class SurveyController {
 		}
 		displayFeatureLine(featureLine,"none");
 		
-		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
+//		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
 		
 		BinaryColor.convertDom2Png(doc, pngFileName);
 		
@@ -732,14 +745,32 @@ public class SurveyController {
 		for (Component c : componets) {
 			handleSubImage(imageDb, keyPoints, doc, c, v.getId().toString());//处理子图
 		}
+		
+		/****合并子图****/
 
+		List<Image> cabs = imageRepo.findByParentImageIdAndImageNameLike(imageDb.getImageId(), "司机室%");
+		if(cabs.size()>0){
+			Image newCab = merge(cabs,imageDb.getImageId(), doc);
+			imageRepo.save(newCab);
+		}
+
+		List<Image> braces = imageRepo.findByParentImageIdAndImageNameLike(imageDb.getImageId(), "钢轮支架%");
+		if(braces.size()>0){
+			Image brace = merge(braces,imageDb.getImageId(), doc);
+			imageRepo.save(brace);
+		}
+
+		List<Image> realCowls = imageRepo.findByParentImageIdAndImageNameLike(imageDb.getImageId(), "后罩%");
+		if(realCowls.size()>0){
+			Image realCowl = merge(realCowls,imageDb.getImageId(), doc);
+			imageRepo.save(realCowl);
+		}
+		
+		/****End****/
 		imageDb.setContainFeatureLine(true);
 		imageRepo.save(imageDb);
 		images.add(imageDb);//for brands.
 	}
-
-
-
 
 	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id) {
 		try {

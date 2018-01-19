@@ -39,31 +39,36 @@ public class SvgTest {
 	
 	@Test
 	public void testSetBrand() throws Exception  {
-		String parser = XMLResourceDescriptor.getXMLParserClassName();
-		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
-		SVGDocument doc = null;
-		try {
-			String t = "file:C:/Users/neil/git/survey/src/main/resources/"+"10532902250458.svg";
-			doc = (SVGDocument) f.createSVGDocument(t);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		Element featureLine = doc.getElementById("特征线");
-		Element productImage = doc.getElementById("产品图片");
-		
-		Element n1 = (Element)doc.getElementsByTagName("svg").item(0);
-		String viewBox = n1.getAttribute("viewBox");
-		logger.info(viewBox);
-
-		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
-		eleProductImage.setAttribute("display", "none");
-		
-		Element eleImage = (Element) (productImage.getElementsByTagName("image").item(0));
-		eleImage.setAttribute("display", "none");	
-		
-		SvgUtilities.saveDoc2SvgFile(doc, "d:/1/1.svg");
-		BinaryColor.convertDom2Png(doc,"d:/1/1.png");
+//		String parser = XMLResourceDescriptor.getXMLParserClassName();
+//		SVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+//		SVGDocument doc = null;
+//		try {
+//			String t = "file:C:/Users/neil/git/survey/src/main/resources/"+"10532902250458.svg";
+//			doc = (SVGDocument) f.createSVGDocument(t);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		Element featureLine = doc.getElementById("特征线");
+//		Element productImage = doc.getElementById("产品图片");
+//		
+//		Element n1 = (Element)doc.getElementsByTagName("svg").item(0);
+//		String viewBox = n1.getAttribute("viewBox");
+//		logger.info(viewBox);
+//
+//		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
+//		eleProductImage.setAttribute("display", "none");
+//		
+//		Element eleImage = (Element) (productImage.getElementsByTagName("image").item(0));
+//		eleImage.setAttribute("display", "none");	
+//		
+//		SvgUtilities.saveDoc2SvgFile(doc, "d:/1/1.svg");
+//		BinaryColor.convertDom2Png(doc,"d:/1/1.png");
+	}
+	@Test
+	public void runCombin() throws IOException{
+		BinaryColor.conbineImage("D:/G_zcm/git/survey/static/images/png/905643a0f5c14a1988c89d9dc44b9487.png", 
+				"D:/G_zcm/git/survey/static/images/132/merged/87c41caab1ec4c82ab76b4469100aee4.png", 222,38);
 	}
 }
 
