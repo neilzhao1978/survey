@@ -1,10 +1,25 @@
 
 $(function(){
 
-    let flr = new FeatureLineRenderer("featureline-rendering");
+    let olr = new FeatureLineRenderer("overlap-rendering");
     
     
-    flr.loadFeatureLine(133,132,"司机室")
+    olr.loadFeatureLine(133)
+
+    let stitchOptions = {
+        "mode":"stitch",
+        "master":"133",
+        "driverRoom":"133",
+        "wheel":"133",
+        "rearHood":"133"    
+    };
+    let overlapOptions = {
+        "mode":"overlap",
+        "master":"133",
+        "driverRoom":"133",
+        "wheel":"133",
+        "rearHood":"133"  
+    };
 
     // let str = new StitchRenderer("stitch-rendering");
     // str.loadMasterImage(132);

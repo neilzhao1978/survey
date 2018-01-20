@@ -1,0 +1,3 @@
+2018-01-20 11:57:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "1638f70c3c824a44a5df4c9e9c7060fe"; SQL statement:
+SELECT * FROM IMAGE where IMAGE_ID =133 [22018-196]

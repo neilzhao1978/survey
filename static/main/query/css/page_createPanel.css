@@ -11,7 +11,7 @@
 .pad-top-10{  padding-top:10px;  }
 .pad5{ padding:5px; }
 .alignCenter{  text-align:center  }
-.preview-qName{ text-align:center;font-weight:900 }
+
 .h300{ height:300px }
 
 
@@ -74,4 +74,25 @@
     width: 100px;
     height: 40px;
 }
-.brandProductImg{  width:200px;  height:80px  }
+.brandProductImg{  width:200px;  height:200px  }
+
+.image-matrix .title{
+    background:#ddd;
+    padding:5px;
+    text-align: center;
+}
+.image-matrix .form-group{
+    height: 2em;
+    margin: 10px 0;
+    border-bottom: #ddd 1px solid;
+}
+
+.panel-preview h4{
+    margin:20px;
+    line-height: 1.5em;
+}
+.preview-qName{
+    text-align:center;
+    font-weight:900;
+    margin:20px;
+}

@@ -176,11 +176,20 @@
                                                         <div class="container-fluid">
                                                                 <div class="row">
                                                                         <div class="form-horizontal">
-
-                                                                                <label class="col-lg-12">用户选择上限：</label>
-                                                                                <div class="col-lg-12">
-                                                                                        <input type="number" min="1" class="form-control" name="brandLimit" placeholder="" v-model="type.limit" required="true">
-                                                                                        <div class="help-block with-errors"></div>
+                                                                                <label>最大可选图像数：</label>
+                                                                                <div class="radio-group">
+                                                                                        <label class="radio-inline">
+                                                                                        <input type="radio" v-bind:name="type.tabId+'Options'" v-bind:id="type.tabId+'_selection1'" value="1" v-model="type.limit"> 1
+                                                                                        </label>
+                                                                                        <label class="radio-inline">
+                                                                                        <input type="radio" name="type.tabId+'Options'" v-bind:id="type.tabId+'_selection2'" value="2" v-model="type.limit"> 2
+                                                                                        </label>
+                                                                                        <label class="radio-inline">
+                                                                                        <input type="radio" name="type.tabId+'Options'" v-bind:id="type.tabId+'_selection3'" value="3" v-model="type.limit"> 3
+                                                                                        </label>
+                                                                                        <label class="radio-inline">
+                                                                                        <input type="radio" name="type.tabId+'Options'" v-bind:id="type.tabId+'_selection4'" value="4" v-model="type.limit"> 4
+                                                                                        </label>
                                                                                 </div>
 
                                                                         </div>
@@ -188,7 +197,7 @@
                                                                 <br/>
                                                                 <div class="row">
                                                                         <div class="form-group">
-                                                                                <div class="col-lg-4">
+                                                                                <div>
                                                                                         <button class="btn btn-default" onclick="openImgUpLoadWin()">上传图片</button>
                                                                                         <button class="btn btn-default" onclick="openGalleryWin()">图库</button>
                                                                                         <button class="btn btn-default" onclick="emptyInspireAlert()">清空</button>
@@ -208,17 +217,19 @@
                                 </div>
                         </div>
 
-                        <div class="tab-pane mainTabPanel fade" id="preview" >
+                        <div class="tab-pane mainTabPanel fade panel-preview" id="preview" >
                                 <div class="panel panel-default">
                                         <div class="panel-body">
                                                 <h2 class="preview-qName">{{qName}}</h2>
-                                                <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧</h4>
+                                                <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧!</h4>
                                                 <hr/>
                                                 <div class="form-group">
                                                         <label class="col-lg-1 col-lg-offset-1" for="">姓名：</label>
                                                         <div class="col-lg-4">
                                                                 <input  class="form-control" />
                                                         </div>
+                                                </div>
+                                                <div class="form-group">
                                                         <label class="col-lg-1" for="">职业：</label>
                                                         <div class="col-lg-4">
                                                                 <select class="form-control" >
@@ -238,8 +249,12 @@
                                         </div>
                                         <div class="panel-body" >
                                                 <div class="col-lg-3" v-for="brand in brandList">
-                                                        <input type="checkbox" class="brandChoiceChk" v-bind:id="brand.brandId" v-bind:alt="brand.brandId" v-on:click='preview_doCheck'>
-                                                        <img class="brandImg" v-bind:src="brand.brandIconUrl">
+                                                        <div class="thumb-box panel panel-default">
+                                                                <input type="checkbox" class="brandChoiceChk" v-bind="{alt:brand.brandId, name:brand.brandId, id:brand.brandId}" v-on:click='preview_doCheck'/>
+                                                                <label v-bind:for="brand.brandId" class="brandChoiceLabel">
+                                                                        <img class="brandImg" v-bind:src="brand.brandIconUrl" />
+                                                                </label>
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
@@ -251,8 +266,16 @@
                                         <div class="panel-body" >
                                                 <div class="panel-body" >
                                                         <div class="col-lg-3" v-for="pro in selProList">
-                                                        <input type="checkbox" class="brandChoiceChk"  v-bind:id="pro.imageId" />
-                                                        <img class="brandProductImg" v-bind:src="pro.imageUrl">
+                                                                
+                                                        
+
+                                                        <div class="thumb-box panel panel-default">
+                                                                        <input type="checkbox" class="brandChoiceChk" v-bind="{id:'pro-thumb'+pro.imageId}"/>
+                                                                        <label v-bind:for="'pro-thumb'+pro.imageId" class="brandChoiceLabel">
+                                                                                <img class="brandProductImg" v-bind:src="pro.imageUrl" />
+                                                                        </label>
+                                                        </div>
+
                                                         </div>
                                                 </div>
                                         </div>
@@ -341,7 +364,7 @@
                         </div>
                         <div class="modal-body">
                                 <div class="row">
-                                        <div class="col-lg-6 h300">
+                                        <div class="col-sm-7 h300">
                                                 <div class="container-fluid">
                                                         <div class="row">
                                                                 <form method="post" id="form_1" action="" enctype="multipart/form-data">
@@ -366,8 +389,8 @@
                                                         </div>
                                                 </div>
                                         </div>
-                                        <div class="col-lg-6 h300">
-                                                意向关键词
+                                        <div class="col-sm-5 h300 image-matrix">
+                                                <p class="title">选择意象关键词</p>
                                                 <!--<div class="form-group">-->
                                                     <!--<div class="col-md-2">-->
                                                         <!--<input type="radio" id="" name="d_1" alt="精致" onclick="buildInspireDesc(0,0)"/>-->
@@ -380,23 +403,33 @@
                                                 <!--</div>-->
                                                 <div class="form-group">
                                                         <div class="col-md-2">
-                                                            <input type="radio" id="" name="d_2" alt="简洁" onclick="buildInspireDesc(1,0)"/>
+                                                            <input type="radio" id="d00" name="d_2" alt="简洁" onclick="buildInspireDesc(0,0)"/>
                                                         </div>
-                                                        <label for="" class="col-sm-4 control-label">简洁</label>
+                                                        <label for="d00" class="col-sm-4 control-label">简洁</label>
                                                         <div class="col-md-2">
-                                                            <input type="radio" id="" name="d_2" alt="复杂" onclick="buildInspireDesc(1,1)"/>
+                                                            <input type="radio" id="d01" name="d_2" alt="复杂" onclick="buildInspireDesc(0,1)"/>
                                                         </div>
-                                                        <label for="" class="col-sm-4 control-label">复杂</label>
+                                                        <label for="d01" class="col-sm-4 control-label">复杂</label>
                                                 </div>
                                                 <div class="form-group">
                                                         <div class="col-md-2">
-                                                                <input type="radio" id="" name="d_3" alt="圆润" onclick="buildInspireDesc(2,0)" />
+                                                                <input type="radio" id="d10" name="d_3" alt="圆润" onclick="buildInspireDesc(1,0)" />
                                                         </div>
-                                                        <label for="" class="col-sm-4 control-label">圆润</label>
+                                                        <label for="d10" class="col-sm-4 control-label">圆润</label>
                                                         <div class="col-md-2">
-                                                                <input type="radio" id=""  name="d_3" alt="硬朗" onclick="buildInspireDesc(2,1)" />
+                                                                <input type="radio" id="d11"  name="d_3" alt="硬朗" onclick="buildInspireDesc(1,1)" />
                                                         </div>
-                                                        <label for="" class="col-sm-4 control-label">硬朗</label>
+                                                        <label for="d11" class="col-sm-4 control-label">硬朗</label>
+                                                </div>
+                                                <div class="form-group">
+                                                        <div class="col-md-2">
+                                                                <input type="radio" id="d20" name="d_7"  alt="现代"  onclick="buildInspireDesc(2,0)"/>
+                                                        </div>
+                                                        <label for="d20" class="col-sm-4 control-label">现代</label>
+                                                        <div class="col-md-2">
+                                                                <input type="radio" id="d21" name="d_7"  alt="传统" onclick="buildInspireDesc(2,1)"/>
+                                                        </div>
+                                                        <label for="d21" class="col-sm-4 control-label">传统</label>
                                                 </div>
                                                 <!--<div class="form-group">-->
                                                     <!--<div class="col-md-2">-->
@@ -428,16 +461,7 @@
                                                     <!--</div>-->
                                                     <!--<label for="" class="col-sm-4 control-label">冷漠</label>-->
                                                 <!--</div>-->
-                                                <div class="form-group">
-                                                        <div class="col-md-2">
-                                                                <input type="radio" id="" name="d_7"  alt="现代"  onclick="buildInspireDesc(6,0)"/>
-                                                        </div>
-                                                        <label for="" class="col-sm-4 control-label">现代</label>
-                                                        <div class="col-md-2">
-                                                                <input type="radio" id="" name="d_7"  alt="传统" onclick="buildInspireDesc(6,1)"/>
-                                                        </div>
-                                                        <label for="" class="col-sm-4 control-label">传统</label>
-                                                </div>
+                                                
                                                 <!--<div class="form-group">-->
                                                     <!--<div class="col-md-2">-->
                                                         <!--<input type="radio" id="" name="d_8"  alt="安静" onclick="buildInspireDesc(7,0)"/>-->
@@ -454,7 +478,7 @@
                         </div>
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal" id="upload_btn" name="submit" onclick="submitPic('form_1')">确定</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn" data-dismiss="modal">取消</button>
                         </div>
                 </div>
         </div>

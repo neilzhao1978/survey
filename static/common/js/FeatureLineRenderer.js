@@ -60,19 +60,13 @@ class FeatureLineRenderer{
                 let combinedImage_data_url = "data:image/png;base64,"+response_data.data.combinedImage;
                 //调用p5加载图像数据到p5.Graphics对象
                 self.p5Instance.loadImage(featureLine_data_url,(img)=>{
-                    self.featureLine = self.p5Instance.createGraphics(
-                        img.width,
-                        img.height
-                    )
+                    
                     self.featureLine = img;
                     //p5.Graphics对象创建好以后，开始绘制
                     self.drawFeatureLine();
                 })
                 self.p5Instance.loadImage(combinedImage_data_url,(img)=>{
-                    self.featureLine = self.p5Instance.createGraphics(
-                        img.width,
-                        img.height
-                    )
+                    
                     self.combinedImage = img;
                     //p5.Graphics对象创建好以后，开始绘制
                     self.drawFeatureLine();
@@ -96,9 +90,12 @@ class FeatureLineRenderer{
             )
         }
         if(this.combinedImage){
+            g.tint(255, 30);
             g.image(this.combinedImage,0,0,g.width,g.height)
+            g.filter(this.p5Instance.THRESHOLD)
         }
         if(this.featureLine){
+            g.noTint();
             g.image(this.featureLine,0,0,g.width,g.height)
         }
         
@@ -110,8 +107,8 @@ class FeatureLineRenderer{
         this.p5Instance.push();
         this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
         this.p5Instance.image(
-            this.featureLine,0,0,
-            (this.canvasH-10)/this.featureLine.height*this.featureLine.width,
+            g,0,0,
+            (this.canvasH-10)/g.height*g.width,
             this.canvasH-10
             
         );
@@ -121,8 +118,9 @@ class FeatureLineRenderer{
     drawBackground(url){
         let img_url = url || DEFAULT_FL_BG_URL;
         $("#"+this.containerDOM).css({
-            "background-image":"url("+img_url+")",
-            "background-size":"cover"
+            // "background-image":"url("+img_url+")",
+            // "background-size":"cover"
+            "background-color":"#ffffff"
         })
         
     }
