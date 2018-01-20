@@ -4,7 +4,7 @@
     依赖jQuery及p5js
 */
 
-const FEATURELINE_POST_URL = "http://localhost:8000/api/imageService/geneProfileImage"
+const GET_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImageExt"
 const DEFAULT_FL_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
 class FeatureLineRenderer{
@@ -20,7 +20,10 @@ class FeatureLineRenderer{
         this.canvasW = w;
         this.canvasH = h;
 
+        this.featureLineData = null;
         this.featureLine = null;
+        this.combinedImage = null;
+        
         let self = this;
 
         //定义并初始化p5实例
@@ -36,35 +39,70 @@ class FeatureLineRenderer{
         
     }
 
-    loadFeatureLine(options){
+    loadFeatureLine(base_image_id,replace_image_id,part_name){
         let self = this;
-        this.p5Instance.httpPost(
-            FEATURELINE_POST_URL,
-            "json",
-            options,
+        let url = GET_IMAGE_URL;
+        if(base_image_id){
+            url += "?baseImageId="+base_image_id;
+        }
+        if(replace_image_id){
+            url += "&replaceImageId="+replace_image_id;
+        }
+        if(part_name){
+            url += "&partName="+part_name;
+        }
+        $.get(
+            url,
             (response_data)=>{
                 //数据获取成功
-                let image_data_url = "data:image/png;base64,"+response_data.data;
+                self.featureLineData = response_data.data;
+                let featureLine_data_url = "data:image/png;base64,"+response_data.data.combinedFeature;
+                let combinedImage_data_url = "data:image/png;base64,"+response_data.data.combinedImage;
                 //调用p5加载图像数据到p5.Graphics对象
-                self.p5Instance.loadImage(image_data_url,(img)=>{
+                self.p5Instance.loadImage(featureLine_data_url,(img)=>{
                     self.featureLine = self.p5Instance.createGraphics(
                         img.width,
                         img.height
                     )
-                    self.featureLine.image(img,0,0);
+                    self.featureLine = img;
+                    //p5.Graphics对象创建好以后，开始绘制
+                    self.drawFeatureLine();
+                })
+                self.p5Instance.loadImage(combinedImage_data_url,(img)=>{
+                    self.featureLine = self.p5Instance.createGraphics(
+                        img.width,
+                        img.height
+                    )
+                    self.combinedImage = img;
                     //p5.Graphics对象创建好以后，开始绘制
                     self.drawFeatureLine();
                 })
                 
-            },
-            (error)=>{
+            })
+            .fail((error)=>{
                 //处理错误
-                self.drawMsg(error.status)
-            }
-        )
+                self.drawMsg(error.toString())
+            })
+        
     }
 
     drawFeatureLine(){
+
+        let g = null;
+        if(this.featureLineData){
+            g = this.p5Instance.createGraphics(
+                this.featureLineData.w,
+                this.featureLineData.h
+            )
+        }
+        if(this.combinedImage){
+            g.image(this.combinedImage,0,0,g.width,g.height)
+        }
+        if(this.featureLine){
+            g.image(this.featureLine,0,0,g.width,g.height)
+        }
+        
+
         this.drawBackground();
         this.p5Instance.clear();
         
