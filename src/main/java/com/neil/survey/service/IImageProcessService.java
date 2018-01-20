@@ -12,7 +12,7 @@ import com.neil.survey.module.ProfileCombine;
 
 public interface IImageProcessService {
 	byte[] getCombinedImage(ProfileCombine profileCombine) throws MalformedURLException, IOException, TranscoderException;
-//	List<Image> getCartoonBaseImage(String imageId);
+	List<Image> getCartoonBaseImage(List<String> imageIds);
 	List<Image> getCartoonReplaceImage(String imageId, String partName);
-	List<Image> getCartoonBaseImage(String imageId, String partName);
+	List<Image> getCartoonBaseImage(String imageId, List<String> partName);
 }
