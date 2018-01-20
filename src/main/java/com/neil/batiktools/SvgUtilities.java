@@ -79,9 +79,6 @@ public class SvgUtilities {
 	      List<Point2D>  points=new LinkedList<Point2D>();
 	      SVGDocument  doc = (SVGDocument)f.createSVGDocument(uri);
 	      
-
-
-	      
 	      NodeList paths = doc.getElementsByTagNameNS(svgNS,"path");
 	      for(int i=0;i<paths.getLength();i++){
 	    	  Element elementPath = (Element)paths.item(i);

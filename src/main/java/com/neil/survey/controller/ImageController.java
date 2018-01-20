@@ -2,16 +2,9 @@ package com.neil.survey.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -27,7 +20,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.neil.imagetools.BinaryColor;
 import com.neil.survey.inputout.ImagePartRe;
-import com.neil.survey.inputout.ImageReplaceParam;
 import com.neil.survey.inputout.ImageWholeRe;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.Image;
@@ -72,7 +64,7 @@ public class ImageController {
 			@RequestParam(value = "type", required = false) String type) {
 
 		PageRequest pageRequest = new PageRequest(page.getPageNumber()-1, page.getPageSize(), null);
-		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("imageType", match -> match.endsWith());
+		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("imageType", match -> match.exact());
 		Image i = new Image();
 		i.setImageType(type);
 		Example<Image> example = Example.of(i, matcher);
@@ -231,93 +223,116 @@ public class ImageController {
 			return ResponseGenerator.createSuccessResponse("产生成功",1,Base64.encodeBase64String(result),null);
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/getCartoonWholeImage", method = RequestMethod.GET)
-	public RestResponseEntity<ImageWholeRe> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
-		try{
-			
-			ImageWholeRe rtn = new ImageWholeRe();
-			
-			List<Image> rtnImages = imageProcessService.getCartoonWholeImage(imageId);
-			if(rtnImages.size()>0){
-				Image whole = rtnImages.get(0);
-				rtn.setWholeImageUrl(whole.getImageUrl());
-				rtn.setH(whole.getH());
-				rtn.setW(whole.getW());
-				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
-				for(int i = 1;i<rtnImages.size();i++){
-					ImagePartRe part = new ImagePartRe();
-					part.setH(rtnImages.get(i).getH());
-					part.setW(rtnImages.get(i).getW());
-					part.setX(rtnImages.get(i).getX());
-					part.setY(rtnImages.get(i).getY());
-					part.setName(rtnImages.get(i).getImageName());
-					part.setUrl(null);
-					parts.add(part);
-				}
-				rtn.setAllParts(parts);
-			}else{
-				return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
-			}
-			
-			return ResponseGenerator.createSuccessResponse("获取产品整体图像成功。",1,rtn,null);
-		}catch(Exception e){
-			return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
-		}
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "/getCartoonWholeImage", method = RequestMethod.GET)
+//	public RestResponseEntity<ImageWholeRe> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
+//		try{
+//			
+//			ImageWholeRe rtn = new ImageWholeRe();
+//			
+//			List<Image> rtnImages = imageProcessService.getCartoonBaseImage(imageId);
+//			if(rtnImages.size()>0){
+//				Image whole = rtnImages.get(0);
+//				rtn.setWholeImageUrl(whole.getImageUrl());
+//				rtn.setH(whole.getH());
+//				rtn.setW(whole.getW());
+//				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
+//				for(int i = 1;i<rtnImages.size();i++){
+//					ImagePartRe part = new ImagePartRe();
+//					part.setH(rtnImages.get(i).getH());
+//					part.setW(rtnImages.get(i).getW());
+//					part.setX(rtnImages.get(i).getX());
+//					part.setY(rtnImages.get(i).getY());
+//					part.setName(rtnImages.get(i).getImageName());
+//					part.setUrl(null);
+//					parts.add(part);
+//				}
+//				rtn.setAllParts(parts);
+//			}else{
+//				return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
+//			}
+//			
+//			return ResponseGenerator.createSuccessResponse("获取产品整体图像成功。",1,rtn,null);
+//		}catch(Exception e){
+//			return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
+//		}
+//	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.GET)
-	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImage(@RequestParam(value = "imageId",required=true) String imageId,
-			@RequestParam(value = "partName",required=true) String partName){
-		try{
-			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
-			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageId,partName);
-			if(rtn.size()>0){
-				for(Image i : rtn){
-					ImagePartRe part = new ImagePartRe();
-					part.setH(i.getH());
-					part.setW(i.getW());
-					part.setX(i.getX());
-					part.setY(i.getY());
-					part.setUrl(i.getImageUrl());
-					part.setName(i.getImageName());
-					rtParts.add(part);
-				}
-				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
-			}else{
-				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
-			}
-			
-		}catch(Exception e){
-			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
-		}
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.GET)
+//	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImage(@RequestParam(value = "imageId",required=true) String imageId,
+//			@RequestParam(value = "partName",required=true) String partName){
+//		try{
+//			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
+//			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageId,partName,"WHOLE");
+//			if(rtn.size()>0){
+//				for(Image i : rtn){
+//					ImagePartRe part = new ImagePartRe();
+//					part.setH(i.getH());
+//					part.setW(i.getW());
+//					part.setX(i.getX());
+//					part.setY(i.getY());
+//					part.setUrl(i.getImageUrl());
+//					part.setName(i.getImageName());
+//					rtParts.add(part);
+//				}
+//				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
+//			}else{
+//				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+//			}
+//			
+//		}catch(Exception e){
+//			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+//		}
+//	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/getCartoonReplaceImageExt", method = RequestMethod.GET)
-	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImageExt(@RequestParam(value = "imageIdScr",required=true) String imageIdScr,
-			@RequestParam(value = "imageIdTarget",required=true) String imageIdTarget,
-			@RequestParam(value = "partName",required=true) String partName){
+	public RestResponseEntity<ImagePartRe> getCartoonReplaceImageExt(
+			@RequestParam(value = "baseImageId",required=true) String baseImageId,
+			@RequestParam(value = "replaceImageId",required=false) String replaceImageId,
+			@RequestParam(value = "partName",required=false) String partName){
 		try{
-			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
+
+			replaceImageId = replaceImageId==null?"null":replaceImageId;
+			partName = partName==null?"%%":partName;
+			ImagePartRe part = new ImagePartRe();
 			
-			List<Image> targetImages = imageProcessService.getCartoonReplaceImage(imageIdTarget,partName);
+			List<Image> baseImages = imageProcessService.getCartoonBaseImage(baseImageId,partName);
 			
-			List<Image> scrImages = imageProcessService.getCartoonReplaceImage(imageIdScr,partName);
-			if(scrImages.size()==1 && targetImages.size()==1){
-				for(Image i : scrImages){
-					ImagePartRe part = new ImagePartRe();
-					part.setH(targetImages.get(0).getH());
-					part.setW(targetImages.get(0).getW());
-					part.setX(targetImages.get(0).getX());
-					part.setY(targetImages.get(0).getY());
-					part.setUrl(i.getImageUrl());
-					part.setName(i.getImageName());
-					rtParts.add(part);
-				}
-				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
-			}else{
+			List<Image> replaceImages = imageProcessService.getCartoonReplaceImage(replaceImageId,partName);
+			if(baseImages.size()==2 && replaceImages.size()==1){//baseImages 返回模板和被替换部件，所以为2，replaceImages只能为一个。
+				
+				String image = BinaryColor.conbineImage(baseImages.get(0).getPngImageUrl(),replaceImages.get(0).getImageUrl(),
+						baseImages.get(1).getX(),baseImages.get(1).getY());
+				String line = BinaryColor.conbineImage(baseImages.get(0).getFeatureUrl(),replaceImages.get(0).getFeatureUrl(),
+						baseImages.get(1).getX(),baseImages.get(1).getY());
+				
+				part.setCombinedImage(image);
+				part.setCombinedFeature(line);
+				part.setH(baseImages.get(0).getH());
+				part.setW(baseImages.get(0).getW());
+				part.setX(null);
+				part.setY(null);
+				part.setUrl(baseImages.get(0).getImageUrl());
+				part.setName(baseImages.get(0).getImageName());
+
+				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+			}else if (baseImages.size()==1 && replaceImages.size()==0){
+				String image = BinaryColor.conbineImage(baseImages.get(0).getPngImageUrl(),null,0,0);
+				String line = BinaryColor.conbineImage(baseImages.get(0).getFeatureUrl(),null,0,0);
+				
+				part.setCombinedImage(image);
+				part.setCombinedFeature(line);
+				part.setH(baseImages.get(0).getH());
+				part.setW(baseImages.get(0).getW());
+				part.setX(null);
+				part.setY(null);
+				part.setUrl(baseImages.get(0).getImageUrl());
+				part.setName(baseImages.get(0).getImageName());
+
+				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+			}else{				
 				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 			}
 			
@@ -325,5 +340,4 @@ public class ImageController {
 			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
-	
 }

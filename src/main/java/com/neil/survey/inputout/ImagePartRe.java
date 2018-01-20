@@ -1,22 +1,16 @@
 package com.neil.survey.inputout;
 
 public class ImagePartRe{
+
 	private Integer x;
 	private Integer y;
 	private Integer w;
 	private Integer h;
-	public Integer getX() {
-		return x;
-	}
-	public void setX(Integer x) {
-		this.x = x;
-	}
-	public Integer getY() {
-		return y;
-	}
-	public void setY(Integer y) {
-		this.y = y;
-	}
+	private String combinedImage;
+	private String combinedFeature;
+	private String name;
+	private String url;
+	
 	public Integer getW() {
 		return w;
 	}
@@ -29,15 +23,19 @@ public class ImagePartRe{
 	public void setH(Integer h) {
 		this.h = h;
 	}
-	private String name;
-	private String url;
-	
 
-	public String getName() {
-		return name;
+
+	public Integer getX() {
+		return x;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setX(Integer x) {
+		this.x = x;
+	}
+	public Integer getY() {
+		return y;
+	}
+	public void setY(Integer y) {
+		this.y = y;
 	}
 	public String getUrl() {
 		return url;
@@ -45,4 +43,23 @@ public class ImagePartRe{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCombinedFeature() {
+		return combinedFeature;
+	}
+	public void setCombinedFeature(String combinedFeature) {
+		this.combinedFeature = combinedFeature;
+	}
+	public String getCombinedImage() {
+		return combinedImage;
+	}
+	public void setCombinedImage(String combinedImage) {
+		this.combinedImage = combinedImage;
+	}
+
 }
