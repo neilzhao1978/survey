@@ -685,3 +685,7 @@ insert into survey (answer_count, email, desc, max_user_animal_image_count, max_
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
+2018-01-21 17:21:45.738  INFO 5378 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-01-21 17:21:45.753  INFO 5378 --- [RMI TCP Connection(2)-127.0.0.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Sat Jan 20 12:13:36 CST 2018]; root of context hierarchy
+2018-01-21 17:21:45.783  INFO 5378 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-01-21 17:21:45.788  INFO 5378 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
