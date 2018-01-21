@@ -1,4 +1,0 @@
-2018-01-21 17:21:45.738 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -Application shutdown requested.
-2018-01-21 17:21:45.753 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1139b2f3: startup date [Sat Jan 20 12:13:36 CST 2018]; root of context hierarchy
-2018-01-21 17:21:45.783 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
-2018-01-21 17:21:45.788 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'

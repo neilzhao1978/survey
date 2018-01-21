@@ -358,13 +358,15 @@ public class SurveyController {
 				Set<Image> images = new HashSet<Image>();
 
 				for (VehicleInfo_P v : vehicheResp.object) {
-					try {
-						handleWholeImage(b, images, v);
-						brand.setImages(images);
-						brandRepo.save(brand);
-					} catch (Exception e) {
-						logger.error("insert whole image erro.");
-						e.printStackTrace();
+					if(v.getCategoryName().contains("压路机")){
+						try {
+							handleWholeImage(b, images, v);
+							brand.setImages(images);
+							brandRepo.save(brand);
+						} catch (Exception e) {
+							logger.error("insert whole image erro.");
+							e.printStackTrace();
+						}
 					}
 				}
 			}catch(Exception e){

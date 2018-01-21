@@ -34,6 +34,7 @@ import com.neil.imagetools.BinaryColor;
 import com.neil.survey.inputout.ImagePartRe;
 import com.neil.survey.inputout.ImageWholeRe;
 import com.neil.survey.module.Brand;
+import com.neil.survey.module.GeneCombineImage;
 import com.neil.survey.module.Image;
 import com.neil.survey.module.ProfileCombine;
 import com.neil.survey.repository.BrandRepository;
@@ -215,7 +216,9 @@ public class ImageController {
 			return ResponseGenerator.createFailResponse("删除图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
+	
 
+	
 	@ResponseBody
 	@RequestMapping(value = "/geneProfileImage", method = RequestMethod.POST)
 	public RestResponseEntity<String> geneProfileImage(@RequestBody ProfileCombine profileCombine) throws IOException, TranscoderException {
@@ -286,6 +289,88 @@ public class ImageController {
 //		}
 //	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = "/processImage", method = RequestMethod.POST)
+	public RestResponseEntity<ImagePartRe> processImage(@RequestBody GeneCombineImage geneCombineImage) throws IOException{
+		
+		ImagePartRe part = new ImagePartRe();
+		List<String> partNms = new ArrayList<String>();
+		List<Image> srcImages = new ArrayList<Image>();
+		List<Image> drivers = null;
+		List<Image> wheels = null;
+		List<Image> rearHoods = null;
+		List<String> imageIds = new ArrayList<String>();
+		
+		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
+			if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+				partNms.add("司机室");
+				drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
+				srcImages.addAll(drivers);
+			}
+			if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
+				partNms.add("钢轮支架");
+				wheels = imageProcessService.getCartoonReplaceImage(geneCombineImage.getWheel(),"钢轮支架");
+				srcImages.addAll(wheels);
+			}
+			if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+				partNms.add("后罩");
+				rearHoods = imageProcessService.getCartoonReplaceImage(geneCombineImage.getRearHood(),"后罩");
+				srcImages.addAll(rearHoods);
+			}
+		}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
+//			if(geneCombineImage.getMaster()!=null&&geneCombineImage.getMaster().length()>0){
+//				imageIds.add(geneCombineImage.getMaster());
+//			}
+			if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+				imageIds.add(geneCombineImage.getDriverRoom());
+			}
+			if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0) {
+				imageIds.add(geneCombineImage.getWheel());
+			}
+			if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+				imageIds.add(geneCombineImage.getRearHood());
+			}
+		}
+		
+		List<String> imageUrls = new ArrayList<String>();
+		List<String> featureUrls = new ArrayList<String>();
+		List<Image> baseImages = imageProcessService.getCartoonBaseImage(geneCombineImage.getMaster(),partNms);
+		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
+			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages);
+			
+			part.setCombinedImage(str[0]);
+			part.setCombinedFeature(str[1]);
+			part.setH(baseImages.get(0).getH());
+			part.setW(baseImages.get(0).getW());
+			part.setX(null);
+			part.setY(null);
+			part.setUrl(baseImages.get(0).getImageUrl());
+			part.setName(baseImages.get(0).getImageName());
+			return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+		}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
+			List<Image> images = imageProcessService.getCartoonBaseImage(imageIds);
+			for(Image image:images){
+				imageUrls.add(image.getPngImageUrl());
+				featureUrls.add(image.getFeatureUrl());
+			}
+			String image = BinaryColor.combineWholeImage(baseImages.get(0).getPngImageUrl(), imageUrls);//0处为master。
+			String line = BinaryColor.combineWholeImage(baseImages.get(0).getFeatureUrl(), featureUrls);
+			
+			part.setCombinedImage(image);
+			part.setCombinedFeature(line);
+			part.setH(baseImages.get(0).getH());
+			part.setW(baseImages.get(0).getW());
+			part.setX(null);
+			part.setY(null);
+			part.setUrl(baseImages.get(0).getImageUrl());
+			part.setName(baseImages.get(0).getImageName());
+			return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+		}
+		return ResponseGenerator.createFailResponse("获取产品可替换图像失败。",ErrorCode.DB_ERROR);
+	}
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "/getCartoonReplaceImageExt", method = RequestMethod.GET)
 	public RestResponseEntity<ImagePartRe> getCartoonReplaceImageExt(
@@ -298,14 +383,14 @@ public class ImageController {
 			partName = partName==null?"%%":partName;
 			ImagePartRe part = new ImagePartRe();
 			
-			List<Image> baseImages = imageProcessService.getCartoonBaseImage(baseImageId,partName);
+			List<Image> baseImages = imageProcessService.getCartoonBaseImage(baseImageId,null);//debug partName
 			
 			List<Image> replaceImages = imageProcessService.getCartoonReplaceImage(replaceImageId,partName);
 			if(baseImages.size()==2 && replaceImages.size()==1){//baseImages 返回模板和被替换部件，所以为2，replaceImages只能为一个。
 				
-				String image = BinaryColor.conbineImage(baseImages.get(0).getPngImageUrl(),replaceImages.get(0).getImageUrl(),
+				String image = BinaryColor.combineImage(baseImages.get(0).getPngImageUrl(),replaceImages.get(0).getImageUrl(),
 						baseImages.get(1).getX(),baseImages.get(1).getY());
-				String line = BinaryColor.conbineImage(baseImages.get(0).getFeatureUrl(),replaceImages.get(0).getFeatureUrl(),
+				String line = BinaryColor.combineImage(baseImages.get(0).getFeatureUrl(),replaceImages.get(0).getFeatureUrl(),
 						baseImages.get(1).getX(),baseImages.get(1).getY());
 				
 				part.setCombinedImage(image);
@@ -319,8 +404,8 @@ public class ImageController {
 
 				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
 			}else if (baseImages.size()==1 && replaceImages.size()==0){
-				String image = BinaryColor.conbineImage(baseImages.get(0).getPngImageUrl(),null,0,0);
-				String line = BinaryColor.conbineImage(baseImages.get(0).getFeatureUrl(),null,0,0);
+				String image = BinaryColor.combineImage(baseImages.get(0).getPngImageUrl(),null,0,0);
+				String line = BinaryColor.combineImage(baseImages.get(0).getFeatureUrl(),null,0,0);
 				
 				part.setCombinedImage(image);
 				part.setCombinedFeature(line);
@@ -340,4 +425,6 @@ public class ImageController {
 			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
+
+	
 }
