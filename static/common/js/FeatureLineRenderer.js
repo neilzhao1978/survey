@@ -90,9 +90,10 @@ class FeatureLineRenderer{
             )
         }
         if(this.combinedImage){
-            g.tint(255, 30);
+            g.tint(255, 80);
             g.image(this.combinedImage,0,0,g.width,g.height)
-            g.filter(this.p5Instance.THRESHOLD)
+            //g.filter(this.p5Instance.THRESHOLD)
+            g.filter(this.p5Instance.GRAY)
         }
         if(this.featureLine){
             g.noTint();
