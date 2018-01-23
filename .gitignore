@@ -1,5 +1,3 @@
-./target
-*/target/*
-./target/
-./H2/
-./log/
+target/*
+H2/*
+log/*

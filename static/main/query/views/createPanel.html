@@ -147,8 +147,8 @@
                                                         <div class="col-sm-3" v-for="pro in brand.product">
 
                                                                 <div class="thumb-box panel panel-default">
-                                                                        <input type="checkbox" class="productChoiceChk"  v-model="pro.checked" v-bind="{alt:brand.brandId, id:'product-thumb-'pro.imageId}" v-on:click='doCheck_pro'/>
-                                                                        <label v-bind:for="'product-thumb-'pro.imageId" class="productChoiceLabel">
+                                                                        <input type="checkbox" class="productChoiceChk"  v-model="pro.checked" v-bind="{alt:brand.brandId, id:'product-thumb-'+pro.imageId}" v-on:click='doCheck_pro'/>
+                                                                        <label v-bind:for="'product-thumb-'+pro.imageId" class="productChoiceLabel">
                                                                                 <img class="brandProductImg" v-bind:src="pro.imageUrl" />
                                                                         </label>
                                                                 </div>
