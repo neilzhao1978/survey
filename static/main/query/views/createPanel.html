@@ -139,7 +139,7 @@
                                 <div class="container-fluid">
                                         <div class="panel panel-default" v-for="brand in brandList"  v-cloak>
                                                 <div class="panel-heading">
-                                                        <img class="brandImg" v-bind:src="brand.brandIconUrl" />
+                                                        <img class="brandImgHeading" v-bind:src="brand.brandIconUrl" />
                                                         <button class="fr btn btn-default" v-bind:name="brand.brandId" v-on:click='cancelSelect'>取消选择</button>
                                                         <button class="fr btn btn-default" v-bind:name="brand.brandId" v-on:click='selectAll' >全选</button>
                                                 </div>
@@ -147,8 +147,8 @@
                                                         <div class="col-sm-3" v-for="pro in brand.product">
 
                                                                 <div class="thumb-box panel panel-default">
-                                                                        <input type="checkbox" class="brandChoiceChk"  v-model="pro.checked" v-bind="{alt:brand.brandId, name:pro.imageId, id:pro.imageId}" v-on:click='doCheck_pro'/>
-                                                                        <label v-bind:for="pro.imageId" class="brandChoiceLabel">
+                                                                        <input type="checkbox" class="productChoiceChk"  v-model="pro.checked" v-bind="{alt:brand.brandId, id:'product-thumb-'pro.imageId}" v-on:click='doCheck_pro'/>
+                                                                        <label v-bind:for="'product-thumb-'pro.imageId" class="productChoiceLabel">
                                                                                 <img class="brandProductImg" v-bind:src="pro.imageUrl" />
                                                                         </label>
                                                                 </div>
@@ -199,7 +199,7 @@
                                                                         <div class="form-group">
                                                                                 <div>
                                                                                         <button class="btn btn-default" onclick="openImgUpLoadWin()">上传图片</button>
-                                                                                        <button class="btn btn-default" onclick="openGalleryWin()">图库</button>
+                                                                                        <button class="btn btn-default" onclick="openGalleryWin()">从图库中选择</button>
                                                                                         <button class="btn btn-default" onclick="emptyInspireAlert()">清空</button>
                                                                                 </div>
                                                                         </div>
@@ -221,7 +221,7 @@
                                 <div class="panel panel-default">
                                         <div class="panel-body">
                                                 <h2 class="preview-qName">{{qName}}</h2>
-                                                <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧!</h4>
+                                                <h4>您好！为了更好的定义产品造型设计方案，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧!</h4>
                                                 <hr/>
                                                 <div class="form-group">
                                                         <label class="col-lg-1 col-lg-offset-1" for="">姓名：</label>
@@ -270,8 +270,8 @@
                                                         
 
                                                         <div class="thumb-box panel panel-default">
-                                                                        <input type="checkbox" class="brandChoiceChk" v-bind="{id:'pro-thumb'+pro.imageId}"/>
-                                                                        <label v-bind:for="'pro-thumb'+pro.imageId" class="brandChoiceLabel">
+                                                                        <input type="checkbox" class="productChoiceChk" v-bind="{id:'pro-thumb'+pro.imageId}"/>
+                                                                        <label v-bind:for="'pro-thumb'+pro.imageId" class="productChoiceLabel">
                                                                                 <img class="brandProductImg" v-bind:src="pro.imageUrl" />
                                                                         </label>
                                                         </div>
@@ -288,8 +288,15 @@
                                         <div class="panel-body" >
                                                 <div class="panel-body" >
                                                         <div class="col-lg-3" v-for="proD in selProDetailList">
-                                                                <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
-                                                                <img class="brandProductImg" v-bind:src="proD.imageUrl">
+                                                                <!-- <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />
+                                                                <img class="brandProductImg" v-bind:src="proD.imageUrl"> -->
+
+                                                                <div class="thumb-box panel panel-default">
+                                                                        <input type="checkbox" class="productChoiceChk" v-bind="{id:'proD-thumb-'+proD.imageId}"/>
+                                                                        <label v-bind:for="'proD-thumb-'+proD.imageId" class="productChoiceLabel">
+                                                                                <img class="brandProductImg" v-bind:src="proD.imageUrl" />
+                                                                        </label>
+                                                                </div>
                                                         </div>
                                                 </div>
                                         </div>
@@ -303,8 +310,15 @@
                                                 <div class="panel-body" >
                                                         <div class="row">
                                                                 <div class="col-lg-3 pad-top-10" v-for="typeImg in type.imgList">
-                                                                        <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='preview_doCheck_inspireImg()'>
-                                                                        <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
+                                                                        <!-- <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='preview_doCheck_inspireImg()'>
+                                                                        <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/> -->
+
+                                                                        <div class="thumb-box panel panel-default">
+                                                                                <input type="checkbox" class="productChoiceChk" v-bind="{id:'type-thumb'+typeImg.imageId, alt:typeImg.imageType}" v-on:click='preview_doCheck_inspireImg()'/>
+                                                                                <label v-bind:for="'type-thumb'+typeImg.imageId" class="productChoiceLabel">
+                                                                                        <img class="brandProductImg" v-bind:src="typeImg.imageUrl" />
+                                                                                </label>
+                                                                        </div>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -335,9 +349,17 @@
                                                                         <div class='tab-pane container-fluid' v-for="type in gallery" v-bind:id="type.tabId">
                                                                                 <div class="row">
                                                                                         <div class="col-lg-4 pad5 alignCenter" v-for="typeImg in type.imgList" >
-                                                                                                <input class="brandChoiceChk" type="checkbox" v-bind:alt="typeImg.imageId" v-model="typeImg.isSelected" v-on:click="doCheck_inspire"/>
+                                                                                                <!-- <input class="brandChoiceChk" type="checkbox" v-bind:alt="typeImg.imageId" v-model="typeImg.isSelected" v-on:click="doCheck_inspire"/>
                                                                                                 <img class="brandProductImg" v-bind:alt="typeImg.imageId" v-bind:src="typeImg.imageUrl"/><br/>
-                                                                                                <span>{{typeImg.imageDesc}}</span>
+                                                                                                <span>{{typeImg.imageDesc}}</span> -->
+
+                                                                                                <div class="thumb-box panel panel-default">
+                                                                                                        <input type="checkbox" class="productChoiceChk" v-bind="{id:'gallery-thumb'+typeImg.imageId, alt:typeImg.imageId}" v-model="typeImg.isSelected" v-on:click='doCheck_inspire'/>
+                                                                                                        <label v-bind:for="'gallery-thumb'+typeImg.imageId" class="productChoiceLabel">
+                                                                                                                <img class="brandProductImg" v-bind:alt="typeImg.imageId" v-bind:src="typeImg.imageUrl" />
+                                                                                                        </label>
+                                                                                                        <span>{{typeImg.imageDesc}}</span>
+                                                                                                </div>
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
@@ -500,7 +522,7 @@
 
                         </div>
                         <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="saveOrNot(0)">不保存</button>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOrNot(1)">保存</button>
                         </div>
                 </div><!-- /.modal-content -->
@@ -521,7 +543,7 @@
                         </div>
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="inspireTypeImgCancel()">确定</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                         </div>
                 </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

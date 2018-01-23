@@ -186,7 +186,7 @@ var CreateQuery = new Vue({
                         //品牌id
                         brandId:obj.alt,
                         //品牌icon的url
-                        brandIconUrl:obj.nextElementSibling.src,
+                        brandIconUrl:$(obj).next("label").find("img").get(0).src,
                         //此属性下的productList保存的是该品牌下所有的产品信息
                         product:[
 
@@ -222,7 +222,7 @@ var CreateQuery = new Vue({
                     if(CreateQuery.brandList[i].brandId==obj.alt){
                         for(var j=0;j<CreateQuery.brandList[i].product.length;j++){
                             //id为this.alt的brandList下的product中找到imageUrl为选中的图片路径的记录，并将其保存于selProduct属性中
-                            if(CreateQuery.brandList[i].product[j].imageUrl==obj.nextElementSibling.src){
+                            if(CreateQuery.brandList[i].product[j].imageUrl==$(obj).next("label").find("img").get(0).src){
                                 //选中的产品列表保存（放入相应的brandList下的selProduct中）
                                 CreateQuery.brandList[i].selProduct.push(CreateQuery.brandList[i].product[j]);
                                 //选中的产品列表保存（保存于无序列表）
@@ -242,7 +242,7 @@ var CreateQuery = new Vue({
             else{
                 //在vue 的selProList中找到取消选中的产品信息；并将其剔除。
                 for(i=0;i<CreateQuery.selProList.length;i++){
-                    if(CreateQuery.selProList[i].imageUrl==obj.nextElementSibling.src){
+                    if(CreateQuery.selProList[i].imageUrl==$(obj).next("label").find("img").get(0).src){
                         CreateQuery.selProList.splice(i,1);
                         break
                     }
