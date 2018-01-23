@@ -1,0 +1,105 @@
+#列出所有creator（不用）
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/creatorService/getAllCreatorList
+
+#增加和修改creator（不用）
+curl -H "Content-Type: application/json" -X POST  -d '{"email":"niel@123.com","pwd":"asdf"}' http://localhost:8000/api/creatorService/addCreator
+
+#删除creator（不用）
+curl -H "Content-Type: application/json" -X DELETE  -d '{"email":"g_zcm@163.com"}' http://localhost:8000/api/creatorService/deleteCreator
+
+#使用email 分页查找surveys.（不用）
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&email=niel@123.com' http://localhost:8000/api/creatorService/listSurvey
+###############################################
+#列出所有survey
+
+传入的page中带有如下两个字段。
+	/**
+	 * @备注： 排序字段
+	 */
+	private String orderByFieldName;#排序字段 name,status,answerCount
+	/**
+	 * @备注： 是否递减排序，true表示递减排序，false表示递增排序
+	 */
+	private boolean isDesc;
+
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%221%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/surveyService/getAllSurveys
+
+
+
+#增加/更新survey ，增加时 surveyId 不填，修改时填已有的surveyId.status: 1:草稿，2：发布，3：关闭  9： 删除
+curl -H "Content-Type: application/json" -X POST  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"","brands":[{"brandId":"4028aa4b5f245d46015f245d76ac0001"},{"brandId":"4028aa4b5f245d46015f245d76d20002"}],"images":[{"imageId":"132"},{"imageId":"133"}],"maxUserBrandCount":1,"maxUserInspireImageCount":1}' http://localhost:8000/api/surveyService/updateSurvey
+
+#打开关闭survey 修改时填已有的surveyId.status: 1:草稿，2：发布，3：关闭  9： 删除
+curl -H "Content-Type: application/json" -X POST  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"","brands":[{"brandId":"4028aa4b5f245d46015f245d76ac0001"},{"brandId":"4028aa4b5f245d46015f245d76d20002"}],"images":[{"imageId":"132"},{"imageId":"133"}]}' http://localhost:8000/api/surveyService/closeOpenSurvey
+
+
+#删除survey
+curl -H "Content-Type: application/json" -X DELETE  -d '{"creator":{"email":"niel@123.com"},"name":"123","releaseTime":1507132800000,"status":"1","surveyId":"4028aa4b5f246444015f2470d256003e"}' http://localhost:8000/api/surveyService/deleteSurvey
+
+#survey 明细
+curl -H "Content-Type: application/json" -G -d 'surveyId=4028aa4b5f246444015f2470d256003e' http://localhost:8000/api/surveyService/getSurveyDetail
+
+#f复制survey
+
+curl -H "Content-Type: application/json" -G http://localhost:8000/api/surveyService/copySurvey?surveyId=4028aa4b5f246444015f246b8871003d
+
+###############################################
+#列出所有brands
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d' http://localhost:8000/api/brandService/getAllBrands
+
+#增加brand（不用）
+curl -H "Content-Type: application/json" -X POST  -d '{"brandIconUrl":"asdfasdfasdf","brandId":"BRAND_3", "brandName":"XCCC","images":[]}' http://localhost:8000/api/brandService/addBrand
+
+#更新brand（不用）
+curl -H "Content-Type: application/json" -X POST  -d '{"brandIconUrl":"asdfasdfasdf","brandId":"BRAND_6", "brandName":"XCCC","images":[{"imageId":"image_1","imageName":"image_1","imageType":"JPG","imageUrl":"C:/1.jpg"}]}' http://localhost:8000/api/brandService/updateBrand
+
+#删除brand（不用）
+curl -H "Content-Type: application/json" -X DELETE  -d '{"brandIconUrl":"asdfasdfasdf","brandId":"BRAND_3", "brandName":"XCCC","images":[]}' http://localhost:8000/api/brandService/deleteBrand
+
+
+
+#################################################
+
+#按品牌列出其下所有的产品整体images
+curl -H "Content-Type: application/json" -G  -d 'brandId=4028aa4b5f245d46015f245d76ac0001' http://localhost:8000/api/imageService/getProductImagesByBrandId
+
+#按产品列出与其相关的细节images。 parentId是上面获得的整体ID
+curl -H "Content-Type: application/json" -G  -d 'parentId=132' http://localhost:8000/api/imageService/getDetailImagesByParentId
+
+#按类型列出所有激发想象图像images  type = INDUSTRY,ANIMAL,BUILDING,ART,OTHERS
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&type=' http://localhost:8000/api/imageService/getAllImages
+
+#上传激发想象图像image type = INDUSTRY,ANIMAL,BUILDING,ART,OTHERS
+curl -H "Content-Type: multipart/form-data"   --form desc="精致，优雅" --form type=INDUSTRY --form file=@D:/logs/1.log http://localhost:8000/api/imageService/uploadImage
+
+#删除Image （不用）
+curl -H "Content-Type: application/json" -X DELETE  -d '{"imageId":"image_1","imageName":"image_1","imageType":"JPG","imageUrl":"C:/1.jpg"}' http://localhost:8000/api/imageService/deleteImage
+
+
+
+#################################################
+#列出所有answer 传入surveyId
+curl -H "Content-Type: application/json" -G  -d 'page=%7b%22pageNumber%22%3a%220%22%2c%22pageSize%22%3a%2220%22%7d&surveyId=4028aa4b5f246444015f24663905003b' http://localhost:8000/api/answerService/getAllAnswerList
+
+#增加answer
+curl -H "Content-Type: application/json" -X POST  -d '{"answerId":"2","brands":[{"brandId":"4028aa4b5f245d46015f245d763f0000"}],"images":[{"imageId":"132"}],"replayerName":"neil","replayerPosition":"swe","replyTime":"2017-9-11","replyerName":"neil","replyerPosition":"swe","survey":{"surveyId":"4028aa4b5f246444015f24663905003b"}}' http://localhost:8000/api/answerService/addAnswer
+
+#更新answer
+curl -H "Content-Type: application/json" -X POST  -d '{"answerId":"402881eb5ef2098b015ef228289b0002","brands":[{"brandId":"BRAND_1"}],"images":[{"imageId":"image_1"}],"replayerName":"neil","replayerPosition":"swe","replyTime":"2017-9-12","replyerName":"neil","replyerPosition":"swe","survey":{"surveyId":"123456"}}' http://localhost:8000/api/answerService/updateAnswer
+
+#删除answer （不用）
+curl -H "Content-Type: application/json" -X DELETE  -d '{"answerId":"402881eb5ef2098b015ef228289b0002"}' http://localhost:8000/api/answerService/deleteAnswer
+
+
+###############################################
+#同步品牌，产品
+curl -H "Content-Type: application/json" -G   http://localhost:8000/api/surveyService/sychDb
+
+#获取结果imageType=WHOLE,DETAIL,INSPIRE
+curl -H "Content-Type: application/json" -G  -d 'surveyId=123456&imageType=WHOLE' http://localhost:8000/api/surveyService/getSurveyResult
+
+
+
+
+
+
