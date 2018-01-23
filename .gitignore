@@ -1,3 +1,7 @@
 target/*
 H2/*
 log/*
+.setting/
+.setting/*
+.vscode/
+.vscode/*
