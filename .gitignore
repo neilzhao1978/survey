@@ -1,4 +1,5 @@
 ./target
 */target/*
 target/
-./H2
+./H2/
+./log/
