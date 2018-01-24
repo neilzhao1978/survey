@@ -569,7 +569,7 @@ public class SurveyController {
 		if (!newFileFolder.exists()) {
 			newFileFolder.mkdir();
 		}
-		String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+imageUUID + ".png";
+		String urlDetail = "http://" + ip + ":" + port + "/allimages/"+id+"/merged/"+imageUUID + ".png";
 		File newFile = new File(imageFileName);
 		if (!newFile.exists()) {
 			newFile.createNewFile();
@@ -587,7 +587,7 @@ public class SurveyController {
 		displayFeatureLine(featureLine,"block");
 		String lineFileName = path +id+"/merged/"+ lineUUID + ".png";
 
-		String urlLineDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/merged/"+lineUUID + ".png";
+		String urlLineDetail = "http://" + ip + ":" + port + "/allimages/"+id+"/merged/"+lineUUID + ".png";
 		File newLineFile = new File(lineFileName);
 		if (!newLineFile.exists()) {
 			newLineFile.createNewFile();
@@ -679,6 +679,7 @@ public class SurveyController {
 		eleSvg.setAttribute("height", imageDb.getH()+"");
 		
 		//不要那个"产品图片"，没有价值
+		if(productImage==null) return;
 		productImage.setAttribute("display", "none");
 		productImage.getParentNode().removeChild(productImage);
 		
@@ -717,12 +718,20 @@ public class SurveyController {
 		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
 		String profileUUID = UUID.randomUUID().toString().replace("-", "");
 		String profileFileName = path+"svg/" + profileUUID + ".svg";
+		File allImageFileFolder = new File(path);
+		if (!allImageFileFolder.exists()) {
+			if(!allImageFileFolder.mkdir()){
+				logger.error("error in creating all images file.");
+				return;
+			}
+		}
+		
 		File newFileFolder = new File(path+"svg/");
 		if (!newFileFolder.exists()) {
 			newFileFolder.mkdir();
 		}
 		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
-		String urlProfile = "http://" + ip + ":" + port + "/static/images/svg/";
+		String urlProfile = "http://" + ip + ":" + port + "/allimages/svg/";
 		imageDb.setProfileImageUrl(urlProfile + profileUUID + ".svg");
 		/**************处理剪影结束,产生svg*****************/
 		
@@ -755,9 +764,9 @@ public class SurveyController {
 		
 		BinaryColor.convertDom2Png(doc, pngFeatureFileName);
 		
-		String urlPng = "http://" + ip + ":" + port + "/static/images/png/";
+		String urlPng = "http://" + ip + ":" + port + "/allimages/png/";
 		imageDb.setPngImageUrl(urlPng+ pngUUID + ".png");
-//		String urlFeaturePng = "http://" + ip + ":" + port + "/static/images/png/";
+//		String urlFeaturePng = "http://" + ip + ":" + port + "/allimages/png/";
 		imageDb.setFeatureUrl(urlPng+ pngFeatureUUID + ".png");
 		
 		imageDb.setImageName(v.getProductCategory());
@@ -830,7 +839,7 @@ public class SurveyController {
 				newFileFolder.mkdir();
 			}
 			
-			String urlDetail = "http://" + ip + ":" + port + "/static/images/"+id+"/";
+			String urlDetail = "http://" + ip + ":" + port + "/allimages/"+id+"/";
 			detail.setImageUrl(urlDetail + imageUUID + ".png");
 
 			File newFile = new File(imageFileName);

@@ -5,3 +5,8 @@ log/*
 .setting/*
 .vscode/
 .vscode/*
+/target/
+./allimages
+/H2/
+/log/
+/allimages/

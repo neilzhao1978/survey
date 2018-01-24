@@ -173,13 +173,13 @@ public class ImageController {
 					stream.write(bytes);
 					stream.close();
 					
-					FileCopyUtils.copy(f, new File(path+fileName));
+					FileCopyUtils.copy(f, new File(path+"/upload/"+fileName));
 					
 					Image image = new Image();
 					image.setImageId(imageUUID);
 					image.setImageName(file.getOriginalFilename());
 					image.setImageType(type);
-					String url = "http://"+host+":"+port+"/static/images/";
+					String url = "http://"+host+":"+port+"/allimages/upload/";
 					image.setImageUrl(url+fileName);
 					image.setImageDesc(desc);
 					Image b = imageRepo.save(image);
@@ -371,6 +371,150 @@ public class ImageController {
 	}
 	
 	
+	//	@ResponseBody
+	//	@RequestMapping(value = "/getCartoonWholeImage", method = RequestMethod.GET)
+	//	public RestResponseEntity<ImageWholeRe> getCartoonWholeImage(@RequestParam(value = "imageId",required=true) String imageId){
+	//		try{
+	//			
+	//			ImageWholeRe rtn = new ImageWholeRe();
+	//			
+	//			List<Image> rtnImages = imageProcessService.getCartoonBaseImage(imageId);
+	//			if(rtnImages.size()>0){
+	//				Image whole = rtnImages.get(0);
+	//				rtn.setWholeImageUrl(whole.getImageUrl());
+	//				rtn.setH(whole.getH());
+	//				rtn.setW(whole.getW());
+	//				List<ImagePartRe> parts = new ArrayList<ImagePartRe>();
+	//				for(int i = 1;i<rtnImages.size();i++){
+	//					ImagePartRe part = new ImagePartRe();
+	//					part.setH(rtnImages.get(i).getH());
+	//					part.setW(rtnImages.get(i).getW());
+	//					part.setX(rtnImages.get(i).getX());
+	//					part.setY(rtnImages.get(i).getY());
+	//					part.setName(rtnImages.get(i).getImageName());
+	//					part.setUrl(null);
+	//					parts.add(part);
+	//				}
+	//				rtn.setAllParts(parts);
+	//			}else{
+	//				return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
+	//			}
+	//			
+	//			return ResponseGenerator.createSuccessResponse("获取产品整体图像成功。",1,rtn,null);
+	//		}catch(Exception e){
+	//			return ResponseGenerator.createFailResponse("获取产品整体图像失败.", ErrorCode.DB_ERROR);
+	//		}
+	//	}
+		
+	//	@ResponseBody
+	//	@RequestMapping(value = "/getCartoonReplaceImage", method = RequestMethod.GET)
+	//	public RestResponseEntity<List<ImagePartRe>> getCartoonReplaceImage(@RequestParam(value = "imageId",required=true) String imageId,
+	//			@RequestParam(value = "partName",required=true) String partName){
+	//		try{
+	//			List<ImagePartRe> rtParts = new ArrayList<ImagePartRe>();
+	//			List<Image> rtn = imageProcessService.getCartoonReplaceImage(imageId,partName,"WHOLE");
+	//			if(rtn.size()>0){
+	//				for(Image i : rtn){
+	//					ImagePartRe part = new ImagePartRe();
+	//					part.setH(i.getH());
+	//					part.setW(i.getW());
+	//					part.setX(i.getX());
+	//					part.setY(i.getY());
+	//					part.setUrl(i.getImageUrl());
+	//					part.setName(i.getImageName());
+	//					rtParts.add(part);
+	//				}
+	//				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",rtParts.size(),rtParts,null);
+	//			}else{
+	//				return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+	//			}
+	//			
+	//		}catch(Exception e){
+	//			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
+	//		}
+	//	}
+		
+		
+//		@ResponseBody
+//		@RequestMapping(value = "/processImage", method = RequestMethod.POST)
+//		public RestResponseEntity<ImagePartRe> processImage(@RequestBody GeneCombineImage geneCombineImage) throws IOException{
+//			
+//			ImagePartRe part = new ImagePartRe();
+//			List<String> partNms = new ArrayList<String>();
+//			List<Image> srcImages = new ArrayList<Image>();
+//			List<Image> drivers = null;
+//			List<Image> wheels = null;
+//			List<Image> rearHoods = null;
+//			List<String> imageIds = new ArrayList<String>();
+//			
+//			if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
+//				if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+//					partNms.add("司机室");
+//					drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
+//					srcImages.addAll(drivers);
+//				}
+//				if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
+//					partNms.add("钢轮支架");
+//					wheels = imageProcessService.getCartoonReplaceImage(geneCombineImage.getWheel(),"钢轮支架");
+//					srcImages.addAll(wheels);
+//				}
+//				if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+//					partNms.add("后罩");
+//					rearHoods = imageProcessService.getCartoonReplaceImage(geneCombineImage.getRearHood(),"后罩");
+//					srcImages.addAll(rearHoods);
+//				}
+//			}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
+//	//			if(geneCombineImage.getMaster()!=null&&geneCombineImage.getMaster().length()>0){
+//	//				imageIds.add(geneCombineImage.getMaster());
+//	//			}
+//				if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+//					imageIds.add(geneCombineImage.getDriverRoom());
+//				}
+//				if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0) {
+//					imageIds.add(geneCombineImage.getWheel());
+//				}
+//				if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+//					imageIds.add(geneCombineImage.getRearHood());
+//				}
+//			}
+//			
+//			List<String> imageUrls = new ArrayList<String>();
+//			List<String> featureUrls = new ArrayList<String>();
+//			List<Image> baseImages = imageProcessService.getCartoonBaseImage(geneCombineImage.getMaster(),partNms);
+//			if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
+//				String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages);
+//				
+//				part.setCombinedImage(str[0]);
+//				part.setCombinedFeature(str[1]);
+//				part.setH(baseImages.get(0).getH());
+//				part.setW(baseImages.get(0).getW());
+//				part.setX(null);
+//				part.setY(null);
+//				part.setUrl(baseImages.get(0).getImageUrl());
+//				part.setName(baseImages.get(0).getImageName());
+//				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+//			}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
+//				List<Image> images = imageProcessService.getCartoonBaseImage(imageIds);
+//				for(Image image:images){
+//					imageUrls.add(image.getPngImageUrl());
+//					featureUrls.add(image.getFeatureUrl());
+//				}
+//				String image = BinaryColor.combineWholeImage(baseImages.get(0).getPngImageUrl(), imageUrls);//0处为master。
+//				String line = BinaryColor.combineWholeImage(baseImages.get(0).getFeatureUrl(), featureUrls);
+//				
+//				part.setCombinedImage(image);
+//				part.setCombinedFeature(line);
+//				part.setH(baseImages.get(0).getH());
+//				part.setW(baseImages.get(0).getW());
+//				part.setX(null);
+//				part.setY(null);
+//				part.setUrl(baseImages.get(0).getImageUrl());
+//				part.setName(baseImages.get(0).getImageName());
+//				return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
+//			}
+//			return ResponseGenerator.createFailResponse("获取产品可替换图像失败。",ErrorCode.DB_ERROR);
+//		}
+
 	@ResponseBody
 	@RequestMapping(value = "/getCartoonReplaceImageExt", method = RequestMethod.GET)
 	public RestResponseEntity<ImagePartRe> getCartoonReplaceImageExt(
