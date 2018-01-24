@@ -358,13 +358,15 @@ public class SurveyController {
 				Set<Image> images = new HashSet<Image>();
 
 				for (VehicleInfo_P v : vehicheResp.object) {
-					try {
-						handleWholeImage(b, images, v);
-						brand.setImages(images);
-						brandRepo.save(brand);
-					} catch (Exception e) {
-						logger.error("insert whole image erro.");
-						e.printStackTrace();
+					if(v.getCategoryName().contains("压路机")){
+						try {
+							handleWholeImage(b, images, v);
+							brand.setImages(images);
+							brandRepo.save(brand);
+						} catch (Exception e) {
+							logger.error("insert whole image erro.");
+							e.printStackTrace();
+						}
 					}
 				}
 			}catch(Exception e){
@@ -629,17 +631,17 @@ public class SurveyController {
 		
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 
-		
+		int boundW = 0;
+		int boundH = 0;
 		if(componets.size()>0){
 			boolean set = false;
 			int size = 0;
 			do{
 				try{
 					Component c = componets.get(size);
-					imageDb.setW(c.image.customData.boundW);//获取高宽
-					imageDb.setH(c.image.customData.boundH);
-					imageDb.setX(0);
-					imageDb.setY(0);
+					boundW = c.image.customData.boundW;//获取高宽
+					boundH = c.image.customData.boundH;
+
 					set=true;
 				}catch(Exception e){
 					continue;
@@ -649,11 +651,32 @@ public class SurveyController {
 			}while(!set&&size<componets.size());
 		}
 		
-		String viewBox = "0 0 "+imageDb.getW() +" " +imageDb.getH();
-		eleSvg.setAttribute("viewBox", viewBox);
-//		eleSvg.setAttribute("enable-background","new 0 0 "+imageDb.getW() +" " +imageDb.getH());
-//		eleSvg.setAttribute("width", imageDb.getW()+"");
-//		eleSvg.setAttribute("height", imageDb.getH()+"");
+		String viewBox = eleSvg.getAttribute("viewBox");
+		String[] cor = viewBox.split(" {1,}");
+		Float tureW = Float.parseFloat(cor[2]);
+		Float tureH = Float.parseFloat(cor[3]);
+		
+		float ratioX = 0f;
+		float ratioY = 0f;
+		if(boundW == 0){
+			ratioX = 1f;
+		}else{
+			ratioX=((float)boundW)/((float)tureW);
+		}
+		
+		if(boundH == 0){
+			ratioY = 1f;
+		}else{
+			ratioY=((float)boundH)/((float)tureH);
+		}
+		
+		
+		imageDb.setX(0);
+		imageDb.setY(0);
+		imageDb.setW(tureW.intValue());
+		imageDb.setH(tureH.intValue());
+		eleSvg.setAttribute("width", imageDb.getW()+"");
+		eleSvg.setAttribute("height", imageDb.getH()+"");
 		
 		//不要那个"产品图片"，没有价值
 		productImage.setAttribute("display", "none");
@@ -743,7 +766,7 @@ public class SurveyController {
 		imageDb.setParentImageId(null);
 		
 		for (Component c : componets) {
-			handleSubImage(imageDb, keyPoints, doc, c, v.getId().toString());//处理子图
+			handleSubImage(imageDb, keyPoints, doc, c, v.getId().toString(),ratioX,ratioY);//处理子图
 		}
 		
 		/****合并子图****/
@@ -772,7 +795,7 @@ public class SurveyController {
 		images.add(imageDb);//for brands.
 	}
 
-	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id) {
+	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id,float xRatio,float yRatio) {
 		try {
 			Element featureLine = doc.getElementById("特征线");
 
@@ -789,10 +812,10 @@ public class SurveyController {
 				logger.info("sub area is null.");
 				return;
 			}
-			detail.setX((int) (c.image.customData.boundW * c.image.customData.x));
-			detail.setY((int) (c.image.customData.boundH * c.image.customData.y));
-			detail.setW(c.image.customData.w);
-			detail.setH(c.image.customData.h);
+			detail.setX((int) (c.image.customData.boundW * c.image.customData.x/xRatio));
+			detail.setY((int) (c.image.customData.boundH * c.image.customData.y/yRatio));
+			detail.setW((int)(c.image.customData.w/xRatio));
+			detail.setH((int)(c.image.customData.h/yRatio));
 
 			/**处理图**/
 			displayFeatureLine(featureLine,"none");

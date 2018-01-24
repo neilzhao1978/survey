@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink"
+    style="enable-background:new 0 0 400 270;" version="1.1" width="400"
+    xml:space="preserve" viewBox="0 0 400 270" height="270"
+    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px">
+<style
+        type="text/css">
+	.st0{fill:none;stroke:#FF0000;stroke-width:1.5;stroke-miterlimit:10;}
+</style>
+<g
+        id="特征线" display="block">
+	
+		<image
+            transform="matrix(1.1046 0 0 1.1054 -0.23 20.7599)"
+            width="362"
+            xlink:href="data:image/png;base64,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"
+            style="overflow:visible;opacity:1.0;"
+            height="211">
+	</image>
+	<polyline class="st0"
+            points="278.8,38.8 274.9,77.1 274.9,114.9  "/>
+	<line
+            y2="110.5" x1="304.9" x2="318.2" class="st0" y1="45.5"/>
+</g>
+
+</svg>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->

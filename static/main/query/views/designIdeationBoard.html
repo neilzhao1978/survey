@@ -31,6 +31,7 @@
     <script src="../../../common/lib/p5js/p5.dom.min.js"></script>
 
     <script src="../../../common/js/FeatureLineRenderer.js"></script>
+    <!-- <script src="../../../common/js/StitchRenderer.js"></script> -->
 
     <script src="../../../common/js/utils.js"></script>
     <script src="../../../common/js/mask.js"></script>
@@ -41,69 +42,74 @@
     <header class="flex-column flex-md-row top-bar">
         <div class="container">
             <div class="row">
-                    <h1>{{SURVEY_NAME}}</h1>
-                    <h2>设计看板</h2>
+                <div class="mid-col">
+                        <h1>{{SURVEY_NAME}}</h1>
+                        <h2>设计看板</h2>
+                </div>
+                    
             </div>
         </div>
         
         
     </header>
     <div class="container main">
+        <div class="panel panel-default panel-ideation">
             <div class="row">
-                    <div class="col-sm-6">
-                        <div class="panel panel-default left-panel">
-                            <ul class="nav nav-tabs toggle-display-tab">
-                                <li role="presentation" class="active"><a href="#">原图</a></li>
-                                <li role="presentation"><a href="#">特征线</a></li>
-                                <li role="presentation"><a href="#">卡通组合</a></li>
-                            </ul>
-
-                            <div class="toggle-display-content">
-                                <div id="featureline-rendering" class="featureline-rendering"></div>
-                            </div>
-
-                            <div class="thumb-container">
-                                <ul class="thumb-list">
-                                    <li>
-                                        <a href="#">
-                                            <img src="" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="panel panel-default">
+                    <div class="col-sm-5 col-3d">
                             <div id="design-datavis-3d" class="design-datavis-3d">
+    
+                            </div>          
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="thumb-panel row">
+                                    <ul class="thumb-list">
+                                        <li>
+                                            <p>栏位0（母版）</p>
+                                            <a href="#" class="thumbnail">
+                                                <img src="" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <p>栏位1（司机室）</p>
+                                            <a href="#" class="thumbnail">
+                                                <img src="" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <p>栏位2（钢轮支架）</p>
+                                            <a href="#" class="thumbnail">
+                                                <img src="" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <p>栏位3（后罩）</p>
+                                            <a href="#" class="thumbnail">
+                                                <img src="" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="render-panel">
+                            <ul class="nav nav-tabs toggle-render-tab" role="tablist">
+                                <li role="presentation"  class="active"><a href="#overlap-rendering" aria-controls="overlap-rendering" role="tab" data-toggle="tab">叠加模式</a></li>
+                                <li role="presentation"><a href="#stitch-rendering" aria-controls="stitch-rendering" role="tab" data-toggle="tab">拼接模式</a></li>
 
-                            </div>
+                            </ul>
+                            <div class="tab-content toggle-render-content">
+                                <div role="tabpanel" class="tab-pane active overlap-rendering" id="overlap-rendering"></div>
+                                <div role="tabpanel" class="tab-pane stitch-rendering" id="stitch-rendering"></div>
+                              </div>
+
+                            
+
                         </div>
                     </div>
+                    
                   
             </div>
-            
+        </div>
         
     </div>
 

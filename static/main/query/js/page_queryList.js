@@ -282,8 +282,5 @@ function fuzzySearch(keyWord,type,list,attrName){
             }
         }
     }
-
     return arr;
-
 }
-

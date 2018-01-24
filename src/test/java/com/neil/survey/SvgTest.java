@@ -67,7 +67,7 @@ public class SvgTest {
 	}
 	@Test
 	public void runCombin() throws IOException{
-		BinaryColor.conbineImage("D:/G_zcm/git/survey/static/images/png/905643a0f5c14a1988c89d9dc44b9487.png", 
+		BinaryColor.combineImage("D:/G_zcm/git/survey/static/images/png/905643a0f5c14a1988c89d9dc44b9487.png", 
 				"D:/G_zcm/git/survey/static/images/132/merged/87c41caab1ec4c82ab76b4469100aee4.png", 222,38);
 	}
 }

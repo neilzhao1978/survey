@@ -11,6 +11,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.imageio.ImageIO;
 
@@ -19,6 +25,8 @@ import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.commons.codec.binary.Base64;
 import org.w3c.dom.Document;
+
+import com.neil.survey.module.Image;
 
   
 public class BinaryColor {
@@ -95,6 +103,8 @@ public class BinaryColor {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
         ImageIO.write(bi, "png", baos);
+        
+//        ImageIO.write(bi, "png", new File("D:/1/p.png"));
         
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));
@@ -205,26 +215,146 @@ public class BinaryColor {
         ImageIO.write(bi, "png", new File(outFileName));
     }
     
-    public static String conbineImage(String bigFileName,String smallFileName, int x,int y) throws IOException{
+    public static String combineImage(String bigFileName,String smallFileName, int x,int y) throws IOException{
+    	InputStream s = null;
+    	Graphics g =  null;
+    	InputStream b = new URL(bigFileName).openStream();
+    	try{
+            try{
+            	s = new URL(smallFileName).openStream();
+            }catch(Exception e){
+            	s = null;
+            }
 
-        InputStream b = new FileInputStream(bigFileName);
-        InputStream s = new FileInputStream(smallFileName);
+            BufferedImage bImg = ImageIO.read(b);        
+            g = bImg.getGraphics();
+            if(s!=null){
+                BufferedImage sImg = ImageIO.read(s);
+                g.drawImage(sImg, x, y,sImg.getWidth(), sImg.getHeight(), null);
+            }
 
-        BufferedImage bImg = ImageIO.read(b);
-        BufferedImage sImg = ImageIO.read(s);
-        
-        Graphics g = bImg.getGraphics();
-        g.drawImage(sImg, x, y,sImg.getWidth(), sImg.getHeight(), null);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
-        ImageIO.write(bImg, "png", baos); 
-        
-        ImageIO.write(bImg, "png", new File("D:/1/conbine.png")); 
-        
-        byte[] bytesOut = baos.toByteArray(); 
-        g.dispose();
-        return Base64.encodeBase64String(bytesOut);
-
-    	
+            ImageIO.write(bImg, "png", baos); 
+            
+            byte[] bytesOut = baos.toByteArray(); 
+            return Base64.encodeBase64String(bytesOut);
+    	}catch(Exception e){
+        	return null;
+        }finally{
+        	g.dispose();
+        }
     }
+    
+    public static String combineWholeImage(String masterFileName,List<String> fileNames) throws IOException{
+    	List<InputStream> s = new ArrayList<InputStream>();
+    	Graphics g =  null;
+    	InputStream b = new URL(masterFileName).openStream();
+    	try{
+            try{
+            	for(String fileName :fileNames){            		
+            		s.add(new URL(fileName).openStream());
+            	}
+            }catch(Exception e){
+            	s = null;
+            }
+
+            BufferedImage bImg = ImageIO.read(b);
+            g = bImg.getGraphics();
+            if(s!=null){
+            	for(InputStream is:s){
+                    BufferedImage sImg = ImageIO.read(is);
+                    g.drawImage(sImg, 0, 0,sImg.getWidth(), sImg.getHeight(), null);
+            	}
+            }
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+
+            ImageIO.write(bImg, "png", baos); 
+            
+//            ImageIO.write(bImg, "png", new File("D:/1/combine.png"));
+            
+            byte[] bytesOut = baos.toByteArray(); 
+            return Base64.encodeBase64String(bytesOut);
+    	}catch(Exception e){
+        	return null;
+        }finally{
+        	g.dispose();
+        }
+    }
+    
+    /**
+     * 
+     * @param masterFileName
+     * @param replaced 用于获取被替换部分的坐标。
+     * @param src 源图地址。
+     * @return String[0]:图像，String[1]:特征线
+     * @throws IOException
+     */
+    public static String[] combineStitchImage(Image baseImage,List<Image> replaced,List<Image> src) throws IOException{
+    	String ret[] = new String[2];
+    	Map<String,Image> replacedMap = new HashMap<String,Image>();
+    	for(Image i:replaced){
+    		replacedMap.put(i.getImageName(), i);
+    	}
+    	Map<String,Image> srcMap = new HashMap<String,Image>();
+    	for(Image i:src){
+    		srcMap.put(i.getImageName(), i);
+    	}    	
+        
+    	try{
+        	Graphics g =  null;
+        	InputStream b = new URL(baseImage.getPngImageUrl()).openStream();
+            BufferedImage bImg = ImageIO.read(b);
+            g = bImg.getGraphics();
+	    	for(Entry<String, Image> e :replacedMap.entrySet()){
+	    		Image replaceImageDb = e.getValue(); 
+	    		Image srcImageDb = srcMap.get(e.getKey());
+	        	InputStream temp = new URL(srcImageDb.getImageUrl()).openStream();
+	            BufferedImage sImg = ImageIO.read(temp);
+	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
+	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
+	    	}
+
+	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+	    	ImageIO.write(bImg, "png", baos); 
+	    	
+//	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
+	    	
+            byte[] bytesOut = baos.toByteArray(); 
+            ret[0]=Base64.encodeBase64String(bytesOut);
+        	g.dispose();
+    	}catch(Exception e){
+    		e.printStackTrace();
+        	return null;
+        }
+    	
+    	try{
+        	Graphics g =  null;
+        	InputStream b = new URL(baseImage.getFeatureUrl()).openStream();
+            BufferedImage bImg = ImageIO.read(b);
+            g = bImg.getGraphics();
+	    	for(Entry<String, Image> e :replacedMap.entrySet()){
+	    		Image replaceImageDb = e.getValue(); 
+	    		Image srcImageDb = srcMap.get(e.getKey());
+	        	InputStream temp = new URL(srcImageDb.getFeatureUrl()).openStream();
+	            BufferedImage sImg = ImageIO.read(temp);
+	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
+	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
+	    	}
+
+	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+	    	ImageIO.write(bImg, "png", baos); 
+//	    	ImageIO.write(bImg, "png", new File("D:/1/stitchFeature.png")); 
+            byte[] bytesOut = baos.toByteArray(); 
+            ret[1]=Base64.encodeBase64String(bytesOut);
+        	g.dispose();
+    	}catch(Exception e){
+    		e.printStackTrace();
+        	return null;
+        }
+    	
+    	return ret;
+    }
+    
 }  
