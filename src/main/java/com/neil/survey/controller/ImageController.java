@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,6 +18,7 @@ import org.apache.batik.transcoder.TranscoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
@@ -108,13 +111,15 @@ public class ImageController {
 	}
 	
     @Value("${web.upload-path}")
-    private String path;
+    private static String path;
 	
     @Value("${server.port}")
-    private String port;
+    private static String port;
     
     @Value("${web.ip}")
-    private String ip;
+    private static String ip;
+    
+
     
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
 	@ResponseBody
@@ -290,6 +295,24 @@ public class ImageController {
 //	}
 	
 	
+
+	@Value("${color.master}")
+	private   String masterColor;
+	
+	@Value("${color.driverRoom}")
+	private   String driverRoomColor;
+	
+	@Value("${color.wheel}")
+	private   String wheelColor;
+	
+	@Value("${color.rearHood}")
+	private   String rearHoodColor;
+	
+    
+    
+
+    
+	
 	@ResponseBody
 	@RequestMapping(value = "/processImage", method = RequestMethod.POST)
 	public RestResponseEntity<ImagePartRe> processImage(@RequestBody GeneCombineImage geneCombineImage) throws IOException{
@@ -337,7 +360,22 @@ public class ImageController {
 		List<String> featureUrls = new ArrayList<String>();
 		List<Image> baseImages = imageProcessService.getCartoonBaseImage(geneCombineImage.getMaster(),partNms);
 		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
-			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages);
+			//////////////////
+		    Map<String,Integer> colorMap = new HashMap<String,Integer>();
+
+	    	Integer masterColorI = Integer.valueOf(masterColor,16);
+	    	Integer driverRoomColorI = Integer.valueOf(driverRoomColor,16);
+	    	Integer wheelColorI = Integer.valueOf(wheelColor,16);
+	    	Integer rearHoodColorI = Integer.valueOf(rearHoodColor,16);
+	    	colorMap.put("master", masterColorI);
+	    	colorMap.put("driverRoom", driverRoomColorI);
+	    	colorMap.put("wheel", wheelColorI);
+	    	colorMap.put("rearHood", rearHoodColorI);
+			//////////////////
+
+			
+			
+			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages,colorMap);
 			
 			part.setCombinedImage(str[0]);
 			part.setCombinedFeature(str[1]);
