@@ -4,7 +4,7 @@
     依赖jQuery及p5js
 */
 
-const GET_IMAGE_URL = "http://localhost:8000/api/imageService/getCartoonReplaceImageExt"
+const GET_IMAGE_URL = "http://localhost:8000/api/imageService/processImage"
 const DEFAULT_FL_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
 class FeatureLineRenderer{
@@ -39,20 +39,15 @@ class FeatureLineRenderer{
         
     }
 
-    loadFeatureLine(base_image_id,replace_image_id,part_name){
+    loadFeatureLine(options){
         let self = this;
         let url = GET_IMAGE_URL;
-        if(base_image_id){
-            url += "?baseImageId="+base_image_id;
-        }
-        if(replace_image_id){
-            url += "&replaceImageId="+replace_image_id;
-        }
-        if(part_name){
-            url += "&partName="+part_name;
-        }
-        $.get(
+        let opt_data = options;
+        
+        this.p5Instance.httpPost(
             url,
+            "json",
+            opt_data,
             (response_data)=>{
                 //数据获取成功
                 self.featureLineData = response_data.data;
@@ -72,11 +67,10 @@ class FeatureLineRenderer{
                     self.drawFeatureLine();
                 })
                 
-            })
-            .fail((error)=>{
-                //处理错误
-                self.drawMsg(error.toString())
-            })
+            },
+            (error)=>{
+                self.drawMsg(error);
+        })
         
     }
 
@@ -92,8 +86,8 @@ class FeatureLineRenderer{
         if(this.combinedImage){
             g.tint(255, 80);
             g.image(this.combinedImage,0,0,g.width,g.height)
-            //g.filter(this.p5Instance.THRESHOLD)
-            g.filter(this.p5Instance.GRAY)
+            g.filter(this.p5Instance.THRESHOLD)
+            //g.filter(this.p5Instance.GRAY)
         }
         if(this.featureLine){
             g.noTint();

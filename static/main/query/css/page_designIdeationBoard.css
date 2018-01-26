@@ -70,6 +70,20 @@
     border-width:4px;
     border-color:#ccc;
 }
+.slot0{
+    border-color: #484848 !important;
+}
+.slot1{
+    border-color: #4f7fff !important;
+    ;
+}
+.slot2{
+    border-color: #ff4f4f !important;
+    ;
+}
+.slot3{
+    border-color: #4eff4e !important;
+}
 .thumb-panel>ul>li img{
     width:100%;
     height:100%;

@@ -4,26 +4,24 @@ $(function(){
     let olr = new FeatureLineRenderer("overlap-rendering");
     
     
-    olr.loadFeatureLine(133)
+    
 
     let stitchOptions = {
-        "mode":"stitch",
         "master":"133",
-        "driverRoom":"133",
+        "driverRoom":"132",
         "wheel":"133",
-        "rearHood":"133"    
+        "rearHood":"132",
+        "mode":"stitch" 
     };
     let overlapOptions = {
-        "mode":"overlap",
         "master":"133",
-        "driverRoom":"133",
+        "driverRoom":"132",
         "wheel":"133",
-        "rearHood":"133"  
+        "rearHood":"132",
+        "mode":"overlap"
     };
-
-    // let str = new StitchRenderer("stitch-rendering");
-    // str.loadMasterImage(132);
-    // str.loadPart1Image(133,132);
+    olr.loadFeatureLine(stitchOptions)
+    
 });
 
 
