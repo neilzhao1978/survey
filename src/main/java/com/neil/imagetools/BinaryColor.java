@@ -24,11 +24,14 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
 import com.neil.survey.module.Image;
 
-  
 public class BinaryColor {
 	//剪影
 	
@@ -290,8 +293,10 @@ public class BinaryColor {
      * @param src 源图地址。
      * @return String[0]:图像，String[1]:特征线
      * @throws IOException
+     * 
      */
-    public static String[] combineStitchImage(Image baseImage,List<Image> replaced,List<Image> src) throws IOException{
+    public  static String[] combineStitchImage(Image baseImage,List<Image> replaced,List<Image> src,Map<String,Integer> colorMap) throws IOException{
+
     	String ret[] = new String[2];
     	Map<String,Image> replacedMap = new HashMap<String,Image>();
     	for(Image i:replaced){
@@ -319,7 +324,7 @@ public class BinaryColor {
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
 	    	
-//	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
+	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
 	    	
             byte[] bytesOut = baos.toByteArray(); 
             ret[0]=Base64.encodeBase64String(bytesOut);
@@ -333,12 +338,46 @@ public class BinaryColor {
         	Graphics g =  null;
         	InputStream b = new URL(baseImage.getFeatureUrl()).openStream();
             BufferedImage bImg = ImageIO.read(b);
+            
+            for (int x = 0; x < bImg.getWidth(); x++) {  
+                for (int y = 0; y < bImg.getHeight(); y++) {  
+                    int pixel = bImg.getRGB(x, y);  
+                    int alpha = (pixel & 0xff000000) >> 24;
+                    if (alpha>0) {//not transparent.
+                    	bImg.setRGB(x, y, colorMap.get("master"));  
+                    }
+                }  
+            } 
+            
             g = bImg.getGraphics();
 	    	for(Entry<String, Image> e :replacedMap.entrySet()){
-	    		Image replaceImageDb = e.getValue(); 
-	    		Image srcImageDb = srcMap.get(e.getKey());
+	    		Image replaceImageDb = e.getValue(); //被替换的图
+	    		Image srcImageDb = srcMap.get(e.getKey());//通过名字找到替换的图。
 	        	InputStream temp = new URL(srcImageDb.getFeatureUrl()).openStream();
 	            BufferedImage sImg = ImageIO.read(temp);
+	            //TODO change sImg's front color.
+	            int color = 0;
+	            if(srcImageDb.getImageName().contains("司机室")){
+	            	color = colorMap.get("driverRoom");
+	            }else if (srcImageDb.getImageName().contains("钢轮")){
+	            	color = colorMap.get("wheel");
+	            }else if (srcImageDb.getImageName().contains("后罩")){
+	            	color = colorMap.get("rearHood");
+	            }else{
+	            	color = 0;//默认
+	            }
+	            
+	            
+	            for (int x = 0; x < sImg.getWidth(); x++) {  
+	                for (int y = 0; y < sImg.getHeight(); y++) {  
+	                    int pixel = sImg.getRGB(x, y);  
+	                    int alpha = (pixel & 0xff000000) >> 24;
+	                    if (alpha>125) {//not transparent.
+	                    	sImg.setRGB(x, y, color);  
+	                    }
+	                }  
+	            } 
+	            
 	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
 	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
 	    	}
