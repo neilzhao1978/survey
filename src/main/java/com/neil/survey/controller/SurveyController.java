@@ -696,7 +696,7 @@ public class SurveyController {
 		if(eleProductImageAttr.getNamedItem("opacity")!=null){
 			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");
 		}else{
-			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");//added for debug
+//			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");//added for debug
 		}
 		String imageType = "";
 		String oldImageString = eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
