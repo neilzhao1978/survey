@@ -111,13 +111,13 @@ public class ImageController {
 	}
 	
     @Value("${web.upload-path}")
-    private static String path;
+    private  String path;
 	
     @Value("${server.port}")
-    private static String port;
+    private  String port;
     
     @Value("${web.ip}")
-    private static String ip;
+    private  String ip;
     
 
     
@@ -177,6 +177,10 @@ public class ImageController {
 					stream = new BufferedOutputStream(new FileOutputStream(f));
 					stream.write(bytes);
 					stream.close();
+					File dirUpload = new File(path+"/upload/");
+					if(!dirUpload.exists()){
+						dirUpload.mkdir();
+					}
 					
 					FileCopyUtils.copy(f, new File(path+"/upload/"+fileName));
 					

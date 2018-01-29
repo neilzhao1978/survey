@@ -238,7 +238,7 @@ public class SurveyController {
 
 	@ResponseBody
 	@RequestMapping(value = "/copySurvey", method = RequestMethod.GET)
-	public RestResponseEntity<Survey> copySurvey(@RequestParam(value = "surveyId", required = true) String surveyId) {
+	public RestResponseEntity<Survey> copySurvey(@RequestParam(value = "surveyId", required = true) String surveyId) throws OptionalDataException, ClassNotFoundException, IOException {
 		Survey s = surveyRepo.getBySurveyId(surveyId);
 		Survey s1 = null;
 		try {
@@ -251,6 +251,18 @@ public class SurveyController {
 		s1.setSurveyId(UUID.randomUUID().toString());
 		s1.setName(s1.getName() + "复制");
 
+		Set<Brand> newBrands = new HashSet<Brand>();
+		for(Brand b:s.getBrands()){
+			newBrands.add(b.deepClone());
+		}
+		s1.setBrands(newBrands);
+		
+		Set<Image> newImages = new HashSet<Image>();
+		for(Image i:s.getImages()){
+			newImages.add(i.deepClone());
+		}
+		
+		s1.setImages(newImages);
 		s1.setReleaseTime(new Date());
 		Survey x = surveyRepo.save(s1);
 

@@ -1,5 +1,11 @@
 package com.neil.survey.module;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -37,6 +43,19 @@ public class Brand implements Serializable{
       inverseJoinColumns={@JoinColumn(name="imageId",referencedColumnName="imageId")})
 	private Set<Image> images;
     
+
+	public Brand deepClone() throws IOException, OptionalDataException, ClassNotFoundException {// 将对象写到流里
+		ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		ObjectOutputStream oo = new ObjectOutputStream(bo);
+		oo.writeObject(this);// 从流里读出来
+		ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+		ObjectInputStream oi = new ObjectInputStream(bi);
+		oo.close();
+		bo.close();
+
+		return ((Brand) oi.readObject());
+	}
+	
 //    public Set<Answer> getAnswers() {
 //		return answers;
 //	}
