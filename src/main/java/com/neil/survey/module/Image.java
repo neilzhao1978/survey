@@ -1,5 +1,11 @@
 package com.neil.survey.module;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -118,6 +124,19 @@ public class Image implements Serializable{
 //	public void setSurveys(Set<Survey> surveys) {
 //		this.surveys = surveys;
 //	}
+	
+	public Image deepClone() throws IOException, OptionalDataException, ClassNotFoundException {// 将对象写到流里
+		ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		ObjectOutputStream oo = new ObjectOutputStream(bo);
+		oo.writeObject(this);// 从流里读出来
+		ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+		ObjectInputStream oi = new ObjectInputStream(bi);
+		oo.close();
+		bo.close();
+
+		return ((Image) oi.readObject());
+	}
+	
 	@Override
 	public String toString() {
 		return "Image [imageId=" + imageId + ", imageName=" + imageName + ", imageType=" + imageType + ", imageUrl="

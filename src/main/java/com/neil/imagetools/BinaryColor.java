@@ -324,7 +324,7 @@ public class BinaryColor {
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
 	    	
-	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
+//	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
 	    	
             byte[] bytesOut = baos.toByteArray(); 
             ret[0]=Base64.encodeBase64String(bytesOut);
@@ -338,16 +338,18 @@ public class BinaryColor {
         	Graphics g =  null;
         	InputStream b = new URL(baseImage.getFeatureUrl()).openStream();
             BufferedImage bImg = ImageIO.read(b);
-            
+            int cMaster = 0xff000000 | colorMap.get("master") ;
             for (int x = 0; x < bImg.getWidth(); x++) {  
                 for (int y = 0; y < bImg.getHeight(); y++) {  
                     int pixel = bImg.getRGB(x, y);  
+                    pixel &= 0x00ffffff;
                     int alpha = (pixel & 0xff000000) >> 24;
-                    if (alpha>0) {//not transparent.
-                    	bImg.setRGB(x, y, colorMap.get("master"));  
+                    if (pixel>0x000000) {//not transparent.
+                    	bImg.setRGB(x, y, cMaster); //
                     }
                 }  
             } 
+//            ImageIO.write(bImg, "png", new File("D:/1/stitch_master.png"));
             
             g = bImg.getGraphics();
 	    	for(Entry<String, Image> e :replacedMap.entrySet()){
@@ -367,17 +369,19 @@ public class BinaryColor {
 	            	color = 0;//默认
 	            }
 	            
-	            
+	            color = 0xff000000 | color ;
 	            for (int x = 0; x < sImg.getWidth(); x++) {  
 	                for (int y = 0; y < sImg.getHeight(); y++) {  
 	                    int pixel = sImg.getRGB(x, y);  
+	                    pixel &= 0x00ffffff;
 	                    int alpha = (pixel & 0xff000000) >> 24;
-	                    if (alpha>125) {//not transparent.
+	                
+	                    if (pixel>0x000000) {//not transparent.
 	                    	sImg.setRGB(x, y, color);  
 	                    }
+
 	                }  
 	            } 
-	            
 	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
 	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
 	    	}
