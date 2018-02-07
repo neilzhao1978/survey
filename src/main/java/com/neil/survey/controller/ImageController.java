@@ -37,6 +37,7 @@ import com.neil.imagetools.BinaryColor;
 import com.neil.survey.inputout.ImagePartRe;
 import com.neil.survey.inputout.ImageWholeRe;
 import com.neil.survey.module.Brand;
+import com.neil.survey.module.ColornId;
 import com.neil.survey.module.GeneCombineImage;
 import com.neil.survey.module.Image;
 import com.neil.survey.module.ProfileCombine;
@@ -313,9 +314,8 @@ public class ImageController {
 	private   String rearHoodColor;
 	
     
-    
 
-    
+
 	
 	@ResponseBody
 	@RequestMapping(value = "/processImage", method = RequestMethod.POST)
@@ -329,56 +329,60 @@ public class ImageController {
 		List<Image> rearHoods = null;
 		List<String> imageIds = new ArrayList<String>();
 		
-		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
-			if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
-				partNms.add("司机室");
-				drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
-				srcImages.addAll(drivers);
-			}
-			if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
-				partNms.add("钢轮支架");
-				wheels = imageProcessService.getCartoonReplaceImage(geneCombineImage.getWheel(),"钢轮支架");
-				srcImages.addAll(wheels);
-			}
-			if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
-				partNms.add("后罩");
-				rearHoods = imageProcessService.getCartoonReplaceImage(geneCombineImage.getRearHood(),"后罩");
-				srcImages.addAll(rearHoods);
-			}
-		}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
-//			if(geneCombineImage.getMaster()!=null&&geneCombineImage.getMaster().length()>0){
-//				imageIds.add(geneCombineImage.getMaster());
-//			}
-			if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
-				imageIds.add(geneCombineImage.getDriverRoom());
-			}
-			if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0) {
-				imageIds.add(geneCombineImage.getWheel());
-			}
-			if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
-				imageIds.add(geneCombineImage.getRearHood());
-			}
+    	Integer masterColorI = Integer.valueOf(masterColor,16);
+    	Integer driverRoomColorI = Integer.valueOf(driverRoomColor,16);
+    	Integer wheelColorI = Integer.valueOf(wheelColor,16);
+    	Integer rearHoodColorI = Integer.valueOf(rearHoodColor,16);
+		
+	    Map<String,ColornId> colorMap = new HashMap<String,ColornId>();
+	    ColornId maskter = new ColornId();
+	    maskter.partNn = "master";
+	    maskter.id = geneCombineImage.getMaster();
+	    maskter.color = masterColorI;
+	    colorMap.put("master", maskter);
+
+		if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+			partNms.add("司机室");
+			drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
+			srcImages.addAll(drivers);
+			
+		    ColornId driverRoom = new ColornId();
+		    driverRoom.partNn = "driverRoom";
+		    driverRoom.id = geneCombineImage.getDriverRoom();
+		    driverRoom.color = driverRoomColorI;
+		    colorMap.put("driverRoom", driverRoom);
 		}
+		if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
+			partNms.add("钢轮支架");
+			wheels = imageProcessService.getCartoonReplaceImage(geneCombineImage.getWheel(),"钢轮支架");
+			srcImages.addAll(wheels);
+			
+		    ColornId wheel = new ColornId();
+		    wheel.partNn = "wheel";
+		    wheel.id = geneCombineImage.getWheel();
+		    wheel.color = wheelColorI;
+		    colorMap.put("wheel", wheel);
+		}
+		if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+			partNms.add("后罩");
+			rearHoods = imageProcessService.getCartoonReplaceImage(geneCombineImage.getRearHood(),"后罩");
+			srcImages.addAll(rearHoods);
+			
+		    ColornId rearHood = new ColornId();
+		    rearHood.partNn = "rearHood";
+		    rearHood.id = geneCombineImage.getRearHood();
+		    rearHood.color = rearHoodColorI;
+		    colorMap.put("rearHood", rearHood);
+		}
+		
 		
 		List<String> imageUrls = new ArrayList<String>();
 		List<String> featureUrls = new ArrayList<String>();
 		List<Image> baseImages = imageProcessService.getCartoonBaseImage(geneCombineImage.getMaster(),partNms);
+		
+
+		
 		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
-			//////////////////
-		    Map<String,Integer> colorMap = new HashMap<String,Integer>();
-
-	    	Integer masterColorI = Integer.valueOf(masterColor,16);
-	    	Integer driverRoomColorI = Integer.valueOf(driverRoomColor,16);
-	    	Integer wheelColorI = Integer.valueOf(wheelColor,16);
-	    	Integer rearHoodColorI = Integer.valueOf(rearHoodColor,16);
-	    	colorMap.put("master", masterColorI);
-	    	colorMap.put("driverRoom", driverRoomColorI);
-	    	colorMap.put("wheel", wheelColorI);
-	    	colorMap.put("rearHood", rearHoodColorI);
-			//////////////////
-
-			
-			
 			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages,colorMap);
 			
 			part.setCombinedImage(str[0]);
@@ -397,7 +401,7 @@ public class ImageController {
 				featureUrls.add(image.getFeatureUrl());
 			}
 			String image = BinaryColor.combineWholeImage(baseImages.get(0).getPngImageUrl(), imageUrls);//0处为master。
-			String line = BinaryColor.combineWholeImage(baseImages.get(0).getFeatureUrl(), featureUrls);
+			String line = BinaryColor.combineWholeFeatureImage(baseImages.get(0).getFeatureUrl(), featureUrls, colorMap);
 			
 			part.setCombinedImage(image);
 			part.setCombinedFeature(line);
