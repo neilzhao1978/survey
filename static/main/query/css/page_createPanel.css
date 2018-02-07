@@ -136,3 +136,6 @@
     font-weight:900;
     margin:20px;
 }
+.upload-preview{
+    overflow: hidden;
+}
