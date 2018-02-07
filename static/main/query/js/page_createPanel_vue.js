@@ -236,7 +236,6 @@ var CreateQuery = new Vue({
                     }
                 }
                 console.log(CreateQuery.brandList);
-                loadProductDetail(obj.alt);
 
             }
             //若是取消选中，则是将其从vue的data中剔除
