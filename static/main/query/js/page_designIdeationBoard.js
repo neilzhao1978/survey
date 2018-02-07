@@ -3,7 +3,7 @@ $(function(){
 
     let olr = new FeatureLineRenderer("overlap-rendering");
     
-    
+    let vis3d = new DataVis3DRenderer("design-datavis-3d");
     
 
     let stitchOptions = {
@@ -14,13 +14,13 @@ $(function(){
         "mode":"stitch" 
     };
     let overlapOptions = {
-        "master":"133",
+        "master":"132",
         "driverRoom":"132",
         "wheel":"133",
-        "rearHood":"132",
+        "rearHood":"1343",
         "mode":"overlap"
     };
-    olr.loadFeatureLine(stitchOptions)
+    olr.loadFeatureLine(overlapOptions)
     
 });
 

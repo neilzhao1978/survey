@@ -69,7 +69,7 @@
     margin: 0;
 }
 .brandImg{ 
-    height:90%; 
+    /* height:90%;  */
     max-width: 90%;
     max-height:90%;
     position: absolute;
