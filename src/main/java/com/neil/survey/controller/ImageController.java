@@ -103,7 +103,7 @@ public class ImageController {
 	@RequestMapping(value = "/getDetailImagesByParentId", method = RequestMethod.GET)
 	public RestResponseEntity<List<Image>> getDetailImagesByParentId(
 			@RequestParam(value = "parentId", required = false) String parentId) {
-		List<Image> images = imageRepo.findByParentImageId(parentId);
+		List<Image> images = imageRepo.findByParentImageIdAndImageType(parentId,"PART");
 		if(images.size()>0) {
 			return ResponseGenerator.createSuccessResponse("获取细节图像列表成功。", images.size(),images, images.size());
 		}else {
