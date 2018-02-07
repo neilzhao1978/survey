@@ -173,14 +173,6 @@ var selectedSurveyId;
 function _remove(surveyId){
     selectedSurveyId=surveyId;
     $("#deleteAlert").modal("show");
-    //surveyService.deleteSurvey(row,function(){},function(data){
-    //    alert(data.description);
-    //    if(data.result){
-    //        loadSurveyList();
-    //    }else{
-    //
-    //    }
-    //})
 }
 
 function _doRemove(){

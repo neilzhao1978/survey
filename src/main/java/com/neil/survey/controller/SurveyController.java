@@ -262,6 +262,7 @@ public class SurveyController {
 			newImages.add(i.deepClone());
 		}
 		
+		s1.setStatus("1");
 		s1.setImages(newImages);
 		s1.setReleaseTime(new Date());
 		Survey x = surveyRepo.save(s1);
