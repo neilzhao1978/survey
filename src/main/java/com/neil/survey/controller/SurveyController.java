@@ -226,6 +226,7 @@ public class SurveyController {
 	@RequestMapping(value = "/getSurveyDetail", method = RequestMethod.GET)
 	public RestResponseEntity<Survey> getSurveyDetail(
 			@RequestParam(value = "surveyId", required = true) String surveyId) {
+		surveyId = surveyId.substring(0, 32);
 		Survey s = surveyRepo.getBySurveyId(surveyId);
 
 		if (s != null) {
