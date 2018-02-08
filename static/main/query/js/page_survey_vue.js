@@ -119,7 +119,7 @@ var CreateQuery = new Vue({
             }
             //若未超过选择上限
             else{
-                var item={brandId:obj.id};
+                var item={brandId:obj.alt};
                 //若是选择
                 if(obj.checked){
                     //选中的品牌信息保存
@@ -128,7 +128,7 @@ var CreateQuery = new Vue({
                 //若是取消选择,则将其剔除
                 else{
                     for(var i=0;i<CreateQuery.answer_brand.length;i++){
-                        if(obj.id==CreateQuery.answer_brand[i].imageId){
+                        if(obj.alt==CreateQuery.answer_brand[i].imageId){
                             CreateQuery.answer_brand.splice(i,1);
                             break
                         }
@@ -140,7 +140,7 @@ var CreateQuery = new Vue({
         //选择产品（整体造型）点击事件
         answer_doCheck_product:function(){
             var obj=event.currentTarget;
-            var item={imageId:obj.id};
+            var item={imageId:obj.alt};
             //选中则保存
             if(obj.checked){
                 //选中的品牌信息保存
@@ -149,7 +149,7 @@ var CreateQuery = new Vue({
             //取消选中则剔除
             else{
                 for(var i=0;i<CreateQuery.answer_image.length;i++){
-                    if(obj.id==CreateQuery.answer_image[i].imageId){
+                    if(obj.alt==CreateQuery.answer_image[i].imageId){
                         CreateQuery.answer_image.splice(i,1);
                         break
                     }
@@ -160,7 +160,7 @@ var CreateQuery = new Vue({
         //选择产品细节点击事件
         answer_doCheck_productDetail:function(){
             var obj=event.currentTarget;
-            var item={imageId:obj.id};
+            var item={imageId:obj.alt};
             //选中则保存
             if(obj.checked){
                 //选中的品牌信息保存
@@ -169,7 +169,7 @@ var CreateQuery = new Vue({
             //取消选中则剔除
             else{
                 for(var i=0;i<CreateQuery.answer_image.length;i++){
-                    if(obj.id==CreateQuery.answer_image[i].imageId){
+                    if(obj.alt==CreateQuery.answer_image[i].imageId){
                         CreateQuery.answer_image.splice(i,1);
                         break
                     }
@@ -182,8 +182,8 @@ var CreateQuery = new Vue({
 
             var obj=event.currentTarget;
             //获取当前点击的意向图片的类型
-            var item={imageId:obj.id};
-            var type=obj.alt;
+            var item={imageId:obj.alt};
+            var type=obj.dataset.imageType;
             console.log(type);
             console.log(_c_inspireImg);
             var index=INS_IMG_TYPE.indexOf(type);
@@ -202,7 +202,7 @@ var CreateQuery = new Vue({
                 //取消选中则剔除
                 else{
                     for(var i=0;i<CreateQuery.answer_image.length;i++){
-                        if(obj.id==CreateQuery.answer_image[i].imageId){
+                        if(obj.alt==CreateQuery.answer_image[i].imageId){
                             CreateQuery.answer_image.splice(i,1);
                             break
                         }

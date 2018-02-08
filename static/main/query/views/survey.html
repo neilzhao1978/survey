@@ -68,7 +68,7 @@
 
             <div class="panel panel-default">
                     <div class="panel-heading">
-                            品牌：请选择您觉得最符合行业标杆的品牌，最多选{{brandLimit}}个
+                            选择题：请从下方选出您认为得最符合行业标杆的品牌，最多选{{brandLimit}}个。
                     </div>
                     <div class="panel-body" >
                             <div class="col-sm-3" v-for="brand in brandList">
@@ -85,7 +85,7 @@
 
             <div class="panel panel-default">
                     <div class="panel-heading">
-                            整体造型：请选择您认为最吸引眼球/视觉冲击的造型
+                            选择题：请从下方选出您认为最吸引眼球/视觉冲击强的产品。
                     </div>
                     <div class="panel-body" >
                             <div >
@@ -105,7 +105,7 @@
 
             <div class="panel panel-default">
                     <div class="panel-heading">
-                            局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
+                            选择题：请从下方选出您认为最吸引眼球/视觉冲击强的局部特征。
                     </div>
                     <div class="panel-body" >
                             <div>
@@ -126,7 +126,7 @@
 
             <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
                     <div class="panel-heading">
-                            {{type.typeName}}： 请选{{type.typeName}}图片，能代表您公司的产品。最多选择{{type.limit}}张
+                            选择题： 请从下方选出跟您公司产品风格感觉相近的{{type.typeName}}图片，最多选择{{type.limit}}张。
                     </div>
                     <div class="panel-body" >
                             <div>
@@ -136,7 +136,7 @@
                                                     <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/> -->
                                                     
                                                     <div class="thumb-box panel panel-default">
-                                                        <input type="checkbox" class="productChoiceChk"  v-bind="{alt:typeImg.imageId, id:'type-thumb-'+typeImg.imageId}" v-on:click='answer_doCheck_inspireImg'/>
+                                                        <input type="checkbox" class="productChoiceChk" v-bind="{alt:typeImg.imageId, data-image-type:typeImg.imageType, id:'type-thumb-'+typeImg.imageId}" v-on:click='answer_doCheck_inspireImg'/>
                                                         <label v-bind:for="'type-thumb-'+typeImg.imageId" class="productChoiceLabel">
                                                                 <img class="brandProductImg" v-bind:src="typeImg.imageUrl" />
                                                         </label>
