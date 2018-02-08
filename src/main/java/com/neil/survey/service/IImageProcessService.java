@@ -15,4 +15,5 @@ public interface IImageProcessService {
 	List<Image> getCartoonBaseImage(List<String> imageIds);
 	List<Image> getCartoonReplaceImage(String imageId, String partName);
 	List<Image> getCartoonBaseImage(String imageId, List<String> partName);
+	Image getCartoonBaseImage(String imageId);
 }

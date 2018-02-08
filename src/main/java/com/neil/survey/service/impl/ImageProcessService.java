@@ -130,4 +130,13 @@ public class ImageProcessService implements IImageProcessService {
 		return imageRepo.findByImageIdIn(imageIds);
 	}
 
+	@Override
+	public Image getCartoonBaseImage(String imageId) {
+		List<Image> images = imageRepo.findByImageId(imageId);
+		if(images!=null&&images.size()>0){
+			return images.get(0);
+		}else{			
+			return null; 
+		}
+	}
 }

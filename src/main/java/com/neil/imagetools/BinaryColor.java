@@ -216,7 +216,7 @@ public class BinaryColor {
     
     private static Integer getColorsbyFileName(String fileName,Map<String,ColornId> colorMap){
     	for(Entry<String,ColornId> e:colorMap.entrySet()){
-    		if(fileName.contains("//"+e.getValue().id+"//")){
+    		if(fileName.contains(e.getValue().fileName)){
     			return e.getValue().color;
     		}
     	}
@@ -264,6 +264,8 @@ public class BinaryColor {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
             ImageIO.write(bImg, "png", baos); 
+
+            ImageIO.write(bImg, "png", new File("D:/1/qwe.png"));
             
             byte[] bytesOut = baos.toByteArray(); 
             return Base64.encodeBase64String(bytesOut);
