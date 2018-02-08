@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>有效问卷数量</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>有效回复清单</title>
+    
     <!-----------------------------------------CSS引用---------------------------------------------------------------->
     <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../../common/lib/bootstrap-table/css/boostrap-table.min.css"/>
@@ -46,22 +47,25 @@
         <main id="CreateQuery">
                 <header class="flex-column flex-md-row top-bar">
                         <div class="container">
-                                <div class="row alignCenter">
-                                        <button  class="btn btn-primary fl" onclick="returnToList()">返回列表</button>
-                                        <h1 class="title">有效问卷数量</h1>
-                                        <button  class="btn btn-primary fr" onclick="returnToList()">返回列表</button>
+                                <div class="row">
+                                       
+                                        <div class="left-col col-xs-3">
+                                                <button type="button" class="btn btn-primary " onclick="returnToList()">返回列表</button>
+                                        </div>
+                                        <div class="col-xs-6 mid-col top-title">
+                                                <h1 id="survey-title">问卷调查</h1>        
+                                                <h2>有效回复清单</h2>
+                                        </div>
+
                                 </div>
+                                
+                                
+                                
                         </div>
                 </header>
                 <div  class="container main">
-                        <div class="panel panel-default">
-                                <div class="panel-body">
-                                        <div class="container-fluid">
-                                                <div class="row">
-                                                        <table id="tbContent"></table>
-                                                </div>
-                                        </div>
-                                </div>
+                        <div class="row">
+                                <table id="tbContent"></table>
                         </div>
                 </div>
         </main>

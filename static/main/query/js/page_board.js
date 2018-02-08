@@ -22,8 +22,8 @@ $(function(){
         //showToggle:true,
         showHeader: true,
         columns:[[
-            {field:'replayerPosition',align:'center',width:100,title:'职业',sortable:true},
             {field:'replayerName',align:'center',width:100,title:'姓名',sortable:true},
+            {field:'replayerPosition',align:'center',width:100,title:'职业类别',sortable:true},
             {field:'operate',align:'center',width:100,title:'操作',formatter:operatorFormatter}
         ]],
         data:[
@@ -88,6 +88,8 @@ var page={
 function loadAnswerList(){
     answerService.getAllAnswerList(page,surveyId,function(data){
         if(data.result){
+            var surveyTitle = data.data[0].survey.name
+            $("#survey-title").text(surveyTitle)
             $("#tbContent").bootstrapTable('load',data.data);
         }
         else{

@@ -18,6 +18,7 @@ var CreateQuery = new Vue({
         brandLimit:2,
         replayerName:"",
         replayerPosition:"",
+        answerId:"",
         inspire_type:[
             {
                 jtabId:'#tab0',

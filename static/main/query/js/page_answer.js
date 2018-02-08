@@ -80,9 +80,9 @@ function loadAnswerInfo(){
 
                 CreateQuery.replayerName=list.replayerName;
                 CreateQuery.replayerPosition=list.replayerPosition;
-
+                CreateQuery.answerId = list.answerId
                 ////
-                CreateQuery.qName=list.name;
+                CreateQuery.qName=list.survey.name;
                 //CreateQuery.qDesc=list.desc;
                 //
                 ////发布日期：年月日，赋值

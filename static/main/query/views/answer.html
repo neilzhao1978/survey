@@ -39,90 +39,99 @@
 </head>
 <body>
 <!--注：vue实例创建时，不能挂在到<body>标签上，故在此加入一个<main>-->
-<main id="CreateQuery">
+<div id="CreateQuery">
     <header class="flex-column flex-md-row top-bar">
         <div class="container">
-            <div class="row">
-                <h2 class="q-Name">{{qName}}</h2>
-                <h4>为了给您提供更好的产品，希望您抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与，我们马上开始吧</h4>
-                <!--<hr/>-->
-                <div class="form-group">
-                    <label class="col-lg-1 col-lg-offset-1" >姓名：</label>
-                    <div class="col-lg-4">
-                        <input  class="form-control" v-model="answer_replyerName" placeholder="请输入您的姓名..." />
-                    </div>
-                    <label class="col-lg-1">职业：</label>
-                    <div class="col-lg-4">
-                        <select class="form-control" v-model="answer_replyerPosition">
-                            <option value="技术类">技术类</option>
-                            <option value="管理类">管理类</option>
-                            <option value="管理类">营销类</option>
-                            <option value="管理类">设计类</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+                <h1>{{qName}}</h1>
+                <h2>编号【{{answerId}}】</h2>
+            
         </div>
     </header>
     <div class="container main" >
-            <div class="panel panel-default">
-                    <div class="panel-heading">
-                            品牌：请选择您觉得最符合行业标杆的品牌，最多选{{brandLimit}}个
-                    </div>
-                    <div class="panel-body">
-                            <div class="col-lg-3" v-for="brand in brandList">
-                                    <!--<input type="checkbox" class="brandChoiceChk" v-bind:id="brand.brandId" v-bind:alt="brand.brandId" v-on:click='answer_doCheck_brand'>-->
-                                    <img class="brandImg" v-bind:src="brand.brandIconUrl">
-                            </div>
-                    </div>
-            </div>
 
-            <div class="panel panel-default">
-                    <div class="panel-heading">
-                            整体造型：请选择您认为最吸引眼球/视觉冲击的造型
-                    </div>
-                    <div class="panel-body" >
-                            <div class="panel-body" >
-                                    <div class="col-lg-3" v-for="pro in selProList">
-                                            <img class="brandProductImg" v-bind:src="pro.imageUrl">
-                                    </div>
-                            </div>
-                    </div>
-            </div>
+                <h4>姓名【{{replayerName}}】，职业【{{replayerPosition}}】</h4>
 
-            <div class="panel panel-default">
-                    <div class="panel-heading">
-                            局部造型：请选择您认为最吸引眼球/视觉冲击的局部造型
-                    </div>
-                    <div class="panel-body" >
-                            <div class="panel-body" >
-                                    <div class="col-lg-3" v-for="proD in selProDetailList">
-                                            <!--<input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId" />-->
-                                            <img class="brandProductImg" v-bind:src="proD.imageUrl">
-                                    </div>
-                            </div>
-                    </div>
-            </div>
-
-            <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
-                    <div class="panel-heading">
-                            {{type.typeName}}： 请选{{type.typeName}}图片，能代表您公司的产品。最多选择{{type.limit}}张
-                    </div>
-                    <div class="panel-body" >
-                            <div class="panel-body" >
-                                    <div class="row">
-                                            <div class="col-lg-3 pad-top-10" v-for="typeImg in type.imgList">
-                                                    <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
+                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                        选择题：请从下方选出您认为得最符合行业标杆的品牌，最多选{{brandLimit}}个。
+                                </div>
+                                <div class="panel-body" >
+                                        <div class="col-sm-3" v-for="brand in brandList">
+            
+                                            <div class="thumb-box panel panel-default">
+                                                    <label v-bind:for="'brand-thumb-'+brand.brandId" class="brandChoiceLabel">
+                                                            <img class="brandImg" v-bind:src="brand.brandIconUrl" />
+                                                    </label>
                                             </div>
-                                    </div>
-                            </div>
-                    </div>
-            </div>
+                                        </div>
+                                </div>
+                        </div>
+            
+                        <div class="panel panel-default">
+                                <div class="panel-heading">
+                                        选择题：请从下方选出您认为最吸引眼球/视觉冲击强的产品。
+                                </div>
+                                <div class="panel-body" >
+                                        <div >
+                                                <div class="col-sm-3" v-for="pro in selProList">
+                                                        
+                                                        <div class="thumb-box panel panel-default">
+                                                                    
+                                                            <label v-bind:for="'product-thumb-'+pro.imageId" class="productChoiceLabel">
+                                                                    <img class="brandProductImg" v-bind:src="pro.imageUrl" />
+                                                            </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+            
+                        <div class="panel panel-default">
+                                <div class="panel-heading">
+                                        选择题：请从下方选出您认为最吸引眼球/视觉冲击强的局部特征。
+                                </div>
+                                <div class="panel-body" >
+                                        <div>
+                                                <div class="col-sm-3" v-for="proD in selProDetailList">
+                                                        <!-- <input type="checkbox" class="brandChoiceChk"  v-bind:id="proD.imageId"  v-bind:alt="proD.imageId"  v-on:click="answer_doCheck_productDetail"/>
+                                                        <img class="brandProductImg" v-bind:src="proD.imageUrl"> -->
+            
+                                                        <div class="thumb-box panel panel-default">
+                                                            <label v-bind:for="'proD-thumb-'+proD.imageId" class="productChoiceLabel">
+                                                                    <img class="brandProductImg" v-bind:src="proD.imageUrl" />
+                                                            </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+            
+                        <div class="panel panel-default" v-for="type in inspire_type"  v-if="type.isSelected">
+                                <div class="panel-heading">
+                                        选择题： 请从下方选出跟您公司产品风格感觉相近的{{type.typeName}}图片，最多选择{{type.limit}}张。
+                                </div>
+                                <div class="panel-body" >
+                                        <div>
+                                                <div class="row">
+                                                        <div class="col-sm-3" v-for="typeImg in type.imgList" style="padding-top:10px">
+                                                                <!-- <input type="checkbox" class="brandChoiceChk" v-bind:id="typeImg.imageId" v-bind:alt="typeImg.imageType" v-on:click='answer_doCheck_inspireImg'>
+                                                                <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/> -->
+                                                                
+                                                                <div class="thumb-box panel panel-default">
+                                                                    <label v-bind:for="'type-thumb-'+typeImg.imageId" class="productChoiceLabel">
+                                                                            <img class="brandProductImg" v-bind:src="typeImg.imageUrl" />
+                                                                    </label>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
             <div class="row" align="center">
                     <button class="btn btn-primary" onclick="returnToBoard()">返回看板结果</button>
             </div>
     </div>
-
+</div>
     <script src="../js/page_answer.js"></script>
     <script src="../js/page_answer_vue.js"></script>
 

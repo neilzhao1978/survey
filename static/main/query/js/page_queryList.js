@@ -44,7 +44,7 @@ $(function(){
             {field:'name',align:'center',width:100,title:'问卷名称',sortable:true},
             {field:'releaseTime',align:'center',width:100,title:'发布时间',formatter:common.dateFormatter,sortable:true},
             {field:'status',align:'center',width:200,title:'状态',formatter:surveyStatus,sortable:true},
-            {field:'answerCount',align:'center',width:50,title:'有效问卷数量',formatter:validQueryNum,sortable:true},
+            {field:'answerCount',align:'center',width:50,title:'有效回复',formatter:validQueryNum,sortable:true},
             {field:'result',align:'center',width:50,title:'看板结果',formatter:panelResult,sortable:true},
             {field:'operate',align:'center',width:400,title:'操作',formatter:operatorFormatter},
             {field:'share',align:'center',width:50,title:'',formatter:shareOperate}
