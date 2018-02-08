@@ -91,7 +91,7 @@ function loadSurveyInfo(){
                     if(list.images[i].imageType=="WHOLE"){
                         CreateQuery.selProList.push(list.images[i]);
                     }
-                    else if(list.images[i].imageType=="DETAIL"){
+                    else if(list.images[i].imageType=="PART"){
                         CreateQuery.selProDetailList.push(list.images[i]);
                     }
                     //五种意向图片

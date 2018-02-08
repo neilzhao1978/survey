@@ -152,7 +152,7 @@ function loadSurveyInfo(){
                         CreateQuery.selProList.push(list.images[i]);
                     }
                     //产品细节造型
-                    else if(list.images[i].imageType=="DETAIL"){
+                    else if(list.images[i].imageType=="PART"){
                         CreateQuery.selProDetailList.push(list.images[i]);
                     }
                     //五种意向图片
