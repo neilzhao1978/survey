@@ -73,9 +73,9 @@ public class AnswerController {
 			crtCount+=1;
 			s.setAnswerCount(crtCount);
 			surveyRepo.save(s);
-			return ResponseGenerator.createSuccessResponse("新增问卷回复成功。");
+			return ResponseGenerator.createSuccessResponse("提交成功。");
 		}else {
-			return ResponseGenerator.createFailResponse("新增问卷回复失败。", ErrorCode.DB_ERROR);
+			return ResponseGenerator.createFailResponse("提交失败。", ErrorCode.DB_ERROR);
 		}
 	}
 	

@@ -340,7 +340,8 @@ public class ImageController {
 	    maskter.id = geneCombineImage.getMaster();
 	    maskter.color = masterColorI;
 	    colorMap.put("master", maskter);
-
+	    imageIds.add(maskter.id);
+	    
 		if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
 			partNms.add("司机室");
 			drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
@@ -351,6 +352,7 @@ public class ImageController {
 		    driverRoom.id = geneCombineImage.getDriverRoom();
 		    driverRoom.color = driverRoomColorI;
 		    colorMap.put("driverRoom", driverRoom);
+		    imageIds.add(driverRoom.id);
 		}
 		if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
 			partNms.add("钢轮支架");
@@ -362,6 +364,7 @@ public class ImageController {
 		    wheel.id = geneCombineImage.getWheel();
 		    wheel.color = wheelColorI;
 		    colorMap.put("wheel", wheel);
+		    imageIds.add(wheel.id);
 		}
 		if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
 			partNms.add("后罩");
@@ -373,6 +376,7 @@ public class ImageController {
 		    rearHood.id = geneCombineImage.getRearHood();
 		    rearHood.color = rearHoodColorI;
 		    colorMap.put("rearHood", rearHood);
+		    imageIds.add(rearHood.id);
 		}
 		
 		
@@ -395,13 +399,72 @@ public class ImageController {
 			part.setName(baseImages.get(0).getImageName());
 			return ResponseGenerator.createSuccessResponse("获取产品可替换图像成功。",1,part,null);
 		}else if (geneCombineImage.getMode().equalsIgnoreCase("overlap")){
-			List<Image> images = imageProcessService.getCartoonBaseImage(imageIds);
-			for(Image image:images){
-				imageUrls.add(image.getPngImageUrl());
-				featureUrls.add(image.getFeatureUrl());
+			
+		    Map<String,ColornId> colors = new HashMap<String,ColornId>();
+
+			
+			Image imageMaster = imageProcessService.getCartoonBaseImage(geneCombineImage.getMaster());
+			if(imageMaster!=null){
+				imageUrls.add(imageMaster.getPngImageUrl());
+				featureUrls.add(imageMaster.getFeatureUrl());
+				
+			    ColornId m= new ColornId();
+			    m.partNn = "master";
+			    m.id = geneCombineImage.getMaster();
+			    m.color = masterColorI;
+			    m.fileName = imageMaster.getFeatureUrl();
+			    colors.put("master", m);
+				
 			}
+
+
+			Image imageDriverRoom = imageProcessService.getCartoonBaseImage(geneCombineImage.getDriverRoom());
+			if(imageDriverRoom!=null){
+				imageUrls.add(imageDriverRoom.getPngImageUrl());
+				featureUrls.add(imageDriverRoom.getFeatureUrl());
+				
+			    ColornId m= new ColornId();
+			    m.partNn = "driverRoom";
+			    m.id = geneCombineImage.getDriverRoom();
+			    m.color = driverRoomColorI;
+			    m.fileName = imageDriverRoom.getFeatureUrl();
+			    colors.put("driverRoom", m);
+				
+			}
+
+			
+			Image imageWhell = imageProcessService.getCartoonBaseImage(geneCombineImage.getWheel());
+			if(imageWhell!=null){
+				imageUrls.add(imageWhell.getPngImageUrl());
+				featureUrls.add(imageWhell.getFeatureUrl());
+				
+			    ColornId m= new ColornId();
+			    m.partNn = "wheel";
+			    m.id = geneCombineImage.getWheel();
+			    m.color = wheelColorI;
+			    m.fileName = imageWhell.getFeatureUrl();
+			    colors.put("wheel", m);
+				
+			}
+
+			Image imageRearHood = imageProcessService.getCartoonBaseImage(geneCombineImage.getRearHood());
+			if(imageRearHood!=null){
+				imageUrls.add(imageRearHood.getPngImageUrl());
+				featureUrls.add(imageRearHood.getFeatureUrl());
+				
+			    ColornId m= new ColornId();
+			    m.partNn = "rearHood";
+			    m.id = geneCombineImage.getRearHood();
+			    m.color = rearHoodColorI;
+			    m.fileName = imageRearHood.getFeatureUrl();
+			    colors.put("rearHood", m);
+				
+			}
+
+			
+			
 			String image = BinaryColor.combineWholeImage(baseImages.get(0).getPngImageUrl(), imageUrls);//0处为master。
-			String line = BinaryColor.combineWholeFeatureImage(baseImages.get(0).getFeatureUrl(), featureUrls, colorMap);
+			String line = BinaryColor.combineWholeFeatureImage(baseImages.get(0).getFeatureUrl(), featureUrls, colors);
 			
 			part.setCombinedImage(image);
 			part.setCombinedFeature(line);
