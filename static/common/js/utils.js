@@ -1,6 +1,6 @@
 
-var host="http://127.0.0.1:8000/api";
-//var host="http://115.29.237.95:7999/api";
+//var host="http://127.0.0.1:8000/api";
+var host="http://115.29.237.95:8000/api";
 //上次弹窗内容
 var lastAlertContent="";
 //同样内容弹窗最少间隔

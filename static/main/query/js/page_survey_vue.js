@@ -183,7 +183,7 @@ var CreateQuery = new Vue({
             var obj=event.currentTarget;
             //获取当前点击的意向图片的类型
             var item={imageId:obj.alt};
-            var type=obj.dataset.imageType;
+            var type=obj.title;
             console.log(type);
             console.log(_c_inspireImg);
             var index=INS_IMG_TYPE.indexOf(type);

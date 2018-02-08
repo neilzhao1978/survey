@@ -136,7 +136,7 @@
                                                     <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/> -->
                                                     
                                                     <div class="thumb-box panel panel-default">
-                                                        <input type="checkbox" class="productChoiceChk" v-bind="{alt:typeImg.imageId, data-image-type:typeImg.imageType, id:'type-thumb-'+typeImg.imageId}" v-on:click='answer_doCheck_inspireImg'/>
+                                                        <input type="checkbox" class="productChoiceChk" v-bind="{alt:typeImg.imageId, title:typeImg.imageType, id:'type-thumb-'+typeImg.imageId}" v-on:click='answer_doCheck_inspireImg'/>
                                                         <label v-bind:for="'type-thumb-'+typeImg.imageId" class="productChoiceLabel">
                                                                 <img class="brandProductImg" v-bind:src="typeImg.imageUrl" />
                                                         </label>

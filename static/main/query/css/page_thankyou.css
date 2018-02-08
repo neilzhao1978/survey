@@ -1,2 +1,9 @@
-.title{ color:white }
-.thank-you-font{ color:black }
+.thank-you-font{ 
+    color:black;
+    text-align: center;
+}
+
+.top-bar{
+    text-align: center;
+    
+}
