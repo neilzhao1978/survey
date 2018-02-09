@@ -3,7 +3,7 @@
     依赖jQuery及p5js
 */
 
-const GET_IMAGE_URL = ""
+const GET_PRODUCT_DATA_URL = ""
 
 class DataVis3DRenderer{
 

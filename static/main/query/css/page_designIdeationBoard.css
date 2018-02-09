@@ -10,29 +10,20 @@
 .render-panel{
     padding:15px;
     border-left:#ddd 1px solid;
+    text-align: right;
 }
-.toggle-render-tab{
-    margin-bottom:10px;
+.toggle-featureline-mode{
+    margin-top:15px;
 }
-.toggle-render-tab a{
-    color:#ae4127;
-}
-.toggle-render-tab a:hover{
-    color:#913721;
-}
-.toggle-render-content{
+.featureline-rendering{
     width:100%;
     height:400px;
     overflow: hidden;
     border:#ddd 1px solid;
-}
-.toggle-render-content>.tab-pane{
-    width:100%;
-    height:100%;
     background:#efefef;
     position: relative;
 }
-.toggle-render-content>.tab-pane>canvas{
+.featureline-rendering>canvas{
     position: absolute;
     top: 0;
     left: 0;
