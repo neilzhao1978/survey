@@ -3,7 +3,7 @@
     依赖jQuery及p5js
 */
 
-const GET_IMAGE_URL = "http://localhost:8000/api/imageService/processImage"
+const GET_IMAGE_URL = host+"/imageService/processImage"
 const DEFAULT_FL_BG_URL = "/static/common/img/feature_line_bg_default.png";
 
 class FeatureLineRenderer{
