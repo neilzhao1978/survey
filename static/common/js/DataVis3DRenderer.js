@@ -3,7 +3,7 @@
     依赖jQuery及p5js
 */
 
-const GET_PRODUCT_DATA_URL = ""
+const GET_PRODUCT_DATA_URL = host+"";
 
 class DataVis3DRenderer{
 
@@ -18,9 +18,7 @@ class DataVis3DRenderer{
         this.canvasW = w;
         this.canvasH = h;
 
-        this.featureLineData = null;
-        this.featureLine = null;
-        this.combinedImage = null;
+        this.productData = null;
         
         let self = this;
 
@@ -29,17 +27,24 @@ class DataVis3DRenderer{
             sketch.setup = function() {
               sketch.pixelDensity(1);
               sketch.createCanvas(w, h, self.p5Instance.WEBGL);
-              self.drawBackground();
+              sketch.background(100);
+              sketch.perspective()
             };
+            sketch.draw = function(){
+                sketch.background(100);
+                sketch.orbitControl();
+                self.drawProductThumb();
+                
+            }
         };
         this.p5Instance = new p5(s, DOM_ele); 
 
         
     }
 
-    loadFeatureLine(options){
+    loadProductData(options){
         let self = this;
-        let url = GET_IMAGE_URL;
+        let url = GET_PRODUCT_DATA_URL;
         let opt_data = options;
         
         this.p5Instance.httpPost(
@@ -48,23 +53,6 @@ class DataVis3DRenderer{
             opt_data,
             (response_data)=>{
                 //数据获取成功
-                self.featureLineData = response_data.data;
-                let featureLine_data_url = "data:image/png;base64,"+response_data.data.combinedFeature;
-                let combinedImage_data_url = "data:image/png;base64,"+response_data.data.combinedImage;
-                //调用p5加载图像数据到p5.Graphics对象
-                self.p5Instance.loadImage(featureLine_data_url,(img)=>{
-                    
-                    self.featureLine = img;
-                    //p5.Graphics对象创建好以后，开始绘制
-                    self.drawFeatureLine();
-                })
-                self.p5Instance.loadImage(combinedImage_data_url,(img)=>{
-                    
-                    self.combinedImage = img;
-                    //p5.Graphics对象创建好以后，开始绘制
-                    self.drawFeatureLine();
-                })
-                
             },
             (error)=>{
                 self.drawMsg(error);
@@ -72,40 +60,17 @@ class DataVis3DRenderer{
         
     }
 
-    drawFeatureLine(){
-
-        let g = null;
-        if(this.featureLineData){
-            g = this.p5Instance.createGraphics(
-                this.featureLineData.w,
-                this.featureLineData.h
-            )
+    drawProductThumb(){
+        let self = this;
+        for(let i=0;i<10;i++){
+            let x = 0;
+            let y = 0;
+            let z = (i-5)*30;
+            this.p5Instance.push();
+            this.p5Instance.translate(x,y,z);
+            this.p5Instance.plane(30,30);
+            this.p5Instance.pop();
         }
-        if(this.combinedImage){
-            g.tint(255, 80);
-            g.image(this.combinedImage,0,0,g.width,g.height)
-            g.filter(this.p5Instance.THRESHOLD)
-            //g.filter(this.p5Instance.GRAY)
-        }
-        if(this.featureLine){
-            g.noTint();
-            g.image(this.featureLine,0,0,g.width,g.height)
-        }
-        
-
-        this.drawBackground();
-        this.p5Instance.clear();
-        
-        this.p5Instance.imageMode(this.p5Instance.CENTER);
-        this.p5Instance.push();
-        this.p5Instance.translate(this.canvasW/2,this.canvasH/2);
-        this.p5Instance.image(
-            g,0,0,
-            (this.canvasH-10)/g.height*g.width,
-            this.canvasH-10
-            
-        );
-        this.p5Instance.pop();
     }
 
     drawBackground(url){

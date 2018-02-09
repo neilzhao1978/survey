@@ -1,4 +1,5 @@
 
+var flr,vis3d
 var flrOptions = {
     "master":"133",
     "driverRoom":"132",
@@ -6,11 +7,12 @@ var flrOptions = {
     "rearHood":"132",
     "mode":"overlap" 
 };
+
 $(function(){
 
-    let flr = new FeatureLineRenderer("featureline-rendering");
+    flr = new FeatureLineRenderer("featureline-svg");
     
-    let vis3d = new DataVis3DRenderer("design-datavis-3d");
+    vis3d = new DataVis3DRenderer("design-datavis-3d");
     
     flr.loadFeatureLine(flrOptions)
 

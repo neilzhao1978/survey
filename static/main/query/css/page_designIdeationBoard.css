@@ -23,12 +23,14 @@
     background:#efefef;
     position: relative;
 }
-.featureline-rendering>canvas{
+.featureline-rendering svg{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.layer2{
+    z-index: 100;
 }
 .thumb-panel{
     overflow: hidden;
