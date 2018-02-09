@@ -32,6 +32,37 @@ public class Image implements Serializable{
 	private String parentImageId;
 	private Boolean containFeatureLine;
 
+
+	private float imageStyleX;
+	private float imageStyleY;
+	private float imageStyleZ;
+
+
+	public float getImageStyleX() {
+		return imageStyleX;
+	}
+
+	public void setImageStyleX(float imageStyleX) {
+		this.imageStyleX = imageStyleX;
+	}
+
+	public float getImageStyleY() {
+		return imageStyleY;
+	}
+
+	public void setImageStyleY(float imageStyleY) {
+		this.imageStyleY = imageStyleY;
+	}
+
+	public float getImageStyleZ() {
+		return imageStyleZ;
+	}
+
+	public void setImageStyleZ(float imageStyleZ) {
+		this.imageStyleZ = imageStyleZ;
+	}
+
+	private String thumbUrl;//缩略图
 	private String featureUrl;//特征线
 	private String profileImageUrl;//剪影
 	
