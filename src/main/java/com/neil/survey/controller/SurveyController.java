@@ -374,6 +374,7 @@ public class SurveyController {
 				for (VehicleInfo_P v : vehicheResp.object) {
 					if(v.getCategoryName().contains("压路机")){
 						try {
+							
 							handleWholeImage(b, images, v);
 							brand.setImages(images);
 							brandRepo.save(brand);
@@ -621,6 +622,50 @@ public class SurveyController {
 		return i;
 	}
 	
+	private void normalizeStyle(String style,Image imageDb){
+
+		style = style.replaceAll("[\\[|\\]|\"]", "");
+		
+		String[] items = style.split(",");
+		float styleX=0f;
+		float styleY=0f;
+		float styleZ=0f;
+		for(String item:items){
+			try{
+				String s = item.substring(0, item.length()-1);
+				String v = item.substring(item.length()-1, item.length());
+				Integer vi = Integer.parseInt(v);
+				
+
+				if(s.equalsIgnoreCase("复杂")){
+					styleX = vi/3f;
+				}
+				if(s.equalsIgnoreCase("简洁")){
+					styleX = 0f-vi/3f;
+				}			
+				if(s.equalsIgnoreCase("现代")){
+					styleY = vi/3f;
+				}
+				if(s.equalsIgnoreCase("传统")){
+					styleY = 0f-vi/3f;
+				}	
+				if(s.equalsIgnoreCase("圆润")){
+					styleZ = vi/3f;
+				}
+				if(s.equalsIgnoreCase("硬朗")){
+					styleZ = 0f-vi/3f;
+				}	
+			}catch(Exception e ){
+				logger.error(e.getMessage());
+				continue;
+			}
+
+		}
+		imageDb.setImageStyleX(styleX);
+		imageDb.setImageStyleY(styleY);
+		imageDb.setImageStyleZ(styleZ);
+	}
+	
 	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
 			throws Exception {
 		String parser = XMLResourceDescriptor.getXMLParserClassName();
@@ -684,6 +729,8 @@ public class SurveyController {
 			ratioY=((float)boundH)/((float)tureH);
 		}
 		
+		
+		normalizeStyle(v.getStyle(),imageDb);//处理风格
 		
 		imageDb.setX(0);
 		imageDb.setY(0);

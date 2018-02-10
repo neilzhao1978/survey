@@ -264,7 +264,7 @@ public class BinaryColor {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
             ImageIO.write(bImg, "png", baos); 
-
+            ImageIO.write(bImg, "png", new File("D:/1/wholeFeature.png")); 
 //            ImageIO.write(bImg, "png", new File("D:/1/qwe.png"));
             
             byte[] bytesOut = baos.toByteArray(); 
@@ -302,6 +302,8 @@ public class BinaryColor {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
             ImageIO.write(bImg, "png", baos); 
+            
+            ImageIO.write(bImg, "png", new File("D:/1/whole.png")); 
             
             byte[] bytesOut = baos.toByteArray(); 
             return Base64.encodeBase64String(bytesOut);
@@ -341,15 +343,16 @@ public class BinaryColor {
 	    	for(Entry<String, Image> e :replacedMap.entrySet()){
 	    		Image replaceImageDb = e.getValue(); 
 	    		Image srcImageDb = srcMap.get(e.getKey());
+	    		if(srcImageDb == null) continue;
 	        	InputStream temp = new URL(srcImageDb.getImageUrl()).openStream();
 	            BufferedImage sImg = ImageIO.read(temp);
-	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
-	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
+	            g.drawImage(sImg, srcImageDb.getX(), srcImageDb.getY(),
+	            		sImg.getWidth(), sImg.getHeight(), null);
 	    	}
 
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
-	    	
+	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
 	    	
             byte[] bytesOut = baos.toByteArray(); 
             ret[0]=Base64.encodeBase64String(bytesOut);
@@ -380,6 +383,7 @@ public class BinaryColor {
 	    	for(Entry<String, Image> e :replacedMap.entrySet()){
 	    		Image replaceImageDb = e.getValue(); //被替换的图
 	    		Image srcImageDb = srcMap.get(e.getKey());//通过名字找到替换的图。
+	    		if(srcImageDb==null) continue;
 	        	InputStream temp = new URL(srcImageDb.getFeatureUrl()).openStream();
 	            BufferedImage sImg = ImageIO.read(temp);
 	            //TODO change sImg's front color.
@@ -407,13 +411,13 @@ public class BinaryColor {
 
 	                }  
 	            } 
-	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
-	            		replaceImageDb.getW(), replaceImageDb.getH(), null);
+	            g.drawImage(sImg, srcImageDb.getX(), srcImageDb.getY(),
+	            		sImg.getWidth(), sImg.getHeight(), null);
 	    	}
 
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
-//	    	ImageIO.write(bImg, "png", new File("D:/1/stitchFeature.png")); 
+	    	ImageIO.write(bImg, "png", new File("D:/1/stitchFeature.png")); 
             byte[] bytesOut = baos.toByteArray(); 
             ret[1]=Base64.encodeBase64String(bytesOut);
         	g.dispose();
@@ -442,10 +446,10 @@ public class BinaryColor {
         
         BufferedImage image =ImageIO.read(inputStream); 
         inputStream.close();
-        int w = image.getWidth();  
-        int h = image.getHeight();  
+        int w = image.getWidth();
+        int h = image.getHeight();
         BufferedImage bi= new BufferedImage(w, h,BufferedImage.TYPE_INT_ARGB); 
-        float[] rgb = new float[4];  
+        float[] rgb = new float[4];
         for (int x = 0; x < w; x++) {  
             for (int y = 0; y < h; y++) {  
                 int pixel = image.getRGB(x, y);    
