@@ -14,6 +14,10 @@
 }
 .toggle-featureline-mode{
     margin-top:15px;
+    outline: 0;
+}
+.toggle-featureline-mode:focus{
+    outline: 0 !important;
 }
 .featureline-rendering{
     width:100%;
@@ -104,4 +108,8 @@
     width:100%;
     height:100%;
     background:#efefef;
+}
+.design-datavis-3d canvas{
+    width:100%;
+    height:100%;
 }

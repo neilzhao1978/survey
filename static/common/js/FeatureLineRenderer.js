@@ -1,6 +1,6 @@
 /*
-    根据页面post数据，在特定DOM位置渲染特征线
-    依赖jQuery及p5js
+    根据页面post数据，在特定DOM位置使用svg渲染特征线
+    依赖jQuery
 */
 
 const GET_IMAGE_URL = host+"/imageService/processImage"
@@ -16,12 +16,12 @@ class FeatureLineRenderer{
 
     loadFeatureLine(options){
         let self = this;
-        let url = GET_IMAGE_URL;
+        let request_url = GET_IMAGE_URL;
         let opt_data = JSON.stringify(options);
         
         $.ajax({
             type: "POST",
-            url: url,
+            url: request_url,
             data: opt_data,
             success: (response_data)=>{
                 self.featureLineData = response_data.data;
@@ -41,7 +41,7 @@ class FeatureLineRenderer{
     }
     drawBackground(url){
         let img_url = url || DEFAULT_FL_BG_URL;
-        $("#"+this.containerDOM).css({
+        $("#"+this.DOM_ele).css({
             // "background-image":"url("+img_url+")",
             // "background-size":"cover"
             "background-color":"#ffffff"
