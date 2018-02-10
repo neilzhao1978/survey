@@ -313,10 +313,6 @@ public class ImageController {
 	@Value("${color.rearHood}")
 	private   String rearHoodColor;
 	
-    
-
-
-	
 	@ResponseBody
 	@RequestMapping(value = "/processImage", method = RequestMethod.POST)
 	public RestResponseEntity<ImagePartRe> processImage(@RequestBody GeneCombineImage geneCombineImage) throws IOException{
@@ -342,7 +338,8 @@ public class ImageController {
 	    colorMap.put("master", maskter);
 	    imageIds.add(maskter.id);
 	    
-		if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0){
+		if(geneCombineImage.getDriverRoom()!=null&&geneCombineImage.getDriverRoom().length()>0 && 
+				!geneCombineImage.getDriverRoom().equalsIgnoreCase(geneCombineImage.getMaster())){
 			partNms.add("司机室");
 			drivers = imageProcessService.getCartoonReplaceImage(geneCombineImage.getDriverRoom(),"司机室");
 			srcImages.addAll(drivers);
@@ -354,7 +351,8 @@ public class ImageController {
 		    colorMap.put("driverRoom", driverRoom);
 		    imageIds.add(driverRoom.id);
 		}
-		if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0){
+		if(geneCombineImage.getWheel()!=null&&geneCombineImage.getWheel().length()>0 && 
+				!geneCombineImage.getWheel().equalsIgnoreCase(geneCombineImage.getMaster())){
 			partNms.add("钢轮支架");
 			wheels = imageProcessService.getCartoonReplaceImage(geneCombineImage.getWheel(),"钢轮支架");
 			srcImages.addAll(wheels);
@@ -366,7 +364,8 @@ public class ImageController {
 		    colorMap.put("wheel", wheel);
 		    imageIds.add(wheel.id);
 		}
-		if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0){
+		if(geneCombineImage.getRearHood()!=null&&geneCombineImage.getRearHood().length()>0 && 
+				!geneCombineImage.getRearHood().equalsIgnoreCase(geneCombineImage.getMaster())){
 			partNms.add("后罩");
 			rearHoods = imageProcessService.getCartoonReplaceImage(geneCombineImage.getRearHood(),"后罩");
 			srcImages.addAll(rearHoods);
@@ -678,6 +677,4 @@ public class ImageController {
 			return ResponseGenerator.createFailResponse("获取产品可替换图像失败.", ErrorCode.DB_ERROR);
 		}
 	}
-
-	
 }
