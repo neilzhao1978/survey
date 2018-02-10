@@ -2,6 +2,7 @@ package com.neil.survey.module;
 
 public class Products {
 
+	private int hitCount;
    private String id;
    private String thumb_url;
    private Style_location style_location;
@@ -25,5 +26,11 @@ public class Products {
     public Style_location getStyle_location() {
         return style_location;
     }
+	public int getHitCount() {
+		return hitCount;
+	}
+	public void setHitCount(int hitCount) {
+		this.hitCount = hitCount;
+	}
 
 }
