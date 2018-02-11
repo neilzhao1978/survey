@@ -231,4 +231,12 @@ public class Image implements Serializable{
 		this.pngImageUrl = pngImageUrl;
 	}
 
+	public String getThumbUrl() {
+		return thumbUrl;
+	}
+
+	public void setThumbUrl(String thumbUrl) {
+		this.thumbUrl = thumbUrl;
+	}
+
 }

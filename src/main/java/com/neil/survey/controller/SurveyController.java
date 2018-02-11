@@ -84,6 +84,7 @@ import com.neil.batiktools.Rect;
 import com.neil.batiktools.SaveAsPngTiles;
 import com.neil.batiktools.SvgUtilities;
 import com.neil.imagetools.BinaryColor;
+import com.neil.imagetools.ThumbnailsCreator;
 import com.neil.survey.module.Answer;
 import com.neil.survey.module.Brand;
 import com.neil.survey.module.BrandResp;
@@ -91,6 +92,9 @@ import com.neil.survey.module.Brand_P;
 import com.neil.survey.module.Component;
 import com.neil.survey.module.Image;
 import com.neil.survey.module.ImageCount;
+import com.neil.survey.module.Products;
+import com.neil.survey.module.ProductsLocation;
+import com.neil.survey.module.Style_location;
 import com.neil.survey.module.Survey;
 import com.neil.survey.module.SurveyImageResult;
 import com.neil.survey.module.VehicheResp;
@@ -278,42 +282,60 @@ public class SurveyController {
 
 	@ResponseBody
 	@RequestMapping(value = "/getSurveyResult", method = RequestMethod.GET)
-	public RestResponseEntity<List<ImageCount>> getSurveyResult(
-			@RequestParam(value = "surveyId", required = true) String surveyId,
-			@RequestParam(value = "imageType", required = true) String imageType) {
+	public ProductsLocation getSurveyResult(
+			@RequestParam(value = "surveyId", required = true) String surveyId) {
 
 		Survey survey = surveyRepo.getBySurveyId(surveyId);
 
 		List<Answer> answers = answerRepo.findBySurvey(survey);
-		List<Image> allImages = new ArrayList<Image>();
-		for (Answer a : answers) {
-			allImages.addAll(a.getImages());
-		}
+		Set<Image> allImages = survey.getImages();
 
-		Map<String, ImageCount> imageCount = new HashMap<String, ImageCount>();
-		for (Image i : allImages) {
-			if (i.getImageType().equalsIgnoreCase(imageType)) {
-				if (imageCount.containsKey(i.getImageId())) {
-					imageCount.get(i.getImageId()).increaseCount();
-					;
-				} else {
-					ImageCount x = new ImageCount();
-					x.setI(i);
-					x.setCount(1);
-					imageCount.put(i.getImageId(), x);
+		Map<String, ImageCount> imageCounts = new HashMap<String, ImageCount>();
+		for (Image img : allImages) {
+			ImageCount imgCount = new ImageCount();
+			imgCount.setCount(0);
+			imgCount.setI(img);
+			imageCounts.put(img.getImageId(), imgCount);
+		}
+		
+		for(Answer answer:answers){
+			for(Image ai:answer.getImages()){
+				if(imageCounts.get(ai.getImageId())!=null){
+					imageCounts.get(ai.getImageId()).increaseCount();
 				}
 			}
 		}
 
 		List<ImageCount> result = new ArrayList<ImageCount>();
-		result.addAll(imageCount.values());
+		result.addAll(imageCounts.values());
 		Collections.sort(result);
-
-		if (answers != null) {
-			return ResponseGenerator.createSuccessResponse("获取问卷结果成功。", result.size(), result, result.size());
-		} else {
-			return ResponseGenerator.createFailResponse("获取问卷结果失败。", ErrorCode.DB_ERROR);
+		
+		ProductsLocation ret = new ProductsLocation();
+		
+		List<Products> products = new ArrayList<Products>();
+		for(ImageCount imc: result){
+			Products ps = new Products();
+			ps.setThumb_url(imc.getI().getThumbUrl());
+			ps.setHitCount(imc.getCount());
+			ps.setId(imc.getI().getImageId());
+			
+			Style_location style_location = new Style_location();
+			style_location.setX(imc.getI().getImageStyleX());
+			style_location.setY(imc.getI().getImageStyleY());
+			style_location.setZ(imc.getI().getImageStyleZ());
+			ps.setStyle_location(style_location);
+			products.add(ps);
 		}
+		
+		ret.setProducts(products);
+		
+		return ret;
+		
+//		if (answers != null) {
+//			return ResponseGenerator.createSuccessResponse("获取问卷结果成功。", result.size(), result, result.size());
+//		} else {
+//			return ResponseGenerator.createFailResponse("获取问卷结果失败。", ErrorCode.DB_ERROR);
+//		}
 	}
 
 	@Value("${web.upload-path}")
@@ -829,6 +851,13 @@ public class SurveyController {
 		
 		String urlPng = "http://" + ip + ":" + port + "/allimages/png/";
 		imageDb.setPngImageUrl(urlPng+ pngUUID + ".png");
+		
+		StringBuilder outUrl = new StringBuilder();
+		ThumbnailsCreator.geneThumbnails(pngFileName, path+"png/",
+				urlPng, outUrl);
+		
+		imageDb.setThumbUrl(outUrl.toString());
+		
 //		String urlFeaturePng = "http://" + ip + ":" + port + "/allimages/png/";
 		imageDb.setFeatureUrl(urlPng+ pngFeatureUUID + ".png");
 		
