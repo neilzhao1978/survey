@@ -264,7 +264,7 @@ public class BinaryColor {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 
             ImageIO.write(bImg, "png", baos); 
-            ImageIO.write(bImg, "png", new File("D:/1/wholeFeature.png")); 
+//            ImageIO.write(bImg, "png", new File("D:/1/wholeFeature.png")); 
 //            ImageIO.write(bImg, "png", new File("D:/1/qwe.png"));
             
             byte[] bytesOut = baos.toByteArray(); 
@@ -303,7 +303,7 @@ public class BinaryColor {
 
             ImageIO.write(bImg, "png", baos); 
             
-            ImageIO.write(bImg, "png", new File("D:/1/whole.png")); 
+//            ImageIO.write(bImg, "png", new File("D:/1/whole.png")); 
             
             byte[] bytesOut = baos.toByteArray(); 
             return Base64.encodeBase64String(bytesOut);
@@ -352,7 +352,7 @@ public class BinaryColor {
 
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
-	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
+//	    	ImageIO.write(bImg, "png", new File("D:/1/stitch.png")); 
 	    	
             byte[] bytesOut = baos.toByteArray(); 
             ret[0]=Base64.encodeBase64String(bytesOut);
@@ -417,7 +417,7 @@ public class BinaryColor {
 
 	    	ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 	    	ImageIO.write(bImg, "png", baos); 
-	    	ImageIO.write(bImg, "png", new File("D:/1/stitchFeature.png")); 
+//	    	ImageIO.write(bImg, "png", new File("D:/1/stitchFeature.png")); 
             byte[] bytesOut = baos.toByteArray(); 
             ret[1]=Base64.encodeBase64String(bytesOut);
         	g.dispose();
