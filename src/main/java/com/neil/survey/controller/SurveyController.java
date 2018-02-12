@@ -314,19 +314,20 @@ public class SurveyController {
 		
 		List<Products> products = new ArrayList<Products>();
 		for(ImageCount imc: result){
-			Products ps = new Products();
-			ps.setThumb_url(imc.getI().getThumbUrl());
-			ps.setHitCount(imc.getCount());
-			ps.setId(imc.getI().getImageId());
-			
-			Style_location style_location = new Style_location();
-			style_location.setX(imc.getI().getImageStyleX());
-			style_location.setY(imc.getI().getImageStyleY());
-			style_location.setZ(imc.getI().getImageStyleZ());
-			ps.setStyle_location(style_location);
-			products.add(ps);
+			if(imc.getI().getImageType().equalsIgnoreCase("WHOLE")){
+				Products ps = new Products();
+				ps.setThumb_url(imc.getI().getThumbUrl());
+				ps.setHitCount(imc.getCount());
+				ps.setId(imc.getI().getImageId());
+				
+				Style_location style_location = new Style_location();
+				style_location.setX(imc.getI().getImageStyleX());
+				style_location.setY(imc.getI().getImageStyleY());
+				style_location.setZ(imc.getI().getImageStyleZ());
+				ps.setStyle_location(style_location);
+				products.add(ps);
+			}
 		}
-		
 		ret.setProducts(products);
 		
 		return ret;
