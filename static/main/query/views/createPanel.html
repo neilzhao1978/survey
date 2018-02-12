@@ -90,10 +90,7 @@
                                                 <label for="Query_Desc">问卷描述：</label>
                                                 <textarea class="form-control" id="Query_Desc" placeholder="关于本次调查的说明......" v-model="qDesc"></textarea>
                                         </div>
-
-                                        
                                 </form>
-
                         </div>
 
                         <div class="tab-pane mainTabPanel panel-brand fade" id="brand">
@@ -206,11 +203,8 @@
                                                                 </div>
                                                                 <br/>
                                                                 <div class="row">
-                                                                        <div class="thumb-box panel panel-default col-lg-3" v-for="typeImg in type.imgList">
-                                                                                
-                                                                                <label class="productChoiceLabel">
-                                                                                        <img class="brandProductImg" v-bind:src="typeImg.imageUrl" />
-                                                                                </label>
+                                                                        <div class="col-lg-3 pad-top-10 alignCenter" v-for="typeImg in type.imgList">
+                                                                                <img class="brandProductImg" v-bind:src="typeImg.imageUrl"/><br/>
                                                                                 <span>{{typeImg.imageDesc}}</span>
                                                                         </div>
                                                                 </div>
@@ -272,12 +266,12 @@
                                                                 
                                                         
 
-                                                                <div class="thumb-box panel panel-default">
+                                                        <div class="thumb-box panel panel-default">
                                                                         <input type="checkbox" class="productChoiceChk" v-bind="{id:'pro-thumb'+pro.imageId}"/>
                                                                         <label v-bind:for="'pro-thumb'+pro.imageId" class="productChoiceLabel">
                                                                                 <img class="brandProductImg" v-bind:src="pro.imageUrl" />
                                                                         </label>
-                                                                </div>
+                                                        </div>
 
                                                         </div>
                                                 </div>
@@ -336,7 +330,7 @@
                                         <div class="modal-content">
                                                 <div class="modal-header">
                                                         <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                                                        <h4 class="modal-title">从图库中选择...</h4>
+                                                        <h4 class="modal-title">图库</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                         <div class="container-fluid">
@@ -370,7 +364,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer alignCenter">
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                                                         <!--<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>-->
                                                 </div>
                                         </div>
@@ -404,7 +398,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <div id="imgdiv" class="upload-preview">
+                                                                                <div id="imgdiv">
                                                                                     <img id="imgShow" src=""  /></div>
                                                                             </td>
                                                                         </tr>
@@ -416,33 +410,43 @@
                                         </div>
                                         <div class="col-sm-5 h300 image-matrix">
                                                 <p class="title">选择意象关键词</p>
+                                                <!--<div class="form-group">-->
+                                                    <!--<div class="col-md-2">-->
+                                                        <!--<input type="radio" id="" name="d_1" alt="精致" onclick="buildInspireDesc(0,0)"/>-->
+                                                    <!--</div>-->
+                                                    <!--<label for="" class="col-sm-4 control-label">精致</label>-->
+                                                    <!--<div class="col-md-2">-->
+                                                        <!--<input type="radio" id=""  name="d_1" alt="粗俗" onclick="buildInspireDesc(0,1)"/>-->
+                                                    <!--</div>-->
+                                                    <!--<label for="" class="col-sm-4 control-label">粗俗</label>-->
+                                                <!--</div>-->
                                                 <div class="form-group">
                                                         <div class="col-md-2">
-                                                            <input type="radio" id="d00" name="d_1" alt="简洁" onclick="buildInspireDesc(0,0)"/>
+                                                            <input type="radio" id="d00" name="d_2" alt="简洁" onclick="buildInspireDesc(0,0)"/>
                                                         </div>
                                                         <label for="d00" class="col-sm-4 control-label">简洁</label>
                                                         <div class="col-md-2">
-                                                            <input type="radio" id="d01" name="d_1" alt="复杂" onclick="buildInspireDesc(0,1)"/>
+                                                            <input type="radio" id="d01" name="d_2" alt="复杂" onclick="buildInspireDesc(0,1)"/>
                                                         </div>
                                                         <label for="d01" class="col-sm-4 control-label">复杂</label>
                                                 </div>
                                                 <div class="form-group">
                                                         <div class="col-md-2">
-                                                                <input type="radio" id="d10" name="d_1" alt="圆润" onclick="buildInspireDesc(1,0)" />
+                                                                <input type="radio" id="d10" name="d_3" alt="圆润" onclick="buildInspireDesc(1,0)" />
                                                         </div>
                                                         <label for="d10" class="col-sm-4 control-label">圆润</label>
                                                         <div class="col-md-2">
-                                                                <input type="radio" id="d11"  name="d_1" alt="硬朗" onclick="buildInspireDesc(1,1)" />
+                                                                <input type="radio" id="d11"  name="d_3" alt="硬朗" onclick="buildInspireDesc(1,1)" />
                                                         </div>
                                                         <label for="d11" class="col-sm-4 control-label">硬朗</label>
                                                 </div>
                                                 <div class="form-group">
                                                         <div class="col-md-2">
-                                                                <input type="radio" id="d20" name="d_1"  alt="现代"  onclick="buildInspireDesc(2,0)"/>
+                                                                <input type="radio" id="d20" name="d_7"  alt="现代"  onclick="buildInspireDesc(2,0)"/>
                                                         </div>
                                                         <label for="d20" class="col-sm-4 control-label">现代</label>
                                                         <div class="col-md-2">
-                                                                <input type="radio" id="d21" name="d_1"  alt="传统" onclick="buildInspireDesc(2,1)"/>
+                                                                <input type="radio" id="d21" name="d_7"  alt="传统" onclick="buildInspireDesc(2,1)"/>
                                                         </div>
                                                         <label for="d21" class="col-sm-4 control-label">传统</label>
                                                 </div>

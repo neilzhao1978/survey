@@ -225,7 +225,7 @@ var CreateQuery = new Vue({
                             if(CreateQuery.brandList[i].product[j].imageUrl==$(obj).next("label").find("img").get(0).src){
                                 //选中的产品列表保存（放入相应的brandList下的selProduct中）
                                 CreateQuery.brandList[i].selProduct.push(CreateQuery.brandList[i].product[j]);
-                                loadProductDetail(CreateQuery.brandList[i].product[j].imageId);
+                                
                                 //选中的产品列表保存（保存于无序列表）
                                 CreateQuery.selProList.push(CreateQuery.brandList[i].product[j]);
                                 //
@@ -236,6 +236,7 @@ var CreateQuery = new Vue({
                     }
                 }
                 console.log(CreateQuery.brandList);
+                loadProductDetail(obj.name);
 
             }
             //若是取消选中，则是将其从vue的data中剔除
@@ -360,7 +361,7 @@ var CreateQuery = new Vue({
                         //若没有相同的，则保存于selProList
                         else{
                             CreateQuery.selProList.push(sel_bra_pro);
-
+                            loadProductDetail(sel_bra_pro.imageId);
                         }
 
 
