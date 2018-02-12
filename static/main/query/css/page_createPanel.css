@@ -138,3 +138,12 @@
 .upload-preview{
     overflow: hidden;
 }
+.gallery-win .modal-header{
+    position: relative;
+}
+.btn-remove-from-lib{
+    position: absolute;
+    top:50%;
+    right:20px;
+    transform: translateY(-50%);
+}
