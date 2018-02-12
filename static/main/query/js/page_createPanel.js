@@ -347,7 +347,7 @@ function onDeleteImageFromLib(){
                     for(j =0 ;j<CreateQuery.gallery.length;j++){
                         for(k=0;k<CreateQuery.gallery[j].imgList.length;k++){
                             if(CreateQuery.gallery[j].imgList[k] == images[i]){
-                                CreateQuery.gallery[j].imgList.splice(images[i]);
+                                CreateQuery.gallery[j].imgList.splice(k,1);
                             }
                         }
                     }
@@ -357,7 +357,7 @@ function onDeleteImageFromLib(){
                     for(j =0 ;j<CreateQuery.inspire_type.length;j++){
                         for(k=0;k<CreateQuery.inspire_type[j].imgList.length;k++){
                             if(CreateQuery.inspire_type[j].imgList[k] == images[i]){
-                                CreateQuery.inspire_type[j].imgList.splice(images[i]);
+                                CreateQuery.inspire_type[j].imgList.splice(images[k,1]);
                             }
                         }
                     }
