@@ -76,7 +76,7 @@ public class BinaryColor {
     }  
     
 	//背景变透明
-    public static void convertTransBack(String inBase64String,StringBuilder outBase64String) throws IOException { 
+    public static void convertTransBack(String inBase64String,StringBuilder outBase64String,String fileName) throws IOException { 
     	byte[] bytes = Base64.decodeBase64(inBase64String);
  
         ByteArrayInputStream bais = new ByteArrayInputStream(bytes);      
@@ -111,7 +111,7 @@ public class BinaryColor {
 
         ImageIO.write(bi, "png", baos);
         
-//        ImageIO.write(bi, "png", new File("D:/1/p.png"));
+        ImageIO.write(bi, "png", new File(fileName));
         
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));

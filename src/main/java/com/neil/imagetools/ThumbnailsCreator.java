@@ -6,8 +6,8 @@ import java.util.UUID;
 import net.coobird.thumbnailator.Thumbnails;
 
 public class ThumbnailsCreator {
-	private static int w=80;
-	private static int h=54;
+	private static int w=80*4;
+	private static int h=54*4;
 	public static void geneThumbnails(String srcUrl, String filePlace,String httpPlace,
 			StringBuilder outUrl){
 		try {

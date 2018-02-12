@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ProductsLocation {
 
+   private String surveyName;
    private List<Products> products;
    public void setProducts(List<Products> products) {
         this.products = products;
@@ -12,5 +13,11 @@ public class ProductsLocation {
     public List<Products> getProducts() {
         return products;
     }
+	public String getSurveyName() {
+		return surveyName;
+	}
+	public void setSurveyName(String surveyName) {
+		this.surveyName = surveyName;
+	}
 
 }
