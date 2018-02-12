@@ -215,7 +215,7 @@ class DataVis3DRenderer{
             url: request_url,
             success: (response_data)=>{
                 this.productData = response_data.products;
-                initSlot(this.productData[0].id,this.productData[0].thumb_url);
+                initPageData(this.productData[0].id,this.productData[0].thumb_url);
                 this.loadProducts(this.productData)
                 console.log(response_data)
             },

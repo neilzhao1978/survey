@@ -26,10 +26,13 @@ function fillSlot(product_id,thumb_url){
     }
     flr.loadFeatureLine(flrOptions)
 }
-function initSlot(product_id,thumb_url){
+function initPageData(product_id,thumb_url,surveyTitle){
     $(".slot0").find("img").get(0).src = thumb_url;
     flrOptions.master = product_id;
     flr.loadFeatureLine(flrOptions)
+    if (surveyTitle){
+        $("#survey-title").html(surveyTitle)
+    }
 }
 function clearAllSlots(){
     // $(".slot0").find("img").get(0).src = "";
