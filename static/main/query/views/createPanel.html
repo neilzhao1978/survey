@@ -149,7 +149,6 @@
                                                                                 <img class="brandProductImg" v-bind:src="pro.imageUrl" />
                                                                         </label>
                                                                 </div>
-
                                                         </div>
                                                 </div>
                                         </div>
@@ -263,9 +262,6 @@
                                         <div class="panel-body" >
                                                 <div class="panel-body" >
                                                         <div class="col-lg-3" v-for="pro in selProList">
-                                                                
-                                                        
-
                                                         <div class="thumb-box panel panel-default">
                                                                         <input type="checkbox" class="productChoiceChk" v-bind="{id:'pro-thumb'+pro.imageId}"/>
                                                                         <label v-bind:for="'pro-thumb'+pro.imageId" class="productChoiceLabel">
@@ -330,7 +326,8 @@
                                         <div class="modal-content">
                                                 <div class="modal-header">
                                                         <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                                                        <h4 class="modal-title">图库</h4>
+                                                        <h4 class="modal-title ">图库 </h4>
+                                                        <button class="btn btn-default" onclick="onDeleteImageFromLib()">删除</button>
                                                 </div>
                                                 <div class="modal-body">
                                                         <div class="container-fluid">

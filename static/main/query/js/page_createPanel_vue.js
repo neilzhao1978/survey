@@ -214,6 +214,7 @@ var CreateQuery = new Vue({
         //产品选择tab中的checkbox 选中、取消选中方法
         doCheck_pro: function(){
             var obj=event.currentTarget;
+            var product_id = -1;
             //如果是选中；则将数据添加进vue的data中
             if(obj.checked){
                 console.log(event.currentTarget);
@@ -228,7 +229,7 @@ var CreateQuery = new Vue({
                                 
                                 //选中的产品列表保存（保存于无序列表）
                                 CreateQuery.selProList.push(CreateQuery.brandList[i].product[j]);
-                                //
+                                product_id = CreateQuery.brandList[i].product[j].imageId;
                                 console.log(CreateQuery.brandList[i]);
                                 break
                             }
@@ -236,8 +237,7 @@ var CreateQuery = new Vue({
                     }
                 }
                 console.log(CreateQuery.brandList);
-                loadProductDetail(obj.name);
-
+                loadProductDetail(product_id);
             }
             //若是取消选中，则是将其从vue的data中剔除
             else{

@@ -216,11 +216,17 @@ public class ImageController {
 		}
 	}
 
+
+
 	@ResponseBody
-	@RequestMapping(value = "/deleteImage", method = RequestMethod.DELETE)
-	public RestResponseEntity<Void> deleteCreator(@RequestBody Image image) {
+	@RequestMapping(value = "/deleteImages", method = RequestMethod.POST)
+	public RestResponseEntity<Void> deleteImages(@RequestBody List<Image> image) {
 		try {
-			imageRepo.delete(image);
+			if(image!=null && image.size()>0){
+				for(Image img:image){					
+					imageRepo.delete(img);
+				}
+			}
 			return ResponseGenerator.createSuccessResponse("删除图像成功.");
 		} catch (Exception e) {
 			return ResponseGenerator.createFailResponse("删除图像失败.", ErrorCode.DB_ERROR);
