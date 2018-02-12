@@ -50,25 +50,31 @@ class Product{
         this.textureMap = this.textureLoader.load(thumb_url);
         this.material = new THREE.SpriteMaterial({ 
             map: this.textureMap, 
-            color: this.normalColor
+            color: this.normalColor,
+            fog: true
         });
         this.thumb = new THREE.Sprite( this.material )
         this.thumb.scale.set(4,2.7,1);
         this.scene.add(this.thumb);
 
-        this.normalColor = 0xffffff;
-        this.highlightColor = 0x0000ff;
+        this.normalColor = new THREE.Color(0xffffff);
+        this.highlightColor = new THREE.Color(0x4f7fff);
+        this.colorFadingDuration = 0;
     }
     setPos(v3){
         this.thumb.position.set(v3.x,v3.y,v3.z);
     }
     lightOn(){
-        this.thumb.material.color.setHex(this.highlightColor);
+        this.colorFadingDuration = 60;
     }
-    lightOff(){
-        this.thumb.material.color.setHex(this.normalColor);
-    }
+    
     update(){
+        if(this.colorFadingDuration>0){
+            this.colorFadingDuration-=1;
+            let c = this.normalColor.clone()
+            c.lerp(this.highlightColor,this.colorFadingDuration/60)
+            this.thumb.material.color.setHex(c.getHex())
+        }
 
     }
 }
@@ -79,6 +85,7 @@ class DataVis3DRenderer{
         let self = this;
         
         //获取容器
+        this.DOM_container = $("#"+DOM_ele).get(0);
         this.DOM_canvas = $("#"+DOM_ele).find("canvas").get(0);
         //创建THREEJS渲染器实例
         this.renderer = new THREE.WebGLRenderer({
@@ -89,6 +96,7 @@ class DataVis3DRenderer{
         this.renderer.setPixelRatio( window.devicePixelRatio )
         this.renderer.setSize( $(this.DOM_canvas).width(), $(this.DOM_canvas).height());
         this.scene = new THREE.Scene();
+        this.scene.fog = new THREE.Fog( 0xffffff, 60, 120 );
         
 	    this.camera = new THREE.PerspectiveCamera(60, $(this.DOM_canvas).width()/$(this.DOM_canvas).height(), 0.01, 1000);
         //scale是放大的比例尺度
@@ -131,7 +139,6 @@ class DataVis3DRenderer{
              
             if (intersects.length>=1){
                 for(let i = 0;i<this.products.length;i++){
-                    this.products[i].lightOff();
                     //found a target
                     if(intersects[0].object.uuid===this.products[i].thumb.uuid){
                         this.products[i].lightOn();
@@ -142,9 +149,15 @@ class DataVis3DRenderer{
             evt.stopPropagation();
         })
         $(window).on("resize",()=>{
-            this.camera.aspect = $(this.DOM_canvas).width() / $(this.DOM_canvas).height();
+            let w = $(this.DOM_container).get(0).clientWidth;
+            let h = $(this.DOM_container).get(0).clientHeight;
+            $(this.DOM_canvas).width(w);
+            $(this.DOM_canvas).height(h);
+            this.renderer.setViewport(0, 0, w, h);
+            this.renderer.setSize( w, h);
+            this.camera.aspect = w / h;
 		    this.camera.updateProjectionMatrix();
-            this.renderer.setSize( $(this.DOM_canvas).width(), $(this.DOM_canvas).height());
+            
         })
 
     }
