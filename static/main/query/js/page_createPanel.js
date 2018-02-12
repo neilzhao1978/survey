@@ -334,6 +334,12 @@ function onDeleteImageFromLib(){
     for(i=0;i<CreateQuery.inspire_type.length;i++){
         images=images.concat(CreateQuery.inspire_type[i].imgList);
     }
+
+    if(images.length==0){
+        alert("请选择要删除的图片。");
+        return;
+    }
+
     imageService.deleteImages(images,
         function(data){
             if(data.result){
@@ -341,7 +347,7 @@ function onDeleteImageFromLib(){
                     for(j =0 ;j<CreateQuery.gallery.length;j++){
                         for(k=0;k<CreateQuery.gallery[j].imgList.length;k++){
                             if(CreateQuery.gallery[j].imgList[k] == images[i]){
-                                CreateQuery.gallery[j].imgList.splice(images[i]);
+                                CreateQuery.gallery[j].imgList.splice(k,1);
                             }
                         }
                     }
@@ -351,7 +357,7 @@ function onDeleteImageFromLib(){
                     for(j =0 ;j<CreateQuery.inspire_type.length;j++){
                         for(k=0;k<CreateQuery.inspire_type[j].imgList.length;k++){
                             if(CreateQuery.inspire_type[j].imgList[k] == images[i]){
-                                CreateQuery.inspire_type[j].imgList.splice(images[i]);
+                                CreateQuery.inspire_type[j].imgList.splice(images[k,1]);
                             }
                         }
                     }
