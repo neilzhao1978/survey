@@ -141,7 +141,7 @@ function loadSurveyInfo(){
                     //重新定义个product类型；将image类型替代
                     list.brands[i].product=list.brands[i].images;
                     delete list.brands[i].images;
-                    CreateQuery.brandList.push(list.brands[i])
+                    CreateQuery.brandList.push(list.brands[i]);
                 }
 
 
@@ -326,6 +326,44 @@ function loadInpireImg_all(){
             }
         );
     }
+}
+/*从图库中删除图像 */
+function onDeleteImageFromLib(){
+    var images = [];
+    //TODO add image
+    for(i=0;i<CreateQuery.inspire_type.length;i++){
+        images=images.concat(CreateQuery.inspire_type[i].imgList);
+    }
+    imageService.deleteImages(images,
+        function(data){
+            if(data.result){
+                for(i = 0;i <images.length ;i++){//to clear the gallery
+                    for(j =0 ;j<CreateQuery.gallery.length;j++){
+                        for(k=0;k<CreateQuery.gallery[j].imgList.length;k++){
+                            if(CreateQuery.gallery[j].imgList[k] == images[i]){
+                                CreateQuery.gallery[j].imgList.splice(images[i]);
+                            }
+                        }
+                    }
+                }
+
+                for(i = 0;i <images.length ;i++){//to clear the selected inspire images.
+                    for(j =0 ;j<CreateQuery.inspire_type.length;j++){
+                        for(k=0;k<CreateQuery.inspire_type[j].imgList.length;k++){
+                            if(CreateQuery.inspire_type[j].imgList[k] == images[i]){
+                                CreateQuery.inspire_type[j].imgList.splice(images[i]);
+                            }
+                        }
+                    }
+                }
+
+
+            }else{
+
+            }
+            alert(data.description);
+        }
+    );
 }
 
 /**  上传图片到图库 ***/

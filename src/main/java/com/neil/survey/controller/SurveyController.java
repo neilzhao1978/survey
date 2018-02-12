@@ -657,26 +657,26 @@ public class SurveyController {
 				String s = item.substring(0, item.length()-1);
 				String v = item.substring(item.length()-1, item.length());
 				Integer vi = Integer.parseInt(v);
-				
-
-				if(s.equalsIgnoreCase("复杂")){
+		
+				if(s.equalsIgnoreCase("现代")){
 					styleX = vi/3f;
 				}
-				if(s.equalsIgnoreCase("简洁")){
-					styleX = 0f-vi/3f;
-				}			
-				if(s.equalsIgnoreCase("现代")){
-					styleY = vi/3f;
-				}
 				if(s.equalsIgnoreCase("传统")){
-					styleY = 0f-vi/3f;
+					styleX = 0f-vi/3f;
 				}	
 				if(s.equalsIgnoreCase("圆润")){
-					styleZ = vi/3f;
+					styleY = vi/3f;
 				}
 				if(s.equalsIgnoreCase("硬朗")){
-					styleZ = 0f-vi/3f;
+					styleY = 0f-vi/3f;
 				}	
+				if(s.equalsIgnoreCase("简洁")){
+					styleZ = vi/3f;
+				}	
+				if(s.equalsIgnoreCase("复杂")){
+					styleZ = 0f-vi/3f;
+				}
+				
 			}catch(Exception e ){
 				logger.error(e.getMessage());
 				continue;
