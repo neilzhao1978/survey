@@ -334,6 +334,12 @@ function onDeleteImageFromLib(){
     for(i=0;i<CreateQuery.inspire_type.length;i++){
         images=images.concat(CreateQuery.inspire_type[i].imgList);
     }
+
+    if(images.length==0){
+        alert("请选择要删除的图片。");
+        return;
+    }
+
     imageService.deleteImages(images,
         function(data){
             if(data.result){
