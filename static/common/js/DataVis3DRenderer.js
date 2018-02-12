@@ -3,7 +3,8 @@
     依赖three.js
 */
 
-const GET_PRODUCT_DATA_URL = host+"";
+const GET_SURVEY_DATA_URL = host+"/surveyService/getSurveyResult?surveyId=";
+
 /*
 class Product{
     constructor(parent,thumb_url){
@@ -54,7 +55,7 @@ class Product{
             fog: true
         });
         this.thumb = new THREE.Sprite( this.material )
-        this.thumb.scale.set(4,2.7,1);
+        this.thumb.scale.set(8,5.4,1);
         this.scene.add(this.thumb);
 
         this.normalColor = new THREE.Color(0xffffff);
@@ -96,15 +97,15 @@ class DataVis3DRenderer{
         this.renderer.setPixelRatio( window.devicePixelRatio )
         this.renderer.setSize( $(this.DOM_canvas).width(), $(this.DOM_canvas).height());
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog( 0xffffff, 60, 120 );
+        this.scene.fog = new THREE.Fog( 0xffffff, 100, 300 );
         
 	    this.camera = new THREE.PerspectiveCamera(60, $(this.DOM_canvas).width()/$(this.DOM_canvas).height(), 0.01, 1000);
         //scale是放大的比例尺度
-        this.scale = 50
+        this.scale = 30
         this.camera.position.set(
-            this.scale,
-            this.scale,
-            this.scale
+            this.scale*2,
+            this.scale*2,
+            this.scale*2
         );
         this.camera.lookAt(new THREE.Vector3(0,0,0))
         this.raycaster = new THREE.Raycaster();  
@@ -113,19 +114,29 @@ class DataVis3DRenderer{
         this.orbit = new THREE.OrbitControls( this.camera, this.renderer.domElement );
 
         //显示坐标轴辅助线
-        let axesHelper = new THREE.AxesHelper(20);
+        let axesHelper = new THREE.AxesHelper(40);
         this.scene.add(axesHelper);
+        let axesHelper2 = new THREE.AxesHelper(40);
+        axesHelper2.material.color.setHex(0x666666);
+        let ms = (new THREE.Matrix4()).identity();
+        //set -1 to the corresponding axis
+        ms.elements[0] = -1;
+        ms.elements[5] = -1;
+        ms.elements[10] = -1;
+        axesHelper2.applyMatrix(ms);
         
+        this.scene.add(axesHelper2);
+
         //加载灯光
         let color = new THREE.Color(0.5, 0.5, 0.5);
 	    let ambient = new THREE.AmbientLight(color.getHex());
         this.scene.add(ambient);
         
         //产品数据
-        this.productData = null;
+        this.productData = [];
         this.products = []
         //加载产品
-        this.loadProduct();
+        //this.loadProduct();
         
         this.render()
 
@@ -142,6 +153,7 @@ class DataVis3DRenderer{
                     //found a target
                     if(intersects[0].object.uuid===this.products[i].thumb.uuid){
                         this.products[i].lightOn();
+                        fillSlot(this.productData[i].id,this.productData[i].thumb_url)
                     }
                 }
             }
@@ -194,34 +206,35 @@ class DataVis3DRenderer{
         console.log(mousePos)
         return mousePos;
     }
-    loadProductData(options){
+    loadSurveyData(surveyId){
         let self = this;
-        let request_url = GET_PRODUCT_DATA_URL;
-        let opt_data = options;
+        let request_url = GET_SURVEY_DATA_URL+surveyId;
         
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: request_url,
-            data: opt_data,
             success: (response_data)=>{
-                
+                this.productData = response_data.products;
+                initSlot(this.productData[0].id,this.productData[0].thumb_url);
+                this.loadProducts(this.productData)
+                console.log(response_data)
             },
             error:(response_data)=>{
-                
+                alert(response_data)
             },
             dataType: "json",
             contentType: "application/json"
         })
         
     }
-    loadProduct(){
+    loadProducts(product_data){
 
-        for (let i=0;i<100;i++){
-            let p = new Product(this,"http://design-pinwall.qiniudn.com/5081/1517128537264.png?imageMogr2/thumbnail/200x200")
+        for (let i=0;i<product_data.length;i++){
+            let p = new Product(this,product_data[i].thumb_url)
             
-            let x = this.scale/2-Math.random()*this.scale;
-            let y = this.scale/2-Math.random()*this.scale;
-            let z = this.scale/2-Math.random()*this.scale;
+            let x = product_data[i].style_location.x*this.scale;
+            let y = product_data[i].style_location.y*this.scale;
+            let z = product_data[i].style_location.z*this.scale;
             p.setPos(new THREE.Vector3( x, y, z ));
 
             this.products.push(p);

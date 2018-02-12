@@ -59,6 +59,8 @@ $(function(){
             if(field=="answerCount"){
                 //alert('find you!')
                 window.location='board.html'+"?"+row.surveyId
+            }else if(field=="result"){
+                window.location = "designIdeationBoard.html"+"?"+row.surveyId
             }
         }
     });
