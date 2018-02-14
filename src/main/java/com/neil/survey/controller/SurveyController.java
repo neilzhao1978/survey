@@ -93,13 +93,13 @@ import com.neil.survey.module.Brand_P;
 import com.neil.survey.module.Component;
 import com.neil.survey.module.Image;
 import com.neil.survey.module.ImageCount;
-import com.neil.survey.module.Products;
 import com.neil.survey.module.ProductsLocation;
 import com.neil.survey.module.Style_location;
 import com.neil.survey.module.Survey;
 import com.neil.survey.module.SurveyImageResult;
 import com.neil.survey.module.VehicheResp;
 import com.neil.survey.module.VehicleInfo_P;
+import com.neil.survey.module.stat.Products;
 import com.neil.survey.repository.AnswerRepository;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
@@ -288,11 +288,13 @@ public class SurveyController {
 
 		Survey survey = surveyRepo.getBySurveyId(surveyId);
 
+		List<Image> all= imageRepo.findByImageType("WHOLE");
+		
 		List<Answer> answers = answerRepo.findBySurvey(survey);
-		Set<Image> allImages = survey.getImages();
+//		Set<Image> allImagesInSurvey = survey.getImages();
 
 		Map<String, ImageCount> imageCounts = new HashMap<String, ImageCount>();
-		for (Image img : allImages) {
+		for (Image img : all) {
 			ImageCount imgCount = new ImageCount();
 			imgCount.setCount(0);
 			imgCount.setI(img);
@@ -329,7 +331,9 @@ public class SurveyController {
 				products.add(ps);
 			}
 		}
-		ret.setSurveyName(survey.getName());
+		if(survey!=null){			
+			ret.setSurveyName(survey.getName());
+		}
 		ret.setProducts(products);
 		
 		return ret;
@@ -855,6 +859,14 @@ public class SurveyController {
 		imageDb.setImageType("WHOLE");
 		imageDb.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
 		imageDb.setParentImageId(null);
+		
+		imageDb.setBrand(v.getBrandName());
+		imageDb.setModuel(v.getProductCategory());//TODO correct this assignment.
+		imageDb.setYear(v.getCreateTime().getYear()+"");
+		imageDb.setStyle_keyword(v.getStyle());
+		
+		
+		imageDb.setTexture(v.getVehicleTextures().toString());
 		
 		for (Component c : componets) {
 			handleSubImage(imageDb, doc, c, v.getId().toString(),ratioX,ratioY);//处理子图

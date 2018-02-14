@@ -1,4 +1,6 @@
-package com.neil.survey.module;
+package com.neil.survey.module.stat;
+
+import com.neil.survey.module.Style_location;
 
 public class Products {
 

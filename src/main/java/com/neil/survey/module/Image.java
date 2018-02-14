@@ -238,5 +238,49 @@ public class Image implements Serializable{
 	public void setThumbUrl(String thumbUrl) {
 		this.thumbUrl = thumbUrl;
 	}
+	
+	private String brand;
+	private String moduel;
+	private String year;
+	private String style_keyword;
+	private String texture;
+	public String getBrand() {
+		return brand;
+	}
 
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getModuel() {
+		return moduel;
+	}
+
+	public void setModuel(String moduel) {
+		this.moduel = moduel;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getStyle_keyword() {
+		return style_keyword;
+	}
+
+	public void setStyle_keyword(String style_keyword) {
+		this.style_keyword = style_keyword;
+	}
+
+	public String getTexture() {
+		return texture;
+	}
+
+	public void setTexture(String texture) {
+		this.texture = texture;
+	}
 }
