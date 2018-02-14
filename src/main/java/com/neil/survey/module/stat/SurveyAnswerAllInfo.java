@@ -4,11 +4,23 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
+
+class SurveyAnswerAllInfoID implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4517641289013866655L;
+	String surveyId;	
+	String imageId;
+}
+
 /**
  * The persistent class for the SURVEY_ANSWER_ALL_INFO database table.
  * 
  */
 @Entity
+@IdClass(SurveyAnswerAllInfoID.class)
 @Table(name="SURVEY_ANSWER_ALL_INFO")
 @NamedQuery(name="SurveyAnswerAllInfo.findAll", query="SELECT s FROM SurveyAnswerAllInfo s")
 public class SurveyAnswerAllInfo implements Serializable {
@@ -16,6 +28,7 @@ public class SurveyAnswerAllInfo implements Serializable {
 
 	private String brand;
 
+	@Id
 	@Column(name="IMAGE_ID")
 	private String imageId;
 
@@ -29,7 +42,8 @@ public class SurveyAnswerAllInfo implements Serializable {
 
 	@Column(name="STYLE_KEYWORD")
 	private String styleKeyword;
-
+	
+	@Id
 	@Column(name="SURVEY_ID")
 	private String surveyId;
 

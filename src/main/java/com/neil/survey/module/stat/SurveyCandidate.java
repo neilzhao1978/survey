@@ -3,12 +3,19 @@ package com.neil.survey.module.stat;
 import java.io.Serializable;
 import javax.persistence.*;
 
+class SurveyCandidateID implements Serializable{
+	private static final long serialVersionUID = -1075434946176236462L;
+	String surveyId;	
+	String imageId;
+}
+
 
 /**
  * The persistent class for the SURVEY_CANDIDATES database table.
  * 
  */
 @Entity
+@IdClass(SurveyCandidateID.class)
 @Table(name="SURVEY_CANDIDATES")
 @NamedQuery(name="SurveyCandidate.findAll", query="SELECT s FROM SurveyCandidate s")
 public class SurveyCandidate implements Serializable {
@@ -19,7 +26,8 @@ public class SurveyCandidate implements Serializable {
 	private long designer;
 
 	private long engineer;
-
+	
+	@Id
 	@Column(name="IMAGE_ID")
 	private String imageId;
 
@@ -31,7 +39,8 @@ public class SurveyCandidate implements Serializable {
 
 	@Column(name="STYLE_KEYWORD")
 	private String styleKeyword;
-
+	
+	@Id
 	@Column(name="SURVEY_ID")
 	private String surveyId;
 

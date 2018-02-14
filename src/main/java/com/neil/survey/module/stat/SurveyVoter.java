@@ -22,6 +22,7 @@ public class SurveyVoter implements Serializable {
 
 	private long sale;
 
+	@Id
 	@Column(name="SURVEY_ID")
 	private String surveyId;
 

@@ -7,7 +7,7 @@ select * from ANSWER;
 --create or replace view SURVEY_IMAGE_RESULT as select SURVEY_ID,IMAGE_ID,count(*) cnt,max(IMAGE_DESC) DESC from SERVEY_IMAGE  group by SURVEY_ID,IMAGE_ID order by cnt desc;
 
 
-create or replace view survey_voters as SURVEY_VOTERS 
+create or replace view survey_voters as  
 SELECT SURVEY_ID,sum(1) TOTAL ,sum(case when REPLYER_POSITION like '技术类' then 1 else 0 end) engineer,sum(case when REPLYER_POSITION like '管理类' then 1 else 0 end) manager,
 sum(case when REPLYER_POSITION like '营销类' then 1 else 0 end)  sale, sum(case when REPLYER_POSITION like '设计类' then 1 else 0 end) designer
 FROM ANSWER  group by SURVEY_ID;

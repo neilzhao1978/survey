@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
+
+
 /**
  * The persistent class for the SURVEY_STYLE_MATRIX database table.
  * 
@@ -14,6 +16,7 @@ import javax.persistence.*;
 public class SurveyStyleMatrix implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="SURVEY_ID")
 	private String surveyId;
 
