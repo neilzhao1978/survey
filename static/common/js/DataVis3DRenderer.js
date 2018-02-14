@@ -3,7 +3,7 @@
     依赖three.js
 */
 
-const GET_SURVEY_DATA_URL = host+"/surveyService/getSurveyResult?surveyId=";
+
 
 /*
 class Product{
@@ -160,18 +160,17 @@ class DataVis3DRenderer{
 
             evt.stopPropagation();
         })
-        $(window).on("resize",()=>{
-            let w = $(this.DOM_container).get(0).clientWidth;
-            let h = $(this.DOM_container).get(0).clientHeight;
-            $(this.DOM_canvas).width(w);
-            $(this.DOM_canvas).height(h);
-            this.renderer.setViewport(0, 0, w, h);
-            this.renderer.setSize( w, h);
-            this.camera.aspect = w / h;
-		    this.camera.updateProjectionMatrix();
-            
-        })
 
+    }
+    resize(){
+        let w = $(this.DOM_container).get(0).clientWidth;
+        let h = $(this.DOM_container).get(0).clientHeight;
+        $(this.DOM_canvas).width(w);
+        $(this.DOM_canvas).height(h);
+        this.renderer.setViewport(0, 0, w, h);
+        this.renderer.setSize( w, h);
+        this.camera.aspect = w / h;
+        this.camera.updateProjectionMatrix();
     }
     render(){
         requestAnimationFrame( ()=>{
@@ -206,29 +205,9 @@ class DataVis3DRenderer{
         console.log(mousePos)
         return mousePos;
     }
-    loadSurveyData(surveyId){
-        let self = this;
-        let request_url = GET_SURVEY_DATA_URL+surveyId;
-        
-        $.ajax({
-            type: "GET",
-            url: request_url,
-            success: (response_data)=>{
-                this.productData = response_data.products;
-                initPageData(this.productData[0].id,this.productData[0].thumb_url);
-                this.loadProducts(this.productData)
-                console.log(response_data)
-            },
-            error:(response_data)=>{
-                alert(response_data)
-            },
-            dataType: "json",
-            contentType: "application/json"
-        })
-        
-    }
+    
     loadProducts(product_data){
-
+        this.productData = product_data;
         for (let i=0;i<product_data.length;i++){
             let p = new Product(this,product_data[i].thumb_url)
             

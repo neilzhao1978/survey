@@ -1,5 +1,6 @@
 
 var flr,vis3d,currentSlot;
+
 var flrOptions = {
     "master":"",
     "driverRoom":"",
@@ -9,6 +10,8 @@ var flrOptions = {
 };
 
 var surveyId=common.GetRequest();
+var GET_SURVEY_DATA_URL = host+"/surveyService/getSurveyResult?surveyId=";
+
 
 function fillSlot(product_id,thumb_url){
     if(currentSlot == 0){
@@ -60,14 +63,39 @@ function printFeatureLine(){
     return true;
 
 }
+function loadSurveyData(surveyId){
+    var request_url = GET_SURVEY_DATA_URL+surveyId;
+    
+    $.ajax({
+        type: "GET",
+        url: request_url,
+        success: (response_data)=>{
+            
+            initPageData(
+                response_data.products[0].id,
+                response_data.products[0].thumb_url
+            );
+            vis3d.loadProducts(response_data.products)
+            console.log(response_data)
+        },
+        error:(response_data)=>{
+            alert(response_data)
+        },
+        dataType: "json",
+        contentType: "application/json"
+    })
+    
+}
+
+/* 初始化页面*/
 $(function(){
 
     flr = new FeatureLineRenderer("featureline-svg");
-    //flr.loadFeatureLine(flrOptions)
-
     vis3d = new DataVis3DRenderer("design-datavis-3d");
-    vis3d.loadSurveyData(surveyId)
 
+    loadSurveyData(surveyId)
+
+    //绑定UI事件处理
     $("#toggle-featureline-mode").on("click",function(e){
         let isActive = $(this).hasClass("active");
         if (!isActive){
@@ -87,6 +115,9 @@ $(function(){
     })
     $(document).on("click",function(){
         currentSlot = null;
+    })
+    $(window).on("resize",function(){
+        vis3d.resize();
     })
     $(".slot0").on("click",function(e){
         currentSlot = 0;
