@@ -1,4 +1,4 @@
-package com.neil.survey.module.stat;
+package com.neil.survey.module;
 
 import java.io.Serializable;
 import javax.persistence.*;

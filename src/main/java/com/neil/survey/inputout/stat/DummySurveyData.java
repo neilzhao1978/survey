@@ -1,8 +1,11 @@
 /**
   * Copyright 2018 bejson.com 
   */
-package com.neil.survey.module.stat;
+package com.neil.survey.inputout.stat;
 import java.util.List;
+
+import com.neil.survey.module.SurveyStyleMatrix;
+import com.neil.survey.module.SurveyVoter;
 
 /**
  * Auto-generated: 2018-02-14 22:17:13
@@ -13,8 +16,8 @@ import java.util.List;
 public class DummySurveyData {
 
     private String surveyTitle;
-    private Voters voters;
-    private Style_matrix style_matrix;
+    private SurveyVoter voters;
+    private SurveyStyleMatrix style_matrix;
     private List<Products> products;
     private List<Candidates> candidates;
     public void setSurveyTitle(String surveyTitle) {
@@ -24,17 +27,17 @@ public class DummySurveyData {
          return surveyTitle;
      }
 
-    public void setVoters(Voters voters) {
+    public void setVoters(SurveyVoter voters) {
          this.voters = voters;
      }
-     public Voters getVoters() {
+     public SurveyVoter getVoters() {
          return voters;
      }
 
-    public void setStyle_matrix(Style_matrix style_matrix) {
+    public void setStyle_matrix(SurveyStyleMatrix style_matrix) {
          this.style_matrix = style_matrix;
      }
-     public Style_matrix getStyle_matrix() {
+     public SurveyStyleMatrix getStyle_matrix() {
          return style_matrix;
      }
 

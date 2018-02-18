@@ -99,12 +99,15 @@ import com.neil.survey.module.Survey;
 import com.neil.survey.module.SurveyImageResult;
 import com.neil.survey.module.VehicheResp;
 import com.neil.survey.module.VehicleInfo_P;
-import com.neil.survey.module.stat.Products;
+import com.neil.survey.module.VehicleTexture;
+import com.neil.survey.inputout.stat.DummySurveyData;
+import com.neil.survey.inputout.stat.Products;
 import com.neil.survey.repository.AnswerRepository;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.repository.SurveyImageResultRepository;
 import com.neil.survey.repository.SurveyRepository;
+import com.neil.survey.service.impl.SurveyService;
 import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
 import com.neil.survey.util.ResponseGenerator;
@@ -134,6 +137,9 @@ public class SurveyController {
 	
 	@Autowired
 	private SurveyImageResultRepository surveyImageResultRepo;
+	
+	@Autowired
+	private SurveyService surveyService;
 	
 	// @Autowired
 	// private CreatorRepository creatorRepo;
@@ -445,6 +451,16 @@ public class SurveyController {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/getSurveyStat", method = RequestMethod.GET)
+	public DummySurveyData getSurveyStat(
+			@RequestParam(value = "surveyId", required = true) String surveyId){
+		DummySurveyData dummySurveyData = surveyService.getSurveyStat(surveyId);
+		
+		ProductsLocation projectLocation = getSurveyResult(surveyId);
+		dummySurveyData.setProducts(projectLocation.getProducts());
+		return dummySurveyData;
+	}
 	
 //	@ResponseBody
 //	@RequestMapping(value = "/mergeSubImage", method = RequestMethod.GET)
@@ -860,13 +876,18 @@ public class SurveyController {
 		imageDb.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
 		imageDb.setParentImageId(null);
 		
-		imageDb.setBrand(v.getBrandName());
-		imageDb.setModuel(v.getProductCategory());//TODO correct this assignment.
-		imageDb.setYear(v.getCreateTime().getYear()+"");
-		imageDb.setStyle_keyword(v.getStyle());
-		
-		
-		imageDb.setTexture(v.getVehicleTextures().toString());
+		imageDb.setBrand(v.getBrandName()==null?"brand":v.getBrandName());
+		imageDb.setModuel(v.getProductCategory()==null?"Category":v.getProductCategory());//TODO correct this assignment.
+		imageDb.setYear(v.getCreateTime()==null?"2018":v.getCreateTime().getYear()+"");
+		imageDb.setStyle_keyword(v.getStyle()==null?"现代":v.getStyle());
+		if(v.getVehicleTextures()!=null && v.getVehicleTextures().size()>0){
+			StringBuilder sb = new StringBuilder();
+			for(VehicleTexture x:v.getVehicleTextures()){
+				sb.append(x.toString()).append(",");
+			}
+			imageDb.setTexture(sb.toString());
+		}
+
 		
 		for (Component c : componets) {
 			handleSubImage(imageDb, doc, c, v.getId().toString(),ratioX,ratioY);//处理子图

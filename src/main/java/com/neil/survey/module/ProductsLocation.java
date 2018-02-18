@@ -2,7 +2,9 @@ package com.neil.survey.module;
 
 import java.util.List;
 
-import com.neil.survey.module.stat.Products;
+import com.neil.survey.inputout.stat.Products;
+
+
 
 
 public class ProductsLocation {

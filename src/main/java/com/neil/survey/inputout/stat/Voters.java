@@ -1,7 +1,7 @@
 /**
   * Copyright 2018 bejson.com 
   */
-package com.neil.survey.module.stat;
+package com.neil.survey.inputout.stat;
 
 /**
  * Auto-generated: 2018-02-14 22:17:13
@@ -9,7 +9,7 @@ package com.neil.survey.module.stat;
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
  */
-public class Votes {
+public class Voters {
 
     private String total;
     private String engineer;
