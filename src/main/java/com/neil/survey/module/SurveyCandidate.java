@@ -4,6 +4,18 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
+class SurveyCandidateId implements Serializable{
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4125883019907375525L;
+
+	String imageId;
+	
+	 String surveyId;
+
+}
+
 
 
 /**
@@ -11,6 +23,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@IdClass(SurveyCandidateId.class)
 @Table(name="SURVEY_CANDIDATES")
 @NamedQuery(name="SurveyCandidate.findAll", query="SELECT s FROM SurveyCandidate s")
 public class SurveyCandidate implements Serializable {
@@ -22,6 +35,7 @@ public class SurveyCandidate implements Serializable {
 
 	private long engineer;
 
+	@Id
 	@Column(name="IMAGE_ID")
 	private String imageId;
 
