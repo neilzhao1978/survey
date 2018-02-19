@@ -1,5 +1,5 @@
-select * from ANSWER;
-/*
+/*select * from ANSWER;
+
 
 create or replace view survey_voters as  
 SELECT SURVEY_ID,sum(1) TOTAL ,sum(case when REPLYER_POSITION like '技术类' then 1 else 0 end) engineer,sum(case when REPLYER_POSITION like '管理类' then 1 else 0 end) manager,

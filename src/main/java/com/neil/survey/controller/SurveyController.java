@@ -846,11 +846,9 @@ public class SurveyController {
 		String imageStrTrans= imageHead+outBase64StringTrans.toString();
 		imageAttrInProductImage.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStrTrans);
 
-//		displayFeatureLine(featureLine,"none");
-		
 //		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
-		
-//		BinaryColor.convertDom2Png(doc, pngFileName);
+		displayFeatureLine(featureLine,"none");
+		BinaryColor.convertDom2Png(doc, pngFileName);
 		
 		String pngFeatureUUID = UUID.randomUUID().toString().replace("-", "");
 		String pngFeatureFileName = path+"png/" + pngFeatureUUID + ".png";
