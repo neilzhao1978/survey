@@ -8,6 +8,44 @@ var flrOptions = {
     "rearHood":"",
     "mode":"overlap" 
 };
+var dummy_survey_data = {
+    "surveyTitle":"",
+    "voters":{
+        "total":"12",
+        "engineer":"6",
+        "manager":"1",
+        "sale":"2",
+        "designer":"3"
+    },
+    "style_matrix":{
+        "x1":"3",
+        "x2":"1",
+        "y1":"4",
+        "y2":"1",
+        "z1":"2",
+        "z2":"0"
+    },
+    "products":[],
+    "candidates":[
+        {
+            "votes":{
+                "total":"5",
+                "engineer":"2",
+                "manager":"1",
+                "sale":"0",
+                "designer":"2"
+            },
+            "productData":{
+                "brand":"",
+                "model":"",
+                "year":"",
+                "style_keywrod":"",
+                "texture":"",
+                "thumb_url":""
+            }
+        }
+    ]
+}
 
 var surveyId=common.GetRequest();
 var GET_SURVEY_DATA_URL = host+"/surveyService/getSurveyResult?surveyId=";
