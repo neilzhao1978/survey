@@ -7,12 +7,13 @@
 
     <!-----------------------------------------CSS引用---------------------------------------------------------------->
     <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
-   
+    <link rel="stylesheet" href="../../../common/lib/jqcloud/jqcloud.css"/>
     <!-- Materialize CSS 引入 -->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/page.css"/>
     <link rel="stylesheet" href="../css/page_designIdeationBoard.css"/>
+
 
     <!-----------------------------------------JS引用----------------------------------------------------------------->
 
@@ -27,6 +28,9 @@
     <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- echats 引用 -->
     <script src="../../../common/lib/echarts.min.js"></script> 
+    
+    <!-- tagCloud 引用 -->
+    <script src="../../../common/lib/jqcloud/jqcloud-1.0.4.js"></script> 
 
     <!-- three.js引用 -->
     <script src="../../../common/lib/threejs/three.js"></script>
@@ -170,55 +174,55 @@
                                     <!-- 图片墙 -->
                                     <div id="photoWall" class="design-pictures tab-pane active">
                                         <ul id="mytab" class="photoWall">
-                                            <li class="item0">   									
+                                            <li class="item0" data-candidate-id="0">   									
                                                 <img src="">     								 							
                                             </li>
-                                            <li class="item1">
+                                            <li class="item1" data-candidate-id="1">
                                                 <img src="">
                                             </li>
-                                            <li class="item2">
+                                            <li class="item2" data-candidate-id="2">
                                                 <img src="">
                                             </li>
-                                            <li class="item3">
+                                            <li class="item3" data-candidate-id="3">
                                                 <img src="">
                                             </li>
-                                            <li class="item4">
+                                            <li class="item4" data-candidate-id="4">
                                                 <img src="">
                                             </li>
-                                            <li class="item5">
+                                            <li class="item5" data-candidate-id="5">
                                                 <img src="">
                                             </li>
-                                            <li class="item6">
+                                            <li class="item6" data-candidate-id="6">
                                                 <img src="">
                                             </li>
-                                            <li class="item7">
+                                            <li class="item7" data-candidate-id="7">
                                                 <img src="">
                                             </li>
-                                            <li class="item8">
+                                            <li class="item8" data-candidate-id="8">
                                                 <img src="">
                                             </li>
-                                            <li class="item9">
+                                            <li class="item9" data-candidate-id="9">
                                                 <img src="">
                                             </li>
-                                            <li class="item10">
+                                            <li class="item10" data-candidate-id="10">
                                                 <img src="">
                                             </li>
-                                            <li class="item11">
+                                            <li class="item11" data-candidate-id="11">
                                                 <img src="">
                                             </li>
-                                            <li class="item12">
+                                            <li class="item12" data-candidate-id="12">
                                                 <img src="">
                                             </li>
-                                            <li class="item13">
+                                            <li class="item13" data-candidate-id="13">
                                                 <img src="">
                                             </li>
-                                            <li class="item14">
+                                            <li class="item14" data-candidate-id="14">
                                                 <img src="">
                                             </li>
-                                            <li class="item15">
+                                            <li class="item15" data-candidate-id="15">
                                                 <img src="">
                                             </li>
-                                            <li class="item16">
+                                            <li class="item16" data-candidate-id="16">
                                                 <img src="">
                                             </li>
                                         </ul>
@@ -234,18 +238,18 @@
                                                     <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                                                 </button>
                                                 <ul class="proDetails">
-                                                    <li>产品详情</li>
-                                                    <li>品牌名称：</li>
-                                                    <li>车型：</li>
-                                                    <li>产量时间：</li>
-                                                    <li>风格：</li>
-                                                    <li>纹理：</li>
-                                                    <li>客户喜好：</li>
-                                                    <span id="manager"></span>
-                                                    <span id="engineer"></span>
-                                                    <span id="designer"></span>
-                                                    <span id="sale"></span>
-                                                    <span id="user"></span>                    						
+                                                    <li class="title">产品详情</li>
+                                                    <li>品牌名称：<span class="brand"></span></li>
+                                                    <li>车型：<span class="model"></span></li>
+                                                    <li>产量时间：<span class="year"></span></li>
+                                                    <li>风格：<span class="style"></span></li>
+                                                    <li>纹理：<span class="texture"></span></li>
+                                                    <li>投票分布：</li>
+                                                    <span class="manager-votes"></span>
+                                                    <span class="engineer-votes"></span>
+                                                    <span class="designer-votes"></span>
+                                                    <span class="sale-votes"></span>
+                                                    <span class="user-votes"></span>                    						
                                                 </ul>
                                             </div>
                                         </div>
@@ -253,13 +257,13 @@
                             </div>
                             <!-- 右侧图表 -->      
                             <div class="col-sm-3">
-                                <div class="thumb-panel row">
+                                <div class="row">
                                     
                                     <div class="chartHead">
                                         <h2 class="head2"><div class="retangle"></div>参与人数及背景</h2>
                                     </div>
                                     <!-- 环装图表 -->
-                                    <div id="circleChart" class="peopleCount">
+                                    <div id="voterChart" class="peopleCount">
                                     </div>
                                     <!-- 环状图表下的圆形标识 -->
                                     <div class="thumb-panel row">
@@ -278,16 +282,16 @@
                                             </div>
                                     </div>
                                     <!-- 形容词面板 -->
-                                    <div class="thumb-panel-noMargin row">                                       		
-                                            <ul class="keyWord">
-                                            <!-- 形容词面板只定义了格式，需另外传入数据 -->
-                                                <li class="kItem0">圆润</li>
-                                                <li class="kItem1">简洁</li>
-                                                <li class="kItem2">现代</li>
-                                                <li class="kItem3">复杂</li>
-                                                <li class="kItem4">传统</li>
-                                                <li class="kItem5">硬朗</li>
-                                            </ul>  		
+                                    <div class="thumb-panel-noMargin row"> 
+                                            <div class="style-tag-cloud" id="style-tag-cloud" style="width:220px;height:140px;position:relative"></div>                                		
+                                            <!-- <ul class="keyWord">
+                                                <li class="kItem0">现代</li>
+                                                <li class="kItem1">传统</li>
+                                                <li class="kItem2">圆润</li>
+                                                <li class="kItem3">硬朗</li>
+                                                <li class="kItem4">简洁</li>
+                                                <li class="kItem5">复杂</li>
+                                            </ul>  		 -->
                                     </div>
                                 </div>
                             </div>		
