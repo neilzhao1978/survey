@@ -124,8 +124,9 @@ class DataVis3DRenderer{
         ms.elements[5] = -1;
         ms.elements[10] = -1;
         axesHelper2.applyMatrix(ms);
-        
         this.scene.add(axesHelper2);
+        
+        this.showAxesLabel(40);
 
         //加载灯光
         let color = new THREE.Color(0.5, 0.5, 0.5);
@@ -229,7 +230,55 @@ class DataVis3DRenderer{
         })
         
     }
-
+    generateSpriteLabel(message,bg_color){   
+        let fontface = "Verdana";
+        let fontsize = 18;
+        let scale = window.devicePixelRatio;
+        let canvas = document.createElement('canvas');
+        let context = canvas.getContext('2d');
+        context.scale(scale,scale);
+        context.font = "Bold " + fontsize + "px " + fontface;
+        // background color
+        context.fillStyle = bg_color;
+        context.rect(0,0,50,28);
+        context.fill();
+        // text align
+        context.textAlign="center";
+        // text color
+        context.fillStyle = "rgba(255,255,255,1)";
+        context.fillText(message, 25, 20);
+        
+        // canvas contents will be used for a texture
+        let texture = new THREE.Texture(canvas) 
+        texture.needsUpdate = true;
+        let spriteMaterial = new THREE.SpriteMaterial({ 
+            map: texture, 
+            color: 0xffffff
+        });
+        let sprite = new THREE.Sprite( spriteMaterial );
+        sprite.scale.set(20,10,1);
+        return sprite;	
+    }
+    showAxesLabel(dist){
+        let labelX1 = this.generateSpriteLabel("现代","rgba(255,79,79,0.8)");
+        labelX1.position.set(dist,0,0);
+        this.scene.add(labelX1)
+        let labelX2 = this.generateSpriteLabel("传统","rgba(169,68,66,0.8)");
+        labelX2.position.set(-dist,0,0)
+        this.scene.add(labelX2)
+        let labelY1 = this.generateSpriteLabel("圆润","rgba(88,255,89,0.8)");
+        labelY1.position.set(0,dist,0)
+        this.scene.add(labelY1)
+        let labelY2 = this.generateSpriteLabel("硬朗","rgba(60,118,60,0.8)");
+        labelY2.position.set(0,-dist,0)
+        this.scene.add(labelY2)
+        let labelZ1 = this.generateSpriteLabel("简洁","rgba(79,126,255,0.8)");
+        labelZ1.position.set(0,0,dist)
+        this.scene.add(labelZ1)
+        let labelZ2 = this.generateSpriteLabel("复杂","rgba(40,96,143,0.8)");
+        labelZ2.position.set(0,0,-dist)
+        this.scene.add(labelZ2)
+    }
     drawMsg(msg){
         
     }
