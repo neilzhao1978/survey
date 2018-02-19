@@ -97,7 +97,7 @@ class DataVis3DRenderer{
         this.renderer.setPixelRatio( window.devicePixelRatio )
         this.renderer.setSize( $(this.DOM_canvas).width(), $(this.DOM_canvas).height());
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog( 0xffffff, 100, 300 );
+        this.scene.fog = new THREE.Fog( 0xffffff, 10, 300 );
         
 	    this.camera = new THREE.PerspectiveCamera(60, $(this.DOM_canvas).width()/$(this.DOM_canvas).height(), 0.01, 1000);
         //scale是放大的比例尺度

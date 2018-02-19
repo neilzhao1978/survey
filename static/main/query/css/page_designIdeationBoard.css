@@ -77,7 +77,7 @@
     border-color: #4eff4e !important;
 }
 .thumb-panel>ul>li img{
-    
+    width:auto;
     height:100%;
 }
 .thumb-list{
@@ -118,4 +118,425 @@
 .design-datavis-3d canvas{
     width:100%;
     height:100%;
+}
+
+/*统计版面*/
+.panel-ideation>.row{
+    height: 480px;
+}
+ul{
+	padding-left:0;
+}
+li{
+	list-style: none;
+}
+.container{
+	width:100%;
+	height:100%;
+}
+.modal-info{
+	width:72%;
+}
+.modal-info .modal-body>.row{
+	height:460px;
+	overflow: hidden;
+}
+.modal-info .modal-body>.row>.tab-content{
+	height: 100%;
+}
+.design-pictures{
+    width:100%;
+    height:100%;
+    /* background:#efefef; */
+    overflow:hidden;
+    position:relative;
+    
+}
+.peopleCount{
+	margin-top:-20px;
+	margin-bottom:-20px;
+	width:220px;
+	height:200px;
+	overflow: hidden;
+	
+}
+
+.peopleChart{
+	width:200px;
+	height:200px;
+	
+}
+.chartHead{
+	vertical-align: top;
+}
+.head1{
+	margin-top:0px;
+	font-family:PingFangSC;
+	font-weight:600;
+	font-size:20px;
+}
+.head2{
+	margin-top:0px;
+	font-family:PingFangSC;
+	font-weight:normal;
+	font-size:14px;
+}
+.retangle{
+	margin-right:4px;
+	vertical-align:middle;
+	width:6px;
+	height:20px;
+	background:#44B3A5;
+	display:inline-block;
+}
+.chartPic1{
+	margin-right:4px;
+	width:15px;
+	height:15px;
+	border-radius:7.5px;
+	-moz-border-radius:7.5px;
+	background:#E57C77;
+	display:inline-block;
+	vertical-align:middle;
+	
+}
+.chartPic2{
+	margin-right:4px;
+	width:15px;
+	height:15px;
+	border-radius:7.5px;
+	-moz-border-radius:7.5px;
+	background:#44B3A5;
+	display:inline-block;
+	vertical-align:middle;
+	
+}
+.chartPic3{
+	margin-right:4px;
+	width:15px;
+	height:15px;
+	border-radius:7.5px;
+	-moz-border-radius:7.5px;
+	background:#F2AA3C;
+	display:inline-block;
+	vertical-align:middle;
+}
+.chartPic4{
+	margin-right:4px;
+	width:15px;
+	height:15px;
+	border-radius:7.5px;
+	-moz-border-radius:7.5px;
+	background:#6BB7E2;
+	display:inline-block;
+	vertical-align:middle;
+}
+.chartPic5{
+	margin-right:4px;
+	width:15px;
+	height:15px;
+	border-radius:7.5px;
+	-moz-border-radius:7.5px;
+	background:#7B75C4;
+	display:inline-block;
+	vertical-align:middle;
+}
+.chartTitle{
+	display:inline-block;
+	font-family:PingFangSC;
+	font-size:12px;
+	font-weight:light;
+}
+/*图片墙*/
+.photoWall{
+	position:relative;
+	top:12%;
+	left:30%;
+}
+.photoWall>li{
+	width:216px;
+	height:180px;
+	padding:4px;
+	vertical-align:top;
+	position:relative;
+	display:inline-block;
+	white-space:normal;
+	cursor:pointer;
+}
+.photoWall>li.item0{
+	width:204px;
+	height:170px;
+	z-index:99;
+}
+.photoWall>li.item1{
+	width:204px;
+	height:170px;
+	z-index:99;
+	position:absolute;
+	left:126px;
+	top:170px;
+}
+.photoWall>li.item2{
+	width:126px;
+	height:110px;
+	z-index:99;
+	position:absolute;
+	left:204px;
+	top:60px;
+}
+.photoWall>li.item3{
+	width:126px;
+	height:110px;
+	z-index:99;
+	position:absolute;
+	left:0px;
+	top:170px;
+}
+.photoWall>li.item4{
+	width:126px;
+	height:110px;
+	z-index:99;
+	position:absolute;
+	left:-126px;
+	top:30px;
+}
+.photoWall>li.item5{
+	width:126px;
+	height:110px;
+	z-index:99;
+	position:absolute;
+	left:330px;
+	top:170px;
+}
+.photoWall>li.item6{
+	width:126px;
+	height:110px;
+	z-index:99;
+	position:absolute;
+	left:-126px;
+	top:140px;
+}
+.photoWall>li.item7{
+	width:74px;
+	height:64px;
+	z-index:99;
+	position:absolute;
+	left:330px;
+	top:106px;
+}
+.photoWall>li.item8{
+	width:74px;
+	height:64px;
+	z-index:99;
+	position:absolute;
+	left:52px;
+	top:280px;
+}
+.photoWall>li.item9{
+	width:74px;
+	height:64px;
+	z-index:99;
+	position:absolute;
+	left:-200px;
+	top:110px;
+}
+.photoWall>li.item10{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:456px;
+	top:170px;
+}
+.photoWall>li.item11{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:404px;
+	top:130px;
+}
+.photoWall>li.item12{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:330px;
+	top:66px;
+}
+.photoWall>li.item13{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:204px;
+	top:20px;
+}
+.photoWall>li.item14{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:-172px;
+	top:174px;
+}
+.photoWall>li.item15{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:-46px;
+	top:250px;
+}
+.photoWall>li.item16{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:0px;
+	top:280px;
+}
+.photoWall>li.item16{
+	width:46px;
+	height:40px;
+	z-index:99;
+	position:absolute;
+	left:330px;
+	top:280px;
+}
+/*形容词版面*/
+.keyWord{
+	position:relative;
+	vertical-align:top;
+	top:10%;
+	left:42%;
+}
+.keyHead{
+	margin-top:0px;
+	font-family:PingFangSC;
+	font-weight:normal;
+	font-size:14px;
+}
+.keyWord>li{
+	width:80px;
+	height:30px;
+	top:-10px;
+	font-family:PingFangSC;
+	position:relative;
+	display:inline-block;
+	white-space:normal;
+}
+.keyWord>li.kItem0{
+	font-size:38px;
+	font-weight:700;
+	color:#44B3A5;
+	position:absolute;
+}
+.keyWord>li.kItem1{
+	font-size:30px;
+	font-weight:500;
+	color:#44B3A5;
+	left:-70px;
+	top:10px;
+	position:absolute;
+}
+.keyWord>li.kItem2{
+	font-size:26px;
+	font-weight:500;
+	color:#44B3A5;
+	left:60px;
+	top:45px;
+	position:absolute;
+}
+.keyWord>li.kItem3{
+	font-size:24px;
+	font-weight:700;
+	opacity:0.8;
+	color:#44B3A5;
+	left:-40px;
+	top:60px;
+	position:absolute;
+}
+.keyWord>li.kItem4{
+	font-size:20px;
+	font-weight:light;
+	opacity:0.5;
+	color:#44B3A5;
+	left:10px;
+	top:40px;
+	position:absolute;
+}
+.keyWord>li.kItem5{
+	font-size:18px;
+	font-weight:700;
+	opacity:0.7;
+	color:#44B3A5;
+	left:20px;
+	top:75px;
+	position:absolute;
+}
+/*图片详情*/
+.thumb-panel-noMargin{
+	margin-top:0px;
+	width:100%;
+	height:140px;
+}
+img{
+	width:100%;
+	height:100%;
+}
+.showPic{
+	height:460px;
+}
+.showDetails{
+	height:460px;
+	left:-15px;
+	padding:0;
+	background:#efefef;
+}
+.proDetails{
+	top:40px;
+	left:15px;
+	height:200px;
+	position:absolute;
+}
+.proDetails>li{
+	font-family:PingFangSC;
+	font-size:14px;
+	margin-top:10px;
+}
+#manage{
+	display:inline-block;
+	background:#E57C77;
+	height:10px;
+}
+#tech{
+	display:inline-block;
+	background:#44B3A5;
+	height:10px;
+}
+#design{
+	display:inline-block;
+	background:#F2AA3C;
+	height:10px;
+}
+#sale{
+	display:inline-block;
+	background:#6BB7E2;
+	height:10px;
+}
+#user{
+	display:inline-block;
+	background:#7B75C4;
+	height:10px;
+}
+.hide-product-detail{
+	background:transparent;
+	font-size: 18px;
+	border:none;
+	width:40px;
+	height: 40px;
+	position: absolute;
+	top:0;
+	right:0;
 }
