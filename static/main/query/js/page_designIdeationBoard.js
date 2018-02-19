@@ -210,7 +210,7 @@ function loadCandidateDetail(candidate_id){
     $(".proDetails .brand").html(c_data.brand);
     $(".proDetails .model").html(c_data.model)
     $(".proDetails .year").html(c_data.year);
-    $(".proDetails .style").html(c_data.style_keywrod);
+    $(".proDetails .style").html(c_data.style_keyword);
     $(".proDetails .texture").html(c_data.texture);
     var votes = candidate_data[candidate_id].votes
     var a = votes.engineer;
