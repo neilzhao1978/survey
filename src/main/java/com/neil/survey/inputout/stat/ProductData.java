@@ -14,7 +14,7 @@ public class ProductData {
     private String brand;
     private String model;
     private String year;
-    private String style_keywrod;
+    private String style_keyword;
     private String texture;
     private String thumb_url;
     public void setBrand(String brand) {
@@ -38,12 +38,7 @@ public class ProductData {
          return year;
      }
 
-    public void setStyle_keywrod(String style_keywrod) {
-         this.style_keywrod = style_keywrod;
-     }
-     public String getStyle_keywrod() {
-         return style_keywrod;
-     }
+
 
     public void setTexture(String texture) {
          this.texture = texture;
@@ -58,5 +53,11 @@ public class ProductData {
      public String getThumb_url() {
          return thumb_url;
      }
+	public String getStyle_keyword() {
+		return style_keyword;
+	}
+	public void setStyle_keyword(String style_keyword) {
+		this.style_keyword = style_keyword;
+	}
 
 }
