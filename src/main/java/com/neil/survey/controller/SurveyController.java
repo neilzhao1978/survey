@@ -114,6 +114,10 @@ import com.neil.survey.util.ResponseGenerator;
 import com.neil.survey.util.RestResponseEntity;
 import com.neil.survey.util.SortTools;
 
+import toxi.geom.ReadonlyVec3D;
+import toxi.geom.Vec3D;
+
+
 //drop view SURVEY_IMAGE_RESULT;
 //drop table SURVEY_IMAGE_RESULT;
 //create or replace view SURVEY_IMAGE_RESULT as select SURVEY_ID,IMAGE_ID,count(*) cnt,max(IMAGE_DESC) DESC from SERVEY_IMAGE  group by SURVEY_ID,IMAGE_ID order by cnt desc;
@@ -140,6 +144,8 @@ public class SurveyController {
 	
 	@Autowired
 	private SurveyService surveyService;
+	
+
 	
 	// @Autowired
 	// private CreatorRepository creatorRepo;
@@ -392,7 +398,7 @@ public class SurveyController {
 		BrandResp brandResp = null;
 		brandResp = template.getForObject(serverAddr + "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
-
+		listAllVec3DPoints.clear();
 		for (Brand_P b : x) {
 			try{
 				Brand brand = new Brand();
@@ -713,9 +719,53 @@ public class SurveyController {
 			}
 
 		}
-		imageDb.setImageStyleX(styleX);
-		imageDb.setImageStyleY(styleY);
-		imageDb.setImageStyleZ(styleZ);
+		
+		imageDb.setImageOriX(styleX);
+		imageDb.setImageOriY(styleY);
+		imageDb.setImageOriZ(styleZ);
+		
+		Vec3D suggested = new Vec3D();
+		Vec3D rslt = generateNewStylePlace(new Vec3D(styleX,styleY,styleZ),suggested);
+		
+		imageDb.setImageStyleX(rslt.getComponent(Vec3D.Axis.X));
+		imageDb.setImageStyleY(rslt.getComponent(Vec3D.Axis.Y));
+		imageDb.setImageStyleZ(rslt.getComponent(Vec3D.Axis.Z));
+	}
+	private List<Vec3D> listAllVec3DPoints = new ArrayList<Vec3D>();
+	
+	private Vec3D generateNewStylePlace(Vec3D original, Vec3D suggested){
+		boolean overlaped = false;
+    	for(Vec3D i: listAllVec3DPoints){
+    		if(i.distanceTo(original)<0.1){
+    			overlaped = true;
+    			break;
+    		}
+    	}
+		
+    	if(!overlaped){//no overlap, use the original place.
+    		suggested = original;
+    		listAllVec3DPoints.add(suggested);
+    		return suggested;
+    	}else{// overlap, then try to find a place.
+    		boolean found = true;
+    		for(int x =0;x <100 ;x++){//do it 100 times.
+    	    	Vec3D v = Vec3D.randomVector(new java.util.Random()).normalizeTo(0.2f);
+    	    	suggested = original.add(v);
+    	    	for(Vec3D i: listAllVec3DPoints){
+    	    		if(i.distanceTo(suggested)<0.1){
+    	    			found = false;
+    	    			break;
+    	    		}
+    	    	}
+    	    	if(found){
+    	    		listAllVec3DPoints.add(suggested);
+    	    		return suggested;
+    	    	}
+    		}
+	    	Vec3D v = Vec3D.randomVector(new java.util.Random()).normalizeTo(0.2f);
+	    	suggested = original.add(v);
+	    	return suggested;
+    	}
 	}
 	
 	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
@@ -1028,16 +1078,17 @@ public class SurveyController {
 	@Value("${range}")
 	private  String range;
     private  float randomRange() {
-    	String r = range;
-    	r = r.replaceAll("[\\[|\\]]", "");
-    	String[] x = r.split(",");
-
-    	int min=(int)(Float.parseFloat(x[0])*100);
-    	int max=(int)(Float.parseFloat(x[1])*100);
-        Random random = new Random();
-
-        int s = random.nextInt(max)%(max-min+1) + min;
-		return s/100f;
+    	return 0f;// need not random range.
+//    	String r = range;
+//    	r = r.replaceAll("[\\[|\\]]", "");
+//    	String[] x = r.split(",");
+//
+//    	int min=(int)(Float.parseFloat(x[0])*100);
+//    	int max=(int)(Float.parseFloat(x[1])*100);
+//        Random random = new Random();
+//
+//        int s = random.nextInt(max)%(max-min+1) + min;
+//		return s/100f;
     }
 	
 	
