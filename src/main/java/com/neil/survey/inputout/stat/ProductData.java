@@ -11,6 +11,7 @@ package com.neil.survey.inputout.stat;
  */
 public class ProductData {
 
+	private String id;
     private String brand;
     private String model;
     private String year;
@@ -58,6 +59,12 @@ public class ProductData {
 	}
 	public void setStyle_keyword(String style_keyword) {
 		this.style_keyword = style_keyword;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

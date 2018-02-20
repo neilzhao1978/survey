@@ -78,6 +78,7 @@ public class SurveyService implements ISurveryService {
 				ProductData productData = new ProductData();
 				productData.setBrand(candidateDb.getBrand());
 				productData.setModel(candidateDb.getModel());
+				productData.setId(candidateDb.getImageId());
 				
 				String temp = candidateDb.getStyleKeyword();
 				temp = temp.replaceAll("[\\[|\\]|\"]", "");
