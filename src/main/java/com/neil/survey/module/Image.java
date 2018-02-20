@@ -40,27 +40,27 @@ public class Image implements Serializable{
 	private Float imageOriX;
 	private Float imageOriY;
 	private Float imageOriZ;
-	public float getImageOriX() {
+	public Float getImageOriX() {
 		return imageOriX;
 	}
 
-	public void setImageOriX(float imageOriX) {
+	public void setImageOriX(Float imageOriX) {
 		this.imageOriX = imageOriX;
 	}
 
-	public float getImageOriY() {
+	public Float getImageOriY() {
 		return imageOriY;
 	}
 
-	public void setImageOriY(float imageOriY) {
+	public void setImageOriY(Float imageOriY) {
 		this.imageOriY = imageOriY;
 	}
 
-	public float getImageOriZ() {
+	public Float getImageOriZ() {
 		return imageOriZ;
 	}
 
-	public void setImageOriZ(float imageOriZ) {
+	public void setImageOriZ(Float imageOriZ) {
 		this.imageOriZ = imageOriZ;
 	}
 
