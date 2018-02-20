@@ -97,7 +97,7 @@ function panelResult(value,row,index){
     if(value){
         return value
     }else{
-        return "/"
+        return "点击查看"
     }
 }
 function operatorFormatter(value,row,index){
