@@ -20,7 +20,7 @@ class Product{
             fog: true
         });
         this.thumb = new THREE.Sprite( this.material )
-        this.thumb.scale.set(4,2.7,1);
+        this.thumb.scale.set(6,4,1);
         this.scene.add(this.thumb);
 
         
