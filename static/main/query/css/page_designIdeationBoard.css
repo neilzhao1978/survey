@@ -76,6 +76,9 @@
 .slot3{
     border-color: #4eff4e !important;
 }
+.thumb-list .slot.active{
+	border-width:4px !important;
+}
 .thumb-panel>ul>li img{
     width:auto;
     height:100%;

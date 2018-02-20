@@ -143,6 +143,7 @@ function clearAllSlots(){
     flrOptions.rearHood ="";
     flr.loadFeatureLine(flrOptions)
 }
+
 function printFeatureLine(){
     var printWindow = window.open('', 'PRINT', 'height=400,width=600');
     printWindow.document.write('<html><head></head><body>');
@@ -282,26 +283,35 @@ $(function(){
     })
     $(document).on("click",function(){
         currentSlot = null;
+        $(".thumb-list .slot").removeClass("active");
     })
     $(window).on("resize",function(){
         vis3d.resize();
     })
     $(".slot0").on("click",function(e){
+        $(".thumb-list .slot").removeClass("active");
+        $(this).addClass("active")
         currentSlot = 0;
         e.preventDefault();
         e.stopPropagation();
     })
     $(".slot1").on("click",function(e){
+        $(".thumb-list .slot").removeClass("active");
+        $(this).addClass("active")
         currentSlot = 1;
         e.preventDefault();
         e.stopPropagation();
     })
     $(".slot2").on("click",function(e){
+        $(".thumb-list .slot").removeClass("active");
+        $(this).addClass("active")
         currentSlot = 2;
         e.preventDefault();
         e.stopPropagation();
     })
     $(".slot3").on("click",function(e){
+        $(".thumb-list .slot").removeClass("active");
+        $(this).addClass("active")
         currentSlot = 3;
         e.preventDefault();
         e.stopPropagation();
