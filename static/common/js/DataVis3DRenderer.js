@@ -7,7 +7,7 @@
 class Product{
     constructor(parent,thumb_url){
         this.scene = parent.scene;
-        this.normalColor = new THREE.Color(0x333333);
+        this.normalColor = new THREE.Color(0x666666);
         this.highlightColor = new THREE.Color(0x4f7fff);
         this.colorFadingDuration = 0;
 
@@ -20,7 +20,7 @@ class Product{
             fog: true
         });
         this.thumb = new THREE.Sprite( this.material )
-        this.thumb.scale.set(8,5.4,1);
+        this.thumb.scale.set(4,2.7,1);
         this.scene.add(this.thumb);
 
         
