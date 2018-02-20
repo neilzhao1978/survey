@@ -4,47 +4,12 @@
 */
 
 
-
-/*
 class Product{
     constructor(parent,thumb_url){
         this.scene = parent.scene;
-        this.camera = parent.camera;
-        this.normalColor = 0xffffff;
-        this.highlightColor = 0xff0000;
-        //生成图标
-        let textureLoader = new THREE.TextureLoader();
-        let textureMap = textureLoader.load(thumb_url);
-        let material = new THREE.MeshBasicMaterial({ 
-            map: textureMap, 
-            color: this.normalColor,
-            side: THREE.DoubleSide
-        });
-        let geometry = new THREE.PlaneGeometry()
-        this.thumb = new THREE.Mesh(geometry, material)
-        this.thumb.scale.set(4,2.7,1);
-        this.thumb.up = new THREE.Vector3(0,1,0);
-        this.scene.add(this.thumb);
-        
-    }
-    setPos(v3){
-        this.thumb.position.set(v3.x,v3.y,v3.z);
-    }
-    lightOn(){
-        this.thumb.material.color.setHex(this.highlightColor);
-    }
-    lightOff(){
-        this.thumb.material.color.setHex(this.normalColor);
-    }
-    update(){
-        this.thumb.lookAt(this.camera.position);
-    }
-}
-*/
-
-class Product{
-    constructor(parent,thumb_url){
-        this.scene = parent.scene;
+        this.normalColor = new THREE.Color(0x333333);
+        this.highlightColor = new THREE.Color(0x4f7fff);
+        this.colorFadingDuration = 0;
 
         //生成图标
         this.textureLoader = new THREE.TextureLoader();
@@ -58,14 +23,16 @@ class Product{
         this.thumb.scale.set(8,5.4,1);
         this.scene.add(this.thumb);
 
-        this.normalColor = new THREE.Color(0xffffff);
-        this.highlightColor = new THREE.Color(0x4f7fff);
-        this.colorFadingDuration = 0;
+        
     }
     setPos(v3){
         this.thumb.position.set(v3.x,v3.y,v3.z);
     }
-    lightOn(){
+    markAsCandidate(){
+        this.normalColor = new THREE.Color(0xffffff)
+        this.thumb.material.color.setHex(this.normalColor.getHex())
+    }
+    flash(){
         this.colorFadingDuration = 60;
     }
     
@@ -153,7 +120,7 @@ class DataVis3DRenderer{
                 for(let i = 0;i<this.products.length;i++){
                     //found a target
                     if(intersects[0].object.uuid===this.products[i].thumb.uuid){
-                        this.products[i].lightOn();
+                        this.products[i].flash();
                         fillSlot(this.productData[i].id,this.productData[i].thumb_url)
                     }
                 }
@@ -211,7 +178,9 @@ class DataVis3DRenderer{
         this.productData = product_data;
         for (let i=0;i<product_data.length;i++){
             let p = new Product(this,product_data[i].thumb_url)
-            
+            if(product_data[i].hitCount>0){
+                p.markAsCandidate();
+            }
             let x = product_data[i].style_location.x*this.scale;
             let y = product_data[i].style_location.y*this.scale;
             let z = product_data[i].style_location.z*this.scale;

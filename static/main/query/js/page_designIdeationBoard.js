@@ -140,7 +140,7 @@ function clearAllSlots(){
     // flrOptions.master ="";
     flrOptions.driverRoom ="";
     flrOptions.wheel ="";
-    flrOptions.mode ="";
+    flrOptions.rearHood ="";
     flr.loadFeatureLine(flrOptions)
 }
 function printFeatureLine(){
@@ -167,8 +167,8 @@ function loadSurveyData(surveyId){
         success: (response_data)=>{
             
             initPageData(
-                response_data.products[0].id,
-                response_data.products[0].thumb_url,
+                response_data.candidates[0].productData.id,
+                response_data.candidates[0].productData.thumb_url,
                 response_data.surveyTitle
             );
             vis3d.loadProducts(response_data.products);
