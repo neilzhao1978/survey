@@ -327,8 +327,9 @@ public class BinaryColor {
 
     	String ret[] = new String[2];
     	Map<String,Image> replacedMap = new HashMap<String,Image>();
-    	for(Image i:replaced){
-    		replacedMap.put(i.getImageName(), i);
+    	for(int i=1 ;i<replaced.size();i++){
+    		Image rImage = replaced.get(i);
+    		replacedMap.put(rImage.getImageName(), rImage);
     	}
     	Map<String,Image> srcMap = new HashMap<String,Image>();
     	for(Image i:src){
@@ -346,7 +347,7 @@ public class BinaryColor {
 	    		if(srcImageDb == null) continue;
 	        	InputStream temp = new URL(srcImageDb.getImageUrl()).openStream();
 	            BufferedImage sImg = ImageIO.read(temp);
-	            g.drawImage(sImg, srcImageDb.getX(), srcImageDb.getY(),
+	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
 	            		sImg.getWidth(), sImg.getHeight(), null);
 	    	}
 

@@ -392,7 +392,8 @@ public class ImageController {
 
 		
 		if(geneCombineImage.getMode().equalsIgnoreCase("stitch")){
-			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages.subList(1, baseImages.size()), srcImages,colorMap);
+//			List<Image> replaced = baseImages.subList(2, baseImages.size());
+			String[] str = BinaryColor.combineStitchImage(baseImages.get(0), baseImages, srcImages,colorMap);
 			
 			part.setCombinedImage(str[0]);
 			part.setCombinedFeature(str[1]);
