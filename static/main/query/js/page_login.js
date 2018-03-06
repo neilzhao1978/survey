@@ -143,7 +143,7 @@ $(document).ready(function() {
 		$.ajax({
 
 			type : "POST",
-			url : "user/ajaxLogin",
+			url : "/api/loginService",
 			contentType : 'application/json',
 			dataType : "json",
 			data : JSON.stringify(requestData),
