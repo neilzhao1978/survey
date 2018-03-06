@@ -76,7 +76,7 @@ public class BinaryColor {
     }  
     
 	//背景变透明
-    public static void convertTransBack(String inBase64String,StringBuilder outBase64String) throws IOException { 
+    public static void convertTransBack(String inBase64String,StringBuilder outBase64String,String fileName) throws IOException { 
     	byte[] bytes = Base64.decodeBase64(inBase64String);
  
         ByteArrayInputStream bais = new ByteArrayInputStream(bytes);      
@@ -111,7 +111,7 @@ public class BinaryColor {
 
         ImageIO.write(bi, "png", baos);
         
-//        ImageIO.write(bi, "png", new File("D:/1/p.png"));
+        ImageIO.write(bi, "png", new File(fileName));
         
         byte[] bytesOut = baos.toByteArray(); 
         outBase64String.append(Base64.encodeBase64String(bytesOut));
@@ -327,8 +327,9 @@ public class BinaryColor {
 
     	String ret[] = new String[2];
     	Map<String,Image> replacedMap = new HashMap<String,Image>();
-    	for(Image i:replaced){
-    		replacedMap.put(i.getImageName(), i);
+    	for(int i=1 ;i<replaced.size();i++){
+    		Image rImage = replaced.get(i);
+    		replacedMap.put(rImage.getImageName(), rImage);
     	}
     	Map<String,Image> srcMap = new HashMap<String,Image>();
     	for(Image i:src){
@@ -346,7 +347,7 @@ public class BinaryColor {
 	    		if(srcImageDb == null) continue;
 	        	InputStream temp = new URL(srcImageDb.getImageUrl()).openStream();
 	            BufferedImage sImg = ImageIO.read(temp);
-	            g.drawImage(sImg, srcImageDb.getX(), srcImageDb.getY(),
+	            g.drawImage(sImg, replaceImageDb.getX(), replaceImageDb.getY(),
 	            		sImg.getWidth(), sImg.getHeight(), null);
 	    	}
 

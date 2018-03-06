@@ -1,11 +1,8 @@
 package com.neil.survey.module;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Set;
-
 import javax.persistence.*;
-
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity

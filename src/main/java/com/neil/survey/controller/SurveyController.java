@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -92,23 +93,30 @@ import com.neil.survey.module.Brand_P;
 import com.neil.survey.module.Component;
 import com.neil.survey.module.Image;
 import com.neil.survey.module.ImageCount;
-import com.neil.survey.module.Products;
 import com.neil.survey.module.ProductsLocation;
 import com.neil.survey.module.Style_location;
 import com.neil.survey.module.Survey;
 import com.neil.survey.module.SurveyImageResult;
 import com.neil.survey.module.VehicheResp;
 import com.neil.survey.module.VehicleInfo_P;
+import com.neil.survey.module.VehicleTexture;
+import com.neil.survey.inputout.stat.DummySurveyData;
+import com.neil.survey.inputout.stat.Products;
 import com.neil.survey.repository.AnswerRepository;
 import com.neil.survey.repository.BrandRepository;
 import com.neil.survey.repository.ImageRepository;
 import com.neil.survey.repository.SurveyImageResultRepository;
 import com.neil.survey.repository.SurveyRepository;
+import com.neil.survey.service.impl.SurveyService;
 import com.neil.survey.util.ErrorCode;
 import com.neil.survey.util.PageEntity;
 import com.neil.survey.util.ResponseGenerator;
 import com.neil.survey.util.RestResponseEntity;
 import com.neil.survey.util.SortTools;
+
+import toxi.geom.ReadonlyVec3D;
+import toxi.geom.Vec3D;
+
 
 //drop view SURVEY_IMAGE_RESULT;
 //drop table SURVEY_IMAGE_RESULT;
@@ -133,6 +141,11 @@ public class SurveyController {
 	
 	@Autowired
 	private SurveyImageResultRepository surveyImageResultRepo;
+	
+	@Autowired
+	private SurveyService surveyService;
+	
+
 	
 	// @Autowired
 	// private CreatorRepository creatorRepo;
@@ -287,11 +300,13 @@ public class SurveyController {
 
 		Survey survey = surveyRepo.getBySurveyId(surveyId);
 
+		List<Image> all= imageRepo.findByImageType("WHOLE");
+		
 		List<Answer> answers = answerRepo.findBySurvey(survey);
-		Set<Image> allImages = survey.getImages();
+//		Set<Image> allImagesInSurvey = survey.getImages();
 
 		Map<String, ImageCount> imageCounts = new HashMap<String, ImageCount>();
-		for (Image img : allImages) {
+		for (Image img : all) {
 			ImageCount imgCount = new ImageCount();
 			imgCount.setCount(0);
 			imgCount.setI(img);
@@ -327,6 +342,9 @@ public class SurveyController {
 				ps.setStyle_location(style_location);
 				products.add(ps);
 			}
+		}
+		if(survey!=null){			
+			ret.setSurveyName(survey.getName());
 		}
 		ret.setProducts(products);
 		
@@ -380,7 +398,7 @@ public class SurveyController {
 		BrandResp brandResp = null;
 		brandResp = template.getForObject(serverAddr + "getAllBrand", BrandResp.class);
 		List<Brand_P> x = brandResp.object;
-
+		listAllVec3DPoints.clear();
 		for (Brand_P b : x) {
 			try{
 				Brand brand = new Brand();
@@ -439,6 +457,16 @@ public class SurveyController {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/getSurveyStat", method = RequestMethod.GET)
+	public DummySurveyData getSurveyStat(
+			@RequestParam(value = "surveyId", required = true) String surveyId){
+		DummySurveyData dummySurveyData = surveyService.getSurveyStat(surveyId);
+		
+		ProductsLocation projectLocation = getSurveyResult(surveyId);
+		dummySurveyData.setProducts(projectLocation.getProducts());
+		return dummySurveyData;
+	}
 	
 //	@ResponseBody
 //	@RequestMapping(value = "/mergeSubImage", method = RequestMethod.GET)
@@ -577,9 +605,6 @@ public class SurveyController {
 	
 	private Image merge(List<Image> imageGroup,String id,SVGDocument doc) throws Exception{
 		
-		Element featureLine = doc.getElementById("特征线");
-		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
-		
 		Point max = getMaxPoint(imageGroup);
 		Point min = getMinPoint(imageGroup);
 		
@@ -597,10 +622,20 @@ public class SurveyController {
 		String temp[]=imageName.split("/");
 		i.setImageName(temp[0]);
 		i.setImageType("PART");
+		
+		
+		Element featureLine = doc.getElementById("特征线");
+		Element productImage = doc.getElementById("产品图片");
+		Element imageInFeatureLine = (Element) (featureLine.getElementsByTagName("image").item(0));
+				imageInFeatureLine.setAttribute("display", "none");
+		Element eleProductImage = (Element) (productImage.getElementsByTagName("image").item(0));
+		
+
 
 		/**处理图**/
 		eleProductImage.setAttribute("display", "block");
 		displayFeatureLine(featureLine,"none");
+		
 		SaveAsPngTiles saver = new SaveAsPngTiles();
 		String imageFileName = path +id+"/merged/"+ imageUUID + ".png";
 		File newFileFolder = new File(path +id+"/merged/");
@@ -660,22 +695,22 @@ public class SurveyController {
 				Integer vi = Integer.parseInt(v);
 		
 				if(s.equalsIgnoreCase("现代")){
-					styleX = vi/3f;
+					styleX = vi/3f + randomRange();
 				}
 				if(s.equalsIgnoreCase("传统")){
-					styleX = 0f-vi/3f;
+					styleX = 0f-vi/3f + randomRange();
 				}	
 				if(s.equalsIgnoreCase("圆润")){
-					styleY = vi/3f;
+					styleY = vi/3f + randomRange();
 				}
 				if(s.equalsIgnoreCase("硬朗")){
-					styleY = 0f-vi/3f;
+					styleY = 0f-vi/3f + randomRange();
 				}	
 				if(s.equalsIgnoreCase("简洁")){
-					styleZ = vi/3f;
+					styleZ = vi/3f + randomRange();
 				}	
 				if(s.equalsIgnoreCase("复杂")){
-					styleZ = 0f-vi/3f;
+					styleZ = 0f-vi/3f + randomRange();
 				}
 				
 			}catch(Exception e ){
@@ -684,9 +719,53 @@ public class SurveyController {
 			}
 
 		}
-		imageDb.setImageStyleX(styleX);
-		imageDb.setImageStyleY(styleY);
-		imageDb.setImageStyleZ(styleZ);
+		
+		imageDb.setImageOriX(styleX);
+		imageDb.setImageOriY(styleY);
+		imageDb.setImageOriZ(styleZ);
+		
+		Vec3D suggested = new Vec3D();
+		Vec3D rslt = generateNewStylePlace(new Vec3D(styleX,styleY,styleZ),suggested);
+		
+		imageDb.setImageStyleX(rslt.getComponent(Vec3D.Axis.X));
+		imageDb.setImageStyleY(rslt.getComponent(Vec3D.Axis.Y));
+		imageDb.setImageStyleZ(rslt.getComponent(Vec3D.Axis.Z));
+	}
+	private List<Vec3D> listAllVec3DPoints = new ArrayList<Vec3D>();
+	
+	private Vec3D generateNewStylePlace(Vec3D original, Vec3D suggested){
+		boolean overlaped = false;
+    	for(Vec3D i: listAllVec3DPoints){
+    		if(i.distanceTo(original)<0.1){
+    			overlaped = true;
+    			break;
+    		}
+    	}
+		
+    	if(!overlaped){//no overlap, use the original place.
+    		suggested = original;
+    		listAllVec3DPoints.add(suggested);
+    		return suggested;
+    	}else{// overlap, then try to find a place.
+    		boolean found = true;
+    		for(int x =0;x <100 ;x++){//do it 100 times.
+    	    	Vec3D v = Vec3D.randomVector(new java.util.Random()).normalizeTo(0.2f);
+    	    	suggested = original.add(v);
+    	    	for(Vec3D i: listAllVec3DPoints){
+    	    		if(i.distanceTo(suggested)<0.1){
+    	    			found = false;
+    	    			break;
+    	    		}
+    	    	}
+    	    	if(found){
+    	    		listAllVec3DPoints.add(suggested);
+    	    		return suggested;
+    	    	}
+    		}
+	    	Vec3D v = Vec3D.randomVector(new java.util.Random()).normalizeTo(0.2f);
+	    	suggested = original.add(v);
+	    	return suggested;
+    	}
 	}
 	
 	private void handleWholeImage(Brand_P b, Set<Image> images, VehicleInfo_P v)
@@ -698,19 +777,13 @@ public class SurveyController {
 		imageDb.setImageId(v.getId().toString());
 		imageDb.setImageDesc("brand:" + b.getName() + ".category:" + v.getCategoryName());
 		/**处理特征点**/
-		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
-		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
-		imageDb.setAllKeyPoints(temp.substring(1, temp.length() - 1));
+//		List<Point2D> keyPoints = SvgUtilities.getAllKeyPoits(v.getImageUrl1());
+//		String temp = keyPoints.toString().replaceAll("Point2D.Double", "").replaceAll("Point2D.Float","");//to get key points.
+//		imageDb.setAllKeyPoints(temp.substring(1, temp.length() - 1));
 		/**处理特征点结束**/
-		
-		/**隐藏原图中不需要的部分，并将“特征线”进行处理**/
 		URL url = new URL(v.getImageUrl1());
 		SVGDocument doc = (SVGDocument) f.createSVGDocument(v.getImageUrl1(),new BufferedInputStream(url.openStream(), 2 * 1024 * 1024));
 		Element eleSvg = (Element)doc.getElementsByTagName("svg").item(0);
-		
-		Element featureLine = doc.getElementById("特征线");
-		Element productImage = doc.getElementById("产品图片");
-		
 		List<Component> componets = JSON.parseArray(v.getComponentInfo(), Component.class);
 
 		int boundW = 0;
@@ -751,101 +824,85 @@ public class SurveyController {
 		}else{
 			ratioY=((float)boundH)/((float)tureH);
 		}
-		
-		
-		normalizeStyle(v.getStyle(),imageDb);//处理风格
-		
 		imageDb.setX(0);
 		imageDb.setY(0);
 		imageDb.setW(tureW.intValue());
 		imageDb.setH(tureH.intValue());
 		eleSvg.setAttribute("width", imageDb.getW()+"");
 		eleSvg.setAttribute("height", imageDb.getH()+"");
+		normalizeStyle(v.getStyle(),imageDb);//处理风格
+		//=============
+
 		
-		//不要那个"产品图片"，没有价值
-		if(productImage==null) return;
-		productImage.setAttribute("display", "none");
-		productImage.getParentNode().removeChild(productImage);
+		Element featureLine = doc.getElementById("特征线");
+		Element productImage = doc.getElementById("产品图片");
+				productImage.setAttribute("display", "block");
+		Element imageInProductImage = (Element) (productImage.getElementsByTagName("image").item(0));
+				imageInProductImage.setAttribute("display", "block");
+		NamedNodeMap imageAttrInProductImage = imageInProductImage.getAttributes();
 		
-		featureLine.setAttribute("display", "block");
-		
-		//处理“特征线”图层的显示。
-		Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
-		NamedNodeMap eleProductImageAttr = eleProductImage.getAttributes();
-		String oldImageStype = "";
-		if(eleProductImageAttr.getNamedItem("style")!=null){
-			oldImageStype = eleProductImageAttr.getNamedItem("style").getNodeValue();
-			eleProductImageAttr.getNamedItem("style").setNodeValue("overflow:visible;opacity:1.0;");
-		}
-		if(eleProductImageAttr.getNamedItem("opacity")!=null){
-			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");
-		}else{
-//			eleProductImageAttr.getNamedItem("opacity").setNodeValue("1.0");//added for debug
-		}
-		String imageType = "";
-		String oldImageString = eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
-		String pngImageString = new String(oldImageString);
+		String productOraginalImageString = imageAttrInProductImage.getNamedItemNS("http://www.w3.org/1999/xlink", "href").getNodeValue();
 		String wholeImageString="";
-		if(oldImageString.contains("image/jpeg")){
-			imageType= "jpeg";
-			wholeImageString=oldImageString.replaceAll("data:image/jpeg;base64,", "");
-		}else if(oldImageString.contains("image/png")){
-			imageType = "png";
-			wholeImageString=oldImageString.replaceAll("data:image/png;base64,", "");
+		if(productOraginalImageString.contains("image/jpeg")){
+			wholeImageString=productOraginalImageString.replaceAll("data:image/jpeg;base64,", "");
+		}else if(productOraginalImageString.contains("image/png")){
+			wholeImageString=productOraginalImageString.replaceAll("data:image/png;base64,", "");
 		}
+		
+		//禁止处理“特征线”图层的显示。
+		Element imageInFeatureLine = (Element) (featureLine.getElementsByTagName("image").item(0));
+				imageInFeatureLine.setAttribute("display", "none");
 		/**end**/
 		
 		
-		/**************处理剪影,产生svg*****************/
-		StringBuilder outBase64String = new StringBuilder();//String build
-		BinaryColor.convertProfile(new String(wholeImageString), outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
-		String imageHead = "data:image/png;base64,";
-		String imageStr= imageHead+outBase64String.toString();
-		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
-		String profileUUID = UUID.randomUUID().toString().replace("-", "");
-		String profileFileName = path+"svg/" + profileUUID + ".svg";
-		File allImageFileFolder = new File(path);
-		if (!allImageFileFolder.exists()) {
-			if(!allImageFileFolder.mkdir()){
-				logger.error("error in creating all images file.");
-				return;
-			}
-		}
-		
-		File newFileFolder = new File(path+"svg/");
-		if (!newFileFolder.exists()) {
-			newFileFolder.mkdir();
-		}
-		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
-		String urlProfile = "http://" + ip + ":" + port + "/allimages/svg/";
-		imageDb.setProfileImageUrl(urlProfile + profileUUID + ".svg");
-		/**************处理剪影结束,产生svg*****************/
+//		/**************处理剪影,产生svg*****************/
+//		StringBuilder outBase64String = new StringBuilder();//String build
+//		BinaryColor.convertProfile(new String(wholeImageString), outBase64String,new Color(255,255,255,0), new Color(0,0,0,255), "png");//put it into png all at this phase.
+//
+//		String imageStr= imageHead+outBase64String.toString();
+//		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStr);
+//		String profileUUID = UUID.randomUUID().toString().replace("-", "");
+//		String profileFileName = path+"svg/" + profileUUID + ".svg";
+//		File allImageFileFolder = new File(path);
+//		if (!allImageFileFolder.exists()) {
+//			if(!allImageFileFolder.mkdir()){
+//				logger.error("error in creating all images file.");
+//				return;
+//			}
+//		}
+//		
+//		File newFileFolder = new File(path+"svg/");
+//		if (!newFileFolder.exists()) {
+//			newFileFolder.mkdir();
+//		}
+//		SvgUtilities.saveDoc2SvgFile(doc, profileFileName);
+//		String urlProfile = "http://" + ip + ":" + port + "/allimages/svg/";
+//		imageDb.setProfileImageUrl(urlProfile + profileUUID + ".svg");
+//		/**************处理剪影结束,产生svg*****************/
 		
 
 		/**************处理产生png,要两张，一张产品的，一张特征线*****************/
 		StringBuilder outBase64StringTrans = new StringBuilder();//String build
-		BinaryColor.convertTransBack(new String(wholeImageString), outBase64StringTrans);
-	
-		String imageStrTrans= imageHead+outBase64StringTrans.toString();
-		
-		eleProductImageAttr.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStrTrans);
 		String pngUUID = UUID.randomUUID().toString().replace("-", "");
 		String pngFileName = path+"png/" + pngUUID + ".png";
+
+		File newFileFolder = new File(path+"png/");
+		if (!newFileFolder.exists()) {
+			newFileFolder.mkdir();
+		}
+		
+		BinaryColor.convertTransBack(new String(wholeImageString), outBase64StringTrans,pngFileName);
+		String imageHead = "data:image/png;base64,";
+		String imageStrTrans= imageHead+outBase64StringTrans.toString();
+		imageAttrInProductImage.getNamedItemNS("http://www.w3.org/1999/xlink", "href").setNodeValue(imageStrTrans);
+
+//		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
+		displayFeatureLine(featureLine,"none");
+		BinaryColor.convertDom2Png(doc, pngFileName);
 		
 		String pngFeatureUUID = UUID.randomUUID().toString().replace("-", "");
 		String pngFeatureFileName = path+"png/" + pngFeatureUUID + ".png";
-		
-		File newPngFileFolder = new File(path+"png/");
-		if (!newPngFileFolder.exists()) {
-			newPngFileFolder.mkdir();
-		}
-		displayFeatureLine(featureLine,"none");
-		
-//		SvgUtilities.saveDoc2SvgFile(doc, "D:/1/2.svg");
-		
-		BinaryColor.convertDom2Png(doc, pngFileName);
-		
-		eleProductImage.setAttribute("display", "none");
+		imageInProductImage.setAttribute("display", "none");
 		displayFeatureLine(featureLine,"block");
 		
 		BinaryColor.convertDom2Png(doc, pngFeatureFileName);
@@ -867,8 +924,21 @@ public class SurveyController {
 		imageDb.setImageUrl(v.getImageUrl1());//+ ";" + v.getImageUrl2()
 		imageDb.setParentImageId(null);
 		
+		imageDb.setBrand(v.getBrandName()==null?"brand":v.getBrandName());
+		imageDb.setModuel(v.getProductCategory()==null?"Category":v.getProductCategory());//TODO correct this assignment.
+		imageDb.setYear(v.getCreateTime()==null?"2018":v.getCreateTime().getYear()+"");
+		imageDb.setStyle_keyword(v.getStyle()==null?"现代":v.getStyle());
+		if(v.getVehicleTextures()!=null && v.getVehicleTextures().size()>0){
+			StringBuilder sb = new StringBuilder();
+			for(VehicleTexture x:v.getVehicleTextures()){
+				sb.append(x.toString()).append(",");
+			}
+			imageDb.setTexture(sb.toString());
+		}
+
+		
 		for (Component c : componets) {
-			handleSubImage(imageDb, keyPoints, doc, c, v.getId().toString(),ratioX,ratioY);//处理子图
+			handleSubImage(imageDb, doc, c, v.getId().toString(),ratioX,ratioY);//处理子图
 		}
 		
 		/****合并子图****/
@@ -897,31 +967,34 @@ public class SurveyController {
 		images.add(imageDb);//for brands.
 	}
 
-	private void handleSubImage(Image i, List<Point2D> keyPointes, SVGDocument doc, Component c,String id,float xRatio,float yRatio) {
+	private void handleSubImage(Image i,  SVGDocument doc, Component c,String id,float xRatio,float yRatio) {
 		try {
-			Element featureLine = doc.getElementById("特征线");
-
-			Element eleProductImage = (Element) (featureLine.getElementsByTagName("image").item(0));
-			
+			if (c.image.customData == null) {
+				logger.info("sub area is null.");
+				return;
+			}
 			Image detail = new Image();
 			detail.setImageId(UUID.randomUUID().toString().replaceAll("-", ""));
 			detail.setImageDesc(c.name);
 			detail.setImageName(c.name);
 			detail.setImageType("DETAIL");
-
 			detail.setParentImageId(i.getImageId());
-			if (c.image.customData == null) {
-				logger.info("sub area is null.");
-				return;
-			}
 			detail.setX((int) (c.image.customData.boundW * c.image.customData.x/xRatio));
 			detail.setY((int) (c.image.customData.boundH * c.image.customData.y/yRatio));
 			detail.setW((int)(c.image.customData.w/xRatio));
 			detail.setH((int)(c.image.customData.h/yRatio));
+			
+			Element featureLine = doc.getElementById("特征线");
+			Element productImage = doc.getElementById("产品图片");
+			
+			Element imageInFeatureLine = (Element) (featureLine.getElementsByTagName("image").item(0));
+					imageInFeatureLine.setAttribute("display", "none");
 
 			/**处理图**/
 			displayFeatureLine(featureLine,"none");
-			eleProductImage.setAttribute("display", "block");
+			Element imageInProductImage = (Element) (productImage.getElementsByTagName("image").item(0));
+			imageInProductImage.setAttribute("display", "block");
+			
 			SaveAsPngTiles saver = new SaveAsPngTiles();
 
 			String imageUUID = UUID.randomUUID().toString().replace("-", "");
@@ -946,7 +1019,7 @@ public class SurveyController {
 			
 			/**处理线**/
 			displayFeatureLine(featureLine,"block");
-			eleProductImage.setAttribute("display", "none");
+			imageInProductImage.setAttribute("display", "none");
 			String featureUUID = UUID.randomUUID().toString().replace("-", "");
 			String featureFileName = path + id+"/"+featureUUID + ".png";
 
@@ -960,14 +1033,14 @@ public class SurveyController {
 			saver.tile(in2, featureFileName,
 					new Rectangle(detail.getX(), detail.getY(), detail.getW(), detail.getH()));
 
-			PlainRect r = new PlainRect(detail.getX(), detail.getY(), detail.getW(), detail.getH());
+//			PlainRect r = new PlainRect(detail.getX(), detail.getY(), detail.getW(), detail.getH());
 			boolean containFeatureLine = false;
-			for (Point2D p : keyPointes) {
-				containFeatureLine = r.isInside(p.getX(), p.getY());
-				if (containFeatureLine) {
-					break;
-				}
-			}
+//			for (Point2D p : keyPointes) {
+//				containFeatureLine = r.isInside(p.getX(), p.getY());
+//				if (containFeatureLine) {
+//					break;
+//				}
+//			}
 			detail.setContainFeatureLine(containFeatureLine);
 			imageRepo.save(detail);
 		} catch (Exception e) {
@@ -1000,5 +1073,23 @@ public class SurveyController {
 			line.setAttribute("display", display);
 		}
 	}
+	
+	
+	@Value("${range}")
+	private  String range;
+    private  float randomRange() {
+    	return 0f;// need not random range.
+//    	String r = range;
+//    	r = r.replaceAll("[\\[|\\]]", "");
+//    	String[] x = r.split(",");
+//
+//    	int min=(int)(Float.parseFloat(x[0])*100);
+//    	int max=(int)(Float.parseFloat(x[1])*100);
+//        Random random = new Random();
+//
+//        int s = random.nextInt(max)%(max-min+1) + min;
+//		return s/100f;
+    }
+	
 	
 }

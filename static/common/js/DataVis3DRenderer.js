@@ -3,47 +3,13 @@
     依赖three.js
 */
 
-const GET_PRODUCT_DATA_URL = host+"";
-/*
-class Product{
-    constructor(parent,thumb_url){
-        this.scene = parent.scene;
-        this.camera = parent.camera;
-        this.normalColor = 0xffffff;
-        this.highlightColor = 0xff0000;
-        //生成图标
-        let textureLoader = new THREE.TextureLoader();
-        let textureMap = textureLoader.load(thumb_url);
-        let material = new THREE.MeshBasicMaterial({ 
-            map: textureMap, 
-            color: this.normalColor,
-            side: THREE.DoubleSide
-        });
-        let geometry = new THREE.PlaneGeometry()
-        this.thumb = new THREE.Mesh(geometry, material)
-        this.thumb.scale.set(4,2.7,1);
-        this.thumb.up = new THREE.Vector3(0,1,0);
-        this.scene.add(this.thumb);
-        
-    }
-    setPos(v3){
-        this.thumb.position.set(v3.x,v3.y,v3.z);
-    }
-    lightOn(){
-        this.thumb.material.color.setHex(this.highlightColor);
-    }
-    lightOff(){
-        this.thumb.material.color.setHex(this.normalColor);
-    }
-    update(){
-        this.thumb.lookAt(this.camera.position);
-    }
-}
-*/
 
 class Product{
     constructor(parent,thumb_url){
         this.scene = parent.scene;
+        this.normalColor = new THREE.Color(0x666666);
+        this.highlightColor = new THREE.Color(0x4f7fff);
+        this.colorFadingDuration = 0;
 
         //生成图标
         this.textureLoader = new THREE.TextureLoader();
@@ -54,17 +20,19 @@ class Product{
             fog: true
         });
         this.thumb = new THREE.Sprite( this.material )
-        this.thumb.scale.set(4,2.7,1);
+        this.thumb.scale.set(6,4,1);
         this.scene.add(this.thumb);
 
-        this.normalColor = new THREE.Color(0xffffff);
-        this.highlightColor = new THREE.Color(0x4f7fff);
-        this.colorFadingDuration = 0;
+        
     }
     setPos(v3){
         this.thumb.position.set(v3.x,v3.y,v3.z);
     }
-    lightOn(){
+    markAsCandidate(){
+        this.normalColor = new THREE.Color(0xffffff)
+        this.thumb.material.color.setHex(this.normalColor.getHex())
+    }
+    flash(){
         this.colorFadingDuration = 60;
     }
     
@@ -96,15 +64,15 @@ class DataVis3DRenderer{
         this.renderer.setPixelRatio( window.devicePixelRatio )
         this.renderer.setSize( $(this.DOM_canvas).width(), $(this.DOM_canvas).height());
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog( 0xffffff, 60, 120 );
+        this.scene.fog = new THREE.Fog( 0xffffff, 10, 300 );
         
 	    this.camera = new THREE.PerspectiveCamera(60, $(this.DOM_canvas).width()/$(this.DOM_canvas).height(), 0.01, 1000);
         //scale是放大的比例尺度
-        this.scale = 50
+        this.scale = 30
         this.camera.position.set(
-            this.scale,
-            this.scale,
-            this.scale
+            this.scale*2,
+            this.scale*2,
+            this.scale*2
         );
         this.camera.lookAt(new THREE.Vector3(0,0,0))
         this.raycaster = new THREE.Raycaster();  
@@ -113,19 +81,30 @@ class DataVis3DRenderer{
         this.orbit = new THREE.OrbitControls( this.camera, this.renderer.domElement );
 
         //显示坐标轴辅助线
-        let axesHelper = new THREE.AxesHelper(20);
+        let axesHelper = new THREE.AxesHelper(40);
         this.scene.add(axesHelper);
+        let axesHelper2 = new THREE.AxesHelper(40);
+        axesHelper2.material.color.setHex(0x666666);
+        let ms = (new THREE.Matrix4()).identity();
+        //set -1 to the corresponding axis
+        ms.elements[0] = -1;
+        ms.elements[5] = -1;
+        ms.elements[10] = -1;
+        axesHelper2.applyMatrix(ms);
+        this.scene.add(axesHelper2);
         
+        this.showAxesLabel(40);
+
         //加载灯光
         let color = new THREE.Color(0.5, 0.5, 0.5);
 	    let ambient = new THREE.AmbientLight(color.getHex());
         this.scene.add(ambient);
         
         //产品数据
-        this.productData = null;
+        this.productData = [];
         this.products = []
         //加载产品
-        this.loadProduct();
+        //this.loadProduct();
         
         this.render()
 
@@ -141,25 +120,25 @@ class DataVis3DRenderer{
                 for(let i = 0;i<this.products.length;i++){
                     //found a target
                     if(intersects[0].object.uuid===this.products[i].thumb.uuid){
-                        this.products[i].lightOn();
+                        this.products[i].flash();
+                        fillSlot(this.productData[i].id,this.productData[i].thumb_url)
                     }
                 }
             }
 
             evt.stopPropagation();
         })
-        $(window).on("resize",()=>{
-            let w = $(this.DOM_container).get(0).clientWidth;
-            let h = $(this.DOM_container).get(0).clientHeight;
-            $(this.DOM_canvas).width(w);
-            $(this.DOM_canvas).height(h);
-            this.renderer.setViewport(0, 0, w, h);
-            this.renderer.setSize( w, h);
-            this.camera.aspect = w / h;
-		    this.camera.updateProjectionMatrix();
-            
-        })
 
+    }
+    resize(){
+        let w = $(this.DOM_container).get(0).clientWidth;
+        let h = $(this.DOM_container).get(0).clientHeight;
+        $(this.DOM_canvas).width(w);
+        $(this.DOM_canvas).height(h);
+        this.renderer.setViewport(0, 0, w, h);
+        this.renderer.setSize( w, h);
+        this.camera.aspect = w / h;
+        this.camera.updateProjectionMatrix();
     }
     render(){
         requestAnimationFrame( ()=>{
@@ -194,34 +173,17 @@ class DataVis3DRenderer{
         console.log(mousePos)
         return mousePos;
     }
-    loadProductData(options){
-        let self = this;
-        let request_url = GET_PRODUCT_DATA_URL;
-        let opt_data = options;
-        
-        $.ajax({
-            type: "POST",
-            url: request_url,
-            data: opt_data,
-            success: (response_data)=>{
-                
-            },
-            error:(response_data)=>{
-                
-            },
-            dataType: "json",
-            contentType: "application/json"
-        })
-        
-    }
-    loadProduct(){
-
-        for (let i=0;i<100;i++){
-            let p = new Product(this,"http://design-pinwall.qiniudn.com/5081/1517128537264.png?imageMogr2/thumbnail/200x200")
-            
-            let x = this.scale/2-Math.random()*this.scale;
-            let y = this.scale/2-Math.random()*this.scale;
-            let z = this.scale/2-Math.random()*this.scale;
+    
+    loadProducts(product_data){
+        this.productData = product_data;
+        for (let i=0;i<product_data.length;i++){
+            let p = new Product(this,product_data[i].thumb_url)
+            if(product_data[i].hitCount>0){
+                p.markAsCandidate();
+            }
+            let x = product_data[i].style_location.x*this.scale;
+            let y = product_data[i].style_location.y*this.scale;
+            let z = product_data[i].style_location.z*this.scale;
             p.setPos(new THREE.Vector3( x, y, z ));
 
             this.products.push(p);
@@ -237,7 +199,55 @@ class DataVis3DRenderer{
         })
         
     }
-
+    generateSpriteLabel(message,bg_color){   
+        let fontface = "Verdana";
+        let fontsize = 18;
+        let scale = window.devicePixelRatio;
+        let canvas = document.createElement('canvas');
+        let context = canvas.getContext('2d');
+        context.scale(scale,scale);
+        context.font = "Bold " + fontsize + "px " + fontface;
+        // background color
+        context.fillStyle = bg_color;
+        context.rect(0,0,50,28);
+        context.fill();
+        // text align
+        context.textAlign="center";
+        // text color
+        context.fillStyle = "rgba(255,255,255,1)";
+        context.fillText(message, 25, 20);
+        
+        // canvas contents will be used for a texture
+        let texture = new THREE.Texture(canvas) 
+        texture.needsUpdate = true;
+        let spriteMaterial = new THREE.SpriteMaterial({ 
+            map: texture, 
+            color: 0xffffff
+        });
+        let sprite = new THREE.Sprite( spriteMaterial );
+        sprite.scale.set(20,10,1);
+        return sprite;	
+    }
+    showAxesLabel(dist){
+        let labelX1 = this.generateSpriteLabel("现代","rgba(255,79,79,0.8)");
+        labelX1.position.set(dist,0,0);
+        this.scene.add(labelX1)
+        let labelX2 = this.generateSpriteLabel("传统","rgba(169,68,66,0.8)");
+        labelX2.position.set(-dist,0,0)
+        this.scene.add(labelX2)
+        let labelY1 = this.generateSpriteLabel("圆润","rgba(88,255,89,0.8)");
+        labelY1.position.set(0,dist,0)
+        this.scene.add(labelY1)
+        let labelY2 = this.generateSpriteLabel("硬朗","rgba(60,118,60,0.8)");
+        labelY2.position.set(0,-dist,0)
+        this.scene.add(labelY2)
+        let labelZ1 = this.generateSpriteLabel("简洁","rgba(79,126,255,0.8)");
+        labelZ1.position.set(0,0,dist)
+        this.scene.add(labelZ1)
+        let labelZ2 = this.generateSpriteLabel("复杂","rgba(40,96,143,0.8)");
+        labelZ2.position.set(0,0,-dist)
+        this.scene.add(labelZ2)
+    }
     drawMsg(msg){
         
     }

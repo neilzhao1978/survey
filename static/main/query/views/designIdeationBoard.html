@@ -7,12 +7,13 @@
 
     <!-----------------------------------------CSS引用---------------------------------------------------------------->
     <link rel="stylesheet" href="../../../common/lib/bootstrap/css/bootstrap.min.css"/>
-   
+    <link rel="stylesheet" href="../../../common/lib/jqcloud/jqcloud.css"/>
     <!-- Materialize CSS 引入 -->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../../../common/lib/materialize/css/materialize.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/page.css"/>
     <link rel="stylesheet" href="../css/page_designIdeationBoard.css"/>
+
 
     <!-----------------------------------------JS引用----------------------------------------------------------------->
 
@@ -25,6 +26,11 @@
     <script src="../../../common/lib/Jquery/jquery-1.11.3.min.js"></script>
     <script src="../../../common/lib/vue.js"></script>
     <script src="../../../common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- echats 引用 -->
+    <script src="../../../common/lib/echarts.min.js"></script> 
+    
+    <!-- tagCloud 引用 -->
+    <script src="../../../common/lib/jqcloud/jqcloud-1.0.4.js"></script> 
 
     <!-- three.js引用 -->
     <script src="../../../common/lib/threejs/three.js"></script>
@@ -43,11 +49,13 @@
     <header class="flex-column flex-md-row top-bar">
         <div class="container">
             <div class="row">
-                <div class="mid-col">
-                        <h1>{{SURVEY_NAME}}</h1>
+                <div class="mid-col col-xs-6 col-xs-offset-3">
+                        <h1 id="survey-title"></h1>
                         <h2>设计看板</h2>
                 </div>
-                    
+                <div class="show-info-panel col-xs-3 right-col"  align="center">
+                    <button type="button" class="btn btn-primary" id="show-info-panel">统计详情</button>
+            </div>    
             </div>
         </div>
         
@@ -66,25 +74,25 @@
                                     <ul class="thumb-list">
                                         <li>
                                             <p>栏位0（母版）</p>
-                                            <a href="#" class="thumbnail slot0">
+                                            <a href="#" class="thumbnail slot slot0">
                                                 <img src="" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <p>栏位1（司机室）</p>
-                                            <a href="#" class="thumbnail slot1">
+                                            <a href="#" class="thumbnail slot slot1">
                                                 <img src="" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <p>栏位2（钢轮支架）</p>
-                                            <a href="#" class="thumbnail slot2">
+                                            <a href="#" class="thumbnail slot slot2">
                                                 <img src="" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <p>栏位3（后罩）</p>
-                                            <a href="#" class="thumbnail slot3">
+                                            <a href="#" class="thumbnail slot slot3">
                                                 <img src="" alt="">
                                             </a>
                                         </li>
@@ -92,7 +100,7 @@
                                 </div>
                     </div>
                     <div class="col-sm-5">
-                        <div class="render-panel">
+                        <div class="featureline-panel">
                             
                             <div class="featureline-rendering">
                                 <svg viewBox="0 0 400 270" id="featureline-svg">
@@ -114,7 +122,14 @@
                                 <!-- <img src="" alt="" class="layer layer1">
                                 <img src="" alt="" class="layer layer2"> -->
                             </div>
-                            <button type="button" class="btn btn-default toggle-featureline-mode" data-toggle="button" aria-pressed="false" autocomplete="off" id="toggle-featureline-mode">启用拼接模式</button>
+                            
+                            <div class="btn-group action-btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default" id="clear-all-slots">清空栏位（仅保留master）</button>
+                                    <button type="button" class="btn btn-default" id="print-featureline">打印特征线</button>
+                                    <button type="button" class="btn btn-default toggle-featureline-mode" data-toggle="button" aria-pressed="false" autocomplete="off" id="toggle-featureline-mode">启用拼接模式</button>
+                                  </div>
+                            
+                            
                         </div>
                     </div>
                     
@@ -142,6 +157,142 @@
             </div>
         </div>
     </div> -->
+     
+    <!-- 统计版面的模态框，点击右上详情图标后弹出 -->
+    <div id="informationBoard" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    	<div class="modal-dialog  modal-info" role="document">
+    		<div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">统计详情</h4>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                            <!-- 左侧 -->
+                            <div class="col-sm-9 tab-content">
+                                    <!-- 图片墙 -->
+                                    <div id="photoWall" class="design-pictures tab-pane active">
+                                        <ul id="mytab" class="photoWall">
+                                            <li class="item0" data-candidate-id="0">   									
+                                                <img src="">     								 							
+                                            </li>
+                                            <li class="item1" data-candidate-id="1">
+                                                <img src="">
+                                            </li>
+                                            <li class="item2" data-candidate-id="2">
+                                                <img src="">
+                                            </li>
+                                            <li class="item3" data-candidate-id="3">
+                                                <img src="">
+                                            </li>
+                                            <li class="item4" data-candidate-id="4">
+                                                <img src="">
+                                            </li>
+                                            <li class="item5" data-candidate-id="5">
+                                                <img src="">
+                                            </li>
+                                            <li class="item6" data-candidate-id="6">
+                                                <img src="">
+                                            </li>
+                                            <li class="item7" data-candidate-id="7">
+                                                <img src="">
+                                            </li>
+                                            <li class="item8" data-candidate-id="8">
+                                                <img src="">
+                                            </li>
+                                            <li class="item9" data-candidate-id="9">
+                                                <img src="">
+                                            </li>
+                                            <li class="item10" data-candidate-id="10">
+                                                <img src="">
+                                            </li>
+                                            <li class="item11" data-candidate-id="11">
+                                                <img src="">
+                                            </li>
+                                            <li class="item12" data-candidate-id="12">
+                                                <img src="">
+                                            </li>
+                                            <li class="item13" data-candidate-id="13">
+                                                <img src="">
+                                            </li>
+                                            <li class="item14" data-candidate-id="14">
+                                                <img src="">
+                                            </li>
+                                            <li class="item15" data-candidate-id="15">
+                                                <img src="">
+                                            </li>
+                                            <li class="item16" data-candidate-id="16">
+                                                <img src="">
+                                            </li>
+                                        </ul>
+                                    </div> 
+                                    <!-- 产品大图 -->
+                                    <div id="proDetails" class="tab-pane design-pictures">
+                                        <div class="row ">
+                                            <div class="showPic col-sm-9">
+                                                <img id="bigPic" src="">
+                                            </div>
+                                            <div class="showDetails col-sm-3">
+                                                <button type="button" class="btn hide-product-detail" aria-label="Hide Detail" id="hide-product-detail">
+                                                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                                </button>
+                                                <ul class="proDetails">
+                                                    <li class="title">产品详情</li>
+                                                    <li>品牌名称：<span class="brand"></span></li>
+                                                    <li>车型：<span class="model"></span></li>
+                                                    <li>产量时间：<span class="year"></span></li>
+                                                    <li>风格：<span class="style"></span></li>
+                                                    <li>纹理：<span class="texture"></span></li>
+                                                    <li>投票分布：</li>
+                                                    <span class="manager-votes"></span>
+                                                    <span class="engineer-votes"></span>
+                                                    <span class="designer-votes"></span>
+                                                    <span class="sale-votes"></span>
+                                                    <span class="user-votes"></span>                    						
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> 
+                            </div>
+                            <!-- 右侧图表 -->      
+                            <div class="col-sm-3">
+                                <div class="row">
+                                    
+                                    <div class="chartHead">
+                                        <h2 class="head2"><div class="retangle"></div>参与者统计</h2>
+                                    </div>
+                                    <!-- 环装图表 -->
+                                    <div id="voterChart" class="peopleCount">
+                                    </div>
+                                    <!-- 环状图表下的圆形标识 -->
+                                    <div class="thumb-panel row">
+                                            <div class="col-sm-4 "><div class="chartPic1"></div><div class="chartTitle">管理</div></div>
+                                            <div class="col-sm-4 "><div class="chartPic2"></div><div class="chartTitle">技术</div></div>
+                                            <div class="col-sm-4"><div class="chartPic3"></div><div class="chartTitle">设计</div></div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-sm-4"><div class="chartPic4"></div><div class="chartTitle">销售</div></div>
+                                            <div class="col-sm-8"><div class="chartPic5"></div><div class="chartTitle">终端客户</div></div>
+                                    </div>
+                                    <div class="thumb-panel row">
+                                            <div class="col-sm-12">
+                                                <div class="retangle"></div>
+                                                <h class="keyHead">风格关键词统计</h>
+                                            </div>
+                                    </div>
+                                    <!-- 形容词面板 -->
+                                    <div class="thumb-panel-noMargin row"> 
+                                            <div class="style-tag-cloud" id="style-tag-cloud" style="width:220px;height:140px;position:relative"></div>                                		
+                                            
+                                    </div>
+                                </div>
+                            </div>		
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
 
     <script src="../js/page_designIdeationBoard.js"></script>
 
