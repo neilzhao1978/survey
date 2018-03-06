@@ -1,20 +1,16 @@
 package com.neil.survey.controller;
 
-import java.awt.Color;
+
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.geom.Point2D;
+
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OptionalDataException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.net.MalformedURLException;
+
 import java.net.URL;
 import java.nio.file.FileSystems;
 
@@ -23,10 +19,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
+
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
+
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -36,22 +32,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.transaction.Transactional;
-import javax.xml.transform.TransformerException;
 
 
-import  org.apache.batik.transcoder.image.*;
 import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
 import org.apache.batik.dom.svg.SVGDocumentFactory;
 import org.apache.batik.util.XMLResourceDescriptor;
-import org.apache.commons.codec.binary.Base64;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -66,21 +57,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+
 import org.w3c.dom.svg.SVGDocument;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import com.neil.batiktools.PlainRect;
-import com.neil.batiktools.Rect;
 
 import com.neil.batiktools.SaveAsPngTiles;
 import com.neil.batiktools.SvgUtilities;
@@ -114,7 +101,6 @@ import com.neil.survey.util.ResponseGenerator;
 import com.neil.survey.util.RestResponseEntity;
 import com.neil.survey.util.SortTools;
 
-import toxi.geom.ReadonlyVec3D;
 import toxi.geom.Vec3D;
 
 

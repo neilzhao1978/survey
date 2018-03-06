@@ -31,12 +31,8 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
-
-        // 排除配置
         addInterceptor.excludePathPatterns("/error");
         addInterceptor.excludePathPatterns("/login**");
-
-        // 拦截配置
         addInterceptor.addPathPatterns("/**");
     }
 
@@ -49,7 +45,6 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
             if (session.getAttribute(SESSION_KEY) != null)
                 return true;
 
-            // 跳转登录
             String url = "/login";
             response.sendRedirect(url);
             return false;

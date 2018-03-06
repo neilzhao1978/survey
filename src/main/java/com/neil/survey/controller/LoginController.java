@@ -1,42 +1,40 @@
 package com.neil.survey.controller;
 
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.neil.survey.WebSecurityConfig;
 import com.neil.survey.inputout.UserParam;
 import com.neil.survey.module.User;
 import com.neil.survey.service.impl.LoginService;
 
-@RestController
-@RequestMapping("/")
-@Transactional
+@Controller
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
     @GetMapping("/")
-    public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY)String account,Model model){
-        return "static/main/query/views/queryList";
+    public ModelAndView index(@SessionAttribute(WebSecurityConfig.SESSION_KEY)String account,ModelAndView view){
+    	view.setViewName("redirect:/static/main/query/views/queryList");
+        return view;
     }
 
     @GetMapping("/login")
-    public String login(){
-        return "login";
+    public ModelAndView   login(ModelAndView view){
+        view.setViewName("redirect:/static/main/query/views/login.html");
+        return view;
     }
 
-    @PostMapping("/loginVerify")
+    @PostMapping("/user/ajaxLogin")
     public String loginVerify(@RequestBody UserParam userParam,HttpSession session){
         User user = new User();
         user.setEmail(userParam.getEmail());
