@@ -159,10 +159,6 @@ $(document).ready(function() {
 				}
 			},
 			statusCode : {
-				200:function(){
-					location.href = "/static/main/query/views/queryList.html";
-				},
-				
 				404 : function() {
 					$("#circleProgress").hide();
 					Materialize.toast('没有加载到相应页面!', 4000);
