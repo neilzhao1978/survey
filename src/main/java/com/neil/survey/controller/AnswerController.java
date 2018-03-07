@@ -60,7 +60,7 @@ public class AnswerController {
 	@RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
 	public RestResponseEntity<Void> addAnswer( @RequestBody Answer answer){
 		answer.setAnswerId(UUID.randomUUID().toString().replaceAll("-", ""));
-		Survey s = surveyRepo.getBySurveyId(answer.getSurvey().getSurveyId());
+		Survey s = surveyRepo.getBySurveyId(answer.getSurvey().getSurveyId().substring(0, 32));
 
 		if(s!=null){
 			answer.setSurvey(s);
