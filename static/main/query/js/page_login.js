@@ -152,13 +152,17 @@ $(document).ready(function() {
 			},
 			success : function(data) {
 				if (data.resultCode == 200) {
-					location.href = "main";
+					location.href = "/static/main/query/views/queryList.html";
 				} else {
 					$("#loginMsg").html(data.message);
 					$("#circleProgress").hide();
 				}
 			},
 			statusCode : {
+				200:function(){
+					location.href = "/static/main/query/views/queryList.html";
+				},
+				
 				404 : function() {
 					$("#circleProgress").hide();
 					Materialize.toast('没有加载到相应页面!', 4000);
