@@ -5,3 +5,9 @@
 .query_list_table .btn{  margin:5px;  }
 .query_list_table a{  cursor: pointer;  }
 .alignCenter{  text-align:center  }
+.panel-reply{
+    cursor: pointer;
+}
+.panel-result{
+    cursor: pointer;
+}
